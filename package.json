@@ -1,0 +1,19 @@
+{
+  "name": "cse110-teamzico-ziconnect",
+  "version": "0.0.0",
+  "description": "This is for Ziconnect, created by Team ZICO for UCSD CSE 110.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WhipeeDip/CSE110-TeamZICO-Ziconnect.git"
+  },
+  "author": "Team ZICO",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WhipeeDip/CSE110-TeamZICO-Ziconnect/issues"
+  },
+  "homepage": "https://github.com/WhipeeDip/CSE110-TeamZICO-Ziconnect#readme"
+}
