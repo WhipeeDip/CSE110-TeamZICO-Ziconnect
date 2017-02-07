@@ -32,7 +32,7 @@ app.use(express.static(__dirname + '/public'));
 
 // requests for / will be sending home.html
 app.get('/', function(request, response) {
-  response.sendFile(__dirname + '/public/ home.html');
+  response.sendFile(__dirname + '/public/home.html');
 });
 
 // listens on port, logs a message
