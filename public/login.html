@@ -1,0 +1,31 @@
+<!--
+ File name: login.html
+ Authors: Elliot Yoon
+ Description: Login page. Uses Google Accounts.
+-->
+
+<!DOCTYPE html>
+
+<html ng-app="login">
+<head>
+
+  <!-- Load scripts //-->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script src="js/accountLogin.js" async defer></script>
+
+  <!-- TODO: change for production //-->
+  <meta name="google-signin-client_id" content="420682510691-4khdpqg30qdshb3hjma7bcct51n7ecdr.apps.googleusercontent.com">
+
+  <title>Test login page</title>
+</head>
+
+<body>
+  <p>A test Google login page.</p>
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+  <p ng-show="signedIn">You've been signed in!</p>
+  <a ng-show="signedIn" href="#" onclick="signOut();">Sign out</a>
+
+  <p ng-hide="signedIn">You're not signed in yet.</p>
+</body>
+</html>

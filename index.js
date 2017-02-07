@@ -30,10 +30,8 @@ app.set('port', (process.env.PORT || "5000"));
 // express will look in /public for assets
 app.use(express.static(__dirname + '/public'));
 
-// requests for / will be sending home.html
-app.get('/', function(request, response) {
-  response.sendFile(__dirname + '/public/home.html');
-});
+// routes
+require('./app/routes.js')(app);
 
 // listens on port, logs a message
 app.listen(app.get('port'), function() {
