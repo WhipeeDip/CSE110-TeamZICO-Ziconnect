@@ -29,6 +29,7 @@ app.set('port', (process.env.PORT || "5000"));
 
 // express will look in /public for assets
 app.use(express.static(__dirname + '/public'));
+app.use('/node_modules', express.static(__dirname + '/node_modules'));
 
 // routes
 require('./app/routes.js')(app);
