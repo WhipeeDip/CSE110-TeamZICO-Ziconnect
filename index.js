@@ -9,6 +9,20 @@
 // requires 
 var express = require('express');
 var app = express();
+var firebase = require("firebase");
+
+// init firebase 
+// THIS IS THE DEVELOPMENT DATABASE, WE WILL NOT BE USING PRODUCTION UNTIL
+// IT IS READY!
+// TODO: change for production
+var config = {
+  apiKey: "AIzaSyCBUIl1AeLBp9PSM4TW3nAUERLKfVigWz8",
+  authDomain: "cse110-teamzico-ziconnect-dev.firebaseapp.com",
+  databaseURL: "https://cse110-teamzico-ziconnect-dev.firebaseio.com",
+  storageBucket: "cse110-teamzico-ziconnect-dev.appspot.com",
+  messagingSenderId: "420682510691"
+};
+firebase.initializeApp(config);
 
 // heroku will set our port with process.env.PORT
 app.set('port', (process.env.PORT || "5000"));
@@ -16,14 +30,8 @@ app.set('port', (process.env.PORT || "5000"));
 // express will look in /public for assets
 app.use(express.static(__dirname + '/public'));
 
-// get views from /views, and set view engine to express js
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
-
-// requests for / will be rendering index.html
-app.get('/', function(request, response) {
-  response.render('index.html');
-});
+// routes
+require('./app/routes.js')(app);
 
 // listens on port, logs a message
 app.listen(app.get('port'), function() {
