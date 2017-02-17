@@ -1,5 +1,5 @@
 /**
- * File name: accountLogin.js
+ * File name: AccountController.js
  * Authors: Elliot Yoon
  * Description: Account script. Uses Google Accounts.
  */
