@@ -33,6 +33,14 @@ app.use(express.static(__dirname + '/public'));
 // routes
 require('./app/routes.js')(app);
 
+// dynamically include routes (Controller)
+fs.readdirSync('./controllers').forEach(function (file) {
+  if(file.substr(-3) == '.js') {
+    route = require('./public/controllers/' + file);
+    route.controller(app);
+  }
+});
+
 // listens on port, logs a message
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
