@@ -6,8 +6,9 @@
  * Description: Main script that is first run when website is started.
  */
 
-// requires 
+// requires
 var express = require('express');
+
 var app = express();
 var firebase = require("firebase");
 
@@ -32,14 +33,7 @@ app.use(express.static(__dirname + '/public'));
 
 // routes
 require('./app/routes.js')(app);
-
-// dynamically include routes (Controller)
-fs.readdirSync('./controllers').forEach(function (file) {
-  if(file.substr(-3) == '.js') {
-    route = require('./public/controllers/' + file);
-    route.controller(app);
-  }
-});
+require('./public/controller/AccountController.js')(app);
 
 // listens on port, logs a message
 app.listen(app.get('port'), function() {
