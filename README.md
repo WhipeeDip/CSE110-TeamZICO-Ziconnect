@@ -4,7 +4,7 @@ Made by Team ZICO for CSE 110 Winter 2017.
 
 # Setup
 
-1. Install Heroku CLI for your respective operating systems. You can google 'Heroku CLI' to see the guide. 
+1. Install [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) for your respective operating systems.
 2. Install Node on your computer. 
 
 # Installation and Execution
