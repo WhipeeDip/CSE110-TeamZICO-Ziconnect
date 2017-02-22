@@ -33,7 +33,8 @@ app.use(express.static(__dirname + '/public'));
 
 // routes
 require('./app/routes.js')(app);
-//require('./public/controller/AccountController.js')(app);
+// require('./public/controller/AccountController.js')(app);
+
 
 // listens on port, logs a message
 app.listen(app.get('port'), function() {
