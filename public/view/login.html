@@ -11,7 +11,20 @@
 
   <!-- Load scripts //-->
   <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <script src="../controller/accountLogin.js" async defer></script>
+  <script src="../models/accountLogin.js" async defer></script>
+
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCBUIl1AeLBp9PSM4TW3nAUERLKfVigWz8",
+    authDomain: "cse110-teamzico-ziconnect-dev.firebaseapp.com",
+    databaseURL: "https://cse110-teamzico-ziconnect-dev.firebaseio.com",
+    storageBucket: "cse110-teamzico-ziconnect-dev.appspot.com",
+    messagingSenderId: "420682510691"
+  };
+  firebase.initializeApp(config);
+</script>
 
   <!-- TODO: change for production //-->
   <meta name="google-signin-client_id" content="420682510691-4khdpqg30qdshb3hjma7bcct51n7ecdr.apps.googleusercontent.com">
