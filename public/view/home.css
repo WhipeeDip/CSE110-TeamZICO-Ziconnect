@@ -1,0 +1,44 @@
+
+.sidebar {
+	height: 100%;
+	width: 15%;
+	position: fixed;
+	z-index: 1;
+	background-color: #000;
+	color: #fff;
+}
+
+.sidebar ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.sidebar li {
+	padding: 20px 0 20px 0;
+	display: block;
+	text-align: center;
+	background: #ffe5e5;
+}
+
+.sidebar li:hover {
+	background: #000;
+} 
+
+.navbar-default {
+	margin: 0;
+}
+
+#newEvent {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0;
+    bottom: 50px;
+    cursor: pointer;
+    width: 100%;
+}
