@@ -33,8 +33,29 @@ app.use(express.static(__dirname + '/public'));
 
 // routes
 require('./app/routes.js')(app);
-// require('./public/controller/AccountController.js')(app);
+require('./public/controller/EventController.js');
 
+// TEST BEGIN
+
+
+var database = firebase.database();
+
+function writeEventData(eventId, name, eventLocation, date, description,
+  potluck) {
+  var newEvent = firebase.database().ref('eventList/').push();
+  firebase.database().ref('eventList/' + eventId).set({
+    name: name,
+    eventLocation: eventLocation,
+    eventDatez: date,
+    eventDescription: description,
+    eventPotluck: potluck
+  });
+}
+
+writeEventData(1, "Custin's Bonanza", "San Diego, CA", "March 19, 2017",
+  "A bonanza.", true);
+
+// TEST END
 
 // listens on port, logs a message
 app.listen(app.get('port'), function() {
