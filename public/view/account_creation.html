@@ -20,7 +20,10 @@
     <body>
         <div class="title">
             <h1>Ziconnect</h1>
-            <button class="sign-in">Sign in</button>
+            <button class="sign-in"
+                    onclick="./login.html">
+                Sign in
+            </button>
         </div>
         
         <form class="input">
@@ -66,11 +69,14 @@
                            class="input-box" />
                 </p>
                 
+                <!-- manual account connection -->
                 <p class="input-type">
-                    <label>Enter your 
+                    <label>
+                        Enter your 
                         <img height = 25
                              src="../assets/google-logo.jpg" />
-                        Account</label>
+                        Account
+                    </label>
                     <br />
                     <input id="email"
                            type="email"
@@ -78,25 +84,28 @@
                 </p>
                 
                 <p class="input-type">
-                    <label>Enter your 
+                    <label>
+                        Enter your 
                         <img height = 25
                              src="../assets/google-logo.jpg" />
-                        Password</label>
+                        Password
+                    </label>
                     <br />
                     <input id="email-password"
                            type="password"
                            class="input-box" />
                 </p>
                 
+                <!-- altnertaively, sign into google(?) -->
+                <button type="button"
+                        class="google sign-in" />
+        
             
             
             </fieldset>
             
-            <button type="submit"
-                    class="form-complete">
-                Save</button>
-            <button type="reset">Reset</button>
-            <button type="button">Cancel</button>
+            <a class="button" href="#">Save</a>
+            <a class="button" href="./login.html">Cancel</button>
         </form>
     
     

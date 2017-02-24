@@ -1,0 +1,20 @@
+.google{
+    background-image: url(../assets/google-logo.jpg);
+    background-color:  transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 60px;
+    width: 110px;
+    cursor: pointer;
+    background-size: 100%;
+    
+}
+
+/* make buttons look nice */
+a.button{
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    
+    color: initial;
+}
