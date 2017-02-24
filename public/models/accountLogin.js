@@ -35,6 +35,8 @@ function onSignIn(googleUser) {
       });
     } else {
       console.log('User already signed-in Firebase.');
+            
+      window.alert("Already signed in!");
     }
   });
 }
@@ -52,6 +54,8 @@ function isUserEqual(googleUser, firebaseUser) {
     }
     return false;
 }
+
+
 
 firebase.auth().signOut().then(function() {
   // Sign-out successful.
