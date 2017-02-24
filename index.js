@@ -41,20 +41,21 @@ require('./public/controller/EventController.js');
 
 var database = firebase.database();
 
-function writeEventData(eventId, name, eventLocation, date, description,
+var newEventKey = firebase.database().ref().child('eventList').push().key;
+
+function writeEventData(name, eventLocation, date, description,
   potluck) {
-  var newEvent = firebase.database().ref('eventList/').push();
-  firebase.database().ref('eventList/' + eventId).set({
-    name: name,
+  firebase.database().ref('eventList/' + newEventKey).set({
+    eventName: name,
     eventLocation: eventLocation,
-    eventDatez: date,
+    eventDate: date,
     eventDescription: description,
     eventPotluck: potluck
   });
 }
 
-writeEventData(1, "Custin's Bonanza", "San Diego, CA", "March 19, 2017",
-  "A bonanza.", true);
+writeEventData("Custin's Bonanza", "San Diego, CA", "March 19, 2017",
+  "A bonanza for Custin's best friends. Feat. Just 2 Boyz.", true);
 
 // TEST END
 
