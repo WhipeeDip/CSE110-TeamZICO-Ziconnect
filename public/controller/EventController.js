@@ -4,19 +4,15 @@
  * Description: Handles events
  */
 
-// requires
 var firebase = require("firebase");
-
-
-
 var database = firebase.database;
-var newEventKey = firebase.database().ref().child('eventList').push().key;
 
 module.exports = {
 
-
+  // Creates a new event and saves it in the database, Author: CC
   writeEventData: function (name, eventLocation, date, description,
     potluck) {
+    var newEventKey = firebase.database().ref().child('eventList').push().key;
     firebase.database().ref('eventList/' + newEventKey).set({
       eventName: name,
       eventLocation: eventLocation,
