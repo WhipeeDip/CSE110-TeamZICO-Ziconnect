@@ -1,0 +1,89 @@
+<!--
+ File name: account_creation.html
+ Author(s): LeDaniel Leung
+ Description:   Ziconnect account creation.
+                Google credentials stored from here.
+-->
+<!DOCTYPE html>
+
+<html ng-app="account-creation">
+    <head>
+        <title>Ziconnect</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="account_creation.css">
+        
+        
+        <!-- Load scripts here -->
+    
+    </head>
+
+    <body>
+        <div class="title">
+            <h1>Ziconnect</h1>
+            <button class="sign-in">Sign in</button>
+        </div>
+        
+        <form class="input">
+            <h2>Create your Account</h2>
+            
+            <fieldset>
+                <legend>Account details</legend>
+                
+                <p class="input-type">
+                    <label>Name</label>
+                    <br />
+                    <input id="first-name"
+                           type="text"
+                           class="input-box"
+                           placeholder="First" />
+                    <input id="last-name"
+                           type="text"
+                           class="input-box"
+                           placeholder="Last" />
+                </p>
+                
+                <p class="input-type">
+                    <label>Choose your username</label>
+                    <br />
+                    <input id="username"
+                           type="text"
+                           class="input-box" />
+                </p>
+                
+                <p class="input-type">
+                    <label>Create a password</label>
+                    <br />
+                    <input id="password"
+                           type="password"
+                           class="input-box" />
+                </p>
+                
+                <p class="input-type">
+                    <label>Confirm your password</label>
+                    <br />
+                    <input id="password"
+                           type="password"
+                           class="input-box" />
+                </p>
+                
+                <p class="input-type">
+                    <label>Enter your 
+                        <img height = 25
+                             src="../assets/google-logo.jpg" />
+                        Account</label>
+                    <br />
+                    <input id="email"
+                           type="email"
+                           class="input-box" />
+                </p>
+            
+            
+            </fieldset>
+            
+        
+        </form>
+    
+    
+    </body>
+
+</html>
