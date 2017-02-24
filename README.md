@@ -7,6 +7,11 @@ Made by Team ZICO for CSE 110 Winter 2017.
 1. Install [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) for your respective operating systems.
 2. Install Node on your computer. 
 
+The following is a list of dependencies or node packages that Ziconnect relies on:
+- express
+- firebase
+- formidable
+
 # Installation and Execution
 
 1. From the command line, change into the project directory. 
