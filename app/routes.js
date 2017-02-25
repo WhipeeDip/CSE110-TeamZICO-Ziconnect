@@ -44,18 +44,22 @@ module.exports = function(app) {
     res.sendFile(path.resolve('public/view/createEvent.html'));
   });
 
+  // View Event POST route, Author: CC
   app.post('/events/read', function(req, res) {
 
     var form = new formidable.IncomingForm();
     form.parse(req, function(err, fields, files) {
 
       var eventData = EventController.getEventData(fields.eventKey,
-        function(eventData) {
+        fields.eventName, function(eventData) {
+        if (!eventData) res.end("Sorry, your event couldn't be found. " +
+          "Please check your spelling and try again.");
         res.end(util.inspect({fields: eventData, files: files}));
       });
     });
   });
 
+  // View Event GET route, Author: CC
   app.get('/events/read', function(req, res) {
     res.sendFile(path.resolve('public/view/readEvent.html'));
   });

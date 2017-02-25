@@ -22,22 +22,39 @@ module.exports = {
     });
   },
 
-  // Retrieves event by eventKey, Author: CC
+  // Retrieves event by eventKey or eventName, Author: CC
   // Note the use of callback in this function.
-  getEventData: function(eventKey, callback) {
+  getEventData: function(eventKey, eventName, callback) {
     var query = firebase.database().ref("eventList").orderByKey();
     query.once("value")
     .then(function(snapshot) {
-      // Search through the database for a matching key
+
+      // Search through the database for a matching event
       snapshot.forEach(function(childSnapshot) {
-        var key = childSnapshot.key;
-        if (key == eventKey) {
-          var childData = childSnapshot.val();
-          console.log('Loading event...');
-          console.log(childData);
-          return callback(childData);
+
+        // Search by eventKey if provided
+        if (eventKey) {
+          var key = childSnapshot.key;
+          if (key == eventKey) {
+            var childData = childSnapshot.val();
+            console.log('Loading event...');
+            console.log(childData);
+            return callback(childData);
+          }
+
+        // Otherwise, search by eventName
+        } else {
+          var name = childSnapshot.val().eventName;
+          if (name == eventName) {
+            var childData = childSnapshot.val();
+            console.log('Loading event...');
+            console.log(childData);
+            return callback(childData);
+          }
         }
       });
+
+      return callback(null);
     });
   }
   

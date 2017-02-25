@@ -10,11 +10,16 @@
    <body>
       <form action="/events/read" method="post"
         enctype="multipart/form-data">
+        Search by either Event Key or Event ID (or both!)
          <fieldset>
 
             <label for="eventKey">Event Key:</label>
             <input type="text" id="eventKey" name="eventKey"
             placeholder="Event Key or ID" />
+            <br />
+            <label for="eventName">Event Name:</label>
+            <input type="text" id="eventName" name="eventName"
+            placeholder="Event Name" />
             <br />
             <input type="submit" value="Find Event" />
 
