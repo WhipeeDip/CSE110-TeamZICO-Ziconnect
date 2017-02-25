@@ -20,6 +20,25 @@ module.exports = {
       eventDescription: description,
       eventPotluck: potluck
     });
+  },
+
+  // Retrieves event by eventKey, Author: CC
+  // Note the use of callback in this function.
+  getEventData: function(eventKey, callback) {
+    var query = firebase.database().ref("eventList").orderByKey();
+    query.once("value")
+    .then(function(snapshot) {
+      // Search through the database for a matching key
+      snapshot.forEach(function(childSnapshot) {
+        var key = childSnapshot.key;
+        if (key == eventKey) {
+          var childData = childSnapshot.val();
+          console.log('Loading event...');
+          console.log(childData);
+          return callback(childData);
+        }
+      });
+    });
   }
   
 }

@@ -35,12 +35,29 @@ module.exports = function(app) {
       res.write('Your event has been created successfully:\n\n');
       res.end(util.inspect({fields: fields, files: files}));
     });
+
     console.log("New event added.");
   });
 
   // Create Event GET route, Author: CC
   app.get('/events/create', function(req, res) {
     res.sendFile(path.resolve('public/view/createEvent.html'));
+  });
+
+  app.post('/events/read', function(req, res) {
+
+    var form = new formidable.IncomingForm();
+    form.parse(req, function(err, fields, files) {
+
+      var eventData = EventController.getEventData(fields.eventKey,
+        function(eventData) {
+        res.end(util.inspect({fields: eventData, files: files}));
+      });
+    });
+  });
+
+  app.get('/events/read', function(req, res) {
+    res.sendFile(path.resolve('public/view/readEvent.html'));
   });
 
 };  
