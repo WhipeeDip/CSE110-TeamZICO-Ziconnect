@@ -1,5 +1,5 @@
 <!--
- File name: createEvent.html
+ File name: readEvent.html
  Authors: Christian Cheng. Much content copied from home.html.
  Description: Temporary placeholder page for the purpose of Screen Sequence
  Diagrams.
@@ -48,30 +48,25 @@
   </div>
 
   <div class="content">
-    <h1>Create New Event</h1>
+    <h1>Find Event</h1>
+    
+    <h5>You can search for an event with either the Event Key or the Event ID
+      (or both!)</h5>
     <br />
-    <form action="/events/create" method="post"
+    <form action="/events/read" method="post"
         enctype="multipart/form-data">
+        
          <fieldset>
 
-            <label for="eventName">Event Name:&nbsp;</label>
+            <label for="eventKey">Event Key:</label>
+            <input type="text" id="eventKey" name="eventKey"
+            placeholder="-Kdqy3R9uDXu_BZBaITE" />
+            &nbsp; OR &nbsp;
+            <label for="eventName">Event Name:</label>
             <input type="text" id="eventName" name="eventName"
             placeholder="Custin's Party" />
             <br />
-            <label for="eventLocation">Event Location:&nbsp;</label>
-            <input type="text" id="eventLocation" name="eventLocation"
-            placeholder="La Jolla, CA" />
-            <br />
-            <label for="eventDate">Event Date:&nbsp;</label>
-            <input type="text" id="eventDate" name="eventDate"
-            placeholder="February 28, 2017" />
-            <br />
-            <label for="eventDescription">Description:</label>
-            <br />
-            <textarea id="eventDescription" name="eventDescription"
-            placeholder="Come to my 20th birthday party!"></textarea>
-            <br />
-            <input type="submit" value="Create Event" />
+            <input type="submit" value="Find Event" />
 
          </fieldset>
       </form>
@@ -80,4 +75,5 @@
 <!--   <a href="view/login.html">Login test page </a>
  --></body>
 </html>
+
 
