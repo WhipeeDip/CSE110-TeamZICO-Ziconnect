@@ -1,4 +1,12 @@
 
+/* Temporary content div rules. We don't actually want to hardcode values into
+ * the code
+ * */
+.content {
+  padding-left: 300px;
+  padding-top: 10px;
+}
+
 .sidebar {
 	height: 100%;
 	width: 15%;
