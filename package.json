@@ -10,6 +10,7 @@
     "angular": "^1.6.1",
     "express": "^4.14.1",
     "firebase": "^3.6.8",
+    "formidable": "^1.1.1",
     "google-auth-library": "^0.10.0"
   },
   "repository": {
