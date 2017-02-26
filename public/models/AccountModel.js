@@ -12,8 +12,10 @@ angular.module('models')
 
         // login function
         login: function() {
+          var self = this;
           $firebaseAuth().$signInWithPopup('google').then(function(firebaseUser) {
             console.log("Signed in as:", firebaseUser.user.uid);
+            self.auth(firebaseUser);
           }).catch(function(error) {
             console.log("Signin failed:", error);
           });
@@ -32,14 +34,16 @@ angular.module('models')
         // does auth and store in firebase; not finished
         auth: function(authData) {
           if(!authData) {
-            // we're logged out. nothing else to do
+            // logged out
             return null;
           }
 
-          // are we dealing with a new user? find out by checking for a user record
-          var userRef = FBRefs.userList.child(authData.uid);
-          userRef.once('value', function(snap) {
-            var user = snap.val();
+          var self = this;
+
+          // properly handle either login or creation
+          var userRef = FBRefs.userList.child(authData.user.uid);
+          userRef.once('value').then(function(snapshot) {
+            var user = snapshot.val();
 
             if(user) {
               // google user logging in, update their access token
@@ -48,30 +52,27 @@ angular.module('models')
               }
               // save the current user in the global scope
               $rootScope.currentUser = user;
-            }
-            else {
+            } else {
               // construct the user record the way we want it
-              user = this.buildUserObjectFromGoogle(authData);
+              user = self.buildUserObjectFromGoogle(authData);
               // save it to firebase collection of users
               userRef.set(user);
               // save the current user in the global scope
               $rootScope.currentUser = user;
             }
 
-            // ...and we're done
             return user;
           });
         },
 
-        // properly build a user object from google auth
+        // properly build a user object from google auth with info we need because it's HUGE
         buildUserObjectFromGoogle: function(authData) {
           return {
-            uid: authData.uid,
-            name: authData.google.displayName,
-            email: authData.google.email,
-            access_token: authData.google.accessToken,
-            picture: authData.google.cachedUserProfile.picture,
-            created_at: Firebase.ServerValue.TIMESTAMP
+            uid: authData.user.uid,
+            name: authData.user.displayName,
+            email: authData.user.email,
+            access_token: authData.credential.accessToken,
+            picture: authData.user.photoURL
           };
         }
       };
