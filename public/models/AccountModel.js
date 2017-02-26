@@ -16,8 +16,10 @@ angular.module('models')
           $firebaseAuth().$signInWithPopup('google').then(function(firebaseUser) {
             console.log("Signed in as:", firebaseUser.user.uid);
             self.auth(firebaseUser);
+            return firebaseUser;
           }).catch(function(error) {
             console.log("Signin failed:", error);
+            return null;
           });
         },
 
@@ -25,7 +27,7 @@ angular.module('models')
         logout: function() {
           $rootScope.currentUser = null
           $firebaseAuth().$signOut().then(function() {
-            // signed out
+            console.log("Logged out.");
           }, function(error) {
             console.log("Logout failed:", error);
           });

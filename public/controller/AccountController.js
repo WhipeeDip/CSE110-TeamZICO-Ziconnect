@@ -5,10 +5,15 @@
  */
 
 angular.module('controllers')
-  .controller('AccountController', ['$scope', 'AccountModel',
-    function($scope, AccountModel) {
+  .controller('AccountController', ['$scope', '$window', '$location', 'AccountModel',
+    function($scope, $window, $location, AccountModel) {
       $scope.login = function() {
-        AccountModel.login();
+        var result = AccountModel.login();
+
+        // redirect if sucessful
+        if(result) {
+          $window.location.href('/home');  
+        }         
       };
 
       $scope.logout = function() {

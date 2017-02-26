@@ -19,8 +19,13 @@ var EventController = require('../public/controller/EventController.js');
 
 module.exports = function(app) {
 
-  // Homepage GET route, Author: EY
+  // Root GET route, Author: EY
   app.get('/', function(req, res) {
+    res.sendFile(path.resolve('public/view/home.html'));
+  });
+
+  // Homepage GET route, Author: EY
+  app.get('/home', function(req, res) {
     res.sendFile(path.resolve('public/view/home.html'));
   });
 
