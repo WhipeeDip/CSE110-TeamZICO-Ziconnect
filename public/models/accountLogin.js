@@ -4,6 +4,11 @@
  * Description: Account script. Uses Google Accounts.
  */
 
+ //var fs = require('fs');
+
+ //eval(fs.readFileSync('createAccount.js')+'');
+
+
 function onSignIn(googleUser) {
   console.log('Google Auth Response', googleUser);
 
@@ -12,7 +17,7 @@ function onSignIn(googleUser) {
   console.log('Name: ' + profile.getName());
   console.log('Image URL: ' + profile.getImageUrl());
   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-    
+
   console.log('Google Auth Response', googleUser);
   // We need to register an Observer on Firebase Auth to make sure auth is initialized.
   var unsubscribe = firebase.auth().onAuthStateChanged(function(firebaseUser) {
@@ -22,6 +27,10 @@ function onSignIn(googleUser) {
       // Build Firebase credential with the Google ID token.
       var credential = firebase.auth.GoogleAuthProvider.credential(
           googleUser.getAuthResponse().id_token);
+          //KY
+          var account = new createAccount(googleUser.getAuthResponse().id_token, profile.getName(), profile.getEmail(), profile.getImageUrl());
+          storeAccount(account, firebase);
+          console.log("Account creation code");
       // Sign in with credential from the Google user.
       firebase.auth().signInWithCredential(credential).catch(function(error) {
         // Handle Errors here.
@@ -35,7 +44,7 @@ function onSignIn(googleUser) {
       });
     } else {
       console.log('User already signed-in Firebase.');
-            
+
       window.alert("Already signed in!");
     }
   });
