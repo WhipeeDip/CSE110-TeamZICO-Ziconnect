@@ -6,40 +6,50 @@
 
 <!DOCTYPE html>
 
-<html ng-app="login">
+<html ng-app="ziconnect">
 <head>
+  <!-- Load scripts TODO: change to min for production -->
 
-  <!-- Load scripts //-->
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <script src="../models/accountLogin.js" async defer></script>
-  <script src="../models/createAccount.js" async defer></script>
+  <!-- angular -->
+  <script src="/scripts/angular/angular.js"></script>
 
-<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCBUIl1AeLBp9PSM4TW3nAUERLKfVigWz8",
-    authDomain: "cse110-teamzico-ziconnect-dev.firebaseapp.com",
-    databaseURL: "https://cse110-teamzico-ziconnect-dev.firebaseio.com",
-    storageBucket: "cse110-teamzico-ziconnect-dev.appspot.com",
-    messagingSenderId: "420682510691"
-  };
-  firebase.initializeApp(config);
-</script>
+  <!-- angularfire -->
+  <script src="/scripts/angularfire/dist/angularfire.js"></script>
+
+  <!-- firebase -->
+  <script src="/scripts/firebase/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    // TODO: change for production
+    var config = {
+      apiKey: "AIzaSyCBUIl1AeLBp9PSM4TW3nAUERLKfVigWz8",
+      authDomain: "cse110-teamzico-ziconnect-dev.firebaseapp.com",
+      databaseURL: "https://cse110-teamzico-ziconnect-dev.firebaseio.com",
+      storageBucket: "cse110-teamzico-ziconnect-dev.appspot.com",
+      messagingSenderId: "420682510691"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+  <!-- Our scripts -->
+  <script src="../modules.js"></script>
+  <script src="../models/FBRefs.js"></script>
+  <script src="../models/AccountModel.js"></script>
+  <script src="../controller/AccountController.js"></script>
 
   <!-- TODO: change for production //-->
   <meta name="google-signin-client_id" content="420682510691-4khdpqg30qdshb3hjma7bcct51n7ecdr.apps.googleusercontent.com">
 
-  <title>Test login page</title>
+  <title>Login</title>
 </head>
 
 <body>
-  <p>A test Google login page.</p>
-  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+  <div ng-controller="AccountController">
+    <input type="image" src="../assets/google_signin_normal.png" ng-click="login()" />
+    <button ng-click="logout()">Sign Out!</button>
 
-  <p ng-show="signedIn">You've been signed in!</p>
-  <a ng-show="signedIn" href="#" onclick="signOut();">Sign out</a>
-
-  <p ng-hide="signedIn">You're not signed in yet.</p>
+    <p ng-if="firebaseUser">Signed in user: <strong>{{ firebaseUser.uid }}</strong></p>
+    <p ng-if="error">Error: <strong>{{ error }}</strong></p>
+  </div>
 </body>
 </html>

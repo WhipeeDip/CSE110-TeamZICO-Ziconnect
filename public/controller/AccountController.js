@@ -1,11 +1,18 @@
 /**
  * File name: AccountController.js
- * Authors: Christian Cheng
- * Description: Handles account login, signup, logout, etc.
+ * Authors: Elliot Yoon
+ * Description: Controller for accounts.
  */
 
-var Login = require('../models/accountLogin.js');
+angular.module('controllers')
+  .controller('AccountController', ['$scope', 'AccountModel',
+    function($scope, AccountModel) {
+      $scope.login = function() {
+        AccountModel.login();
+      };
 
-module.exports.controller = function(app) {
-
-}
+      $scope.logout = function() {
+        AccountModel.logout();
+      };
+    },
+]);
