@@ -24,6 +24,11 @@ module.exports = function(app) {
     res.sendFile(path.resolve('public/view/home.html'));
   });
 
+  // Login GET route, Author: EY
+  app.get('/login', function(req, res) {
+    res.sendFile(path.resolve('public/view/login.html'));
+  });
+
   // Create Event POST route, Author: CC
   // TODO: update potluck field
   app.post('/events/create', function(req, res) {
