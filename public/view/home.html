@@ -4,18 +4,28 @@
  Description: Placeholder main page for now.
 -->
 
-<!DOCTYPE html>
+<!DOCTYPE html>   
 
 <!-- assign Angular module -->
-<html ng-app="home">
+<html ng-app='ziconnect'>
 <head>
   <title>Ziconnect</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/view/home.css">
 
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
+  <script src="/scripts/angularfire/dist/angularfire.js"></script>
+  <script src="/scripts/firebase/firebase.js"></script>
+<!--   <script src="/scripts/angular/angular.js"></script>
+ -->  
+ <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.js"></script>
+
+  <script src="../modules.js"></script>
+  <script src="../config.js"></script>
 </head>
 
 <body>
@@ -38,14 +48,55 @@
     </div>
   </nav>
 
+
    <div class="sidebar">
     <ul>
-      <li><a href="#">event1</a></li>
-      <li><a href="#">event2</a></li>
-      <a href="/events/create" id="newEvent">Create New Event</a>
+      <li><a href="#/info">Super Bowl Party!<br />Sunday, Feb 7</a></li>
+      <li><a href="#">Martha's Bridal Shower<br />Tues, Mar 14</a></li>
+      <a href="#/events/create">Create New Event</a>
    </ul>
   </div>
 
-<!--   <a href="view/login.html">Login test page </a>
- --></body>
-</html>
+         <div ng-view></div>
+         
+         <script type="text/ng-template" id="eventInfo.html">
+          <div class="content">
+            <h1> Event Title </h1>
+            <p>Description of Event</p>
+          </div>
+         </script>
+
+         <script type="text/ng-template" id= "newEvent.html">
+          <div class="content">
+              <h1>Create New Event</h1>
+              <br />
+<!--               <form action="/events/create" method="post"
+                  enctype="multipart/form-data"> -->
+                   <fieldset>
+
+                      <label for="eventName">Event Name:&nbsp;</label>
+                      <input type="text" id="eventName" name="eventName"
+                      placeholder="Custin's Party" />
+                      <br />
+                      <label for="eventLocation">Event Location:&nbsp;</label>
+                      <input type="text" id="eventLocation" name="eventLocation"
+                      placeholder="La Jolla, CA" />
+                      <br />
+                      <label for="eventDate">Event Date:&nbsp;</label>
+                      <input type="text" id="eventDate" name="eventDate"
+                      placeholder="February 28, 2017" />
+                      <br />
+                      <label for="eventDescription">Description:</label>
+                      <br />
+                      <textarea id="eventDescription" name="eventDescription"
+                      placeholder="Come to my 20th birthday party!"></textarea>
+                      <br />
+                      <input type="submit" value="Create Event" />
+
+                   </fieldset>
+                </form>
+            </div>
+         </script>
+      </div>
+   </body>
+ </html> 
