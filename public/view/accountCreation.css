@@ -16,5 +16,9 @@ a.button{
     -moz-appearance: button;
     appearance: button;
     
+    font-family: "lucida grande", "geneva";
+    font-size: 10px;
+    text-decoration: none;
+    padding: 5px;
     color: initial;
 }
