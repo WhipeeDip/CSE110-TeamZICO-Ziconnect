@@ -37,6 +37,7 @@ var EventController = require('./public/controller/EventController.js');
 
 // routes
 require('./app/routes.js')(expressApp);
+require('./app/eventRoutes.js')(expressApp);
 
 // This is a test of event entry into database
 // TODO remove before production
