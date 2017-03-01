@@ -11,9 +11,17 @@ var express = require('express');
 var expressApp = express();
 var firebase = require("firebase");
 
-// init firebase 
-// THIS IS THE DEVELOPMENT DATABASE, WE WILL NOT BE USING PRODUCTION UNTIL
-// IT IS READY!
+// heroku will set our port 
+// if testing locally, it will be on port 5000
+expressApp.set('port', (process.env.PORT || "5000"));
+
+// what express will use
+expressApp.use(express.static(__dirname + '/public')); // assets
+expressApp.use('/scripts', express.static(__dirname + '/node_modules/')); // scripts from npm
+
+// init firebase
+// THIS IS THE DEVELOPMENT DATABASE
+// WE WILL NOT BE USING PRODUCTION UNTIL APP IS READY!
 // TODO: change for production
 var config = {
   apiKey: "AIzaSyCBUIl1AeLBp9PSM4TW3nAUERLKfVigWz8",
@@ -24,20 +32,13 @@ var config = {
 };
 firebase.initializeApp(config);
 
-// heroku will set our port 
-// if testing locally, it will be on port 5000
-expressApp.set('port', (process.env.PORT || "5000"));
-
-// what express will use
-expressApp.use(express.static(__dirname + '/public')); // assets
-expressApp.use('/scripts', express.static(__dirname + '/node_modules/')); // scripts from npm
-
 // Require controllers
 var EventController = require('./public/controller/EventController.js');
 
 // routes
 require('./app/routes.js')(expressApp);
 require('./app/eventRoutes.js')(expressApp);
+require('./app/authRoutes.js')(expressApp);
 
 // This is a test of event entry into database
 // TODO remove before production

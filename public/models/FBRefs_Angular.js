@@ -1,5 +1,5 @@
 /**
- * File name: FBRefs.js
+ * File name: FBRefs_Angular.js
  * Authors: Elliot Yoon
  * Description: References in Firebase.
  */

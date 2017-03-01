@@ -13,6 +13,9 @@
   <!-- angular -->
   <script src="/scripts/angular/angular.js"></script>
 
+  <!-- angular-route -->
+  <script src="/scripts/angular-route/angular-route.js"></script>
+
   <!-- angularfire -->
   <script src="/scripts/angularfire/dist/angularfire.js"></script>
 
@@ -33,8 +36,6 @@
 
   <!-- Our scripts -->
   <script src="../modules.js"></script>
-  <script src="../models/FBRefs.js"></script>
-  <script src="../models/AccountModel.js"></script>
   <script src="../controller/AccountController.js"></script>
 
   <!-- TODO: change for production //-->
@@ -43,8 +44,8 @@
   <title>Login</title>
 </head>
 
-<body>
-  <div ng-controller="AccountController">
+<body ng-controller="AccountController" ng-init="checkLogin()">
+  <div>
     <input type="image" src="../assets/google_signin_normal.png" ng-click="login()" />
     <button ng-click="logout()">Sign Out!</button>
 

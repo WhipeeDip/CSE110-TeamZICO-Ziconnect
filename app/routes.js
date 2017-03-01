@@ -11,7 +11,7 @@ var path = require('path');
 module.exports = function(app) {
   // Root GET route, Author: EY
   app.get('/', function(req, res) {
-    res.sendFile(path.resolve('public/view/home.html'));
+    res.sendFile(path.resolve('public/view/login.html'));
   });
 
   // Homepage GET route, Author: EY
@@ -19,7 +19,7 @@ module.exports = function(app) {
     res.sendFile(path.resolve('public/view/home.html'));
   });
 
-  // Login GET route, Author: EY
+  // Login page GET route, Author: EY
   app.get('/login', function(req, res) {
     res.sendFile(path.resolve('public/view/login.html'));
   });

@@ -8,7 +8,9 @@
   },
   "dependencies": {
     "angular": "^1.6.1",
+    "angular-route": "^1.6.2",
     "angularfire": "^2.3.0",
+    "body-parser": "^1.16.1",
     "express": "^4.14.1",
     "firebase": "^3.6.8",
     "formidable": "^1.1.1",
