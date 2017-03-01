@@ -43,6 +43,7 @@ angular.module('controllers')
         $http.get('/auth').then(function successCallback(response) {
           if(response.data) { // if logged in, redirect to home
             $window.location.href = '/home';
+            console.log('Already logged in:', response.data);
           }
         }, function errorCallback(response) {
 

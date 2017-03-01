@@ -82,10 +82,10 @@ module.exports = function(app) {
     var currentUser = firebase.auth().currentUser;
 
     if(currentUser) { // user is signed in
-      var userToken = currentUser.getToken().then(function() {
+      currentUser.getToken().then(function(data) {
           var authInfo = {
           uid: currentUser.uid,
-          token: userToken
+          token: data
         };
         res.send(authInfo);
       });
