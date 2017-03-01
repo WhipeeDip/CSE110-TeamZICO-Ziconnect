@@ -4,6 +4,6 @@
  * Description: Angular module defines.
  */
 
-angular.module('ziconnect', ['controllers', 'models']);
+angular.module('ziconnect', ['controllers', 'models', 'ngRoute']);
 angular.module('controllers', ['firebase']);
 angular.module('models', ['firebase']);
