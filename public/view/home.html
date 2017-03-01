@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 
 <!-- assign Angular module -->
-<html ng-app="home">
+<html ng-app="angularApp">
 <head>
   <title>Ziconnect</title>
   <meta charset="utf-8">
@@ -16,8 +16,16 @@
   <link rel="stylesheet" type="text/css" href="/view/home.css">
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!--
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+          <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+      <script src="script.js"></script>
+      -->
+      
 </head>
 
+<!--<body ng-controller="mainController">-->
 <body>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -38,13 +46,19 @@
     </div>
   </nav>
 
-   <div class="sidebar">
+  <div class="sidebar">
     <ul>
-      <li><a href="#">event1</a></li>
+      <li><a href="#">eventA</a></li>
       <li><a href="#">event2</a></li>
       <a href="/events/create" id="newEvent">Create New Event</a>
    </ul>
   </div>
+
+  <!--
+  <div id="main">
+    {{ x }}
+  </div>
+  -->
 
 <!--   <a href="view/login.html">Login test page </a>
  --></body>
