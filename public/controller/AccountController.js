@@ -5,49 +5,37 @@
  */
 
 angular.module('controllers')
-  .controller('AccountController', ['$scope', '$rootScope', '$http', '$window', '$location', '$firebaseAuth', 
-    function($scope, $rootScope, $http, $window, $location, $firebaseAuth) {
+  .controller('AccountController', ['AccountModels', '$scope', '$cookies', '$http', '$window', '$location', '$q', '$firebaseAuth', 
+    function(AccountModels, $scope, $cookies, $http, $window, $location, $q, $firebaseAuth) {
+
+      // seems to loop
+      /*// if auth state changes, check login status
+      $firebaseAuth().$onAuthStateChanged(function(firebaseUser) {
+        console.log('Login state changed!', firebaseUser);
+        if(firebaseUser) { // someone logged in
+          $window.location.href = '/home';
+        } else { // someone logged out
+          $window.location.href = '/login';
+        }
+      });*/
 
       $scope.login = function() {
-        var self = this;
-        var loginResult = null;
-
-        // login with google popup
-        $firebaseAuth().$signInWithPopup('google').then(function(googleUser) {
-          console.log('Logged in Google user info: ', googleUser);
-          var user = {
-            credential: googleUser.credential,
-            uid: googleUser.user.uid,
-            name: googleUser.user.displayName,
-            email: googleUser.user.email,
-            picture: googleUser.user.photoURL
-          }
-          // post to auth with server
-          $http.post('/auth/login', user).then(function successCallback(response) { // if success, return googleUser
-            loginResult = response;
-            $window.location.href = '/home';
-          }, function errorCallback(response) { // if error, return null
-            loginResult = null;
-          });
-        }).catch(function(error) { // if error, return null
-          console.log("Signin failed (in AccountController):", error);
-          loginResult = null;
-        });  
+        var result = AccountModels.login().then(function() {
+          $window.location.href = '/home';
+        });
       };
 
       $scope.logout = function() {
-        $http.post('/auth/logout');
-      };
-
-      $scope.checkLogin = function() {
-        $http.get('/auth').then(function successCallback(response) {
-          if(response.data) { // if logged in, redirect to home
-            $window.location.href = '/home';
-            console.log('Already logged in:', response.data);
-          }
-        }, function errorCallback(response) {
-
+        var result = AccountModels.logout().then(function() {
+          $window.location.href = '/login';
         });
       };
-    },
+
+      $scope.loginCheck = function() {
+        var user = $cookies.getObject('user');
+        if(user) {
+          $window.location.href = '/home';
+        } 
+      }
+    }
 ]);
