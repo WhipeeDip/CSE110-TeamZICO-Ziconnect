@@ -1,0 +1,77 @@
+
+/* Temporary content div rules. We don't actually want to hardcode values into
+ * the code
+ * */
+.content {
+  padding-left: 300px;
+  padding-top: 10px;
+}
+
+.sidebar {
+  height: 100%;
+  width: 15%;
+  position: fixed;
+  z-index: 1;
+  background-color: #000;
+  color: #fff;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 20px 0 20px 0;
+  display: block;
+  text-align: center;
+  background: #ffe5e5;
+}
+
+.sidebar li:hover {
+  background: #000;
+} 
+
+.navbar-default {
+  margin: 0;
+}
+
+#newEvent {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0;
+    bottom: 50px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.google{
+    background-image: url(../assets/google-logo.jpg);
+    background-color:  transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 60px;
+    width: 110px;
+    cursor: pointer;
+    background-size: 100%;
+    
+}
+
+/* make buttons look nice */
+a.button{
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    
+    font-family: "lucida grande", "geneva";
+    font-size: 10px;
+    text-decoration: none;
+    padding: 5px;
+    color: initial;
+}
