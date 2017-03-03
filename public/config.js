@@ -2,7 +2,7 @@
 
  angular.
  module("ziconnect").
- config(['$routeProvider', function($routeProvider) {
+ config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider.
     
     when('/info', {
@@ -12,4 +12,6 @@
     when('/events/create', {
     	templateUrl: 'newEvent.html',
     });
+
+    $locationProvider.hashPrefix('');
  }]);
