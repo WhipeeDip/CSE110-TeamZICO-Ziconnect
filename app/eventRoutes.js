@@ -15,6 +15,7 @@ var formidable = require('formidable'),
 
 // Require Controllers
 var EventController = require('../public/controller/EventController.js');
+var GetUserEvents = require('../public/controller/GetUserEventsController.js');
 
 module.exports = function(app) {
   // Create Event POST route, Author: CC

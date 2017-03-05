@@ -28,6 +28,7 @@
   <script src="../modules.js"></script>
   <script src="../config.js"></script>
   <script src="../controller/AccountController.js"></script>
+  <script src="../controller/GetUserEventsController.js"></script>
   <script src="../models/AccountModels.js"></script>
 </head>
 
@@ -53,11 +54,14 @@
     </div>
   </nav>
 
-   <div class="sidebar">
+    <!--<attempting to make sidebar div recognize Ctrl from GetUserEventsController.js>-->
+   <div class="sidebar" ng-controller="Ctrl">
     <ul>
       <li><a href="#/info">Super Bowl Party!<br />Sunday, Feb 7</a></li>
-      <li><a href="#">Martha's Bridal Shower<br />Tues, Mar 14</a></li>
+      <li><a href="#/info">Martha's Brsdfasef Shower<br />Tues, Mar 14</a></li>
       <a href="#/events/create">Create New Event</a>
+      <!--<should be listing all event names>-->
+      <li ng-repeat ="event in userEvents">{{event.name}}</li>
    </ul>
   </div>
 
