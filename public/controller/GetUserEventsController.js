@@ -5,13 +5,15 @@
  */
 
 
-angular.module('app', ['firebase'])
-  .controller('Ctrl', ['$scope', '$firebaseArray',
+angular.module('controllers')
+  .controller('SidebarController', ['$scope', '$firebaseArray',
     function($scope, $firebaseArray){
         
-      var eventRef = $firebaseArray(new Firebase ("https://cse110-teamzico-ziconnect-dev.firebaseio.com/userList/" + user.uid));
-      $scope.userEvents = $firebaseArray(eventRef);
-      /*var query = eventRef.orderByChild("eventDate"); 
+      var eventRef = firebase.database().ref();
+      var list = $firebaseArray(eventRef);
+      $scope.list=list;
+      /*$scope.userEvents = $firebaseArray(eventRef);
+      var query = eventRef.orderByChild("eventDate"); 
       $scope.filteredEvents=$firebaseArray(query);*/
   }
 ]);
