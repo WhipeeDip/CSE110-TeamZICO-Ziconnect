@@ -33,8 +33,29 @@
   background: #000;
 } 
 
-.navbar-default {
+#prof {
+  height: auto;
+  width: auto;
+  max-height: 50px;
+  max-width: 50px;
+  border-radius: 50%;
+}
+
+.navbar-pills {
   margin: 0;
+  padding: 0;
+  background-color: #000;
+}
+
+.navbar-brand {
+  line-height: 50px;
+}
+.navbar-form {
+  line-height: 60px;
+}
+
+.navbar-nav li a {
+  line-height: 50px;
 }
 
 #newEvent {

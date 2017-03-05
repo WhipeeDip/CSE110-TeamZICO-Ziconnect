@@ -6,11 +6,15 @@
     $routeProvider.
     
     when('/info', {
-      templateUrl: 'eventInfo.html'
+      templateUrl: '../partials/eventInfo.html'
+    }).
+
+    when('/profile', {
+    	templateUrl: '../partials/profile.html'
     }).
 
     when('/events/create', {
-    	templateUrl: 'newEvent.html',
+    	templateUrl: '../partials/newEvent.html',
     });
 
     $locationProvider.hashPrefix('');
