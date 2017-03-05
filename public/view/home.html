@@ -28,6 +28,7 @@
   <script src="../modules.js"></script>
   <script src="../config.js"></script>
   <script src="../controller/AccountController.js"></script>
+  <script src="../controller/GetUserEventsController.js"></script>
   <script src="../models/AccountModels.js"></script>
 </head>
 
@@ -51,9 +52,10 @@
     </div>
   </nav>
 
-   <div class="sidebar">
+   <div class="sidebar" ng-controller="SidebarController">
     <ul>
       <li><a href="#/info">Super Bowl Party!<br />Sunday, Feb 7</a></li>
+      <li><a href="#/info">Martha's Brsdfasef Shower<br />Tues, Mar 14</a></li>
       <li><a href="#">Martha's Bridal Shower<br />Tues, Mar 14</a></li>
       <a href="#/events/create">Create New Event</a>
 
