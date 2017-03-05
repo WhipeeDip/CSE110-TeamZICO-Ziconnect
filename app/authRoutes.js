@@ -29,9 +29,10 @@ module.exports = function(app) {
       console.log('Request body empty in /auth/login!');
       res.end();
     }
-  
+
     // create/update entry in database
     var userRef = firebase.database().ref('userList').child(user.uid);
+    //createGroupList(user.uid, firebase);
     userRef.set(user).then(function() {
       res.send('Success');
     }).catch(function(error) {
@@ -59,4 +60,4 @@ module.exports = function(app) {
       res.end();
     });
   });
-};  
+};

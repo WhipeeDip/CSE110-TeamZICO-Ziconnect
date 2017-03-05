@@ -18,8 +18,8 @@ angular.module('models')
             var user = self.buildUserObjectFromGoogle(googleUser);
 
             // POST to login with server
-            $http.post('/auth/login', user).then(function successCallback(response) { 
-              if(response.data == 'Success') { // create cookie 
+            $http.post('/auth/login', user).then(function successCallback(response) {
+              if(response.data == 'Success') { // create cookie
                 $cookies.putObject('user', user);
                 deferred.resolve();
               } else { // POST didn't match 'Success'
@@ -33,8 +33,8 @@ angular.module('models')
           }).catch(function(error) { // error from firebaseAuth
             console.log('Login failed in AccountController firebaseAuth:', error);
             deferred.reject();
-          }); 
-          
+          });
+
           return deferred.promise
         },
 
