@@ -9,7 +9,7 @@ angular.module('controllers')
   .controller('SidebarController', ['$scope', '$firebaseArray',
     function($scope, $firebaseArray){
         
-      var eventRef = firebase.database().ref();
+      var eventRef = firebase.database().ref("userList");
       var list = $firebaseArray(eventRef);
       $scope.list=list;
       /*$scope.userEvents = $firebaseArray(eventRef);
