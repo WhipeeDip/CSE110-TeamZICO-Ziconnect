@@ -1,4 +1,4 @@
-/**
+ /**
  * File name: AccountController.js
  * Authors: Elliot Yoon
  * Description: Controller for accounts.
