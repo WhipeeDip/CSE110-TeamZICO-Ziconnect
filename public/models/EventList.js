@@ -6,7 +6,7 @@
 
 function createEventList(uid, firebase) {
   var db = firebase.database();
-  var newRef = db.ref("eventLists");
+  var newRef = db.ref('usersEvents');
   //store under groupList
   newRef.push(uid);
 }
@@ -14,7 +14,7 @@ function createEventList(uid, firebase) {
 // used later after account is created
 function addEvent(uid, groupID, firebase) {
   var db = firebase.database();
-  var newRef = db.ref("eventLists/" + uid);
+  var newRef = db.ref('usersEvents/' + uid);
   newRef.push(groupID);
 }
 
