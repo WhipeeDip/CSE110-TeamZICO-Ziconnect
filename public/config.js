@@ -10,11 +10,11 @@
     }).
 
     when('/profile', {
-    	templateUrl: '../partials/profile.html'
+      templateUrl: '../partials/profile.html'
     }).
 
     when('/events/create', {
-    	templateUrl: '../partials/newEvent.html',
+      templateUrl: '../partials/newEvent.html',
     });
 
     $locationProvider.hashPrefix('');
