@@ -41,10 +41,10 @@
   border-radius: 50%;
 }
 
-.navbar-pills {
+.navbar-default{
   margin: 0;
   padding: 0;
-  background-color: #000;
+  background-color: #000000;
 }
 
 .navbar-brand {
