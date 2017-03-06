@@ -1,7 +1,7 @@
-angular.module('navigate', [])
+angular.module('navigate', ['ngRoute'])
     .directive('navbar', function () {
         'use strict';
         return {
-            templateUrl: "/public/directives/navbar.html"
+            templateUrl: "navbar.html"
         };
     });
