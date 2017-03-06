@@ -1,3 +1,9 @@
+/**
+ * File name: home.js
+ * Authors: TODO
+ * Description: TODO
+ */
+
 var app = angular.module('home', ["ng-route"])
 
 app.config(function($routeProvider, $locationProvider) {
