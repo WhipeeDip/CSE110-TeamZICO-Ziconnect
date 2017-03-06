@@ -19,6 +19,15 @@ angular.module('controllers')
         }
       });*/
 
+      $scope.getUser = function() {
+        var user = $cookies.getObject('user');
+        $scope.user = user;
+        console.log(user.name);
+        console.log(user.picture);
+        $scope.name = user.name;
+        $scope.pic = user.picture;
+      };
+
       $scope.login = function() {
         var result = AccountModels.login().then(function() {
           $window.location.href = '/home';
@@ -37,5 +46,6 @@ angular.module('controllers')
           $window.location.href = '/home';
         } 
       }
+
     }
 ]);
