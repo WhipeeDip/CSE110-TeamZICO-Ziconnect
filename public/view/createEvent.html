@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 
 <!-- assign Angular module -->
-<html ng-app="home">
+<html>
 <head>
   <title>Ziconnect</title>
   <meta charset="utf-8">
@@ -17,9 +17,14 @@
   <link rel="stylesheet" type="text/css" href="/view/stylesheet.css">
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+    <script src="../directives/navbar.html"></script>
+    <script src="../directives/navbar.js"></script>
 </head>
 
 <body>
+    <!--
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -38,7 +43,12 @@
       </ul>
     </div>
   </nav>
+-->
+    <div ng-app="navigate">
+        <navbar></navbar>
+    </div>
 
+    <div ng-app="home">
    <div class="sidebar">
     <ul>
       <li><a href="#">Super Bowl Party!<br />Sunday, Feb 7</a></li>
@@ -76,6 +86,7 @@
          </fieldset>
       </form>
   </div>
+    </div>
 
 <!--   <a href="view/login.html">Login test page </a>
  --></body>
