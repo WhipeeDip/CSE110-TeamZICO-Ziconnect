@@ -13,19 +13,26 @@
   <title>Ziconnect</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="/view/stylesheet.css">
-
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
+    <!-- loading scripts here -->
+    <!-- loading bootstrap scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <!-- loading angular scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-route.min.js"></script>
-    <script src="../directives/navbar.html"></script>
-    <script src="../directives/navbar.js"></script>
+    
+    <!-- loading local files -->
+    <link rel="stylesheet" type="text/css" href="/view/stylesheet.css">
+    
+    <!-- local scripts -->
+    <script type="text/javascript" src="../directives/navbar.js"></script>
 </head>
 
 <body>
-    <!--
+    <!-- deprecated code (not deleting until Prime Minister confirms)
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -45,6 +52,7 @@
     </div>
   </nav>
 -->
+    <!-- syntax to use navbar -->
     <div ng-app="navigate">
         <navbar></navbar>
     </div>
