@@ -23,5 +23,4 @@ config(['$routeProvider', '$locationProvider', function($routeProvider, $locatio
     templateUrl: '../partials/newEvent.html',
   });
 
-  $locationProvider.hashPrefix('');
 }]);

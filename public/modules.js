@@ -9,6 +9,8 @@ angular.module('controllers', ['firebase', 'ngCookies']).config(function($locati
     enabled: true,
     requireBase: false
   });
+
+  $locationProvider.hashPrefix('');
 });
 angular.module('models', ['firebase', 'ngCookies']);
 angular.module('ziconnect', ['controllers', 'models', 'ngRoute', 'firebase']).config(function() {
