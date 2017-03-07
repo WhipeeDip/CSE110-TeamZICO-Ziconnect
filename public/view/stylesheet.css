@@ -46,6 +46,7 @@ ntext {
   z-index: 1;
   background-color: rgba(5,58,89,0.6);
   color: #fff;
+  overflow-y: scroll
 }
 
 .sidebar ul {
