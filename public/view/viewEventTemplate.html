@@ -6,38 +6,49 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Ziconnect</title>
-        <meta charset="utf-8">
-        
-        <!-- load scripts here -->
-        <!-- load boostrap scripts -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <head>
+    <title>Ziconnect</title>
+    <meta charset="utf-8">
 
-        <!-- load angular scripts -->
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-route.min.js"></script>
-        
-        <!-- load local files -->
-        <!-- load css file -->
-        <link rel="stylesheet" type="text/css" href="stylesheet.css">
-        
-        <!-- load local scripts -->
-        <script src="../directives/navbar.js"></script>
-    
-    </head>
+    <!-- load scripts here -->
+    <!-- load boostrap scripts -->
+    <script src="/scripts/jquery/dist/jquery.js"></script>
 
-    <body>
-        <div ng-app="navigate">
-            <navbar></navbar>
-        
-        </div>
+    <!-- load css file -->
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    
+    <!--link rel="stylesheet" type="text/css"
+      href="/scripts/bootstrap/dist/css/bootstrap.css"-->
+
+    <!-- load angular scripts -->
+    <script src="/scripts/angular/angular.js"></script>
+    <script src="/scripts/angularfire/dist/angularfire.js"></script>
+    <script src="/scripts/firebase/firebase.js"></script>
+    <script src="/scripts/angular-cookies/angular-cookies.js"></script>
+    <script src="/scripts/angular-route/angular-route.js"></script>
+
+    <!-- load local files -->
+    
+    
+    <!-- load local scripts -->
+    <script src="../modules.js"></script>
+    <script src="../config.js"></script>
+    <script src="../controller/AccountController.js"></script>
+    <script src="../controller/GetUserEventsController.js"></script>
+    <script src="../models/AccountServices.js"></script>
+    <script src="../directives/navbar.js"></script>
+    
+  </head>
+
+  <body>
+    <div ng-app="ziconnect">
+      <navbar></navbar>
+
+    </div>
     
     
     
-    </body>
+  </body>
 
 
 

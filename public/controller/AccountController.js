@@ -5,7 +5,7 @@
  */
 
 angular.module('controllers')
-  .controller('AccountController', ['AccountServices', '$scope', '$cookies', '$window', '$location', '$q', '$firebaseAuth', 
+  .controller('AccountController', ['AccountServices', '$scope', '$cookies', '$window', '$location', '$q', '$firebaseAuth',
     function(AccountServices, $scope, $cookies, $window, $location, $q, $firebaseAuth) {
 
       // if auth state changes, check login status

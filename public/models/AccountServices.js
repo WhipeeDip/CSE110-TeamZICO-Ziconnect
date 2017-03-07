@@ -10,9 +10,11 @@ angular.module('models')
       return {
         loginWithUser: function(user) {
           var deferred = $q.defer(); // we want to wait for login to finish
-          
+
           var self = this;
           var userRef = firebase.database().ref('userList').child(user.uid);
+          self.createGroupList(user.uid);
+          self.createUsersEventList(user.uid);
           userRef.set(user).then(function() { // always set to update data if needed
             console.log('User login in to Firebase successful!');
             deferred.resolve(); // resolve promise
@@ -56,6 +58,46 @@ angular.module('models')
             email: firebaseUser.email,
             picture: firebaseUser.photoURL
           };
+        },
+
+        // stores user's group list upon account creation
+        createGroupList: function(uid) {
+          // initialize
+          var ref = firebase.database().ref('groupLists');
+          var created;
+          ref.once("value")
+            .then(function(snapshot) {
+              created = snapshot.hasChild(uid);
+            });
+
+          // prevents recreating list, which is bad
+          if(created) {
+            console.log('Account group list has already been created!')
+            return;
+          }
+
+          ref.push(uid);
+          console.log("User's group list created");
+        },
+
+        // stores user's list of events upon account creation
+        createUsersEventList: function (uid) {
+          // initialize
+          var ref = firebase.database().ref('usersEventList');
+          var created;
+          ref.once("value")
+            .then(function(snapshot) {
+              created = snapshot.hasChild(uid);
+            });
+
+          if(created) {
+            console.log('Account event list has already been created!');
+            return;
+          }
+
+          //store under groupList
+          ref.push(uid);
+          console.log("User's Event list created")
         }
       }
     }

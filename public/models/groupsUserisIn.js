@@ -6,7 +6,7 @@
 
 function createGroupList(uid, firebase) {
   var db = firebase.database();
-  var newRef = db.ref("groupLists");
+  var newRef = db.ref('groupLists');
   //store under groupList
   newRef.push(uid);
 }
@@ -18,7 +18,7 @@ function createGroup(uid, people) {
 // used later after account is created
 function addGroup(uid, groupID, firebase) {
   var db = firebase.database();
-  var newRef = db.ref("groupLists/" + uid);
+  var newRef = db.ref('groupLists/' + uid);
   newRef.push(groupID);
 }
 
