@@ -52,18 +52,41 @@ angular.module('models')
           }
         },
 
-        // stores user's group list
+        // stores user's group list upon account creation
         createGroupList: function(uid) {
           // initialize
           var ref = firebase.database().ref('groupLists');
+          var created;
+          ref.once("value")
+            .then(function(snapshot) {
+              created = snapshot.hasChild(uid);
+            });
+
+          // prevents recreating list, which is bad
+          if(created) {
+            console.log('Account group list has already been created!')
+            return;
+          }
 
           ref.push(uid);
           console.log("User's group list created");
         },
 
+        // stores user's list of events upon account creation
         createUsersEventList: function (uid) {
           // initialize
           var ref = firebase.database().ref('usersEventList');
+          var created;
+          ref.once("value")
+            .then(function(snapshot) {
+              created = snapshot.hasChild(uid);
+            });
+
+          if(created) {
+            console.log('Account event list has already been created!');
+            return;
+          }
+
           //store under groupList
           ref.push(uid);
           console.log("User's Event list created")
