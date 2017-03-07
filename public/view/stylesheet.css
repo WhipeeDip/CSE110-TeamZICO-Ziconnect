@@ -7,9 +7,36 @@
 /* Temporary content div rules. We don't actually want to hardcode values into
  * the code
  * */
+
+body {
+  background-image:url("bg.jpg");
+  background-color:rgba(5,58,89);
+  color: #ffffff;
+}
+
+p {
+	font-family: "Open Sans", sans-serif;
+	color: white;
+}
+
+h1 {
+	font-family: "Open Sans", sans-serif;
+	font-size:200%;
+	color: rgb(36,164,199);
+}
+
+ntext {
+  color: white;
+}
+
 .content {
-  padding-left: 300px;
-  padding-top: 10px;
+  padding-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 20px;
+  background-color: rgba(5,58,89,0.6);
+	border-radius:10px;
+	margin: auto;
+	width: 60%;
 }
 
 .sidebar {
@@ -17,7 +44,7 @@
   width: 15%;
   position: fixed;
   z-index: 1;
-  background-color: #000;
+  background-color: rgba(5,58,89,0.6);
   color: #fff;
 }
 
@@ -47,14 +74,20 @@
 }
 
 .navbar-default{
-  margin: 0;
-  padding: 0;
+  color: #ffffff;
+  margin: 10px;
+  background-color: rgba(36,164,199,0.2);
+  border-radius:10px;
+  border-style: none;
+  padding:5px;
 }
 
 .navbar-brand {
+  color: #ffffff;
   line-height: 50px;
 }
 .navbar-form {
+  color: #ffffff;
   line-height: 60px;
 }
 
