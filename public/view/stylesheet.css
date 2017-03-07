@@ -7,32 +7,67 @@
 /* Temporary content div rules. We don't actually want to hardcode values into
  * the code
  * */
+
+body {
+  background-image:url("bg.jpg");
+  background-color:rgba(5,58,89);
+  color: #ffffff;
+}
+
+p {
+	font-family: "Open Sans", sans-serif;
+	color: white;
+}
+
+h1 {
+	font-family: "Open Sans", sans-serif;
+	font-size:200%;
+	color: rgb(36,164,199);
+}
+
+ntext {
+  font-family: "Open Sans", sans-serif;
+  color: white;
+}
+
 .content {
-  padding-left: 300px;
-  padding-top: 10px;
+  padding-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 20px;
+  background-color: rgba(5,58,89,0.6);
+	border-radius:10px;
+	margin-top: 15px;
+	margin-left: 200px;
+	width: 60%;
 }
 
 .sidebar {
   height: 100%;
   width: 15%;
+  padding: 5px;
   position: fixed;
   z-index: 1;
-  background-color: #000;
-  color: #fff;
-  overflow-y: scroll
+  background-color: rgba(5,58,89,0.6);
+  border-radius:10px;
+  overflow-y: scroll;
+  color: #ffffff;
+  margin-top: 5px;
+  margin-left: 10px;
 }
 
 .sidebar ul {
+  padding: 5px;
   list-style-type: none;
   margin: 0;
   padding: 0;
+  color: #ffffff;
 }
 
 .sidebar li {
   padding: 20px 0 20px 0;
   display: block;
   text-align: center;
-  background: #ffe5e5;
+  color: #ffffff;
 }
 
 .sidebar li:hover {
@@ -48,14 +83,20 @@
 }
 
 .navbar-default{
-  margin: 0;
-  padding: 0;
+  color: #ffffff;
+  margin: 10px;
+  background-color: rgba(36,164,199,0.2);
+  border-radius:10px;
+  border-style: none;
+  padding:5px;
 }
 
 .navbar-brand {
+  color: #ffffff;
   line-height: 50px;
 }
 .navbar-form {
+  color: #ffffff;
   line-height: 60px;
 }
 

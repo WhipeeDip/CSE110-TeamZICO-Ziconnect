@@ -7,7 +7,7 @@
 <nav class="navbar navbar-default" ng-controller="AccountController" ng-init="getUser()">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Ziconnect</a>
+      <a class="navbar-brand" href="#"><ntext>Ziconnect</ntext></a>
     </div>
     <form class="navbar-form navbar-left">
       <div class="form-group">
@@ -18,10 +18,12 @@
       </button>
     </form>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Events</a></li>
-      <li><a href="#/profile"><img id="prof" src={{user.picture}}> {{user.name}} </a></li>
-      <li><a href="#" ng-controller="AccountController" ng-click="logout()">Sign Out</a></li>
+      <li><a href="#"><ntext>Home</ntext></a></li>
+      <li><a href="#"><ntext>Events</ntext></a></li>
+      <li><a href="#/profile"><img id="prof" src={{user.picture}}><ntext>
+          {{user.name}} </ntext></a></li>
+      <li><a href="#" ng-controller="AccountController"
+          ng-click="logout()"><ntext>Sign Out</ntext></a></li>
     </ul>
   </div>
 </nav>
