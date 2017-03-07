@@ -1,4 +1,10 @@
- <div class="content">
-   <h1> Event Title </h1>
-   <p>Description of Event</p>
- </div>
+<!--
+ File name: eventInfo.html
+ Authors: TODO
+ Description: TODO
+-->
+
+<div class="content" ng-controller="SidebarController">
+  <div ng-repeat ="event in list"><h1>{{event.name}}</h1></div>
+  <p>Description of Event</p>
+</div>

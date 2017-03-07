@@ -1,21 +1,27 @@
- 'use strict';
+/**
+ * File name: config.js
+ * Authors: TODO
+ * Description: TODO
+ */
 
- angular.
- module("ziconnect").
- config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-    $routeProvider.
+'use strict';
+
+angular.
+module("ziconnect").
+config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+  $routeProvider.
     
-    when('/info', {
-      templateUrl: '../partials/eventInfo.html'
-    }).
+  when('/info', {
+    templateUrl: '../partials/eventInfo.html'
+  }).
 
-    when('/profile', {
-    	templateUrl: '../partials/profile.html'
-    }).
+  when('/profile', {
+    templateUrl: '../partials/profile.html'
+  }).
 
-    when('/events/create', {
-    	templateUrl: '../partials/newEvent.html',
-    });
+  when('/events/create', {
+    templateUrl: '../partials/newEvent.html',
+  });
 
-    $locationProvider.hashPrefix('');
- }]);
+  $locationProvider.hashPrefix('');
+}]);
