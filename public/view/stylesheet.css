@@ -19,6 +19,7 @@
   z-index: 1;
   background-color: #000;
   color: #fff;
+  overflow-y: scroll
 }
 
 .sidebar ul {

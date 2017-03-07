@@ -1,7 +1,7 @@
 /**
  * File name: GetUsersEventsController.js
  * Authors: Justin Cai
- * Description: Controller for getting events.
+ * Description: Controller for getting user's events in sidebar.
  */
 
 
