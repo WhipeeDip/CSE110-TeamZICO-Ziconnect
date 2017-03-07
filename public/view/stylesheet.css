@@ -9,7 +9,7 @@
  * */
 
 body {
-  background-image:url("bg.jpg");
+  background-image:url("../assets/bg.jpg");
   background-color:rgba(5,58,89);
   color: #ffffff;
 }
