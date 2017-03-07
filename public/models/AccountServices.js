@@ -8,6 +8,9 @@ angular.module('models')
   .factory('AccountServices', ['$cookies', '$http', '$q', '$firebaseAuth',
     function($cookies, $http, $q, $firebaseAuth) {
       return {
+
+        // creates firebase login record with a prebuilt user object
+        // (see buildUserObjectFromFirebase() and buildUserObjectFromGoogle())
         loginWithUser: function(user) {
           var deferred = $q.defer(); // we want to wait for login to finish
 
@@ -26,6 +29,7 @@ angular.module('models')
           return deferred.promise
         },
 
+        // logs out from firebase
         logout: function() {
           var deferred = $q.defer(); // $signOut returns an empty promise
 
@@ -36,8 +40,15 @@ angular.module('models')
           return deferred.promise;
         },
 
+        // gets the current logged in user
         getUser: function() {
-          return $cookies.getObject('user');
+          var self = this;
+          var fbUser = $firebaseAuth.$getAuth();
+          if(fbUser) { // a logged in user exists
+            return self.buildUserObjectFromFirebase(fbUser);
+          } else { // no one is logged in, undefined 
+            return fbUser;
+          }
         },
 
         // call this when you get a google user object from google
@@ -50,7 +61,7 @@ angular.module('models')
           };
         },
 
-        // call this when you get a firebase user object such as in $onAuthStateChanged()
+        // call this when you get a firebase user object 
         buildUserObjectFromFirebase: function(firebaseUser) {
           return {
             uid: firebaseUser.uid,
