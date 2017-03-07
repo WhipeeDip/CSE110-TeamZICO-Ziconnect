@@ -9,9 +9,10 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="#"><ntext>Ziconnect</ntext></a>
     </div>
-    <form class="navbar-form navbar-left" action="#/events/read">
+    <form class="navbar-form navbar-left" action="/events/read" method="post">
       <div class="form-group">
-        <input type ="text" class="form-control" placeholder="Search">
+        <input type ="text" class="form-control" id="eventName"
+        name="eventName" placeholder="Search Events">
       </div>
       <button type="submit" class="btn btn-default">
         <span class="glyphicon glyphicon-search"></span>
