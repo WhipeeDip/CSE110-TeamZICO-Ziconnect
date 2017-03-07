@@ -21,7 +21,7 @@
       <li><a href="#">Home</a></li>
       <li><a href="#">Events</a></li>
       <li><a href="#/profile"><img id="prof" src={{user.picture}}> {{user.name}} </a></li>
-      <li><a href="#" ng-click="lougout()">Sign Out</a></li>
+      <li><a href="#" ng-controller="AccountController" ng-click="logout()">Sign Out</a></li>
     </ul>
   </div>
 </nav>
