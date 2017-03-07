@@ -4,14 +4,12 @@
  * Description: Angular module defines.
  */
 
-angular.module('controllers', ['firebase', 'ngCookies']);
-
-//     .config(function($locationProvider) {
-//   $locationProvider.html5Mode({ // url parsing for auth monitoring
-//     enabled: true,
-//     requireBase: false
-//   });
-// });
+angular.module('controllers', ['firebase', 'ngCookies']).config(function($locationProvider) {
+  $locationProvider.html5Mode({ // url parsing for auth monitoring
+    enabled: true,
+    requireBase: false
+  });
+});
 angular.module('models', ['firebase', 'ngCookies']);
 angular.module('ziconnect', ['controllers', 'models', 'ngRoute', 'firebase']).config(function() {
   // Initialize Firebase
