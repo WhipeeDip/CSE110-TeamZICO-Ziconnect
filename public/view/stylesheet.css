@@ -25,12 +25,23 @@ h1 {
 	color: rgb(36,164,199);
 }
 
+a {
+  color: #dcedff;
+
+}
+
+a:hover {
+  color: #ff9900;
+  text-decoration:none;
+}
+
 ntext {
   font-family: "Open Sans", sans-serif;
   color: white;
 }
 
 .content {
+  position: static;
   padding-left: 20px;
   padding-top: 5px;
   padding-bottom: 20px;
@@ -38,7 +49,7 @@ ntext {
 	border-radius:10px;
 	margin-top: 15px;
 	margin-left: 200px;
-	width: 60%;
+	width: 80%;
 }
 
 .sidebar {
@@ -56,11 +67,11 @@ ntext {
 }
 
 .sidebar ul {
+  color: #ffffff;
   padding: 5px;
   list-style-type: none;
   margin: 0;
   padding: 0;
-  color: #ffffff;
 }
 
 .sidebar li {
@@ -71,7 +82,8 @@ ntext {
 }
 
 .sidebar li:hover {
-  background: #000;
+  background: rgba(36,164,199,0.2);
+  color: #ff9900;
 } 
 
 #prof {

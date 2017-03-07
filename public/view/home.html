@@ -60,14 +60,15 @@
 
 
    <div class="sidebar" ng-controller="SidebarController">
-    <ul>
-      <li><a href="#/info">Super Bowl Party!<br />Sunday, Feb 7</a></li>
-      <li><a href="#/info">Martha's Brsdfasef Shower<br />Tues, Mar 14</a></li>
-      <li><a href="#">Martha's Bridal Shower<br />Tues, Mar 14</a></li>
+     
+     <ul>
+       <a href="#/events/create"><li>Create New Event</li></a>
+      <a href="#/info"><li>Super Bowl Party!<br />Sunday, Feb 7</li></a>
 
       <!--<should be listing all event names>-->
       <li ng-repeat ="event in list"><a href="#/info">{{event.name}}</a></li>
-      <a href="#/events/create">Create New Event</a>
+      
+     </p>
    </ul>
   </div>
 
