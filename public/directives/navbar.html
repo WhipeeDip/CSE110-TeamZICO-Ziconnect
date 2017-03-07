@@ -1,26 +1,27 @@
 <!--
  File name: navbar.html
- Authors: TODO
- Description: TODO
+ Authors: LeDaniel Leung
+ Description: Template used for the navbar
 -->
 
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Ziconnect</a>
-      </div>
-        <form class="navbar-form navbar-left">
-            <div class="form-group">
-                <input type ="text" class="form-control" placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-default">
-                <span class="glyphicon glyphicon-search"></span>
-            </button>
-        </form>
-        <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Events</a></li>
-            <li><a href="#">Profile</a></li>
-        </ul>
+<nav class="navbar navbar-default" ng-controller="AccountController" ng-init="getUser()">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Ziconnect</a>
     </div>
+    <form class="navbar-form navbar-left">
+      <div class="form-group">
+        <input type ="text" class="form-control" placeholder="Search">
+      </div>
+      <button type="submit" class="btn btn-default">
+        <span class="glyphicon glyphicon-search"></span>
+      </button>
+    </form>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Events</a></li>
+      <li><a href="#/profile"><img id="prof" src={{user.picture}}> {{user.name}} </a></li>
+      <li><a href="#" ng-controller="AccountController" ng-click="logout()">Sign Out</a></li>
+    </ul>
+  </div>
 </nav>

@@ -4,7 +4,7 @@
  * Description: TODO
  */
 
-angular.module('navigate', ['ngRoute'])
+angular.module('ziconnect')
   .directive('navbar', function () {
       'use strict';
       return {
