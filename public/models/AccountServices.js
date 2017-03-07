@@ -10,10 +10,12 @@ angular.module('models')
       return {
         loginWithGoogleUser: function(googleUser) {
           var deferred = $q.defer(); // we want to wait for login to finish
-          
+
           var self = this;
           var user = self.buildUserObjectFromGoogle(googleUser);
           var userRef = firebase.database().ref('userList').child(user.uid);
+          self.createGroupList(user.uid);
+          self.createUsersEventList(user.uid);
           userRef.set(user).then(function() { // always set to update data if needed
             userRef.set(user);
             console.log('Google user login in Firebase successful!');
@@ -47,8 +49,26 @@ angular.module('models')
             email: googleUser.user.email,
             picture: googleUser.user.photoURL,
             accessToken: googleUser.credential.accessToken
-          };
+          }
+        },
+
+        // stores user's group list
+        createGroupList: function(uid) {
+          // initialize
+          var ref = firebase.database().ref('groupLists');
+
+          ref.push(uid);
+          console.log("User's group list created");
+        },
+
+        createUsersEventList: function (uid) {
+          // initialize
+          var ref = firebase.database().ref('usersEventList');
+          //store under groupList
+          ref.push(uid);
+          console.log("User's Event list created")
         }
+
       }
     }
   ]);

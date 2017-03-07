@@ -5,7 +5,7 @@
  */
 
 angular.module('controllers')
-  .controller('AccountController', ['AccountServices', '$scope', '$cookies', '$window', '$location', '$q', '$firebaseAuth', 
+  .controller('AccountController', ['AccountServices', '$scope', '$cookies', '$window', '$location', '$q', '$firebaseAuth',
     function(AccountServices, $scope, $cookies, $window, $location, $q, $firebaseAuth) {
 
       // nope, still loops >_>
@@ -58,7 +58,7 @@ angular.module('controllers')
         var user = $cookies.getObject('user');
         if(user) {
           $window.location.href = '/home';
-        } 
+        }
       }
     }
 ]);
