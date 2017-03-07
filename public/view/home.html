@@ -26,6 +26,7 @@
 
   <script src="../modules.js"></script>
   <script src="../config.js"></script>
+  <script src="../directives/navbar.js"></script>
   <script src="../controller/AccountController.js"></script>
   <script src="../controller/GetUserEventsController.js"></script>
   <script src="../models/AccountServices.js"></script>
@@ -33,6 +34,7 @@
 
 <!--<body ng-controller="mainController">-->
 <body>
+  <!--
   <nav class="navbar navbar-pills" ng-controller="AccountController" ng-init="getUser()">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -50,6 +52,12 @@
       </ul>
     </div>
   </nav>
+  -->
+  
+  <div>
+    <navbar></navbar>
+  </div>
+
 
    <div class="sidebar" ng-controller="SidebarController">
     <ul>
