@@ -101,10 +101,10 @@ angular.module('models')
           //check data at uid, if null, that user doesnt exist
           ref.child(uid).once('value', function(snapshot){
             var noExist = (snapshot.val() == null);
-            if(true){   
+            if(noExist){   
               //if doesnt exist, add them to other trees
               console.log('user does not exist, adding to groups and events');
-              var self=this;
+              //var self=this;
               //self.createGroupList(uid);
               //self.createUsersEventList(uid);
               firebase.database().ref('eventsUserIsIn').child(uid).set('');
