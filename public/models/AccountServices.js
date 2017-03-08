@@ -77,7 +77,7 @@ angular.module('models')
 
           
           
-          
+        /*  
         // stores user's group list upon account creation
         createGroupList: function(uid) {
 
@@ -92,7 +92,7 @@ angular.module('models')
           //store under eventsUserIsIn
           firebase.database().ref('eventsUserIsIn').child(uid).set('');
           console.log("User's Event list created")
-        },
+        },*/
           
         //checks if user of uid exists, if they do not, calls createUsersEventList and
         //createGroupList to add them to those lists
@@ -101,11 +101,14 @@ angular.module('models')
           //check data at uid, if null, that user doesnt exist
           ref.child(uid).once('value', function(snapshot){
             var noExist = (snapshot.val() == null);
-            if(noExist){   
+            if(true){   
               //if doesnt exist, add them to other trees
               console.log('user does not exist, adding to groups and events');
-              createGroupList(uid);
-              createUsersEventList(uid);
+              var self=this;
+              //self.createGroupList(uid);
+              //self.createUsersEventList(uid);
+              firebase.database().ref('eventsUserIsIn').child(uid).set('');
+              firebase.database().ref('groupsUserIsIn').child(uid).set('');
             }
           });    
         }  
