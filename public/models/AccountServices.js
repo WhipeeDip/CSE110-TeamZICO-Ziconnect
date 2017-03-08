@@ -1,6 +1,6 @@
 /**
  * File name: AccountServices.js
- * Authors: Elliot Yoon
+ * Authors: Elliot Yoon, Justin Cai
  * Description: Handles accounts.
  */
 
@@ -16,8 +16,12 @@ angular.module('models')
 
           var self = this;
           var userRef = firebase.database().ref('userList').child(user.uid);
-          self.createGroupList(user.uid);
-          self.createUsersEventList(user.uid);
+            
+              
+          //self.createGroupList(user.uid);
+          //self.createUsersEventList(user.uid);
+          self.doesUserExist(user.uid);    
+            
           userRef.set(user).then(function() { // always set to update data if needed
             console.log('User login in to Firebase successful!');
             deferred.resolve(); // resolve promise
@@ -71,45 +75,42 @@ angular.module('models')
           };
         },
 
+          
+          
+          
         // stores user's group list upon account creation
         createGroupList: function(uid) {
-          // initialize
-          var ref = firebase.database().ref('groupLists');
-          var created;
-          ref.once("value")
-            .then(function(snapshot) {
-              created = snapshot.hasChild(uid);
-            });
 
-          // prevents recreating list, which is bad
-          if(created) {
-            console.log('Account group list has already been created!')
-            return;
-          }
-
-          ref.push(uid);
+          //store under groupsUserIsIN
+          firebase.database().ref('groupsUserIsIn').child(uid).set('');
           console.log("User's group list created");
         },
 
         // stores user's list of events upon account creation
         createUsersEventList: function (uid) {
-          // initialize
-          var ref = firebase.database().ref('usersEventList');
-          var created;
-          ref.once("value")
-            .then(function(snapshot) {
-              created = snapshot.hasChild(uid);
-            });
 
-          if(created) {
-            console.log('Account event list has already been created!');
-            return;
-          }
-
-          //store under groupList
-          ref.push(uid);
+          //store under eventsUserIsIn
+          firebase.database().ref('eventsUserIsIn').child(uid).set('');
           console.log("User's Event list created")
-        }
+        },
+          
+        //checks if user of uid exists, if they do not, calls createUsersEventList and
+        //createGroupList to add them to those lists
+        doesUserExist: function (uid){
+          var ref = firebase.database().ref('userList');
+          //check data at uid, if null, that user doesnt exist
+          ref.child(uid).once('value', function(snapshot){
+            var noExist = (snapshot.val() == null);
+            if(noExist){   
+              //if doesnt exist, add them to other trees
+              console.log('user does not exist, adding to groups and events');
+              createGroupList(uid);
+              createUsersEventList(uid);
+            }
+          });    
+        }  
+            
+        
       }
     }
   ]);
