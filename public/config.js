@@ -15,6 +15,12 @@ config(['$routeProvider', '$locationProvider', function($routeProvider, $locatio
     templateUrl: '../partials/eventInfo.html'
   }).
 
+  when('/:event_name/info', {
+    templateUrl:'../partials/eventInfo.html',
+    controller: 'InfoController',
+    controllerAs: 'app'
+  }).
+
   when('/profile', {
     templateUrl: '../partials/profile.html'
   }).
@@ -23,4 +29,9 @@ config(['$routeProvider', '$locationProvider', function($routeProvider, $locatio
     templateUrl: '../partials/newEvent.html',
   });
 
-}]);
+}])
+
+.controller('InfoController', function($routeParams) {
+  var self = this;
+  self.message = $routeParams.event_name;
+});
