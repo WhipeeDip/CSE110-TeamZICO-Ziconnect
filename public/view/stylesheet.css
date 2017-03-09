@@ -42,15 +42,32 @@ form {
 
 label {
   display: table-cell;
+  color: rgb(36,164,199);
+  font-weight: normal;
+
 }
 
 input {
   display: table-cell;
+  border: 30px #33ccff;
+  border-radius: 10px;
+  background-color: rgba(5,58,89,0.6);
+  width: 200px;
+  color: #dcedff;
+}
+
+input[type=text] {
+  border: 30px #33ccff;
+  border-radius: 10px;
+  background-color: rgba(5,58,89,0.6);
 }
 
 textarea {
-  width: 300px;
-  height: 100px;
+  width: 400px;
+  height: 250px;
+  resize: none;
+  background-color: rgba(5,58,89,0.6);
+  #dcedff
 }
 
 ntext {
