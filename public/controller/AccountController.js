@@ -58,21 +58,5 @@ angular.module('controllers')
           console.log('Signout successful!');
         });
       };
-
-      // init gapis
-      $scope.initGapi = function() {
-        // load gapis
-        gapi.load('client:auth2', function() {
-          // init gapis
-          gapi.client.init({
-            discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'],
-            clientId: '420682510691-4khdpqg30qdshb3hjma7bcct51n7ecdr.apps.googleusercontent.com',
-            scope: 'https://www.googleapis.com/auth/calendar'
-          });
-        });
-      };
-
-      // init gapis
-      $scope.initGapi();
     }
 ]);
