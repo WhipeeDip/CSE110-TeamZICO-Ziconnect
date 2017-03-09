@@ -11,13 +11,18 @@
 body {
   background-image:url("../assets/bg.jpg");
   background-color:rgba(5,58,89);
-  color: #ffffff;
+  color: #dcedff;
 }
 
 p {
 	font-family: "Open Sans", sans-serif;
-	color: white;
+	color: #dcedff;
 	display: table-cell;
+}
+
+pblue {
+  font-family: "Open Sans", sans-serif;
+  color: rgb(36,164,199);
 }
 
 h1 {
@@ -35,6 +40,12 @@ a:hover {
   color: #ff9900;
   text-decoration:none;
 }
+
+a:visited {
+  color: #dcedff;
+  text-decoration: none;
+}
+
 
 form {
   display: table;
@@ -57,6 +68,7 @@ input {
 }
 
 input[type=text] {
+  color: #dcedff;
   border: 30px #33ccff;
   border-radius: 10px;
   background-color: rgba(5,58,89,0.6);
