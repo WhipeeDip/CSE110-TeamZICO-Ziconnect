@@ -4,7 +4,36 @@
  Description: TODO
 -->
 
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js">
+</script>
+
 <div class="content" ng-controller="SidebarController">
-  <div ng-repeat ="event in list"><h1>{{event.name}}</h1></div>
+  <div><h1>{{app.message}}</h1></div>
   <p>Description of Event</p>
 </div>
+
+<div ng-app="myApp" ng-controller="buttonCtrl">
+  <button ng-click="toEditPage()" data-ng-nit="init(false)" ng-disabled="false">
+    Edit Event</button>
+</div>
+
+<!--- Script may have to be moved --->
+<script>
+var app = angular.module('myApp', []);
+app.controller('buttonCtrl', function($scope)
+{
+
+  $scope.creator = false;
+  // meant to show button if creator is view event
+  $scope.init = function(creator) {
+    $scope.creator = true;
+  };
+  // goes to edit event page
+  $scope.toEditPage = function() {
+    console.log('To edit event page');
+    $scope.randomnum++;
+    window.location = './editEvent.html';
+  };
+
+});
+</script>
