@@ -48,14 +48,10 @@
 
     <ul>
         <a href="/events/create"><li><pblue>Create New Event</pblue></li></a>
-        <a href="/info"><li>Super Bowl Party!<br />Sunday, Feb 7</li></a>
-        <a href="/info"><li>Custin's Name Day<br />Tuesday, Mar 7</li></a>
-        <a href="/info"><li>Car Rally<br />Saturday, Mar 18</li></a>
-        <a href="/LeParty/info"><li>LeParty<br />Saturday, Apr 1</li></a>
-        <a href="/info"><li>ZICO Convention<br />Sunday, Apr 16</li></a>
-
         <!--<should be listing all event names> -->
-        <li ng-repeat ="event in list"><a href="/{{event.$id}}/info">{{event.eventName}}</a></li>
+        <li ng-repeat ="event in list"><a
+           href="/{{event.$id}}/info">{{event.eventName}}<br/>
+           {{event.eventDate}}</a></li>
 
     </ul>
 </div>

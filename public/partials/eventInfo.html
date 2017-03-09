@@ -7,12 +7,25 @@
 
 <div class="content">
   <div><h1>{{eventData.eventName}}</h1></div>
-  <p>{{eventData.eventDescription}}</p>
+  <h2><pblue>Event Date: </pblue> {{eventData.eventDate}}
+  &nbsp; &nbsp;
+  <pblue>| Event Location: </pblue> {{eventData.eventLocation}}
+  <br/><br/>
+  <pblue>Description:</pblue>
+  <br/>
+  {{eventData.eventDescription}}
+  </h2>
+
+  <br/>
+  <br/>
+  <div ng-app="myApp" ng-controller="buttonCtrl">
+  <button class="button" id="editEvent" ng-click="toEditPage()"
+                                        data-ng-nit="init(false)"
+                                        ng-disabled="false">Edit Event</button>
+  
 </div>
 
-<div ng-app="myApp" ng-controller="buttonCtrl">
-  <button id="editEvent" ng-click="toEditPage()" data-ng-nit="init(false)" ng-disabled="false">
-    Edit Event</button>
+  
 </div>
 
 <!--- Script may have to be moved --->
