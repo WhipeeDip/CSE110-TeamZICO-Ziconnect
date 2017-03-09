@@ -26,7 +26,7 @@ angular.module('models')
             console.log('User login in to Firebase successful!');
             deferred.resolve(); // resolve promise
           }).catch(function(error) {
-            console.log('Error setting user entry:', error);
+            console.log('Error setting user entry during Firebase login:', error);
             deferred.reject(error); // error, reject
           });
 
@@ -38,7 +38,11 @@ angular.module('models')
           var deferred = $q.defer(); // $signOut returns an empty promise
 
           $firebaseAuth().$signOut().then(function() {
-            deferred.resolve();
+            console.log('Attempting Firebase signout...');
+            gapi.auth2.getAuthInstance().signOut().then(function() {
+              console.log('Attempting gapi signout...');
+              deferred.resolve();
+            });
           });
 
           return deferred.promise;

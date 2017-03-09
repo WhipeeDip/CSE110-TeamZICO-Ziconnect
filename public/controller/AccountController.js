@@ -1,4 +1,4 @@
- /**
+/**
  * File name: AccountController.js
  * Authors: Elliot Yoon
  * Description: Controller for accounts.
@@ -39,16 +39,15 @@ angular.module('controllers')
 
       // called by login button
       $scope.login = function() {
-        // create provider to login with
-        var provider = new firebase.auth.GoogleAuthProvider();
-        provider.addScope("https://www.googleapis.com/auth/calendar"); // google calendar rw
-
-        // create sign in window, and let AccountServices do the database handling
-        $firebaseAuth().$signInWithRedirect(provider).then(function() {
-          // never called because of redirect
-          // auth state change listener will handle everything 
-        }).catch(function(error) {
-          console.log("Authentication failed in AccountController login():", error);
+        // we have to use gapi to login in order to use the gapi outside of firebase
+        // such as gcalendar
+        gapi.auth2.getAuthInstance().signIn().then(function(googleUser) {
+          console.log('Attempting Google login through gapi:', googleUser);
+          // grab the google credential then login to firebase 
+          var credential = firebase.auth.GoogleAuthProvider.credential(googleUser.getAuthResponse().id_token);
+          $firebaseAuth().$signInWithCredential(credential).then(function() {
+            // auth listener takes over
+          });
         });
       };
 
@@ -59,5 +58,21 @@ angular.module('controllers')
           console.log('Signout successful!');
         });
       };
+
+      // init gapis
+      $scope.initGapi = function() {
+        // load gapis
+        gapi.load('client:auth2', function() {
+          // init gapis
+          gapi.client.init({
+            discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'],
+            clientId: '420682510691-4khdpqg30qdshb3hjma7bcct51n7ecdr.apps.googleusercontent.com',
+            scope: 'https://www.googleapis.com/auth/calendar'
+          });
+        });
+      };
+
+      // init gapis
+      $scope.initGapi();
     }
 ]);
