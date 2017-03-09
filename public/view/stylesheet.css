@@ -4,19 +4,15 @@
  * Description: TODO
  */
 
-/* Temporary content div rules. We don't actually want to hardcode values into
- * the code
- * */
-
 body {
   background-image:url("../assets/bg.jpg");
   background-color:rgba(5,58,89);
-  color: #ffffff;
+  color: #dcedff;
 }
 
 p {
 	font-family: "Open Sans", sans-serif;
-	color: white;
+	color: #dcedff;
 	display: table-cell;
 }
 
@@ -28,12 +24,22 @@ h1 {
 
 a {
   color: #dcedff;
-
+  text-decoration:none;
 }
 
 a:hover {
   color: #ff9900;
   text-decoration:none;
+}
+
+a:visited {
+  color: #dcedff;
+  text-decoration:none;
+}
+
+pblue {
+  font-family: "Open Sans", sans-serif;
+  color: rgb(36,164,199);
 }
 
 form {
@@ -48,7 +54,6 @@ label {
 }
 
 input {
-  display: table-cell;
   border: 30px #33ccff;
   border-radius: 10px;
   background-color: rgba(5,58,89,0.6);
@@ -57,6 +62,7 @@ input {
 }
 
 input[type=text] {
+  color: #dcedff;
   border: 30px #33ccff;
   border-radius: 10px;
   background-color: rgba(5,58,89,0.6);
@@ -74,6 +80,22 @@ ntext {
   font-family: "Open Sans", sans-serif;
   color: white;
 }
+
+#header {
+	background-color: rgba(36,164,199,0.2);
+	border-radius:10px;
+	padding:5px;
+	text-align:center;
+}
+
+#splash {
+	background-color: rgba(5,58,89,0.6);
+	border-radius:10px;
+	padding:10px 20px;
+	text-align:center;
+	margin: auto;
+	width: 50%;
+	}
 
 .content {
   width: 80%;

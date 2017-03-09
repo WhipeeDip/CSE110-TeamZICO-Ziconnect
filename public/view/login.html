@@ -14,6 +14,9 @@
   <meta name="google-signin-client_id" content="420682510691-4khdpqg30qdshb3hjma7bcct51n7ecdr.apps.googleusercontent.com">
   <script src="https://apis.google.com/js/api.js"></script>
 
+  <!-- stylesheet -->
+  <link rel="stylesheet" type="text/css" href="/view/stylesheet.css">
+
   <!-- angular scripts -->
   <script src="/scripts/angular/angular.js"></script>
   <script src="/scripts/angular-cookies/angular-cookies.js"></script>
@@ -25,13 +28,24 @@
   <script src="../modules.js"></script>
   <script src="../models/AccountServices.js"></script>
   <script src="../controller/AccountController.js"></script>
+   
+  <!-- Open Sans font -->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300'
+  rel='stylesheet' type='text/css'>
 
   <title>Login</title>
 </head>
 
+<div id="header">
+  <h1>Z I C O N N E C T</h1>
+</div>
+
+<br />
+
 <body ng-controller="AccountController">
-  <div>
-    <input type="image" src="../assets/google_signin_normal.png" ng-click="login()" />
+  <div id="splash">
+      <input type="image" src="../assets/google_signin_normal.png"
+                          ng-click="login()" />
   </div>
 </body>
 </html>
