@@ -8,30 +8,31 @@
 
 angular.
 module("ziconnect").
-config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-  $routeProvider.
-    
-  when('/info', {
-    templateUrl: '../partials/eventInfo.html'
-  }).
+config(['$routeProvider', '$locationProvider', function($routeProvider) {
+    $routeProvider.
 
-  when('/:event_name/info', {
-    templateUrl:'../partials/eventInfo.html',
-    controller: 'InfoController',
-    controllerAs: 'app'
-  }).
+    when('/info', {
+        templateUrl: '../partials/eventInfo.html'
+    }).
 
-  when('/profile', {
-    templateUrl: '../partials/profile.html'
-  }).
+    when('/:event_id/info', {
+        templateUrl:'../partials/eventInfo.html',
+        controller: 'InfoController',
+    }).
 
-  when('/events/create', {
-    templateUrl: '../partials/newEvent.html',
-  });
+    when('/profile', {
+        templateUrl: '../partials/profile.html'
+    }).
+
+    when('/events/create', {
+        templateUrl: '../partials/newEvent.html',
+    });
 
 }])
 
-.controller('InfoController', function($routeParams) {
-  var self = this;
-  self.message = $routeParams.event_name;
-});
+    .controller('InfoController', function($scope, $routeParams, $firebaseObject) {
+        var ref = firebase.database().ref('eventList');
+        var eventRef = ref.child($routeParams.event_id);
+        var obj = $firebaseObject(eventRef);
+        $scope.eventData = obj;
+    });

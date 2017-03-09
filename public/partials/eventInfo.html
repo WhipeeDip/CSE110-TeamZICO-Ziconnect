@@ -7,9 +7,9 @@
 <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js">
 </script>
 
-<div class="content" ng-controller="SidebarController">
-  <div><h1>{{app.message}}</h1></div>
-  <p>Description of Event</p>
+<div class="content">
+  <div><h1>{{eventData.eventName}}</h1></div>
+  <p>{{eventData.eventDescription}}</p>
 </div>
 
 <div ng-app="myApp" ng-controller="buttonCtrl">
