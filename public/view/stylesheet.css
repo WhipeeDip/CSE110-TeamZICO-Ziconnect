@@ -4,10 +4,6 @@
  * Description: TODO
  */
 
-/* Temporary content div rules. We don't actually want to hardcode values into
- * the code
- * */
-
 body {
   background-image:url("../assets/bg.jpg");
   background-color:rgba(5,58,89);
@@ -20,11 +16,6 @@ p {
 	display: table-cell;
 }
 
-pblue {
-  font-family: "Open Sans", sans-serif;
-  color: rgb(36,164,199);
-}
-
 h1 {
 	font-family: "Open Sans", sans-serif;
 	font-size:200%;
@@ -33,7 +24,7 @@ h1 {
 
 a {
   color: #dcedff;
-
+  text-decoration:none;
 }
 
 a:hover {
@@ -43,9 +34,13 @@ a:hover {
 
 a:visited {
   color: #dcedff;
-  text-decoration: none;
+  text-decoration:none;
 }
 
+pblue {
+  font-family: "Open Sans", sans-serif;
+  color: rgb(36,164,199);
+}
 
 form {
   display: table;
