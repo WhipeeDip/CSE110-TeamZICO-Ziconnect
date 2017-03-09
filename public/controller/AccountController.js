@@ -39,10 +39,16 @@ angular.module('controllers')
 
       // called by login button
       $scope.login = function() {
+        // create provider to login with
+        var provider = new firebase.auth.GoogleAuthProvider();
+        provider.addScope("https://www.googleapis.com/auth/calendar"); // google calendar rw
+
         // create sign in window, and let AccountServices do the database handling
-        $firebaseAuth().$signInWithPopup('google').then(function(googleUser) {
-          console.log('Google user attempting login:', googleUser);
-          // auth listener will take over
+        $firebaseAuth().$signInWithRedirect(provider).then(function() {
+          // never called because of redirect
+          // auth state change listener will handle everything 
+        }).catch(function(error) {
+          console.log("Authentication failed in AccountController login():", error);
         });
       };
 
