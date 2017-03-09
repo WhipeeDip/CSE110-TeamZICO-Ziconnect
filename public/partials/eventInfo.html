@@ -4,8 +4,6 @@
  Description: TODO
 -->
 
-<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js">
-</script>
 
 <div class="content">
   <div><h1>{{eventData.eventName}}</h1></div>
@@ -13,7 +11,7 @@
 </div>
 
 <div ng-app="myApp" ng-controller="buttonCtrl">
-  <button ng-click="toEditPage()" data-ng-nit="init(false)" ng-disabled="false">
+  <button id="editEvent" ng-click="toEditPage()" data-ng-nit="init(false)" ng-disabled="false">
     Edit Event</button>
 </div>
 

@@ -155,6 +155,10 @@ ntext {
   border-radius: 50%;
 }
 
+#editEvent {
+    color: black;
+}
+
 .navbar-default{
   color: #ffffff;
   margin: 10px;
