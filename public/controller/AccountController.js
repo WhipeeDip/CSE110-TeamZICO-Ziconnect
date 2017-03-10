@@ -5,8 +5,10 @@
  */
 
 angular.module('controllers')
-  .controller('AccountController', ['AccountServices', '$scope', '$cookies', '$window', '$location', '$q', '$firebaseAuth', 
-    function(AccountServices, $scope, $cookies, $window, $location, $q, $firebaseAuth) {
+  .controller('AccountController', ['AccountServices', '$rootScope', '$scope', '$cookies', '$window', '$location', '$q', '$firebaseAuth', 
+    function(AccountServices, $rootScope, $scope, $cookies, $window, $location, $q, $firebaseAuth) {
+
+      $scope.user = {};
 
       // if auth state changes, check login status
       // NOTE: this is triggered everytime it loads 
@@ -14,28 +16,31 @@ angular.module('controllers')
         console.log('$onAuthStateChanged() triggered!', firebaseUser);
         console.log('Current Path:', $location.path());
         if(firebaseUser) { // someone logged in or is already logged in
-          if($location.path() == '/login') {
-            var user = AccountServices.buildUserObjectFromFirebase(firebaseUser);
+          var user = AccountServices.buildUserObjectFromFirebase(firebaseUser);
+          $rootScope.user = user;
+          if($location.path() == '/login') {            
             AccountServices.loginWithUser(user).then(function() { // promise resolved
               //$cookies.putObject('user', user);
               $window.location.href = '/home';
             }, function(reason) { // promise rejected
               console.log('Login failed:', reason);
+              $rootScope.user = null;
             });
           }
         } else { // someone logged out or no one is already logged in
           if($location.path() != '/login') {
             //$cookies.remove('user');
-            $window.location.href = '/login';  
+            $rootScope.user = user;
+            $window.location.href =  null;  
           }
         }
       });
 
-      // grabs the current user into scope
+      /*// grabs the current user into scope
       $scope.getUserIntoScope = function() { 
         //$scope.user = $cookies.getObject('user');
         $scope.user = AccountServices.getUser();
-      };
+      };*/
 
       // called by login button
       $scope.login = function() {
