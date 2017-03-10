@@ -24,7 +24,7 @@ module.exports = function(app) {
     var form = new formidable.IncomingForm();
     form.parse(req, function(err, fields, files) {
       EventController.writeEventData(fields.eventName, fields.eventLocation,
-        fields.eventDate, fields.eventDescription, true);
+        fields.eventTime, fields.eventDate, fields.eventDescription, true);
       res.write('Your event has been created successfully:\n\n');
       res.end(util.inspect({fields: fields, files: files}));
     });
