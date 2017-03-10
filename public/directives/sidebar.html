@@ -1,0 +1,15 @@
+<!--
+ File name: sidebar.html
+ Authors: LeDaniel Leung
+ Description: template for the sidebar
+-->
+
+<div class="sidebar" ng-controller="SidebarController">
+  <ul>
+    <a href="/events/create"><li><pblue>Create New Event</pblue></li></a>
+    <!--<should be listing all event names> -->
+    <li ng-repeat ="event in list">
+      <a href="/{{event.$id}}/info">{{event.eventName}}
+        <br/>{{event.eventDate}}</a></li>
+  </ul>
+</div>

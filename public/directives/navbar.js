@@ -4,7 +4,7 @@
  * Description: TODO
  */
 
-angular.module('ziconnect')
+angular.module('controllers')
   .directive('navbar', function () {
       'use strict';
       return {

@@ -8,7 +8,7 @@
 
 <!-- assign Angular module -->
 <html ng-app='ziconnect'>
-<head>
+  <head>
     <title>Ziconnect</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,34 +28,25 @@
     <script src="../modules.js"></script>
     <script src="../config.js"></script>
     <script src="../directives/navbar.js"></script>
+    <script src="../directives/sidebar.js"></script>
     <script src="../models/AccountServices.js"></script>
     <script src="../controller/AccountController.js"></script>
     <script src="../controller/GetUserEventsController.js"></script>
 
     <!-- Open Sans font -->
 
-</head>
+  </head>
+  
+  <body>
+    <div>
+      <navbar></navbar>
+    </div>
 
-<body>
+    <div>
+      <sidebar></sidebar>
+    </div>
 
-<div>
-    <navbar></navbar>
-</div>
+    <div ng-view></div>
 
-
-<div class="sidebar" ng-controller="SidebarController">
-
-    <ul>
-        <a href="/events/create"><li><pblue>Create New Event</pblue></li></a>
-        <!--<should be listing all event names> -->
-        <li ng-repeat ="event in list"><a
-           href="/{{event.$id}}/info">{{event.eventName}}<br/>
-           {{event.eventDate}}</a></li>
-
-    </ul>
-</div>
-
-<div ng-view></div>
-
-</body>
+  </body>
 </html>
