@@ -196,6 +196,17 @@ ntext {
     width: 100%;
 }
 
+.glyphicon.glyphicon-envelope{
+  font-size: 200%;
+  padding: 12px 5px 5px;
+  margin: 0px;
+  color: white;
+}
+
+.glyphicon.glyphicon-envelope:hover{
+  color: grey;
+}
+
 .google{
     background-image: url(../assets/google-logo.jpg);
     background-color:  transparent;
