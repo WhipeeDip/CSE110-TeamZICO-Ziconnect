@@ -5,8 +5,8 @@
  */
 
 angular.module('models')
-  .factory('AccountServices', ['$cookies', '$http', '$q', '$firebaseAuth',
-    function($cookies, $http, $q, $firebaseAuth) {
+  .factory('AccountServices', ['$rootScope', '$cookies', '$http', '$q', '$firebaseAuth',
+    function($rootScope, $cookies, $http, $q, $firebaseAuth) {
       return {
 
         // creates firebase login record with a prebuilt user object
@@ -51,7 +51,7 @@ angular.module('models')
         // gets the current logged in user
         getUser: function() {
           var self = this;
-          var fbUser = $firebaseAuth.$getAuth();
+          var fbUser = $firebaseAuth().$getAuth();
           if(fbUser) { // a logged in user exists
             return self.buildUserObjectFromFirebase(fbUser);
           } else { // no one is logged in, undefined 

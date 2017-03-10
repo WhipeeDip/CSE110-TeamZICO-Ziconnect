@@ -4,7 +4,7 @@
  Description: Template used for the navbar
 -->
 
-<nav class="navbar navbar-default" ng-controller="AccountController" ng-init="getUser()">
+<nav class="navbar navbar-default" ng-controller="AccountController">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="/home"><ntext>Ziconnect</ntext></a>
@@ -20,12 +20,8 @@
       </button>
     </form>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><ntext>Home</ntext></a></li>
-      <li><a href="#"><ntext>Events</ntext></a></li>
-      <li><a href="#/profile"><img id="prof" src={{user.picture}}><ntext>
-          {{user.name}} </ntext></a></li>
-      <li><a href="#" ng-controller="AccountController"
-          ng-click="logout()"><ntext>Sign Out</ntext></a></li>
+      <li><a href="/profile"><img id="prof" src="{{$root.user.picture}}"><ntext>{{$root.user.name}}</ntext></a></li>
+      <li><a href="" ng-click="logout()"><ntext>Sign Out</ntext></a></li>
     </ul>
   </div>
 </nav>
