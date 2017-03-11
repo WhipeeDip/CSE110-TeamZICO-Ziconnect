@@ -17,7 +17,7 @@
    $scope.toEditPage = function() {
      console.log($scope.admin);
      //$scope.randomnum++;
-     window.location = './editEvent.html';
+     window.location = '../partials/editEvent.html';
    };
  }
  ]);
