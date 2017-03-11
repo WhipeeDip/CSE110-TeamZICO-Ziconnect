@@ -4,6 +4,17 @@
  Description: TODO
 -->
 
+<script src="/scripts/angular/angular.js"></script>
+<script src="/scripts/angular-cookies/angular-cookies.js"></script>
+<script src="/scripts/angular-route/angular-route.js"></script>
+<script src="/scripts/angularfire/dist/angularfire.js"></script>
+<script src="/scripts/firebase/firebase.js"></script>
+
+<script src="../modules.js"></script>
+<script src="../models/AccountServices.js"></script>
+<script src="../controller/AccountController.js"></script>
+<script src="../directives/eventInfo.js"></script>
+
 
 <div class="content">
   <div><h1>{{eventData.eventName}}</h1></div>
@@ -19,33 +30,12 @@
 
   <br/>
   <br/>
-  <div ng-app="myApp" ng-controller="buttonCtrl">
-  <button class="button" id="editEvent" ng-click="toEditPage()"
+  <div ng-app="controllers" ng-controller="buttonCtrl">
+  <button class="button" id="editEvent" onclick="toEditPage()"
                                         data-ng-nit="init(false)"
                                         ng-disabled="false">Edit Event</button>
-  
+
 </div>
 
-  
+
 </div>
-
-<!-- Script may have to be moved -->
-<script>
-var app = angular.module('myApp', []);
-app.controller('buttonCtrl', function($scope)
-{
-
-  $scope.creator = false;
-  // meant to show button if creator is view event
-  $scope.init = function(creator) {
-    $scope.creator = true;
-  };
-  // goes to edit event page
-  $scope.toEditPage = function() {
-    console.log('To edit event page');
-    $scope.randomnum++;
-    window.location = './editEvent.html';
-  };
-
-});
-</script>
