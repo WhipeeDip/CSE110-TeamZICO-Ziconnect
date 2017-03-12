@@ -19,5 +19,8 @@
      //$scope.randomnum++;
      window.location = '../partials/editEvent.html';
    };
+   $scope.toInvitePage = function() {
+     window.location = '../partials/addPeopletoEvent.html';
+   }
  }
 ]);

@@ -11,10 +11,11 @@ var prfctrl = angular.module('ziconnect');
   prfctrl.controller('profileController', ['$scope', '$firebaseArray', '$firebaseAuth',
     function($scope, $firebaseArray, $firebaseAuth) {
 
-      var uid;
+      $scope.uid;
 
-      getBasicInfo = function(uidp) {
-        uid = uidp;
+      // initialize the controller uid for later
+      $scope.getBasicInfo = function(uidp) {
+        $scope.uid = uidp;
       };
 
       $scope.getEvents = function() {
@@ -26,17 +27,11 @@ var prfctrl = angular.module('ziconnect');
       };
 
       $scope.getGroups = function() {
-        
-      }
+
+      };
 
       $scope.getFriends = function() {
 
       };
-
-      $scope.getEmail = function() {
-        $scope.getBasicInfo('j9Grhk93PaS7mCDDog5zC0Rl8572');
-        return $scope.email;
-      };
-
   }
 ]);
