@@ -1,9 +1,10 @@
 
 <div class="content" ng-controller="profileController">
-  <h1>Name</h1>
+  <h1>{{$root.user.name}}</h1>
   <br />
+  <img src={{$root.user.picture}} style="width:150px;height:150px;">
   <h2>Profile Information</h2>
-  <p>Email: {{test}}</p>
+  <p>Email: {{$root.user.email}}</p>
   <h2>Events</h2>
   <h2>Groups</h2>
   <h2>Calendar</h2>
