@@ -8,8 +8,6 @@ angular.module('controllers')
   .controller('AccountController', ['AccountServices', '$rootScope', '$scope', '$cookies', '$window', '$location', '$q', '$firebaseAuth', 
     function(AccountServices, $rootScope, $scope, $cookies, $window, $location, $q, $firebaseAuth) {
 
-      $scope.user = {};
-
       // if auth state changes, check login status
       // NOTE: this is triggered everytime it loads 
       $firebaseAuth().$onAuthStateChanged(function(firebaseUser) {

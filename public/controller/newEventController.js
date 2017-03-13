@@ -1,38 +1,42 @@
 /**
- * Created by davidxlin on 3/11/17.
+ * File name: newEventController.js
+ * Authors: Elliot Yoon, David Lin
+ * Description: Controls events.
  */
+
 angular.module('controllers')
   .controller('newEventController', ['$scope', '$firebaseArray', '$location',
     function($scope, $firebaseArray, $location) {
-        var eventRef = firebase.database().ref('eventList');
-        $scope.newEvent = {};
-        $scope.createEvent = function() {
 
-          var evTime = new Date($scope.eventTime);
-          evTimeString = evTime.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
-          console.log(evTime);
-          var newEvent = {
-              eventName: $scope.eventName,
-              eventLocation: $scope.eventLocation,
-              eventTime: evTimeString,
-              eventDate: $scope.eventDate.toDateString(),
-              eventDescription: $scope.eventDescription,
-              eventPotluck: true
-          };
+      var eventRef = firebase.database().ref('eventList');
+      $scope.newEvent = {};
 
-          console.log(newEvent);
+      $scope.createEvent = function() {
 
-          var key = newEventRef = eventRef.push(newEvent).key;
-          console.log('ID: ' + key);
-          var guestRef = firebase.database().ref('guestList');
-          guestRef.child(key).set('');
+        var evTime = new Date($scope.eventTime);
+        evTimeString = evTime.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+        console.log(evTime);
+        var newEvent = {
+          eventName: $scope.eventName,
+          eventLocation: $scope.eventLocation,
+          eventTime: evTimeString,
+          eventDate: $scope.eventDate.toDateString(),
+          eventDescription: $scope.eventDescription,
+          eventPotluck: true
+        };
 
-          var commentRef = firebase.database().ref('eventMessages');
-          commentRef.child(key).set('');
+        console.log(newEvent);
 
-          $location.path('/home');
-        }
+        var key = newEventRef = eventRef.push(newEvent).key;
+        console.log('ID: ' + key);
+        var guestRef = firebase.database().ref('guestList');
+        guestRef.child(key).set('');
 
+        var commentRef = firebase.database().ref('eventMessages');
+        commentRef.child(key).set('');
+
+        $location.path('/home');
+      };
 
       $scope.editEvent = function() {
         var thisEventRef = firebase.database().ref('eventList/' +
@@ -57,21 +61,5 @@ angular.module('controllers')
 
         $location.path('/' + $scope.eventData.$id + '/info');
       };
-
-      $scope.comment;
-
-      $scope.addComment = function(uid, comment) {
-        var thisEventRef = firebase.database().ref('eventMessages/' +
-          $scope.eventData.$id);
-        var newComment = {
-          writer: uid,
-          content: comment,
-        }
-        thisEventRef.push(newComment);
-        console.log('Added comment: ' + comment);
-
-      }
-
-
     }
   ]);

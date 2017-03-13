@@ -81,7 +81,18 @@ angular.module('models')
           };
         },
 
+        // convert uid to user name
+        uidToName: function(uid) {
+          var deferred = $q.defer();
 
+          var userRef = firebase.database().ref('userList').child(uid);
+          userRef.once('value').then(function(snapshot) {
+            var name = snapshot.name;
+            deferred.resolve(name);
+          });
+
+          return deferred.promise;
+        },
 
         /*
         // stores user's group list upon account creation

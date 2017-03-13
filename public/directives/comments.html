@@ -1,0 +1,15 @@
+<!--
+  File name: comments.html
+  Authors: Elliot Yoon
+  Description: Displays comments for the event.
+-->
+
+<div class="comments">
+  <div><h1>Comments</h1></div>
+  <a href="/events/comment"><button class="button">Post a Comment</button></a>
+  <div ng-repeat="comment in commentList">
+    <p><b>{{comment.userUid}}</b></p>
+    <p>{{comment.timeStamp}}</p>
+    <p><{{comment.message}}</p>
+  </div>
+</div>
