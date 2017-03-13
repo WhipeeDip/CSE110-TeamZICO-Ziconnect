@@ -1,6 +1,6 @@
 <!--
  File name: addPeopleToEvent.html
- Author(s): Ryan Yung, Kevan Yang
+ Author(s): Caris Wei, Justin Cai, Ryan Yung, Kevan Yang
  Description:    Invite people to event
 -->
 
@@ -9,27 +9,17 @@
 
   <div class="content" >
 
-      <h2>Select People to Invite</h2>
+      <h2>Invite People</h2>
 
-      <pblue> If they do not have an account, enter their email address. </pblue>
-
-      <pblue> If they have an account, enter their username. </pblue>
+      <pblue> Search for a person's name! </pblue>
 
       </br></br>
       
       <form ng-controller="InviteController" ng-submit="inviteFunc()" value="Send"> 
         <fieldset>
-            
-            <!--<p class="input-type">
-            <label>Email</label>
-            <input id="email-address"
-                   type="text"
-                   class="input-box"
-                   placeholder="Email Address" />
 
-            </p>-->
             <p class="input-type">
-              <label>Name </label>
+            <label>Name </label>
             <input id="user-name"
                    type="text"
                    class="input-box"
@@ -38,11 +28,11 @@
             <input type="hidden" ng-model=eventData.$id />
             </p>
             
-                  <li ng-repeat ="user in list"> {{user.name}}
-                  <button ng-click="inviteButton(user.uid, eventData.$id)">OK</button>
-                  
-                  </li>
+            <li ng-repeat ="user in users track by $index"><img id="prof" src="{{user.picture}}">{{user.name}}   &nbsp;&nbsp;  {{user.email}}
+            <button class="button" ng-click="inviteButton(user.uid, eventData.$id)">Invite</button>
+            </li>
+
             
           </fieldset>
       </form>
-    </div>
+</div>
