@@ -14,10 +14,15 @@ angular.module('modules')
         var deferred = $q.defer();
 
         var groupListsRef = firebase.database().ref().child('groupList');
-        var pushPromise = groupListsRef.push({'creator': creatorUid});
-        pushPromise.then(function() {
-          console.log('New group created:', pushPromise.key);
-          deferred.resolve();
+        var groupRef = groupListsRef.push({'creator': creatorUid});
+        groupRef.then(function() {
+          var groupUid = groupRef.key;
+          var groupsUserIsInRef = firebase.database().ref().child('groupsUserIsIn/' + creatorUid);
+          var newGroupUserRef = groupsUserIsInRef.child(groupUid);
+          newGroupUserRef.set(true).then(function() {
+            console.log('New group created:', groupRef.key);
+            deferred.resolve();
+          });
         })
 
         return deferred.promise;
@@ -30,8 +35,11 @@ angular.module('modules')
         var groupRef = firebase.database().ref().child('groupList/' + groupUid);
         var newUserRef = groupRef.child(userUid);
         newUserRef.set(true).then(function() {
-          console.log('User ', userUid, ' added to group ', groupUid);
-          deferred.resolve();
+          var groupsUserIsInRef = firebase.database().ref().child('groupsUserIsIn/' + userUid + '/' + groupUid);
+          groupsUserIsInRef.set(true).then(function() {
+            console.log('User ', userUid, ' added to group ', groupUid);
+            deferred.resolve();
+          });
         });
 
         return deferred.promise;
