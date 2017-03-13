@@ -23,4 +23,10 @@ module.exports = function(app) {
   app.get('/login', function(req, res) {
     res.sendFile(path.resolve('public/view/login.html'));
   });
+
+  // THIS SHOULD ALWAYS BE THE LAST ROUTE
+  // if all other routes fall through, 404 handling
+  app.get('*', function(req, res) {
+    res.redirect('/home');
+  })
 };  
