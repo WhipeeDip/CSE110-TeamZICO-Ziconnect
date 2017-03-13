@@ -24,29 +24,34 @@
 
       <br>
       
-      <fieldset>
-        <p class="input-type">
-        <label>Email</label>
-        <br />
-        <input id="email-address"
-               type="text"
-               class="input-box"
-               placeholder="Email Address" />
+      <form action="/events/invite" method="post" autocomplete="off" enctype="multipart/form-data">
+        <fieldset>
+            
+            <p class="input-type">
+            <label>Email</label>
+            <br />
+            <input id="email-address"
+                   type="text"
+                   class="input-box"
+                   placeholder="Email Address" />
 
-        </p>
-        <p class="input-type">
-          <label>Username </label>
-          <br />
-        <input id="user-name"
-               type="text"
-               class="input-box"
-               placeholder="Username" />
+            </p>
+            <p class="input-type">
+              <label>Username </label>
+              <br />
+            <input id="user-name"
+                   type="text"
+                   class="input-box"
+                   placeholder="Username" />
 
-      </p>
+            </p>
 
-      <button class="send"
-              onclick="./home.html">
-              Send Invite
-      </button>
+            <button class="send"
+                  onclick="./home.html">
+                  Send Invite
+            </button>
+            
+          </fieldset>
+      </form>
 
     </div>
