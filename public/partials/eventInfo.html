@@ -9,43 +9,32 @@
   <h2><pblue>When: </pblue> {{eventData.eventTime}} <pblue> on </pblue>
     {{eventData.eventDate}}
     <br/>
-  <pblue>Where: </pblue> {{eventData.eventLocation}}
-  <br/><br/>
-  <pblue>Description:</pblue>
-  <br/>
-  {{eventData.eventDescription}}
+    <pblue>Where: </pblue> {{eventData.eventLocation}}
+    <br/><br/>
+    <pblue>Description:</pblue>
+    <br/>
+    {{eventData.eventDescription}}
   </h2>
 
-    
-<div  ng-controller="guestSidebarController" ng-init="loadGuests(eventData.$id)">
-  <ul>
-
-    <!--<should be listing all invited users> -->
-    <li ng-repeat ="user in list">{{user}} </li>
-  </ul>
-</div>
-    
-    
+  <div ng-controller="guestSidebarController" ng-init="loadGuests(eventData.$id)">
+    <ul>
+      <!--<should be listing all invited users> -->
+      <li ng-repeat ="user in list">{{user}}</li>
+    </ul>
+  </div>
     
   <br/>
   <br/>
 
-  <a href="/{{eventData.$id}}/edit"><button class="button" >Edit
-      Event</button></a>
+  <!-- <rides></rides> -->
+
+  <br/>
+  <br/>
+
+  <a href="/{{eventData.$id}}/edit"><button class="button">Edit Event</button></a>
   <a href="/{{eventData.$id}}/addPeopleToEvent"><button class="button">Invite People</button></a>
 
   <br/>
   <br/>
   <comments></comments>
 </div>
-
-  <!--
-  <div ng-app="controllers" ng-controller="buttonCtrl">
-  <button class="button" id="editEvent" onclick="toEditPage()"
-                                        data-ng-nit="init(false)"
-                                        ng-disabled="false">Edit Event</button>
-  <button class="button" id="addPeople" onclick="toInvitePage()"
-  ng-disabled="false">Invite People</button>
-
-  <button class="button" id="comment">Comment</button>
--->
