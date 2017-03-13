@@ -17,7 +17,7 @@
 
       </br></br>
       
-      <form ng-controller="InviteController" ng-submit="inviteFunc()" value="Send">
+      <form ng-controller="InviteController" ng-submit="inviteFunc()" value="Send"> 
         <fieldset>
             
             <!--<p class="input-type">
@@ -35,11 +35,13 @@
                    class="input-box"
                    placeholder="John Doe" 
                    ng-model="input"/>
+            <input type="hidden" ng-model=eventData.$id />
             </p>
             
-                  <li ng-repeat ="user in list">{{user.name}}     {{user.email}}
-                  <button type="button" class="btn btn-default">Invite</button>
-      </li>
+                  <li ng-repeat ="user in list"> {{user.name}}
+                  <button ng-click="inviteButton(user.uid, eventData.$id)">OK</button>
+                  
+                  </li>
             
           </fieldset>
       </form>
