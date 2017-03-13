@@ -37,7 +37,8 @@
                    ng-model="input"/>
             </p>
             
-                  <li ng-repeat ="user in list">{{user.name}}
+                  <li ng-repeat ="user in list">{{user.name}}     {{user.email}}
+                  <button type="button" class="btn btn-default">Invite</button>
       </li>
             
           </fieldset>
