@@ -11,6 +11,10 @@ module("ziconnect").
 config(['$routeProvider', '$locationProvider', function($routeProvider) {
     $routeProvider.
 
+    when('/home', {
+        templateUrl: '../partials/home.html'
+    }).
+
     when('/info', {
         templateUrl: '../partials/eventInfo.html'
     }).
