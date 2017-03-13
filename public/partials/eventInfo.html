@@ -1,6 +1,6 @@
 <!--
  File name: eventInfo.html
- Authors: TODO
+ Authors: Caris Wei
  Description: TODO
 -->
 
@@ -19,9 +19,9 @@
     
 <div  ng-controller="guestSidebarController" ng-init="loadGuests(eventData.$id)">
   <ul>
-
+    
     <!--<should be listing all invited users> -->
-    <li ng-repeat ="user in list">{{user}} </li>
+    <li ng-repeat ="user in result">{{user.name}} </li>
   </ul>
 </div>
     
