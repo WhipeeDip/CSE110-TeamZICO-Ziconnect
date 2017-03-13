@@ -8,9 +8,16 @@
   <ul>
     <a href="/events/create"><li><pblue>Create New Event</pblue></li></a>
     <!--<should be listing all event names> -->
+    <!--
     <li ng-repeat ="event in (filteredItems = (list | orderBy: 'eventDate'
         | limitTo: 10))"><a
            href="/{{event.$id}}/info">{{event.eventName}}<br/>
         {{event.eventDate}}</a></li>
+    -->
+    <div ng-repeat ="event in (filteredItems = (list | orderBy: 'eventDate'))"><a
+           href="/{{event.$id}}/info"><li>{{event.eventName}}<br/>
+             {{event.eventDate}}</li></a>
+    </div>
+
   </ul>
 </div>

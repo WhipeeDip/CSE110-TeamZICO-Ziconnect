@@ -38,13 +38,13 @@ angular.module('controllers')
         // creating a branch in database for the event's messages
         var commentRef = firebase.database().ref('eventMessages');
         commentRef.child(key).set('');
-
+        
         // pushing the events into the list of events a user is in
         var uEventsRef = firebase.database().ref('eventsUserIsIn');
         uEventsRef.child(uid).child(key).set('');
         
-        
-        $location.path('/home');
+        // user is sent to the home page with the info of the newly created event displayed
+        $location.path('/' + key + '/info');
       };
 
       $scope.editEvent = function() {
