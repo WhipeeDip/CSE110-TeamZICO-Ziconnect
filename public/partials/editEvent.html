@@ -50,6 +50,9 @@
         <input type="hidden" id="eventKey" name="eventKey"
                                            ng-model=eventData.$id />
         
+         <a href="/{{eventData.$id}}/info"><button class="button" > Cancel
+           </button></a>
+         &nbsp;
          <input class="button" type="submit" value="Edit Event"
          ng-click="editEvent()">
         

@@ -9,7 +9,7 @@
 
   <div class="content" >
 
-      <h2>Invite People</h2>
+      <h1>{{eventData.eventName}} > Invite People</h1>
 
       <pblue> Search for a person's name! </pblue>
 
@@ -26,10 +26,18 @@
                    placeholder="John Doe" 
                    ng-model="input"/>
             <input type="hidden" ng-model=eventData.$id />
+            <br/><br />
+            <a href="/{{eventData.$id}}/info"><button class="button" > Cancel
+           </button></a>
+           &nbsp;
+           <input class="button" type="submit" value="Search"/
             </p>
             
-            <li ng-repeat ="user in users track by $index"><img id="prof" src="{{user.picture}}">{{user.name}}   &nbsp;&nbsp;  {{user.email}}
-            <button class="button" ng-click="inviteButton(user.uid, eventData.$id)">Invite</button>
+            <li ng-repeat ="user in users track by $index">
+              <img id="prof" src="{{user.picture}}">
+              {{user.name}}   &nbsp;&nbsp;  {{user.email}}
+              <button class="button" ng-click="inviteButton(user.uid,
+              eventData.$id)">Invite</button>
             </li>
 
             
