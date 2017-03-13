@@ -20,6 +20,7 @@ angular.module('controllers')
           eventName: $scope.eventName,
           eventLocation: $scope.eventLocation,
           eventTime: evTimeString,
+          eventSortDate: $scope.eventDate.getTime(),
           eventDate: $scope.eventDate.toDateString(),
           eventDescription: $scope.eventDescription,
           eventPotluck: true
