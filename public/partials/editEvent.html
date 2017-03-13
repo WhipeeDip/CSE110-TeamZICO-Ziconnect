@@ -1,76 +1,9 @@
 <!--
  File name: login.html
- Authors: Kevan Yang, Ryan Yung
+ Authors: Kevan Yang, Ryan Yung, Christian Cheng
  Description: edit event page, will link to database
 -->
 <!DOCTYPE html>
-<!--
-<html ng-app="editevent">
-<head>
-  <title> Edit Event</title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="/view/stylesheet.css">
-</head>
-<body>
-  <h1>Edit Your Event</h1>
-  <form action="/action_page.php">
-    Event Name: <input type="text" name="EventName" value=""><br>
-    Event Location: <input type="text" name="LastName" value=""><br>
-    Event Date: <input type = "text" name = "Date" value = ""><br>
-    Description: <input type = "text" name = "Descritipn" value = ""><br>
-    <input type="submit" value="Submit">
-</form>
-</body>
-</html>
--->
-
-<!--
-<div class="content">
-  <h1>Edit Event</h1>
-  <br />
-  <form action="/events/edit" method="post" autcomplete="off"
-    enctype="multipart/form-data">
-     <fieldset>
-
-        <label for="eventName">Event Name:&nbsp;</label>
-        <input type="text" id="eventName" name="eventName"
-        autocomplete="off" value={{eventData.eventName}} required/>
-        <br /><br />
-        <label for="eventLocation">Event Location:&nbsp;</label>
-        <input type="text" id="eventLocation" name="eventLocation"
-                                              autocomplete="off"
-                                              value={{eventData.eventLocation}}
-                                              required/>
-        <br /><br />
-        <label for="eventTime">Event Time:&nbsp;</label>
-        <input type="time" id="eventTime" name="eventTime"
-                                          value={{eventData.eventTime}}
-                                          required/>
-        <br/><br/>
-        <label for="eventDate">Event Date:&nbsp;</label>
-        <input type="date" id="eventDate" name="eventDate"
-                                          value={{eventData.eventDate}}
-                                          required/>
-        <br /></br />
-        <label for="eventDescription">Description:</label>
-        <textarea id="eventDescription" name="eventDescription"
-        required>{{eventData.eventDescription}}</textarea>
-        <br /><br />
-
-        <input type="file" id="eventImage">
-
-        <!-- Hidden event key field -->
-        <input type="hidden" id="eventKey" name="eventKey"
-                                           value={{eventData.$id}}/>
-        <br />
-        <input class="button" type="submit" value="Edit Event" />
-        
-
-     </fieldset>
-  </form>
-</div>
--->
-
 
 <div class="content">
   <h1>Edit Event</h1>
@@ -112,7 +45,6 @@
 
         <input type="file" id="eventImage">
         <br />
-        <!--<input class="button" type="submit" value="Create Event" ng-click="createEvent(event)"/>-->
 
         <!-- Hidden event key field -->
         <input type="hidden" id="eventKey" name="eventKey"
