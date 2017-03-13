@@ -1,5 +1,5 @@
 /**
- * File name: groupListController.js
+ * File name: profiletController.js
  * Authors: Kevan Yang
  * Description: Handles groups
  */
@@ -7,13 +7,15 @@
 //var firebase = require("firebase");
 //var database = firebase.database;
 
-var prfctrl = angular.module('controllers');
-  prfctrl.controller('profileController', ['$scope', '$key', '$firebaseArray',
-    function($scope, $key, $firebaseArray) {
+var prfctrl = angular.module('ziconnect');
+  prfctrl.controller('profileController', ['$scope', '$firebaseArray', '$firebaseAuth',
+    function($scope, $firebaseArray, $firebaseAuth) {
 
-      $scope.getBasicInfo = function() {
-        return "info";
+      $scope.uid;
 
+      // initialize the controller uid for later
+      $scope.getBasicInfo = function(uidp) {
+        $scope.uid = uidp;
       };
 
       $scope.getEvents = function() {
@@ -24,13 +26,12 @@ var prfctrl = angular.module('controllers');
 
       };
 
-      $scope.getFriends = function() {
+      $scope.getGroups = function() {
 
       };
 
-      $scope.Events = function() {
+      $scope.getFriends = function() {
 
-      }
-
+      };
   }
 ]);

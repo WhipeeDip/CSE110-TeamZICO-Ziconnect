@@ -24,6 +24,22 @@ config(['$routeProvider', '$locationProvider', function($routeProvider) {
         templateUrl: '../partials/profile.html'
     }).
 
+    when('/events/addPeopleToEvent', {
+        templateUrl: '../partials/addPeopleToEvent.html'
+    }).
+
+    when('/events/editEvent', {
+        templateUrl: '../partials/editEvent.html'
+    }).
+
+    when('/events/comment', {
+        templateUrl: '../partials/commentOnEvent.html'
+    }).
+
+    when('/notifications', {
+        templateUrl: '../partials/viewNotifications.html'
+    }).
+
     when('/events/create', {
         templateUrl: '../partials/newEvent.html',
     });

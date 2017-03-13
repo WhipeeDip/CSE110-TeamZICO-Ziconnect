@@ -3,8 +3,8 @@
  * Authors: Kevan Yang
  * Description: Edit Event Button
  */
- angular.module('controllers')
- .controller('buttonCtrl', ['$window', function($scope)
+ var btnctrl = angular.module('controllers');
+ btnctrl.controller('buttonCtrl', ['$window', function($scope)
  {
 
    $scope.admin = true;
@@ -19,5 +19,8 @@
      //$scope.randomnum++;
      window.location = '../partials/editEvent.html';
    };
+   $scope.toInvitePage = function() {
+     window.location = '../partials/addPeopletoEvent.html';
+   }
  }
- ]);
+]);

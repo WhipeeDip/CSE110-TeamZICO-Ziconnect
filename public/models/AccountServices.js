@@ -15,13 +15,15 @@ angular.module('models')
           var deferred = $q.defer(); // we want to wait for login to finish
 
           var self = this;
+          self.doesUserExist(user.uid);
+          console.log('doesUserExist completed');
           var userRef = firebase.database().ref('userList').child(user.uid);
-            
-              
+
+
           //self.createGroupList(user.uid);
           //self.createUsersEventList(user.uid);
-          self.doesUserExist(user.uid);    
-            
+          //self.doesUserExist(user.uid);
+
           userRef.set(user).then(function() { // always set to update data if needed
             console.log('User login in to Firebase successful!');
             deferred.resolve(); // resolve promise
@@ -54,7 +56,7 @@ angular.module('models')
           var fbUser = $firebaseAuth().$getAuth();
           if(fbUser) { // a logged in user exists
             return self.buildUserObjectFromFirebase(fbUser);
-          } else { // no one is logged in, undefined 
+          } else { // no one is logged in, undefined
             return fbUser;
           }
         },
@@ -69,7 +71,7 @@ angular.module('models')
           };
         },
 
-        // call this when you get a firebase user object 
+        // call this when you get a firebase user object
         buildUserObjectFromFirebase: function(firebaseUser) {
           return {
             uid: firebaseUser.uid,
@@ -79,9 +81,9 @@ angular.module('models')
           };
         },
 
-          
-          
-        /*  
+
+
+        /*
         // stores user's group list upon account creation
         createGroupList: function(uid) {
 
@@ -97,27 +99,35 @@ angular.module('models')
           firebase.database().ref('eventsUserIsIn').child(uid).set('');
           console.log("User's Event list created")
         },*/
-          
+
         //checks if user of uid exists, if they do not, calls createUsersEventList and
         //createGroupList to add them to those lists
         doesUserExist: function (uid){
+          console.log("doesUserExist() called");
           var ref = firebase.database().ref('userList');
+          var exists;
           //check data at uid, if null, that user doesnt exist
-          ref.child(uid).once('value', function(snapshot){
-            var noExist = (snapshot.val() == null);
-            if(noExist){   
+          ref.once('value', function(snapshot) {
+            exists = snapshot.hasChild(uid);
+          });
+            console.log(exists);
+            if(!exists){
               //if doesnt exist, add them to other trees
               console.log('user does not exist, adding to groups and events');
               //var self=this;
               //self.createGroupList(uid);
               //self.createUsersEventList(uid);
               firebase.database().ref('eventsUserIsIn').child(uid).set('');
+              /*
+              .then(function() {
+                console.log('Created accounts list of events');
+              });*/
               firebase.database().ref('groupsUserIsIn').child(uid).set('');
             }
-          });    
-        }  
-            
-        
+          console.log('finished doesUserExist()');
+        }
+
+
       }
     }
   ]);
