@@ -11,7 +11,7 @@
    // meant to show button if creator is view event
    $scope.init = function(creator) {
      //$scope.creator = true;
-     $scope.adimin = creator;
+     $scope.admin = creator;
    };
    // goes to edit event page
    $scope.toEditPage = function() {

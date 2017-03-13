@@ -19,18 +19,18 @@ var EventController = require('../public/controller/EventController.js');
 module.exports = function(app) {
   // Create Event POST route, Author: CC
   // TODO: update potluck field
-  app.post('/events/create', function(req, res) {
-    res.sendFile(path.resolve('public/view/createEvent.html'));
-    var form = new formidable.IncomingForm();
-    form.parse(req, function(err, fields, files) {
-      EventController.writeEventData(fields.eventName, fields.eventLocation,
-        fields.eventTime, fields.eventDate, fields.eventDescription, true);
-      res.write('Your event has been created successfully:\n\n');
-      res.end(util.inspect({fields: fields, files: files}));
-    });
-
-    console.log("New event added.");
-  });
+  // app.post('/events/create', function(req, res) {
+  //   res.sendFile(path.resolve('public/view/createEvent.html'));
+  //   var form = new formidable.IncomingForm();
+  //   form.parse(req, function(err, fields, files) {
+  //     EventController.writeEventData(fields.eventName, fields.eventLocation,
+  //       fields.eventTime, fields.eventDate, fields.eventDescription, true);
+  //     res.write('Your event has been created successfully:\n\n');
+  //     res.end(util.inspect({fields: fields, files: files}));
+  //   });
+  //
+  //   console.log("New event added.");
+  // });
 
   app.post('/events/edit', function(req, res) {
     res.sendFile(path.resolve('public/view/createEvent.html'));
