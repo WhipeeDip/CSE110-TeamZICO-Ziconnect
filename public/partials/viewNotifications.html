@@ -4,10 +4,17 @@
  Description:    view for notifications
 -->
 
-<div class="content">
+<div class="content" ng-controller="NotificationController"
+ng-init="getNotifications()">
     <h1> Notifications </h1>
       <body>
       <!-- get notifications from server -->
-      <pblue> TESTER TEMPORARY TEXT NEED TO LOAD STUFF FROM DATABASE </pblue>
+      {{getNotications($root.user.uid)}}
+      <pblue> Event Invitations </pblue>
+      <pblue> {{message}}</blue>
+      <div ng-repeat="note in notes">
+        <li> Invitation to {{note}}
+        </li>
+      </div>
   </body>
 </div>

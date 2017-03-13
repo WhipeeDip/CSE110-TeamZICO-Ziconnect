@@ -15,7 +15,9 @@ angular.module('controllers')
       $scope.postComment = function() {
         var date = new Date();
         var dateStr = date.toLocaleString();
-        CommentServices.addComment(eventUid, $rootScope.user.uid, $scope.commentText, dateStr);
+        CommentServices.addComment(eventUid, $rootScope.user.picture, $rootScope.user.email, $scope.commentText, dateStr).then(function() {
+          $scope.commentText = "";
+        });
       };
     }
   ]);

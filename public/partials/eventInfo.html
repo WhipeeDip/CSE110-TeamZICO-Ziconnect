@@ -1,8 +1,17 @@
 <!--
  File name: eventInfo.html
- Authors: Caris Wei
+ Authors: Caris Wei, Custin Jai
  Description: TODO
 -->
+<div class="sidebar2" ng-controller="guestSidebarController" ng-init="loadGuests(eventData.$id)">
+  <ul>
+    <li class="userSideBarTitle">Invited Guests</li>
+    <!--<should be listing all invited users> -->
+    <li ng-repeat ="user in result">
+        <img id="prof" src="{{user.picture}}">&nbsp;&nbsp; {{user.name}} </li>
+  </ul>
+</div>
+    
 
 <div class="content">
   <div><h1>{{eventData.eventName}}</h1></div>
@@ -15,23 +24,13 @@
   <br/>
   {{eventData.eventDescription}}
   </h2>
-
-    
-<div  ng-controller="guestSidebarController" ng-init="loadGuests(eventData.$id)">
-  <ul>
-    
-    <!--<should be listing all invited users> -->
-    <li ng-repeat ="user in result">{{user.name}} </li>
-  </ul>
-</div>
-    
-    
     
   <br/>
   <br/>
 
   <a href="/{{eventData.$id}}/edit"><button class="button" >Edit
       Event</button></a>
+  &nbsp;
   <a href="/{{eventData.$id}}/addPeopleToEvent"><button class="button">Invite People</button></a>
 
   <br/>
