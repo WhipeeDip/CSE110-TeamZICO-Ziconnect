@@ -26,6 +26,33 @@ angular.module('controllers')
           eventRef.push(newEvent);
 
           $location.path('/home');
+        }
+
+      
+      $scope.editEvent = function() {
+        var thisEventRef = firebase.database().ref('eventList/' +
+          $scope.eventData.$id);
+
+        var evTime = new Date($scope.eventData.eventTime);
+        evTimeString = evTime.toLocaleTimeString([], {hour: '2-digit', minute:
+          '2-digit'});
+        console.log(evTime);
+        var newEvent = {
+            eventName: $scope.eventData.eventName,
+            eventLocation: $scope.eventData.eventLocation,
+            eventTime: evTimeString,
+            eventDate: $scope.eventData.eventDate.toDateString(),
+            eventDescription: $scope.eventData.eventDescription,
+            eventPotluck: true
+        };
+        console.log(newEvent);
+
+        //eventRef.push(newEvent);
+        thisEventRef.update(newEvent);
+
+        $location.path('/home');
       }
+      
+
     }
   ]);
