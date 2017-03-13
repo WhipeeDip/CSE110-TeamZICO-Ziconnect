@@ -4,24 +4,26 @@
  Description:    Invite people to event
 -->
 
-<html ng-app="addPeopleToEvent.html">
-  <head>
-  <title>Ziconnect</title>
-  <meta charset=" utf-8">
-  <link rel="stylesheet" href="/view/stylesheet.css">
 
   <!-- Load scripts here -->
 
-  </head>
+  <div class="content">
 
-  <body>
-    <form class="input">
+    <form action="/events/addPeopleToEvent" method="post" autcomplete="off"
+      enctype="multipart/form-data">
+
+<!--
+    <form action= "/events/addPeopleToEvent">
+
+    -->
       <h2>Select People to Invite</h2>
 
-      <p> If they do not have an account, enter their email address. 
-          If they have an account, enter their username.
-      </p>
+      <pblue> If they do not have an account, enter their email address. </pblue>
 
+      <pblue> If they have an account, enter their username. </pblue>
+
+      <br>
+      
       <fieldset>
         <p class="input-type">
         <label>Email</label>
@@ -46,3 +48,5 @@
               onclick="./home.html">
               Send Invite
       </button>
+
+    </div>
