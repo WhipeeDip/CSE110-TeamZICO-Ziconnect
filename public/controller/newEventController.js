@@ -8,24 +8,50 @@ angular.module('controllers')
         $scope.newEvent = {};
         $scope.createEvent = function() {
 
-          var evTime = new Date($scope.event.eventTime);
+          var evTime = new Date($scope.eventTime);
           evTimeString = evTime.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
           console.log(evTime);
           var newEvent = {
-              eventName: $scope.event.eventName,
-              eventLocation: $scope.event.eventLocation,
+              eventName: $scope.eventName,
+              eventLocation: $scope.eventLocation,
               eventTime: evTimeString,
-              eventDate: $scope.event.eventDate.toDateString(),
-              eventDescription: $scope.event.eventDescription,
+              eventDate: $scope.eventDate.toDateString(),
+              eventDescription: $scope.eventDescription,
               eventPotluck: true
           };
-          // $scope.event.eventTime = $scope.event.eventTime.toLocaleTimeString();
-          // $scope.event.eventDate = $scope.event.eventDate.toDateString();
+
           console.log(newEvent);
 
           eventRef.push(newEvent);
 
           $location.path('/home');
+        }
+
+      
+      $scope.editEvent = function() {
+        var thisEventRef = firebase.database().ref('eventList/' +
+          $scope.eventData.$id);
+
+        var evTime = new Date($scope.eventData.eventTime);
+        evTimeString = evTime.toLocaleTimeString([], {hour: '2-digit', minute:
+          '2-digit'});
+        console.log(evTime);
+        var newEvent = {
+            eventName: $scope.eventData.eventName,
+            eventLocation: $scope.eventData.eventLocation,
+            eventTime: evTimeString,
+            eventDate: $scope.eventData.eventDate.toDateString(),
+            eventDescription: $scope.eventData.eventDescription,
+            eventPotluck: true
+        };
+        console.log(newEvent);
+
+        //eventRef.push(newEvent);
+        thisEventRef.update(newEvent);
+
+        $location.path('/' + $scope.eventData.$id + '/info');
       }
+      
+
     }
   ]);
