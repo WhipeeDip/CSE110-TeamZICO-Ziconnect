@@ -176,7 +176,7 @@ contentcenter {
   padding: 5px;
   position: inline-block;
   z-index: 1;
-  background-color: rgba(5,58,89,0.6);
+  background-color: rgba(0,0,0,0.6);
   border-radius:10px;
   'overflow-y: scroll;'
   color: #ffffff;
@@ -194,11 +194,18 @@ contentcenter {
 }
 
 .sidebar2 li {
-  padding: 20px 0 20px 0;
+  padding: 5px 0 5px 0;
   display: block;
-  text-align: center;
+  text-align: left;
   color: #dcedff;
 }
+
+.userSideBarTitle {
+  display: block;
+  text-align:center;
+  color: #dcedff;
+  font-size:20px;
+} 
 
 
 
