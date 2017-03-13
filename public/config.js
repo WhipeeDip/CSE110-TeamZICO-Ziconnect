@@ -54,6 +54,10 @@ config(['$routeProvider', '$locationProvider', function($routeProvider) {
     when('/notifications', {
         templateUrl: '../partials/viewNotifications.html'
     }).
+    
+    when('/searchEvent', {
+        templateUrl: '../partials/searchEvent.html'
+    }).
 
     when('/events/create', {
         templateUrl: '../partials/newEvent.html',
