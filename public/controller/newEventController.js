@@ -27,6 +27,9 @@ angular.module('controllers')
           var guestRef = firebase.database().ref('guestList');
           guestRef.child(key).set('');
 
+          var commentRef = firebase.database().ref('eventMessages');
+          commentRef.child(key).set('');
+
           $location.path('/home');
         }
 
@@ -53,6 +56,20 @@ angular.module('controllers')
         thisEventRef.update(newEvent);
 
         $location.path('/' + $scope.eventData.$id + '/info');
+      };
+
+      $scope.comment;
+
+      $scope.addComment = function(uid, comment) {
+        var thisEventRef = firebase.database().ref('eventMessages/' +
+          $scope.eventData.$id);
+        var newComment = {
+          writer: uid,
+          content: comment,
+        }
+        thisEventRef.push(newComment);
+        console.log('Added comment: ' + comment);
+
       }
 
 
