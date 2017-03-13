@@ -16,6 +16,17 @@
   {{eventData.eventDescription}}
   </h2>
 
+    
+<div  ng-controller="guestSidebarController" ng-init="loadGuests(eventData.$id)">
+  <ul>
+
+    <!--<should be listing all invited users> -->
+    <li ng-repeat ="user in list">{{user}} </li>
+  </ul>
+</div>
+    
+    
+    
   <br/>
   <br/>
 
