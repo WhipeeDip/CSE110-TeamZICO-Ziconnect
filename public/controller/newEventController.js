@@ -1,6 +1,6 @@
 /**
  * File name: newEventController.js
- * Authors: Elliot Yoon, David Lin
+ * Authors: Elliot Yoon, David Lin, Caris Wei
  * Description: Controls events.
  */
 
@@ -71,5 +71,25 @@ angular.module('controllers')
 
         $location.path('/' + $scope.eventData.$id + '/info');
       };
+        
+      //searches for events from the search bar
+      $scope.searchEvent = function() {
+        var eventRef = firebase.database().ref('eventList');
+        $scope.events = $firebaseArray(eventRef); 
+          console.log("hi");
+        
+        var found = [];
+        $scope.found = found;
+        
+        $scope.events.$loaded().then(function(data) {
+          angular.forEach(data, function(value, key) {
+            if(value.eventName.toLowerCase().includes(($scope.input).toLowerCase())) {
+              $scope.found.push(value);
+            }
+
+          })
+        })
+        
+      }
     }
   ]);
