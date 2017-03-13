@@ -10,12 +10,13 @@ angular.module('models')
       return {
 
         // adds a comment to an event 
-        addComment: function(eventUid, userUid, message, timeStamp) {
+        addComment: function(eventUid, userPicture, userEmail, message, timeStamp) {
           var deferred = $q.defer();
 
           var eventCommentsRef = firebase.database().ref().child('eventComments/' + eventUid);
           eventCommentsRef.push({
-            'userUid': userUid,
+            'userPicture': userPicture,
+            'userEmail': userEmail,
             'timeStamp': timeStamp,
             'message': message
           }).then(function() {
