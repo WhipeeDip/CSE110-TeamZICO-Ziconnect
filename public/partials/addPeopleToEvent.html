@@ -7,7 +7,7 @@
 
   <!-- Load scripts here -->
 
-  <div class="content"  ng-controller="InviteController">
+  <div class="content" >
 
       <h2>Select People to Invite</h2>
 
@@ -15,31 +15,31 @@
 
       <pblue> If they have an account, enter their username. </pblue>
 
-      <br>
+      </br></br>
+      
+      <form ng-controller="InviteController" ng-submit="inviteFunc()" value="Send">
+        <fieldset>
+            
+            <!--<p class="input-type">
+            <label>Email</label>
+            <input id="email-address"
+                   type="text"
+                   class="input-box"
+                   placeholder="Email Address" />
 
-      <fieldset>
-        <p class="input-type">
-        <label>Email</label>
-        <br />
-        <input id="email-address"
-               type="text"
-               class="input-box"
-               placeholder="Email Address" />
-
-        </p>
-        <p class="input-type">
-          <label>Username </label>
-          <br />
-        <input id="user-name"
-               type="text"
-               class="input-box"
-               placeholder="Username" />
-
-      </p>
-
-      <button class="send"
-              onclick="./home.html">
-              Send Invite
-      </button>
-
+            </p>-->
+            <p class="input-type">
+              <label>Name </label>
+            <input id="user-name"
+                   type="text"
+                   class="input-box"
+                   placeholder="John Doe" 
+                   ng-model="input"/>
+            </p>
+            
+                  <li ng-repeat ="user in list">{{user.name}}
+      </li>
+            
+          </fieldset>
+      </form>
     </div>
