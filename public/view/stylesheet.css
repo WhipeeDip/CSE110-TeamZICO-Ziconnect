@@ -54,6 +54,11 @@ pblue {
   color: rgb(36,164,199);
 }
 
+pblue:hover{
+  color: #ff9900;
+}
+  
+
 form {
   display: table;
 }
