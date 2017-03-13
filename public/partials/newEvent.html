@@ -7,34 +7,36 @@
 <div class="content">
   <h1>Create New Event</h1>
   <br />
-  <form action="/events/create" method="post" autcomplete="off"
-    enctype="multipart/form-data">
+  <!--<form action="/events/create" method="post" autcomplete="off"-->
+    <form ng-controller="newEventController">
+    <!--enctype="multipart/form-data">-->
      <fieldset>
 
        
         <label for="eventName">Event Name:&nbsp;</label>
-        <input type="text" id="eventName" name="eventName"
+        <input type="text" id="eventName" name="eventName" ng-model="event.eventName"
         autocomplete="off" required/>
         <br /><br />
         <label for="eventLocation">Event Location:&nbsp;</label>
-        <input type="text" id="eventLocation" name="eventLocation"
+        <input type="text" id="eventLocation" name="eventLocation" ng-model="event.eventLocation"
         autocomplete="off" required/>
         <br /><br />
         <label for="eventTime">Event Time:&nbsp;</label>
-        <input type="time" id="eventTime" name="eventTime" required/>
+        <input type="time" id="eventTime" name="eventTime" ng-model="event.eventTime" required/>
         <br/><br/>
         <label for="eventDate">Event Date:&nbsp;</label>
-        <input type="date" id="eventDate" name="eventDate"
+        <input type="date" id="eventDate" name="eventDate" ng-model="event.eventDate"
         required/>
         <br /></br />
         <label for="eventDescription">Description:</label>
-        <textarea id="eventDescription" name="eventDescription"
+        <textarea id="eventDescription" name="eventDescription" ng-model="event.eventDescription"
         required></textarea>
         <br /><br />
 
         <input type="file" id="eventImage">
         <br />
-        <input class="button" type="submit" value="Create Event" />
+        <!--<input class="button" type="submit" value="Create Event" ng-click="createEvent(event)"/>-->
+         <input class="button" type="submit" value="Create Event" ng-click="createEvent()">
         
 
      </fieldset>

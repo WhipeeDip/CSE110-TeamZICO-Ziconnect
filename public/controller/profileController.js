@@ -7,7 +7,7 @@
 //var firebase = require("firebase");
 //var database = firebase.database;
 
-var prfctrl = angular.module('controllers', []);
+var prfctrl = angular.module('controllers');
   prfctrl.controller('profileController', ['$scope', '$key', '$firebaseArray',
     function($scope, $key, $firebaseArray) {
 
