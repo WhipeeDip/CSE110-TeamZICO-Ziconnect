@@ -44,6 +44,11 @@ a:visited {
   text-decoration:none;
 }
 
+img.center {
+  display: block;
+  margin: 0 auto;
+}
+
 pblue {
   font-family: "Open Sans", sans-serif;
   color: rgb(36,164,199);
@@ -115,7 +120,12 @@ ntext {
 	margin-top: 15px;
 	margin-left: 225px;
 	margin-right: 50px;
-	
+	'overflow-y: scroll;'
+	height: 1000px; 
+}
+
+contentcenter {
+  text-align:center;
 }
 
 .sidebar {
@@ -225,6 +235,7 @@ ntext {
   color: #ffffff;
   line-height: 50px;
 }
+
 .navbar-form {
   color: #ffffff;
   line-height: 60px;
