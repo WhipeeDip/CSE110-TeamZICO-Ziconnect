@@ -11,6 +11,6 @@
     <li ng-repeat ="event in (filteredItems = (list | orderBy: 'eventDate'
         | limitTo: 10))"><a
            href="/{{event.$id}}/info">{{event.eventName}}<br/>
-           {{event.eventDate}}</a></li
+        {{event.eventDate}}</a></li>
   </ul>
 </div>

@@ -12,19 +12,26 @@ angular.module('controllers')
       $scope.input = null;
         
       $scope.inviteFunc = function(){
-          
-        var list = $firebaseArray(           userRef);
+        var list = $firebaseArray(userRef);
         $scope.list = list;
-        console.log($scope.input);
+        
+        var users = [];
+        $scope.users = users;
           
-        var res = [];
-        for (var i = 0; i < list.length; i++) {
-            if (list[i].name.toLowerCase().search(($scope.input).toLowerCase) != -1) {
-                res.push(list[i]);
+        $scope.list.$loaded().then(function(data) {
+          angular.forEach(data, function(value, key) {
+            if(value.name.toLowerCase().includes(($scope.input).toLowerCase())) {
+              $scope.users.push(value);
             }
-        }
-          console.log("res");
-          console.log(res);
+
+          })
+        })
       }
-    }
+    
+    $scope.inviteButton=function(uid, eid){
+        //check if they are already invited
+        firebase.database().ref('eventGuests').child(eid).child(uid).set(0);
+        firebase.database().ref('eventsUserIsIn').child(uid).child(eid).set(''); 
+        console.log("add to eventGuests and eventsUserIsIn")
+    }}
   ]);
