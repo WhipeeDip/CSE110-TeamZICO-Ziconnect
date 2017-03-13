@@ -8,19 +8,18 @@ angular.module('controllers')
         $scope.newEvent = {};
         $scope.createEvent = function() {
 
-          var evTime = new Date($scope.event.eventTime);
+          var evTime = new Date($scope.eventTime);
           evTimeString = evTime.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
           console.log(evTime);
           var newEvent = {
-              eventName: $scope.event.eventName,
-              eventLocation: $scope.event.eventLocation,
+              eventName: $scope.eventName,
+              eventLocation: $scope.eventLocation,
               eventTime: evTimeString,
-              eventDate: $scope.event.eventDate.toDateString(),
-              eventDescription: $scope.event.eventDescription,
+              eventDate: $scope.eventDate.toDateString(),
+              eventDescription: $scope.eventDescription,
               eventPotluck: true
           };
-          // $scope.event.eventTime = $scope.event.eventTime.toLocaleTimeString();
-          // $scope.event.eventDate = $scope.event.eventDate.toDateString();
+
           console.log(newEvent);
 
           eventRef.push(newEvent);
