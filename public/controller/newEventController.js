@@ -49,7 +49,7 @@ angular.module('controllers')
         //eventRef.push(newEvent);
         thisEventRef.update(newEvent);
 
-        $location.path('/home');
+        $location.path('/' + $scope.eventData.$id + '/info');
       }
       
 
