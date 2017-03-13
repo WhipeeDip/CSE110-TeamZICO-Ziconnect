@@ -162,6 +162,15 @@ ntext {
   border-radius: 50%;
 }
 
+.commentPic {
+    height: auto;
+    width: auto;
+    max-height: 50px;
+    max-width: 50px;
+    float: left;
+    padding-right: 10px;
+}
+
 .navbar-default{
   color: #ffffff;
   margin: 10px;
