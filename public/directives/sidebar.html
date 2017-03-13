@@ -14,9 +14,10 @@
            href="/{{event.$id}}/info">{{event.eventName}}<br/>
         {{event.eventDate}}</a></li>
     -->
-    <div ng-repeat ="event in (filteredItems = (list | orderBy: 'eventDate'))"><a
-           href="/{{event.$id}}/info"><li>{{event.eventName}}<br/>
-             {{event.eventDate}}</li></a>
+    <div ng-repeat ="event in (filteredItems = (list | orderBy:
+    'eventSortDate'))"> 
+      <a href="/{{event.$id}}/info"><li>{{event.eventName}}<br/>
+         {{event.eventDate}}</li></a>
     </div>
 
   </ul>
