@@ -22,9 +22,9 @@ angular.module('controllers')
             if (list[i].name.toLowerCase().search(($scope.input).toLowerCase) != -1) {
                 res.push(list[i]);
             }
+            res.push[i];
         }
-          console.log("res");
-          console.log(res);
+        var rofl = $firebaseArray(res);
       }
     }
   ]);
