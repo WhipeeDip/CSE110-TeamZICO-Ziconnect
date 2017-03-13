@@ -12,19 +12,19 @@ angular.module('controllers')
       $scope.input = null;
         
       $scope.inviteFunc = function(){
-          
-        var list = $firebaseArray(           userRef);
+        var list = $firebaseArray(userRef);
         $scope.list = list;
-        console.log($scope.input);
+        
+        var users = [];
+        $scope.users = users;
           
-        var res = [];
-        for (var i = 0; i < list.length; i++) {
-            if (list[i].name.toLowerCase().search(($scope.input).toLowerCase) != -1) {
-                res.push(list[i]);
+        $scope.list.$loaded().then(function(data) {
+          angular.forEach(data, function(value, key) {
+            if(value.name.toLowerCase().includes(($scope.input).toLowerCase())) {
+              $scope.users.push(value);
             }
-            res.push[i];
-        }
-        var rofl = $firebaseArray(res);
-      }
-    }
+
+          })
+        })
+      }}
   ]);
