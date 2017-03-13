@@ -4,16 +4,13 @@
  Description:    view for notifications
 -->
 
-<div class="content" ng-controller="NotificationController"
-ng-init="getNotifications()">
+<div class="content" ng-controller="NotificationController" ng-init="getNotifications($root.user.uid)">
     <h1> Notifications </h1>
       <body>
       <!-- get notifications from server -->
-      {{getNotications($root.user.uid)}}
       <pblue> Event Invitations </pblue>
-      <pblue> {{message}}</blue>
       <div ng-repeat="note in notes">
-        <li> Invitation to {{note}}
+        <li> Invitation to {{note}}!
         </li>
       </div>
   </body>

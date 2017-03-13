@@ -16,26 +16,30 @@ angular.module('controllers')
 
       // get list of notifications
       $scope.getNotifications = function(uid) {
+        
         console.log('Getting notifications');
+        console.log('UID: '+uid);
         var location = userNfcn.child(uid);
         var list = $firebaseArray(location);
         $scope.list = list;
         $scope.notes = [];
         var invitedList = [];
+        //var eventRef = firebase.database().ref('eventList');
         $scope.list.$loaded().then(function(data) {
           angular.forEach(data, function(value, key) {
-            if(value.name.toLowerCase().includes(($scope.input).toLowerCase())) {
-              $scope.notes.push(value);
-              invitedList.push(key);
-              //$scope.list.remove(key);
-            }
-
+            //$scope.notes.push(value);
+            console.log(value.$id);
+            invitedList.push(value.$id);
+            var eventRef = firebase.database().ref('eventList/' + value.$id);
+            //console.log('eventRef: ' +eventRef);
+            eventRef.once('value').then(function(snapshot) {
+              var name = snapshot.val().eventName;
+              console.log(name);
+              $scope.notes.push(name);
+            });
           })
-        })
-        var eventRef = firebase.database().ref('eventList');
-        for(i=0; i < invitedList.length; i++) {
-          eventRef.child(invitedList[i] + '/eventName')
-        }
+
+        }); // why does it stop here?
       }
   }
   ]);
