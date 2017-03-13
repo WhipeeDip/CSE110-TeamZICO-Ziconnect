@@ -75,12 +75,27 @@ input[type=text] {
   background-color: rgba(5,58,89,0.6);
 }
 
-textarea {
+/*textarea {*/
+#eventDescription{
   width: 400px;
   height: 250px;
   resize: none;
   background-color: rgba(5,58,89,0.6);
   #dcedff
+}
+
+#commentBlock {
+    width: 450px;
+    position: relative;
+}
+#commentBlock img {
+    position: absolute;
+    top: 0%;
+    /*margin-top: -50px;  !* = image height div 2 *!*/
+}
+#commentBlock span {
+    margin-left: 50px;  /* = image width + 8 */
+    display: block;
 }
 
 ntext {
@@ -103,6 +118,9 @@ ntext {
 	margin: auto;
 	width: 50%;
 	}
+#commentBox {
+    color: black;
+}
 
 .content {
   width: 80%;
