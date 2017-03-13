@@ -32,13 +32,12 @@
         <textarea id="eventDescription" name="eventDescription" ng-model="eventDescription"
         required></textarea>
         <br /><br />
-
+  
         <input type="file" id="eventImage">
         <br />
         <!--<input class="button" type="submit" value="Create Event" ng-click="createEvent(event)"/>-->
-         <input class="button" type="submit" value="Create Event" ng-click="createEvent()">
-        
-
+         <input class="button" type="submit" value="Create Event" ng-click="createEvent(user.uid)">
+	
      </fieldset>
   </form>
 </div>
