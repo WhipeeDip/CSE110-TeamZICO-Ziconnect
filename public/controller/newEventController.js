@@ -35,7 +35,7 @@ angular.module('controllers')
         var commentRef = firebase.database().ref('eventMessages');
         commentRef.child(key).set('');
 
-        $location.path('/home');
+        $location.path('/' + key + '/info');
       };
 
       $scope.editEvent = function() {
