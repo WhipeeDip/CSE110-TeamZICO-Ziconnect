@@ -20,6 +20,11 @@ config(['$routeProvider', '$locationProvider', function($routeProvider) {
         controller: 'InfoController',
     }).
 
+    when('/:event_id/edit', {
+        templateUrl:'../partials/editEvent.html',
+        controller: 'InfoController',
+    }).
+
     when('/profile', {
         templateUrl: '../partials/profile.html'
     }).
@@ -36,13 +41,18 @@ config(['$routeProvider', '$locationProvider', function($routeProvider) {
         templateUrl: '../partials/commentOnEvent.html'
     }).
 
+    when('/notifications', {
+        templateUrl: '../partials/viewNotifications.html'
+    }).
+
     when('/events/create', {
         templateUrl: '../partials/newEvent.html',
     });
 
 }])
 
-    .controller('InfoController', function($scope, $routeParams, $firebaseObject) {
+    .controller('InfoController', function($scope, $routeParams,
+      $firebaseObject) {
         var ref = firebase.database().ref('eventList');
         var eventRef = ref.child($routeParams.event_id);
         var obj = $firebaseObject(eventRef);
