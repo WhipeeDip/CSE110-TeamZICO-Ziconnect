@@ -27,11 +27,11 @@
                    ng-model="input"/>
             <input type="hidden" ng-model=eventData.$id />
             <br/><br />
-            <a href="/{{eventData.$id}}/info"><button class="button" > Cancel
-           </button></a>
-           &nbsp;
-           <input class="button" type="submit" value="Search"/
+            <input class="button" type="submit" value="Search"/
             </p>
+           &nbsp;
+           <a href="/{{eventData.$id}}/info"><button class="button" > Cancel
+           </button></a>
             
             <li ng-repeat ="user in users track by $index">
               <img id="prof" src="{{user.picture}}">
@@ -40,7 +40,6 @@
               eventData.$id)">Invite</button>
             </li>
 
-            
           </fieldset>
       </form>
 </div>
