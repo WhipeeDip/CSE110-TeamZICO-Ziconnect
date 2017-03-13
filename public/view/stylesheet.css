@@ -5,8 +5,10 @@
  */
 
 body {
-  background-image:url("../assets/bg.jpg");
+  background-image:url("../assets/bg1.jpg");
   background-color:rgba(5,58,89);
+  background-repeat: repeat-y;
+  height: 1200px;
   color: #dcedff;
 }
 
