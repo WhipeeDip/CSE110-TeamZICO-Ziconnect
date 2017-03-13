@@ -24,6 +24,11 @@ config(['$routeProvider', '$locationProvider', function($routeProvider) {
         templateUrl:'../partials/editEvent.html',
         controller: 'InfoController',
     }).
+        //adding eventId routing specific to each event from sidebar
+        when('/:event_id/addPeopleToEvent', {
+        templateUrl:'../partials/addPeopleToEvent.html',
+        controller: 'InfoController',
+    }).
 
     when('/profile', {
         templateUrl: '../partials/profile.html'
@@ -40,6 +45,7 @@ config(['$routeProvider', '$locationProvider', function($routeProvider) {
     when('/events/comment', {
         templateUrl: '../partials/commentOnEvent.html'
     }).
+    
 
     when('/notifications', {
         templateUrl: '../partials/viewNotifications.html'
@@ -48,6 +54,7 @@ config(['$routeProvider', '$locationProvider', function($routeProvider) {
     when('/events/create', {
         templateUrl: '../partials/newEvent.html',
     });
+    
 
 }])
 

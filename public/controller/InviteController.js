@@ -26,5 +26,12 @@ angular.module('controllers')
 
           })
         })
-      }}
+      }
+    
+    $scope.inviteButton=function(uid, eid){
+        //check if they are already invited
+        firebase.database().ref('eventGuests').child(eid).child(uid).set(0);
+        firebase.database().ref('eventsUserIsIn').child(uid).child(eid).set(''); 
+        console.log("add to eventGuests and eventsUserIsIn")
+    }}
   ]);
