@@ -52,12 +52,7 @@ img.center {
 pblue {
   font-family: "Open Sans", sans-serif;
   color: rgb(36,164,199);
-}
-
-pblue:hover{
-  color: #ff9900;
-}
-  
+}  
 
 form {
   display: table;

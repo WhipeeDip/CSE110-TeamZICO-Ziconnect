@@ -11,8 +11,8 @@ angular.module('controllers')
       var eventRef = firebase.database().ref('eventList');
       $scope.newEvent = {};
 
-      $scope.createEvent = function() {
-
+      $scope.createEvent = function(uid) {
+        
         var evTime = new Date($scope.eventTime);
         evTimeString = evTime.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
         console.log(evTime);
@@ -27,15 +27,24 @@ angular.module('controllers')
 
         console.log(newEvent);
 
+        // key for the new event
         var key = newEventRef = eventRef.push(newEvent).key;
         console.log('ID: ' + key);
-        var guestRef = firebase.database().ref('guestList');
-        guestRef.child(key).set('');
+        
+        // adding the user as the admin in the eventGuests list
+        var guestRef = firebase.database().ref('eventGuests');
+        guestRef.child(key).child(uid).set(4);
 
+        // creating a branch in database for the event's messages
         var commentRef = firebase.database().ref('eventMessages');
         commentRef.child(key).set('');
-
-        $location.path('/home');
+        
+        // pushing the events into the list of events a user is in
+        var uEventsRef = firebase.database().ref('eventsUserIsIn');
+        uEventsRef.child(uid).child(key).set('');
+        
+        // user is sent to the home page with the info of the newly created event displayed
+        $location.path('/' + key + '/info');
       };
 
       $scope.editEvent = function() {
