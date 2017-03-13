@@ -4,9 +4,19 @@
   Description: Displays comments for the event.
 -->
 
-<div class="comments">
+<div class="comments" ng-controller="CommentController">
+
   <div><h1>Comments</h1></div>
-  <a href="/events/comment"><button class="button">Post a Comment</button></a>
+  <h2>Post a comment</h2>
+  <textarea 
+    name="commentBox"
+    ng-model="commentText"
+    placeholder="Enter your comment here">
+  </textarea>
+  <br />
+  <button ng-click="postComment()">Submit</button>
+  <br />
+
   <div ng-repeat="comment in commentList">
     <p><b>{{comment.userUid}}</b></p>
     <p>{{comment.timeStamp}}</p>
