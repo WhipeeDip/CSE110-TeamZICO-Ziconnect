@@ -23,6 +23,18 @@ module.exports = {
     });
   },
 
+  updateEventData: function(eventKey, name, eventLocation, time, date,
+    description, potluck) {
+    firebase.database().ref('eventList/' + eventKey).set({
+      eventName: name,
+      eventLocation: eventLocation,
+      eventTime: time,
+      eventDate: date,
+      eventDescription: description,
+      eventPotluck: potluck
+    });
+  },
+
   // Retrieves event by eventKey or eventName, Author: CC
   // Note the use of callback in this function.
   getEventData: function(eventKey, eventName, callback) {

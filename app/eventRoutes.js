@@ -32,6 +32,20 @@ module.exports = function(app) {
     console.log("New event added.");
   });
 
+  app.post('/events/edit', function(req, res) {
+    res.sendFile(path.resolve('public/view/createEvent.html'));
+    var form = new formidable.IncomingForm();
+    form.parse(req, function(err, fields, files) {
+      EventController.updateEventData(fields.eventKey, fields.eventName,
+        fields.eventLocation, fields.eventTime, fields.eventDate,
+        fields.eventDescription, true);
+      res.write('Your event has been edited successfully:\n\n');
+      res.end(util.inspect({fields: fields, files: files}));
+    });
+
+    console.log("Event updated.");
+  });
+
   // Create Event GET route, Author: CC
   app.get('/events/create', function(req, res) {
     res.sendFile(path.resolve('public/view/createEvent.html'));
