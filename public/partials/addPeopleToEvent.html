@@ -36,9 +36,9 @@
                    placeholder="John Doe" 
                    ng-model="input"/>
             </p>
-            
-                  <li ng-repeat ="user in res">{{user.name}}
-      </li>
+            <li ng-repeat ="user in list">{{user.name}}     {{user.email}}
+            <button type="button" class="btn btn-default">Invite</button>
+            </li>
             
           </fieldset>
       </form>

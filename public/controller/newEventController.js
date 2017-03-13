@@ -22,12 +22,15 @@ angular.module('controllers')
 
           console.log(newEvent);
 
-          eventRef.push(newEvent);
+          var key = newEventRef = eventRef.push(newEvent).key;
+          console.log('ID: ' + key);
+          var guestRef = firebase.database().ref('guestList');
+          guestRef.child(key).set('');
 
           $location.path('/home');
         }
 
-      
+
       $scope.editEvent = function() {
         var thisEventRef = firebase.database().ref('eventList/' +
           $scope.eventData.$id);
@@ -51,7 +54,7 @@ angular.module('controllers')
 
         $location.path('/' + $scope.eventData.$id + '/info');
       }
-      
+
 
     }
   ]);
