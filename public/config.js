@@ -32,6 +32,10 @@ config(['$routeProvider', '$locationProvider', function($routeProvider) {
         templateUrl: '../partials/editEvent.html'
     }).
 
+    when('/events/comment', {
+        templateUrl: '../partials/commentOnEvent.html'
+    }).
+
     when('/events/create', {
         templateUrl: '../partials/newEvent.html',
     });
