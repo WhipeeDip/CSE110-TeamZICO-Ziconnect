@@ -30,8 +30,8 @@ angular.module('controllers')
         } else { // someone logged out or no one is already logged in
           if($location.path() != '/login') {
             //$cookies.remove('user');
-            $rootScope.user = user;
-            $window.location.href =  null;  
+            $rootScope.user = null;
+            $window.location.href = '/login';  
           }
         }
       });
