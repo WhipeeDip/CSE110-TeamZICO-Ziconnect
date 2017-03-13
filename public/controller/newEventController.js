@@ -22,7 +22,7 @@ angular.module('controllers')
 
           console.log(newEvent);
 
-          eventRef.push(newEvent);
+          newEventRef = eventRef.push(newEvent);
 
           $location.path('/home');
         }
