@@ -10,12 +10,12 @@ angular.module('controllers')
       var eventUid = $scope.eventData.$id;
 
       var commentRef = firebase.database().ref().child('eventComments/' + eventUid);
-      var commentList = $firebaseArray(commentRef);
+      $scope.commentList = $firebaseArray(commentRef);
 
       $scope.postComment = function() {
         var date = new Date();
-        console.log('Date:', date);
-        CommentServices.addComment(eventUid, $rootScope.user.uid, $scope.commentText, date);
+        var dateStr = date.toLocaleString();
+        CommentServices.addComment(eventUid, $rootScope.user.uid, $scope.commentText, dateStr);
       };
     }
   ]);
