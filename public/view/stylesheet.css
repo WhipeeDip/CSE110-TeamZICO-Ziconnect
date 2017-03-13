@@ -152,6 +152,40 @@ ntext {
   color: #ff9900;
 } 
 
+.sidebar2 {
+  height: 100%;
+  width: 200px;
+  float: right;
+  padding: 5px;
+  position: inline-block;
+  z-index: 1;
+  background-color: rgba(5,58,89,0.6);
+  border-radius:10px;
+  'overflow-y: scroll;'
+  color: #ffffff;
+  margin-top: 5px;
+  margin-left: 100px;
+  margin-right: 50px;
+}
+
+.sidebar2 ul {
+  color: #dcedff;
+  padding: 5px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar2 li {
+  padding: 20px 0 20px 0;
+  display: block;
+  text-align: center;
+  color: #dcedff;
+}
+
+
+
+
 #prof {
   height: auto;
   width: auto;

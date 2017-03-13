@@ -3,6 +3,14 @@
  Authors: TODO
  Description: TODO
 -->
+<div class="sidebar2" ng-controller="guestSidebarController" ng-init="loadGuests(eventData.$id)">
+  <ul>
+    <li>Invited Guests</li>
+    <!--<should be listing all invited users> -->
+    <li ng-repeat ="user in list">{{user}} </li>
+  </ul>
+</div>
+    
 
 <div class="content">
   <div><h1>{{eventData.eventName}}</h1></div>
@@ -17,14 +25,7 @@
   </h2>
 
     
-<div  ng-controller="guestSidebarController" ng-init="loadGuests(eventData.$id)">
-  <ul>
 
-    <!--<should be listing all invited users> -->
-    <li ng-repeat ="user in list">{{user}} </li>
-  </ul>
-</div>
-    
     
     
   <br/>
