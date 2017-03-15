@@ -4,7 +4,8 @@
   Description: Displays potluck details for the event.
 -->
 
-<div class="potluck" ng-controller="FoodController" ng-if="true">
+<div class="potluck" ng-controller="FoodController"
+  ng-if="eventData.eventPotluck">
   <h4>Food/Items to be Brought</h3>
   <table width="400">
     <tr>
