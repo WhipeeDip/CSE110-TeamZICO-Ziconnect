@@ -5,18 +5,18 @@
  */
 
 angular.module('controllers')
-  .controller('NotificationController', ['$scope', '$firebaseArray',
-    function($scope, $firebaseArray){
-      var userNfcn = firebase.database().ref("notifications");
+  .controller('NotificationController', ['$scope', '$rootScope', '$firebaseArray',
+    function($scope, $rootScope, $firebaseArray){
+      var userNfcn = firebase.database().ref("notifications/" + $rootScope.user.uid);
 
       $scope.ref;
       $scope.list;
-      $scope.notes; // notifications list
+      $scope.notes = $firebaseArray(userNfcn); // notifications list
       $scope.message = "Accept of Decline your invites!";
 
       // get list of notifications
       $scope.getNotifications = function(uid) {
-        
+
         console.log('Getting notifications');
         console.log('UID: '+uid);
         var location = userNfcn.child(uid);

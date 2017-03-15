@@ -36,7 +36,11 @@ angular.module('controllers')
           'eventID': eid,
           'eventName': ename,
         })
+        firebase.database().ref('notifications').child(uid).push( {
+          'eventID': eid,
+          'eventName': ename,
+        })
         console.log("add to eventGuests and eventsUserIsIn")
-        firebase.database().ref('notifications').child(uid).child(eid).set(0);
+        //firebase.database().ref('notifications').child(uid).child(eid).set(0);
     }}
   ]);
