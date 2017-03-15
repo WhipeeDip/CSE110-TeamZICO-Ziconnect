@@ -1,0 +1,29 @@
+<!--
+  File name: potluck.html
+  Authors: Kevan Yang
+  Description: Displays potluck details for the event.
+-->
+
+<div class="potluck" ng-controller="FoodController">
+  <h4>Food to be Brought</h3>
+  <table width="400">
+    <tr>
+      <th>Name</th>
+      <th>Food/Item</th>
+    </tr>
+    <tr>
+      <td>Sample Name</td>
+      <td>Sample Food</td>
+    </tr>
+    <tr ng-repeat="item in foodList">
+      <td>{{item.name}}</td>
+      <td>{{item.food}}</td>
+    </tr>
+  </table>
+  <input type="text" ng-model="fooditem" name="food/item"
+  autocomplete="off" placeholder="Enter item here"
+  ng-model="item" required/>
+  <br /><br />
+  <button ng-click="storeFood($root.user.name, $root.user.uid, fooditem)"
+    class="button">Enter Food/Item</button>
+</div>
