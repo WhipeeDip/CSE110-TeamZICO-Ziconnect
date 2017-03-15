@@ -11,13 +11,14 @@
    var eventUid = $scope.eventData.$id;
 
    var potluckRef = firebase.database().ref().child('potluck/' + eventUid);
+   var suggestRef = firebase.database().ref().child('potluck/suggestions/' + eventUid);
    $scope.foodList = $firebaseArray(potluckRef);
+   $scope.suggestionList = $firebaseArray(suggestRef);
 
    //$scope.foodList = [];
    // should be [food, uid]
    var foodPair = [];
    $scope.storeFood = function(name, uid, food) {
-     console.log('food:' + food);
      potluckRef.push({
        'UID': uid,
        'name': name,
@@ -25,6 +26,10 @@
      });
 
    };
-   $scope.getList = function() {
+
+   $scope.storeSuggestion = function(food) {
+     suggestRef.push({
+       'food': food
+     })
    }
  }]);
