@@ -76,8 +76,7 @@ angular.module('controllers')
       $scope.searchEvent = function() {
         var eventRef = firebase.database().ref('eventList');
         $scope.events = $firebaseArray(eventRef); 
-          console.log("hi");
-        
+                    console.log("hi");
         var found = [];
         $scope.found = found;
         
@@ -88,6 +87,8 @@ angular.module('controllers')
             }
 
           })
+          console.log("hi");
+          console.log($scope.found);
         })
         
       }
