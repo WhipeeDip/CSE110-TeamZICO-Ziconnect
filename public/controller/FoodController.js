@@ -18,7 +18,6 @@
    var foodPair = [];
    $scope.storeFood = function(name, uid, food) {
      console.log('food:' + food);
-     var key = potluckRef.push();
      potluckRef.push({
        'UID': uid,
        'name': name,

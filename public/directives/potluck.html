@@ -4,16 +4,12 @@
   Description: Displays potluck details for the event.
 -->
 
-<div class="potluck" ng-controller="FoodController">
-  <h4>Food to be Brought</h3>
+<div class="potluck" ng-controller="FoodController" ng-if="true">
+  <h4>Food/Items to be Brought</h3>
   <table width="400">
     <tr>
       <th>Name</th>
       <th>Food/Item</th>
-    </tr>
-    <tr>
-      <td>Sample Name</td>
-      <td>Sample Food</td>
     </tr>
     <tr ng-repeat="item in foodList">
       <td>{{item.name}}</td>
