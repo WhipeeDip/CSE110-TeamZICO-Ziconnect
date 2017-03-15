@@ -67,9 +67,10 @@ angular.module('controllers')
             eventTime: evTimeString,
             eventDate: $scope.eventData.eventDate.toDateString(),
             eventDescription: $scope.eventData.eventDescription,
-            eventPotluck: $scope.potluck,
+            eventPotluck: $scope.eventData.eventPotluck,
         };
         console.log(newEvent);
+        console.log('edit: ' +$scope.potluck);
 
         if(newEvent.eventPotluck == null) {
           newEvent.eventPotluck = false;
