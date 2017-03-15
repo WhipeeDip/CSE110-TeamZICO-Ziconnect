@@ -1,6 +1,6 @@
 /**
  * File name: newEventController.js
- * Authors: Elliot Yoon, David Lin, Caris Wei
+ * Authors: Elliot Yoon, David Lin, Caris Wei, Christian Cheng
  * Description: Controls events.
  */
 
@@ -12,7 +12,7 @@ angular.module('controllers')
       $scope.newEvent = {};
 
       $scope.createEvent = function(uid) {
-        
+
         var evTime = new Date($scope.eventTime);
         evTimeString = evTime.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
         console.log(evTime);
@@ -23,7 +23,12 @@ angular.module('controllers')
           eventSortDate: $scope.eventDate.getTime(),
           eventDate: $scope.eventDate.toDateString(),
           eventDescription: $scope.eventDescription,
-          eventPotluck: true
+          eventPotluck: $scope.potluck,
+        };
+
+        // if box was never checked
+        if(newEvent.eventPotluck == null) {
+          newEvent.eventPotluck = false;
         };
 
         console.log(newEvent);
@@ -31,7 +36,7 @@ angular.module('controllers')
         // key for the new event
         var key = newEventRef = eventRef.push(newEvent).key;
         console.log('ID: ' + key);
-        
+
         // adding the user as the admin in the eventGuests list
         var guestRef = firebase.database().ref('eventGuests');
         guestRef.child(key).child(uid).set(4);
@@ -39,11 +44,11 @@ angular.module('controllers')
         // creating a branch in database for the event's messages
         var commentRef = firebase.database().ref('eventMessages');
         commentRef.child(key).set('');
-        
+
         // pushing the events into the list of events a user is in
         var uEventsRef = firebase.database().ref('eventsUserIsIn');
         uEventsRef.child(uid).child(key).set('');
-        
+
         // user is sent to the home page with the info of the newly created event displayed
         $location.path('/' + key + '/info');
       };
@@ -62,24 +67,31 @@ angular.module('controllers')
             eventTime: evTimeString,
             eventDate: $scope.eventData.eventDate.toDateString(),
             eventDescription: $scope.eventData.eventDescription,
-            eventPotluck: true
+            eventPotluck: $scope.eventData.eventPotluck,
         };
         console.log(newEvent);
+        console.log('edit: ' +$scope.potluck);
+
+        if(newEvent.eventPotluck == null) {
+          newEvent.eventPotluck = false;
+        }
 
         //eventRef.push(newEvent);
         thisEventRef.update(newEvent);
 
         $location.path('/' + $scope.eventData.$id + '/info');
       };
-        
+
       //searches for events from the search bar
       $scope.searchEvent = function() {
         var eventRef = firebase.database().ref('eventList');
+
         $scope.events = $firebaseArray(eventRef); 
                     console.log("hi");
+
         var found = [];
         $scope.found = found;
-        
+
         $scope.events.$loaded().then(function(data) {
           angular.forEach(data, function(value, key) {
             if(value.eventName.toLowerCase().includes(($scope.input).toLowerCase())) {
@@ -90,7 +102,9 @@ angular.module('controllers')
           console.log("hi");
           console.log($scope.found);
         })
-        
+
+        console.log(found);
+
       }
     }
   ]);

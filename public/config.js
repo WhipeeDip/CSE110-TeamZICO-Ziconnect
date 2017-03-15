@@ -56,7 +56,7 @@ config(['$routeProvider', '$locationProvider', function($routeProvider) {
     }).
     
     when('/searchEvent', {
-        templateUrl: '../partials/searchEvent.html'
+        templateUrl: '../partials/searchEvent.html',
     }).
 
     when('/events/create', {

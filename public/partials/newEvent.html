@@ -12,7 +12,7 @@
     <!--enctype="multipart/form-data">-->
      <fieldset>
 
-       
+
         <label for="eventName">Event Name:&nbsp;</label>
         <input type="text" id="eventName" name="eventName" ng-model="eventName"
         autocomplete="off" required/>
@@ -28,16 +28,19 @@
         <input type="date" id="eventDate" name="eventDate" ng-model="eventDate"
         required/>
         <br /></br />
+        <label for="potluck">Potluck:&nbsp;</label>
+        <input type="checkbox" id="potluck" name="potluck" ng-model="potluck">
+        <br /><br />
         <label for="eventDescription">Description:</label>
         <textarea id="eventDescription" name="eventDescription" ng-model="eventDescription"
         required></textarea>
         <br /><br />
-  
+
         <input type="file" id="eventImage">
         <br />
         <!--<input class="button" type="submit" value="Create Event" ng-click="createEvent(event)"/>-->
          <input class="button" type="submit" value="Create Event" ng-click="createEvent(user.uid)">
-	
+
      </fieldset>
   </form>
 </div>
