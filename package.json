@@ -1,16 +1,24 @@
 {
   "name": "cse110-teamzico-ziconnect",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "This is for Ziconnect, created by Team ZICO for UCSD CSE 110.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "angular": "^1.6.1",
+    "angular": "^1.6.2",
+    "angular-cookies": "^1.6.2",
+    "angular-route": "^1.6.2",
+    "angularfire": "^2.3.0",
+    "body-parser": "^1.16.1",
+    "bootstrap": "^3.3.7",
+    "cookie-parser": "^1.4.3",
     "express": "^4.14.1",
     "firebase": "^3.6.8",
-    "google-auth-library": "^0.10.0"
+    "formidable": "^1.1.1",
+    "google-auth-library": "^0.10.0",
+    "jquery": "^3.1.1"
   },
   "repository": {
     "type": "git",

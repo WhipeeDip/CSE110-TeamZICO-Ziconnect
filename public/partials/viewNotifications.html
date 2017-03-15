@@ -1,0 +1,19 @@
+<!--
+ File name: viewNotofications.html
+ Author(s): Ryan Yung
+ Description:    view for notifications
+-->
+
+<div class="content" ng-controller="NotificationController" ng-init="getNotifications($root.user.uid)">
+    <h1> Notifications </h1>
+      <body>
+      <!-- get notifications from server -->
+      <pblue> Event Invitations </pblue>
+      <p> You have been invited to Testing Comments</p> <br>
+      <p> You have been invited to time check </p>
+      <div ng-init="getNotifications($root.user.uid)" ng-repeat="note in notes">
+        <li> Invitation to {{note}}!
+        </li>
+      </div>
+  </body>
+</div>

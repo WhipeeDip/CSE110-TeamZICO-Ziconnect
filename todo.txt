@@ -1,0 +1,5 @@
+1. add cancel to buttons to all event screens [DONE]
+2. fix profile page (inline picture with name and profile info).
+3. Add splash screen to homepage (after login). [DONE]
+4. Fix pressing enter on invite people page
+5. Search event functionality

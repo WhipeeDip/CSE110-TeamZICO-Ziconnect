@@ -1,0 +1,64 @@
+<!--
+ File name: home.html
+ Authors: Elliot Yoon, Christian Cheng, David Lin
+ Description: Placeholder main page for now.
+-->
+
+<!DOCTYPE html>
+
+<!-- assign Angular module -->
+<html ng-app='ziconnect' ng-controller="AccountController">
+  <head>
+    <title>Ziconnect</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- TODO: change to min for production -->
+    <script src="/scripts/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="/scripts/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/view/stylesheet.css">
+
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="/scripts/angular/angular.js"></script>
+    <script src="/scripts/angularfire/dist/angularfire.js"></script>
+    <script src="/scripts/firebase/firebase.js"></script>
+    <script src="/scripts/angular-cookies/angular-cookies.js"></script>
+    <script src="/scripts/angular-route/angular-route.js"></script>
+
+    <script src="../modules.js"></script>
+    <script src="../config.js"></script>
+    <script src="../models/AccountServices.js"></script>
+    <script src="../controller/AccountController.js"></script>
+    <script src="../controller/GetUserEventsController.js"></script>
+    <script src="../controller/newEventController.js"></script>
+    <script src="../controller/profileController.js"></script>
+    <script src="../directives/eventInfo.js"></script>
+    <script src="../controller/profileController.js"></script>
+    <script src="../controller/InviteController.js"></script>
+    <script src="../directives/comments.js"></script>
+    <script src="../models/CommentServices.js"></script>
+    <script src="../controller/CommentController.js"></script>
+    <script src="../controller/guestSidebarController.js"></script>
+    <script src="../models/RideServices.js"></script>
+    <script src="../controller/RideController.js"></script>
+    <script src="../directives/rides.js"></script>
+    <script src="../controller/notificationController.js"></script>
+    <script src="../directives/navbar.js"></script>
+    <script src="../directives/sidebar.js"></script>
+
+    <!-- Open Sans font -->
+  </head>
+
+  <body>
+    <div>
+      <navbar></navbar>
+    </div>
+
+    <div>
+      <sidebar></sidebar>
+    </div>
+
+    <div ng-view></div>
+
+  </body>
+</html>

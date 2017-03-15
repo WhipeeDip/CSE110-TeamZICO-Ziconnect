@@ -41,3 +41,5 @@ jspm_packages
 
 # Added by us
 *.swp
+.idea/
+*.DS_STORE

@@ -1,0 +1,84 @@
+<!--
+ File name: createEvent.html
+ Authors: Christian Cheng. Much content copied from home.html.
+ Description: Temporary placeholder page for the purpose of Screen Sequence
+ Diagrams.
+-->
+
+<!DOCTYPE html>
+
+<!-- assign Angular module -->
+<html ng-app="ziconnect">
+<head>
+  <title>Ziconnect</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- loading scripts here -->
+    <!-- loading bootstrap scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <!-- loading angular scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-route.min.js"></script>
+    
+    <!-- loading local files -->
+    <link rel="stylesheet" type="text/css" href="/view/stylesheet.css">
+    
+    <!-- local scripts -->
+    <script type="text/javascript" src="../directives/navbar.js"></script>
+  <script src="../modules.js"></script>
+</head>
+
+<body>
+    <!-- syntax to use navbar -->
+    <div>
+        <navbar></navbar>
+    </div>
+
+    <div ng-app="home">
+   <div class="sidebar">
+    <ul>
+      <li><a href="#">Super Bowl Party!<br />Sunday, Feb 7</a></li>
+      <li><a href="#">Martha's Bridal Shower<br />Tues, Mar 14</a></li>
+      <a href="/events/create" id="newEvent">Create New Event</a>
+   </ul>
+  </div>
+
+  <div class="content">
+    <h1>Create New Event</h1>
+    <br />
+    <form action="/events/create" method="post"
+        enctype="multipart/form-data">
+         <fieldset>
+
+            <label for="eventName">Event Name:&nbsp;</label>
+            <input type="text" id="eventName" name="eventName"
+            placeholder="Custin's Party" />
+            <br />
+            <label for="eventLocation">Event Location:&nbsp;</label>
+            <input type="text" id="eventLocation" name="eventLocation"
+            placeholder="La Jolla, CA" />
+            <br />
+            <label for="eventDate">Event Date:&nbsp;</label>
+            <input type="text" id="eventDate" name="eventDate"
+            placeholder="February 28, 2017" />
+            <br />
+            <label for="eventDescription">Description:</label>
+            <br />
+            <textarea id="eventDescription" name="eventDescription"
+            placeholder="Come to my 20th birthday party!"></textarea>
+            <br />
+            <input type="submit" value="Create Event" />
+
+         </fieldset>
+      </form>
+  </div>
+    </div>
+
+<!--   <a href="view/login.html">Login test page </a>
+ --></body>
+</html>
+

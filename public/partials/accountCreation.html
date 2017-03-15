@@ -1,0 +1,137 @@
+<!--
+ File name: accountCreation.html
+ Author(s): LeDaniel Leung
+ Description:   Ziconnect account creation.
+                Google credentials stored from here.
+-->
+<!DOCTYPE html>
+
+<html ng-app="account-creation">
+    <head>
+        <title>Ziconnect</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/public/view/stylesheet.css">
+        
+        
+        <!-- Load scripts here -->
+        
+        <!-- Load firebase -->
+        <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-storage.js"></script>
+        <script>
+            //Initialize Firebase
+            var config={
+                apiKey: "AIzaSyCBUIl1AeLBp9PSM4TW3nAUERLKfVigWz8",
+                authDomain: "cse110-teamzico-ziconnect-dev.firebaseapp.com",
+                databaseURL: "https://cse110-teamzico-ziconnect-dev.firebaseio.com/",
+                storageBucket: "gs://cse110-teamzico-ziconnect-dev.appspot.com/",
+                messagingSenderId: "420682510691"
+            };
+            firebase.initializeApp(config);
+        </script>
+        
+        <!-- Load our scripts -->
+        <script src="/node_modules/angular/angular.js"></script>
+        <script src="/public/modules.js"></script>
+        <script src="/public/controller/AccountController.js"></script>
+        
+    
+    </head>
+
+    <body>
+        <div class="title">
+            <h1>Ziconnect</h1>
+            <button class="sign-in"
+                    onclick="./login.html">
+                Sign in
+            </button>
+        </div>
+        
+        <div ng-app="ziconnect", ng-controller="AccountController">
+            <form class="input">
+                <h2>Create your Account</h2>
+
+                <fieldset>
+                    <legend>Account details</legend>
+
+                    <p class="input-type">
+                        <label>Name</label>
+                        <br />
+                        <input id="first-name"
+                               type="text"
+                               class="input-box"
+                               placeholder="First" />
+                        <input id="last-name"
+                               type="text"
+                               class="input-box"
+                               placeholder="Last" />
+                    </p>
+
+                    <p class="input-type">
+                        <label>Choose your username</label>
+                        <br />
+                        <input id="username"
+                               type="text"
+                               class="input-box" />
+                    </p>
+
+                    <p class="input-type">
+                        <label>Create a password</label>
+                        <br />
+                        <input id="password"
+                               type="password"
+                               class="input-box" />
+                    </p>
+
+                    <p class="input-type">
+                        <label>Confirm your password</label>
+                        <br />
+                        <input id="password"
+                               type="password"
+                               class="input-box" />
+                    </p>
+
+                    <!-- manual account connection -->
+                    <p class="input-type">
+                        <label>
+                            Enter your 
+                            <img height = 25
+                                 src="../assets/google-logo.jpg" />
+                            Account
+                        </label>
+                        <br />
+                        <input id="email"
+                               type="email"
+                               class="input-box" />
+                    </p>
+
+                    <p class="input-type">
+                        <label>
+                            Enter your 
+                            <img height = 25
+                                 src="../assets/google-logo.jpg" />
+                            Password
+                        </label>
+                        <br />
+                        <input id="email-password"
+                               type="password"
+                               class="input-box" />
+                    </p>
+
+                    <!-- altnertaively, sign into google(?) -->
+                    <button type="button"
+                                class="google sign-in" 
+                                ng-click="$scope.login()">
+                    </button>
+
+                </fieldset>
+
+                <a class="button" href="#">Save</a>
+                <a class="button" href="./login.html">Cancel</a>
+            </form>
+        </div>
+    </body>
+
+</html>
