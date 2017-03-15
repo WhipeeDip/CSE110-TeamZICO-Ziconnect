@@ -14,8 +14,8 @@
       <pblue> Search for a person's name! </pblue>
 
       </br></br>
-      
-      <form ng-controller="InviteController" ng-submit="inviteFunc()" value="Send"> 
+
+      <form ng-controller="InviteController" ng-submit="inviteFunc()" value="Send">
         <fieldset>
 
             <p class="input-type">
@@ -23,7 +23,7 @@
             <input id="user-name"
                    type="text"
                    class="input-box"
-                   placeholder="John Doe" 
+                   placeholder="John Doe"
                    ng-model="input"/>
             <input type="hidden" ng-model=eventData.$id />
             <br/><br />
@@ -32,12 +32,12 @@
            &nbsp;
            <a href="/{{eventData.$id}}/info"><button class="button" > Cancel
            </button></a>
-            
+
             <li ng-repeat ="user in users track by $index">
               <img id="prof" src="{{user.picture}}">
               {{user.name}}   &nbsp;&nbsp;  {{user.email}}
               <button class="button" ng-click="inviteButton(user.uid,
-              eventData.$id)">Invite</button>
+              eventData.$id, eventData.eventName)">Invite</button>
             </li>
 
           </fieldset>
