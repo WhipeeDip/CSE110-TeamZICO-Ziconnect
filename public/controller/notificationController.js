@@ -9,37 +9,25 @@ angular.module('controllers')
     function($scope, $rootScope, $firebaseArray){
       var userNfcn = firebase.database().ref("notifications/" + $rootScope.user.uid);
 
+      const accept = 1; // constant to indicate user has accepted for guestlist
+
       $scope.ref;
       $scope.list;
       $scope.notes = $firebaseArray(userNfcn); // notifications list
       $scope.message = "Accept of Decline your invites!";
 
-      // get list of notifications
-      $scope.getNotifications = function(uid) {
+      // respond to notifications
+      $scope.accept = function (note) {
+        var gListRef = firebase.database().ref("eventGuests/");
+        gListRef.child(note.eventID).child($rootScope.user.uid).set(accept);
+        $scope.notes.$remove(note);
+      };
 
-        console.log('Getting notifications');
-        console.log('UID: '+uid);
-        var location = userNfcn.child(uid);
-        var list = $firebaseArray(location);
-        $scope.list = list;
-        $scope.notes = [];
-        var invitedList = [];
-        //var eventRef = firebase.database().ref('eventList');
-        $scope.list.$loaded().then(function(data) {
-          angular.forEach(data, function(value, key) {
-            //$scope.notes.push(value);
-            console.log(value.$id);
-            invitedList.push(value.$id);
-            var eventRef = firebase.database().ref('eventList/' + value.$id);
-            //console.log('eventRef: ' +eventRef);
-            eventRef.once('value').then(function(snapshot) {
-              var name = snapshot.val().eventName;
-              console.log(name);
-              $scope.notes.push(name);
-            });
-          })
+      $scope.decline = function(note) {
+        var gListRef = firebase.database().ref("eventGuests/");
+        gListRef.child(note.eventID).child($rootScope.user.uid).set(0);
+        $scope.notes.$remove(note);
+      };
 
-        }); // why does it stop here?
-      }
   }
   ]);
