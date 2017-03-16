@@ -18,7 +18,7 @@ angular.module('controllers')
           $rootScope.user = user;
           if($location.path() == '/login') {            
             AccountServices.loginWithUser(user).then(function() { // promise resolved
-              //$cookies.putObject('user', user);
+              $cookies.putObject('user', user);
               $window.location.href = '/home';
             }, function(reason) { // promise rejected
               console.log('Login failed:', reason);
@@ -27,18 +27,12 @@ angular.module('controllers')
           }
         } else { // someone logged out or no one is already logged in
           if($location.path() != '/login') {
-            //$cookies.remove('user');
+            $cookies.remove('user');
             $rootScope.user = null;
             $window.location.href = '/login';  
           }
         }
       });
-
-      /*// grabs the current user into scope
-      $scope.getUserIntoScope = function() { 
-        //$scope.user = $cookies.getObject('user');
-        $scope.user = AccountServices.getUser();
-      };*/
 
       // called by login button
       $scope.login = function() {
@@ -57,7 +51,6 @@ angular.module('controllers')
       // called by logout button
       $scope.logout = function() {
         AccountServices.logout().then(function() {
-          //$cookies.remove('user');
           console.log('Signout successful!');
         });
       };
