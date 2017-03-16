@@ -13,7 +13,7 @@ angular.module('controllers')
 
       var groupsinref = firebase.database().ref().child('/groupsUserIsIn/' + $rootScope.user.uid);
       $scope.userGroups = $firebaseArray(groupsinref);
-      
+
       $scope.groups = ['initial'];
 
       // create grouplist, meant for when new account is created
@@ -24,6 +24,10 @@ angular.module('controllers')
       $scope.displayForm = function() {
         $scope.form = false;
         console.log($scope.form);
+      };
+
+      $scope.toGroupPage(gid) {
+        // to group page
       };
 
     }
