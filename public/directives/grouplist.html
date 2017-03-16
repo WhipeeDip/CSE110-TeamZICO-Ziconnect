@@ -1,6 +1,8 @@
 <div class="grouplist" ng-controller="GroupController">
   <div ng-repeat = "group in userGroups"> <!--Display current groups -->
-    <pblue>{{group.groupName}}</pblue><br/>
+    <pblue>{{group.groupName}}</pblue>
+    <button class="button" ng-click="toGroupPage(group.groupID)">
+      View</button><br/>
   </div>
   <button ng-click="displayForm()" class="button" hidden="true">
     Create New Group

@@ -10,10 +10,12 @@ angular.module('controllers')
 
       $scope.form = false;
       $scope.text = 'ultimate';
+      $scope.currGroup;
+      $scope.members = [];
 
       var groupsinref = firebase.database().ref().child('/groupsUserIsIn/' + $rootScope.user.uid);
       $scope.userGroups = $firebaseArray(groupsinref);
-      
+
       $scope.groups = ['initial'];
 
       // create grouplist, meant for when new account is created
@@ -24,6 +26,11 @@ angular.module('controllers')
       $scope.displayForm = function() {
         $scope.form = false;
         console.log($scope.form);
+      };
+
+      $scope.toGroupPage = function(gid) {
+        // to group page
+        console.log('going to group page ' + gid);
       };
 
     }
