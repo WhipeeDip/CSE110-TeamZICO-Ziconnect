@@ -6,7 +6,7 @@
 
 <div class="potluck" ng-controller="FoodController"
 ng-if="eventData.eventPotluck">
-<h4>Food/Items to be Brought</h3>
+<h3>Food/Items to be Brought</h3>
   <table width="400">
     <tr>
       <th>Name</th>
@@ -17,21 +17,24 @@ ng-if="eventData.eventPotluck">
       <td>{{item.food}}</td>
     </tr>
   </table>
+  <br />
   <input type="text" ng-model="fooditem" name="food/item"
-  autocomplete="off" placeholder="Enter item here"
+  autocomplete="off" placeholder="What are you bringing?"
   ng-model="item" required/>
-  <br /><br />
+  <br />
   <button ng-click="storeFood($root.user.name, $root.user.uid, fooditem)"
   class="button">Enter Food/Item</button>
   <br/><br/>
   <!--Suggest foods here -->
-  <h4>Suggested Food/Items</h3>
+  <h3>Suggested Food/Items</h3>
   <div ng-repeat="item in suggestionList">
     <li> {{item.food}}</li>
   </div>
+  <br />
   <input type="text" ng-model="suggestion" name="suggestion"
-  autocomplete="off" placeholder="Enter suggested item here"
-  ng-model="item" required/><br />
+  autocomplete="off" placeholder="Suggest an item!"
+  ng-model="item" required/>
+  <br />
   <button ng-click="storeSuggestion(suggestion)"
   class="button">Enter Suggestion</button>
 </div>

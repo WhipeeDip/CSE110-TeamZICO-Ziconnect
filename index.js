@@ -34,18 +34,8 @@ var config = {
 };
 firebase.initializeApp(config);
 
-// Require controllers
-var EventController = require('./public/controller/EventController.js');
-
 // routes
 require('./app/routes.js')(expressApp);
-require('./app/eventRoutes.js')(expressApp);
-
-// This is a test of event entry into database
-// TODO remove before production
-//EventController.writeEventData("Custin's Bonanza 2", "San Diego, CA", 
-//  "March 19, 2017",
-//  "A bonanza for Custin's best friends. Feat. Just 2 Boyz.", true);
 
 // listens on port, logs a message
 expressApp.listen(expressApp.get('port'), function() {

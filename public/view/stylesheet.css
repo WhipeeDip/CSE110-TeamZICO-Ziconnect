@@ -26,7 +26,18 @@ h1 {
 
 h2 {
 	font-family: "Open Sans", sans-serif;
-	font-size:125%;
+	font-size:135%;
+}
+
+h3 {
+	font-family: "Open Sans", sans-serif;
+	font-size:135%;
+	color: rgb(36,164,199);
+}
+
+
+th {
+  color: rgb(36,164,199);
 }
 
 a {
@@ -80,13 +91,22 @@ input[type=text] {
   background-color: rgba(5,58,89,0.6);
 }
 
+textarea{
+  width: 400px;
+  height: 100px;
+  resize: none;
+  background-color: rgba(5,58,89,0.6);
+  border: none;
+  border-radius: 10px;
+}
+
 /*textarea {*/
 #eventDescription{
   width: 400px;
   height: 250px;
   resize: none;
   background-color: rgba(5,58,89,0.6);
-  #dcedff
+  border: none;
 }
 
 #commentBlock {
@@ -123,9 +143,6 @@ ntext {
 	margin: auto;
 	width: 50%;
 	}
-#commentBox {
-    color: black;
-}
 
 .commentDiv {
     width: 80%;
