@@ -26,7 +26,18 @@ h1 {
 
 h2 {
 	font-family: "Open Sans", sans-serif;
-	font-size:125%;
+	font-size:135%;
+}
+
+h3 {
+	font-family: "Open Sans", sans-serif;
+	font-size:135%;
+	color: rgb(36,164,199);
+}
+
+
+th {
+  color: rgb(36,164,199);
 }
 
 a {
@@ -85,7 +96,8 @@ textarea{
   height: 100px;
   resize: none;
   background-color: rgba(5,58,89,0.6);
-  #dcedff
+  border: none;
+  border-radius: 10px;
 }
 
 /*textarea {*/
@@ -94,7 +106,7 @@ textarea{
   height: 250px;
   resize: none;
   background-color: rgba(5,58,89,0.6);
-  #dcedff
+  border: none;
 }
 
 #commentBlock {

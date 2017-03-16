@@ -6,7 +6,7 @@
 
 <div class="sidebar" ng-controller="EventSidebarController">
   <ul>
-    <li><a href="/events/create"><pblue>Create New Event</pblue></a></li>
+    <a href="/events/create"><li><pblue>Create New Event</pblue></li></a>
     <!--<should be listing all event names> -->
     <div ng-repeat ="event in (filteredItems = (list | orderBy: 'eventSortDate'
       | limitTo: 10))">
