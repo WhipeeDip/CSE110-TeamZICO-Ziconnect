@@ -1,0 +1,22 @@
+<!--
+ File name: profilegroups.html
+ Authors: Kevan Yang, Elliot Yoon
+ Description: Group list for profile page.
+-->
+
+<div class="profilegroups" ng-controller="GroupController">
+  <h2>Groups</h2>
+   <!-- Display current groups -->
+  <div ng-repeat="group in userGroups">
+    <pblue>{{group}}</pblue>
+    <a href="/groupInfo"></a>
+  </div>
+
+  <div class="groupform"> 
+    <input type="text" name="groupNameBox" ng-model="groupName" 
+    placeholder="Name of your new group" required /><br />
+    <button ng-click="newGroup()" class="button">
+      Create Group
+    </button>
+  </div>
+</div>

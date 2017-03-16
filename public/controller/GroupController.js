@@ -8,29 +8,27 @@ angular.module('controllers')
   .controller('GroupController', ['GroupServices','$scope', '$rootScope', '$firebaseArray',
     function(GroupServices, $scope, $rootScope, $firebaseArray) {
 
-      $scope.form = false;
-      $scope.text = 'ultimate';
-      $scope.currGroup;
-      $scope.members = [];
+      var userUid = $rootScope.user.uid;
 
-      var groupsinref = firebase.database().ref().child('/groupsUserIsIn/' + $rootScope.user.uid);
-      $scope.userGroups = $firebaseArray(groupsinref);
+      // get firebase array of the user's groups 
+      var groupsUserIsInRef = firebase.database().ref().child('groupsUserIsIn/' + userUid);
+      $scope.userGroups = $firebaseArray(groupsUserIsInRef);
 
-      $scope.groups = ['initial'];
-
-      // create grouplist, meant for when new account is created
-      $scope.newGroup = function(name) {
-        GroupServices.createGroup($rootScope.user.uid, name);
+      // create new group
+      $scope.newGroup = function() {
+        GroupServices.createGroup(userUid, $scope.groupName).then(function() {
+          $scope.groupName = '';
+        });
       };
 
-      $scope.displayForm = function() {
-        $scope.form = false;
-        console.log($scope.form);
+      // add member to existing group
+      $scope.addMember = function() {
+        //
       };
 
-      $scope.toGroupPage = function(gid) {
-        // to group page
-        console.log('going to group page ' + gid);
+      // remove user from group
+      $scope.removeMember = function() {
+        //
       };
     }
   ]);
