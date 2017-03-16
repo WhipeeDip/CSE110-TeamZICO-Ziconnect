@@ -23,11 +23,12 @@ angular.module('models')
           var groupsUserIsInRef = firebase.database().ref().child('groupsUserIsIn/' + creatorUid);
           var newGroupUserRef = groupsUserIsInRef.push({
             'groupName': name,
+            'groupID': groupUid,
           });
-          newGroupUserRef.set(true).then(function() {
+          /*newGroupUserRef.set(true).then(function() {
             console.log('New group created:', groupRef.key);
             deferred.resolve();
-          });
+          });*/
         })
 
         return deferred.promise;
