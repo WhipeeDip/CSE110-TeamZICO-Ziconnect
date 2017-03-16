@@ -50,7 +50,6 @@ angular.module('models')
 
         return deferred.promise;
       }
-
      }
     }
   ]);
