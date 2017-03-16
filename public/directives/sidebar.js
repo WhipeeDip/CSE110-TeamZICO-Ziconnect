@@ -6,8 +6,8 @@
 
    
 angular.module('controllers')
-  .directive('sidebar', function(){
-  return{
-    templateUrl: '../directives/sidebar.html'
-  };
+  .directive('sidebar', function() {
+    return {
+      templateUrl: '../directives/sidebar.html'
+    };
 });

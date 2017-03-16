@@ -16,11 +16,13 @@ module.exports = function(app) {
 
   // Homepage GET route, Author: EY
   app.get('/home', function(req, res) {
+    res.set('Content-Type', 'text/html');
     res.sendFile(path.resolve('public/view/home.html'));
   });
 
   // Login page GET route, Author: EY
   app.get('/login', function(req, res) {
+    res.set('Content-Type', 'text/html');
     res.sendFile(path.resolve('public/view/login.html'));
   });
 

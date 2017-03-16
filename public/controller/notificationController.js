@@ -28,6 +28,5 @@ angular.module('controllers')
         gListRef.child(note.eventID).child($rootScope.user.uid).set(0);
         $scope.notes.$remove(note);
       };
-
-  }
+    }
   ]);

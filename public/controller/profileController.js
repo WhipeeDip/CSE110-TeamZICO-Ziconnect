@@ -4,9 +4,6 @@
  * Description: Handles groups
  */
 
-//var firebase = require("firebase");
-//var database = firebase.database;
-
 var prfctrl = angular.module('ziconnect');
   prfctrl.controller('profileController', ['$scope', '$rootScope', '$firebaseArray',
     function($scope, $rootScope, $firebaseArray) {
@@ -39,5 +36,5 @@ var prfctrl = angular.module('ziconnect');
       $scope.getFriends = function() {
 
       };
-  }
-]);
+    }
+  ]);
