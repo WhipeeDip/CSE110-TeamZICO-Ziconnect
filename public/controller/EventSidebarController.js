@@ -1,13 +1,12 @@
 /**
- * File name: GetUsersEventsController.js
+ * File name: EventSidebarController.js
  * Authors: Justin Cai
  * Description: Controller for getting user's events in sidebar.
  */
 
-
 angular.module('controllers')
-  .controller('SidebarController', ['$scope', '$firebaseArray',
-    function($scope, $firebaseArray){
+  .controller('EventSidebarController', ['$scope', '$firebaseArray',
+    function($scope, $firebaseArray) {
       
       $scope.getUser = function() {
         $scope.user = AccountServices.getUser();
