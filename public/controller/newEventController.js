@@ -5,8 +5,8 @@
  */
 
 angular.module('controllers')
-  .controller('newEventController', ['$scope', '$firebaseArray', '$location',
-    function($scope, $firebaseArray, $location) {
+  .controller('newEventController', ['$scope', '$firebaseArray', '$window', '$location',
+    function($scope, $firebaseArray, $location, $window) {
 
       var eventRef = firebase.database().ref('eventList');
       $scope.newEvent = {};
@@ -87,7 +87,6 @@ angular.module('controllers')
         var eventRef = firebase.database().ref('eventList');
 
         $scope.events = $firebaseArray(eventRef); 
-                    console.log("hi");
 
         var found = [];
         $scope.found = found;
@@ -99,11 +98,11 @@ angular.module('controllers')
             }
 
           })
-          console.log("hi");
-          console.log($scope.found);
         })
-
-        console.log(found);
+        console.log('hi');
+        console.log($scope.found);
+          
+        $window.location.href = '/searchEvent';
 
       }
     }
