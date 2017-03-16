@@ -32,6 +32,5 @@ angular.module('controllers')
         // to group page
         console.log('going to group page ' + gid);
       };
-
     }
   ]);

@@ -1,10 +1,10 @@
 <!--
- File name: grouplist.html
- Authors: TODO
+ File name: groups.html
+ Authors: Kevan Yang, Elliot Yoon
  Description: Group list.
 -->
 
-<div class="grouplist" ng-controller="GroupController">
+<div class="groups" ng-controller="GroupController">
   <div ng-repeat = "group in userGroups"> <!--Display current groups -->
     <pblue>{{group.groupName}}</pblue>
     <button class="button" ng-click="toGroupPage(group.groupID)">
