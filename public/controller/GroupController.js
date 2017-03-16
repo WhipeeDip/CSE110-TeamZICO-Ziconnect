@@ -10,6 +10,8 @@ angular.module('controllers')
 
       $scope.form = false;
       $scope.text = 'ultimate';
+      $scope.currGroup;
+      $scope.members = [];
 
       var groupsinref = firebase.database().ref().child('/groupsUserIsIn/' + $rootScope.user.uid);
       $scope.userGroups = $firebaseArray(groupsinref);
@@ -26,8 +28,9 @@ angular.module('controllers')
         console.log($scope.form);
       };
 
-      $scope.toGroupPage(gid) {
+      $scope.toGroupPage = function(gid) {
         // to group page
+        console.log('going to group page ' + gid);
       };
 
     }

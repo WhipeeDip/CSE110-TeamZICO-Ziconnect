@@ -1,7 +1,7 @@
 <div class="grouplist" ng-controller="GroupController">
   <div ng-repeat = "group in userGroups"> <!--Display current groups -->
     <pblue>{{group.groupName}}</pblue>
-    <button class="button" ng-click="viewGroup()">
+    <button class="button" ng-click="toGroupPage(group.groupID)">
       View</button><br/>
   </div>
   <button ng-click="displayForm()" class="button" hidden="true">
@@ -11,7 +11,7 @@
     <input type="text" ng-model="groupName" name="groupName"
     autocomplete="off" placeholder="Enter name of your new group"
     required/><br />
-    <button ng-click="newGroup(groupName.groupID)"
+    <button ng-click="newGroup(groupName)"
     class="button">Create Group</button>
   </div>
 </div>
