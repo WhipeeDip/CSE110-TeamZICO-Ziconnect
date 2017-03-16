@@ -5,34 +5,26 @@
  */
 
 angular.module('controllers')
-  .controller('GroupController', ['$scope', '$rootScope', '$key', '$firebaseArray',
-    function($scope, $key, $firebaseArray) {
+  .controller('GroupController', ['GroupServices','$scope', '$rootScope', '$firebaseArray',
+    function(GroupServices, $scope, $rootScope, $firebaseArray) {
 
-      $rootScope.$on("callCreateGroupList", function(){
-        $scope.createGroupList();
-      });
+      $scope.form = false;
+      $scope.text = 'ultimate';
+
+      var groupsinref = firebase.database().ref().child('/groupsUserIsIn/' + $rootScope.user.uid);
+      $scope.userGroups = $firebaseArray(groupsinref);
+      
+      $scope.groups = ['initial'];
 
       // create grouplist, meant for when new account is created
-      $scope.createGroupList = function() {
-        // initialize
-        var ref = firebase.database().ref();
-        var list = $firebaseArray(ref);
-        // creates groupLists for database if not created yet
-        if(list.$indexFor('groupLists') == -1) {
-          list.$add('groupLists');
-        }
-        ref = firebase.database().ref('groupLists');
-        list = $firebaseArray(ref);
-        list.$add($key);
-        console.log('Key has been added');
+      $scope.newGroup = function(name) {
+        GroupServices.createGroup($rootScope.user.uid, name);
       };
 
-      // add a group to a user's grouplist
-      $scope.addGroup = function(groupID) {
-        var ref = firebase.database().ref('groupLists/' + $key);
-        var list = $firebaseArray(ref);
-        list.$add(groupID);
-        condole.log("Added group to user's list");
+      $scope.displayForm = function() {
+        $scope.form = false;
+        console.log($scope.form);
       };
+
     }
   ]);

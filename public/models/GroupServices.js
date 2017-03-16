@@ -4,21 +4,26 @@
  * Description: Manages groups.
  */
 
-angular.module('modules')
+angular.module('models')
   .factory('GroupServices', ['$q',
     function($q) {
      return {
 
       // creates a new group
-      createGroup: function(creatorUid) {
+      createGroup: function(creatorUid, name) {
         var deferred = $q.defer();
 
         var groupListsRef = firebase.database().ref().child('groupList');
-        var groupRef = groupListsRef.push({'creator': creatorUid});
+        var groupRef = groupListsRef.push({
+          'creator': creatorUid,
+          'name': name,
+        });
         groupRef.then(function() {
           var groupUid = groupRef.key;
           var groupsUserIsInRef = firebase.database().ref().child('groupsUserIsIn/' + creatorUid);
-          var newGroupUserRef = groupsUserIsInRef.child(groupUid);
+          var newGroupUserRef = groupsUserIsInRef.push({
+            'groupName': name,
+          });
           newGroupUserRef.set(true).then(function() {
             console.log('New group created:', groupRef.key);
             deferred.resolve();
@@ -44,6 +49,7 @@ angular.module('modules')
 
         return deferred.promise;
       }
-     } 
+
+     }
     }
   ]);
