@@ -35,5 +35,4 @@ angular.module('ziconnect', ['controllers', 'models', 'ngRoute', 'firebase']).co
       scope: 'https://www.googleapis.com/auth/calendar'
     });
   });
-
 });

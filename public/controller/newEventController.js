@@ -5,17 +5,16 @@
  */
 
 angular.module('controllers')
-  .controller('newEventController', ['$scope', '$firebaseArray', '$location',
-    function($scope, $firebaseArray, $location) {
+  .controller('newEventController', ['$scope', '$rootScope', '$firebaseArray', '$location',
+    function($scope, $rootScope, $firebaseArray, $location) {
 
-      var eventRef = firebase.database().ref('eventList');
+      var eventListRef = firebase.database().ref('eventList');
       $scope.newEvent = {};
 
-      $scope.createEvent = function(uid) {
+      $scope.createEvent = function(userUid) {
 
         var evTime = new Date($scope.eventTime);
         evTimeString = evTime.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
-        console.log(evTime);
         var newEvent = {
           eventName: $scope.eventName,
           eventLocation: $scope.eventLocation,
@@ -31,36 +30,29 @@ angular.module('controllers')
           newEvent.eventPotluck = false;
         };
 
-        console.log(newEvent);
+        console.log('Creating a new event object:', newEvent);
 
-        // key for the new event
-        var key = newEventRef = eventRef.push(newEvent).key;
-        console.log('ID: ' + key);
+        // new key for the new event
+        var eventKey = eventListRef.push(newEvent).key;
+        console.log('Event UID: ' + eventKey);
 
         // adding the user as the admin in the eventGuests list
         var guestRef = firebase.database().ref('eventGuests');
-        guestRef.child(key).child(uid).set(4);
-
-        // creating a branch in database for the event's messages
-        var commentRef = firebase.database().ref('eventMessages');
-        commentRef.child(key).set('');
+        guestRef.child(eventKey).child(userUid).set(4); // TODO: let's avoid super ambiguous magic
 
         // pushing the events into the list of events a user is in
         var uEventsRef = firebase.database().ref('eventsUserIsIn');
-        uEventsRef.child(uid).child(key).set('');
+        uEventsRef.child(userUid).child(eventKey).set(4); // I'm just mirroring whatever that number is above
 
         // user is sent to the home page with the info of the newly created event displayed
-        $location.path('/' + key + '/info');
+        $location.path('/' + eventKey + '/info');
       };
 
       $scope.editEvent = function() {
-        var thisEventRef = firebase.database().ref('eventList/' +
-          $scope.eventData.$id);
+        var thisEventRef = firebase.database().ref('eventList/' + $scope.eventData.$id);
 
         var evTime = new Date($scope.eventData.eventTime);
-        evTimeString = evTime.toLocaleTimeString([], {hour: '2-digit', minute:
-          '2-digit'});
-        console.log(evTime);
+        evTimeString = evTime.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
         var newEvent = {
             eventName: $scope.eventData.eventName,
             eventLocation: $scope.eventData.eventLocation,
@@ -69,24 +61,23 @@ angular.module('controllers')
             eventDescription: $scope.eventData.eventDescription,
             eventPotluck: $scope.eventData.eventPotluck,
         };
-        console.log(newEvent);
-        console.log('edit: ' +$scope.potluck);
+        console.log('New edited event:', newEvent);
+        console.log('Potluck edit: ' + $scope.potluck);
 
         if(newEvent.eventPotluck == null) {
           newEvent.eventPotluck = false;
         }
 
-        //eventRef.push(newEvent);
         thisEventRef.update(newEvent);
 
         $location.path('/' + $scope.eventData.$id + '/info');
       };
 
-      //searches for events from the search bar
+      // searches for events from the search bar
       $scope.searchEvent = function() {
-        var eventRef = firebase.database().ref('eventList');
-        $scope.events = $firebaseArray(eventRef);
-        console.log(eventRef);
+        var eventListRef = firebase.database().ref('eventList');
+        $scope.events = $firebaseArray(eventListRef);
+        console.log(eventListRef);
 
         var found = [];
         $scope.found = found;
@@ -96,12 +87,9 @@ angular.module('controllers')
             if(value.eventName.toLowerCase().includes(($scope.input).toLowerCase())) {
               $scope.found.push(value);
             }
-
           })
         })
-
         console.log(found);
-
-      }
+      };
     }
   ]);
