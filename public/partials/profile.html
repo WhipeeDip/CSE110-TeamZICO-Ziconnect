@@ -4,16 +4,20 @@
  Description: Profile page.
 -->
 
-<div class="content" ng-controller="profileController">
+<div class="content" ng-controller="ProfileController">
   <h1>{{$root.user.name}}</h1>
   <br />
   <img src={{$root.user.picture}} style="width:150px;height:150px;">
   <h2>Profile Information{{getBasicInfo($root.user.uid)}}</h2>
   <p>Email: {{$root.user.email}}</p><br/>
+
+  <!--
   <h2>Events</h2>
   <div ng-repeat="event in eventList">
     <li> {{event.eventName}}</li>
   </div>
+  -->
+  
   <h2>Groups</h2>
   <grouplist></grouplist>
   <h2>Calendar</h2>

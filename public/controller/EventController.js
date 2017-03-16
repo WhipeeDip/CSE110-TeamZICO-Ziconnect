@@ -1,11 +1,11 @@
 /**
- * File name: newEventController.js
+ * File name: EventController.js
  * Authors: Elliot Yoon, David Lin, Caris Wei, Christian Cheng
  * Description: Controls events.
  */
 
 angular.module('controllers')
-  .controller('newEventController', ['$scope', '$rootScope', '$firebaseArray', '$location',
+  .controller('EventController', ['$scope', '$rootScope', '$firebaseArray', '$location',
     function($scope, $rootScope, $firebaseArray, $location) {
 
       var eventListRef = firebase.database().ref('eventList');

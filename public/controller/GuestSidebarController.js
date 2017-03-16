@@ -1,10 +1,10 @@
 /**
- * File name: guestSidebarController.js
+ * File name: GuestSidebarController.js
  * Authors: Justin Cai, Caris Wei
  * Description: Controller for displaying an event's participants
  */
 angular.module('controllers')
-  .controller('guestSidebarController', ['$scope', '$firebaseArray',
+  .controller('GuestSidebarController', ['$scope', '$firebaseArray',
     function($scope, $firebaseArray) {
       $scope.loadGuests = function(eid) {
         var userRef = firebase.database().ref('eventGuests').child(eid);

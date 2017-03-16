@@ -1,11 +1,11 @@
 /**
- * File name: profiletController.js
+ * File name: ProfileController.js
  * Authors: Kevan Yang
  * Description: Handles groups
  */
 
 var prfctrl = angular.module('ziconnect');
-  prfctrl.controller('profileController', ['$scope', '$rootScope', '$firebaseArray',
+  prfctrl.controller('ProfileController', ['$scope', '$rootScope', '$firebaseArray',
     function($scope, $rootScope, $firebaseArray) {
 
       $scope.uid;

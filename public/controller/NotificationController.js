@@ -1,5 +1,5 @@
 /**
- * File name: notificationController.js
+ * File name: NotificationController.js
  * Authors: Kevan Yang
  * Description: Controller for notifications.
  */
