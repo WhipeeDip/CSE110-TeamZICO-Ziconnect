@@ -16,24 +16,23 @@
   <button ng-click="postComment()" class="button">Submit</button>
   <br /><br/>
 
-  <div ng-repeat="comment in commentList">
-
-    <div class="commentDiv">
-      <div id="commentBlock">
-        <p>
-          <img src="{{comment.userPicture}}" class="commentPic"/>
-          <span> <b>{{comment.userName}}</b> on {{comment.timeStamp}}:
-          </span>
-          <span>
-            {{comment.message}}
-          </span>
-        </p>
+  <div id="commentFeed">
+    <div class="commentDiv" ng-repeat="comment in commentList | reverse">
+        <div id="commentBlock">
+          <p>
+            <img src="{{comment.userPicture}}" class="commentPic"/>
+            <span> <b>{{comment.userName}}</b> on {{comment.timeStamp}}:
+            </span>
+            <span>
+              {{comment.message}}
+            </span>
+          </p>
       </div>
-    </div>
 
-    <!--<p>-->
-      <!--<img src="{{comment.userPicture}}" class="commentPic"><b>{{comment.userEmail}}</b> on {{comment.timeStamp}}:<br />-->
-    <!--{{comment.message}}<br /><br />-->
-    <!--</p>-->
+      <!--<p>-->
+        <!--<img src="{{comment.userPicture}}" class="commentPic"><b>{{comment.userEmail}}</b> on {{comment.timeStamp}}:<br />-->
+      <!--{{comment.message}}<br /><br />-->
+      <!--</p>-->
+    </div>
   </div>
 </div>
