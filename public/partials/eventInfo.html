@@ -3,38 +3,39 @@
  Authors: Caris Wei, Custin Jai
  Description: TODO
 -->
-<div class="sidebar2" ng-controller="GuestSidebarController" ng-init="loadGuests(eventData.$id)">
-  <ul>
-    <li class="userSideBarTitle">Invited Guests</li>
-    <!--<should be listing all invited users> -->
-    <li ng-repeat ="user in result">
-        <img id="prof" src="{{user.picture}}">&nbsp;&nbsp; {{user.name}} </li>
-  </ul>
-</div>
 
 
 <div class="content">
-  <div><h1>{{eventData.eventName}}</h1></div>
-  <h2><pblue>When: </pblue> {{eventData.eventTime}} <pblue> on </pblue>
-    {{eventData.eventDate}}
+  <div class="sidebar2" ng-controller="GuestSidebarController" ng-init="loadGuests(eventData.$id)">
+    <ul>
+      <li class="userSideBarTitle">Invited Guests</li>
+      <!--<should be listing all invited users> -->
+      <li ng-repeat ="user in result">
+          <img id="prof" src="{{user.picture}}">&nbsp;&nbsp; {{user.name}} </li>
+    </ul>
+  </div>
+  
+  <div class="eventInfo">
+    <h1>{{eventData.eventName}}</h1>
+    <h2><pblue>When: </pblue> {{eventData.eventTime}} <pblue> on </pblue>
+      {{eventData.eventDate}}
+      <br/>
+      <pblue>Where: </pblue> {{eventData.eventLocation}}
+      <br/><br/>
+      <pblue>Description:</pblue>
+      <br/>
+      {{eventData.eventDescription}}
+    </h2>
+
     <br/>
-    <pblue>Where: </pblue> {{eventData.eventLocation}}
-    <br/><br/>
-    <pblue>Description:</pblue>
-    <br/>
-    {{eventData.eventDescription}}
-  </h2>
 
-  <br/>
+    <h3>Host Actions:</h3>
+    <a href="/{{eventData.$id}}/edit"><button class="button" >Edit
+        Event</button></a>
+    &nbsp;
+    <a href="/{{eventData.$id}}/addPeopleToEvent"><button class="button">Invite People</button></a>
+  </div>
 
-  <h3>Host Actions:</h3>
-  <a href="/{{eventData.$id}}/edit"><button class="button" >Edit
-      Event</button></a>
-  &nbsp;
-  <a href="/{{eventData.$id}}/addPeopleToEvent"><button class="button">Invite People</button></a>
-
-  <br/>
-  <br/>
   <potluck></potluck>
   <comments></comments>
 </div>
