@@ -12,8 +12,8 @@
       <div ng-repeat="note in notes">
         <li> You have an invitation to {{note.eventName}}!
         </li>
-        <button class="button" ng-click = "accept(note)">Accept</button>
-        <button class="button" ng-click = "decline(note)">Decline</button>
+          <a href="/{{note.eventID}}/info"><button class="button" ng-click = "view(note)">View</button></a>
+        <button class="button" ng-click = "dismiss(note)">Dismiss</button>
   <br /><br/>
       </div>
   </body>
