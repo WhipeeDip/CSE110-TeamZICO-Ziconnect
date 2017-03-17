@@ -8,10 +8,9 @@ body {
   background-image:url("../assets/bg1.jpg");
   background-color:rgba(5,58,89);
   background-repeat: repeat-y;
-  height: 1200px;
   color: #dcedff;
-  min-width: 1400px;
-  min-height: 1000px;
+  min-width: 1600px;
+  min-height: 800px;
 }
 
 p {
@@ -36,7 +35,6 @@ h3 {
 	font-size:135%;
 	color: rgb(36,164,199);
 }
-
 
 th {
   color: rgb(36,164,199);
@@ -122,18 +120,22 @@ textarea{
   position: relative;
 }
 
-
-
 #commentBlock img {
     position: absolute;
     top: 0%;
     /*margin-top: -50px;  !* = image height div 2 *!*/
 }
+
 #commentBlock span {
   margin-left: 50px;  /* = image width + 8 */
   display: block;
   word-wrap: normal;
   white-space: normal;
+}
+
+#commentFeed{
+  max-height: 595px;
+  overflow-y: scroll;
 }
 
 .comments{
@@ -182,11 +184,16 @@ ntext {
   padding-bottom: 20px;
   background-color: rgba(5,58,89,0.6);
   border-radius:10px;
-  margin-top: 50x;
+  margin-top: 15px;
   margin-right: 10px;
+  margin-bottom: 10px;
   overflow-y: scroll;
-  height: auto; 
+  height: 820px; 
   
+}
+
+#home{
+  height: 200px;
 }
 
 contentcenter {
@@ -402,4 +409,8 @@ contentcenter {
 
 .potluck .button{
   margin-top: 5px;
+}
+
+::-webkit--scrollbar{
+  display: none;
 }
