@@ -80,16 +80,16 @@ angular.module('controllers')
         console.log(eventListRef);
 
         var found = [];
-        $scope.found = found;
+        $rootScope.found = found;
 
         $scope.events.$loaded().then(function(data) {
-          angular.forEach(data, function(value, key) {
-            if(value.eventName.toLowerCase().includes(($scope.input).toLowerCase())) {
-              $scope.found.push(value);
+          angular.forEach(data, function(value, key) {  if(value.eventName.toLowerCase().includes(($scope.input).toLowerCase())) {
+              $rootScope.found.push(value);
             }
           })
         })
         console.log(found);
+        console.log("hi");
       };
     }
   ]);

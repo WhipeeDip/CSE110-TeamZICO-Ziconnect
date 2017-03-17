@@ -101,9 +101,6 @@ angular.module('controllers')
         })
         console.log('hi');
         console.log($scope.found);
-          
-        $window.location.href = '/searchEvent';
-
       }
     }
   ]);
