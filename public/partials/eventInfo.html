@@ -17,7 +17,7 @@
   </div>
   
   <!-- the event info is displayed to the left -->
-  <div id="eventInfo">
+  <div id="eventInfo"  ng-controller="GuestSidebarController" >
     <h1>{{eventData.eventName}}</h1>
     <h2><pblue>When: </pblue> {{eventData.eventTime}} <pblue> on </pblue>
       {{eventData.eventDate}}
@@ -30,8 +30,11 @@
     </h2>
 
     <br/>
-
-    <h3>Host Actions:</h3>
+    <h3>Your Response</h3>
+    <button class="button" ng-click="going(user.uid, eventData.$id)">Going</button>
+    <button class="button" ng-click="maybe(user.uid, eventData.$id)">Maybe</button>
+    <button class="button" ng-click="notGoing(user.uid, eventData.$id)">Can't</button>
+    <h4>Host Actions:</h4>
     <a href="/{{eventData.$id}}/edit"><button class="button" >Edit
         Event</button></a>
     &nbsp;

@@ -112,7 +112,10 @@ textarea{
 
 #eventInfo{
   float: left;
-  width: 25%;
+  width: 30%;
+  max-height: 785px;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 #commentBlock {
@@ -134,15 +137,16 @@ textarea{
 }
 
 #commentFeed{
-  max-height: 595px;
+  margin-bottom: 10px;
+  max-height: 575px;
   overflow-y: scroll;
 }
 
 .comments{
   float: none;
-  margin-left: 25%;
+  margin-left: 40%;
   width: 50%;
-  padding-left: 150px;
+  padding-left: 0px;
 }
 
 ntext {
@@ -151,20 +155,20 @@ ntext {
 }
 
 #header {
-	background-color: rgba(36,164,199,0.2);
-	border-radius:10px;
-	padding:5px;
-	text-align:center;
+  background-color: rgba(36,164,199,0.2);
+  border-radius:10px;
+  padding:5px;
+  text-align:center;
 }
 
 #splash {
-	background-color: rgba(5,58,89,0.6);
-	border-radius:10px;
-	padding:10px 20px;
-	text-align:center;
-	margin: auto;
-	width: 50%;
-	}
+  background-color: rgba(5,58,89,0.6);
+  border-radius:10px;
+  padding:10px 20px;
+  text-align:center;
+  margin: auto;
+  width: 50%;
+}
 
 .commentDiv {
   width: 500px;
@@ -181,14 +185,14 @@ ntext {
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 0px;
-  padding-bottom: 20px;
+  padding-bottom: 0px;
   background-color: rgba(5,58,89,0.6);
   border-radius:10px;
   margin-top: 15px;
   margin-right: 10px;
   margin-bottom: 10px;
   overflow-y: scroll;
-  height: 820px; 
+  height: 800px;
   
 }
 
@@ -245,7 +249,9 @@ contentcenter {
   background-color: rgba(0,0,0,0.6);
   border-radius:10px;
   overflow-y: scroll;
+  overflow-x: hidden;
   color: #ffffff;
+  max-height: 785px;
   
 }
 

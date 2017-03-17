@@ -17,15 +17,15 @@ angular.module('controllers')
       $scope.message = "Accept of Decline your invites!";
 
       // respond to notifications
-      $scope.accept = function (note) {
-        var gListRef = firebase.database().ref("eventGuests/");
-        gListRef.child(note.eventID).child($rootScope.user.uid).set(accept);
+      $scope.view = function (note) {
+        //var gListRef = firebase.database().ref("eventGuests/");
+        //gListRef.child(note.eventID).child($rootScope.user.uid).set(accept);
+        //need to route to event page
         $scope.notes.$remove(note);
       };
 
-      $scope.decline = function(note) {
-        var gListRef = firebase.database().ref("eventGuests/");
-        gListRef.child(note.eventID).child($rootScope.user.uid).set(0);
+      $scope.dismiss = function(note) {
+        //remove this notification
         $scope.notes.$remove(note);
       };
     }

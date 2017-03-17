@@ -6,6 +6,7 @@
 angular.module('controllers')
   .controller('GuestSidebarController', ['$scope', '$firebaseArray',
     function($scope, $firebaseArray) {
+      
       $scope.loadGuests = function(eid) {
         var userRef = firebase.database().ref('eventGuests').child(eid);
         var list = $firebaseArray(userRef);
@@ -32,5 +33,18 @@ angular.module('controllers')
           });
         });
       };
+      $scope.going = function(uid, eid){
+        console.log(uid + " is going");
+        firebase.database().ref('eventGuests').child(eid).child(uid).set(1);  
+        
+      };
+      $scope.maybe = function(uid, eid){
+          console.log(uid + " is maybe")
+          firebase.database().ref('eventGuests').child(eid).child(uid).set(2);  
+      };
+      $scope.notGoing = function(uid, eid){
+          console.log(uid + " can't")
+          firebase.database().ref('eventGuests').child(eid).child(uid).set(3);  
+      }
     }
   ]);
