@@ -11,7 +11,6 @@ body {
   color: #dcedff;
   min-width: 1600px;
   min-height: 800px;
-  overflow: hidden;
 }
 
 p {
@@ -113,7 +112,10 @@ textarea{
 
 #eventInfo{
   float: left;
-  width: 25%;
+  width: 30%;
+  max-height: 785px;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 #commentBlock {
@@ -135,15 +137,16 @@ textarea{
 }
 
 #commentFeed{
-  max-height: 570px;
+  margin-bottom: 10px;
+  max-height: 575px;
   overflow-y: scroll;
 }
 
 .comments{
   float: none;
-  margin-left: 25%;
+  margin-left: 40%;
   width: 50%;
-  padding-left: 150px;
+  padding-left: 0px;
 }
 
 ntext {
@@ -182,14 +185,14 @@ ntext {
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 0px;
-  padding-bottom: 20px;
+  padding-bottom: 0px;
   background-color: rgba(5,58,89,0.6);
   border-radius:10px;
   margin-top: 15px;
   margin-right: 10px;
   margin-bottom: 10px;
-  overflow: hidden;
-  height: 795px; 
+  overflow-y: scroll;
+  height: 800px;
   
 }
 
@@ -245,8 +248,10 @@ contentcenter {
   z-index: 1;
   background-color: rgba(0,0,0,0.6);
   border-radius:10px;
-  overflow-y: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
   color: #ffffff;
+  max-height: 785px;
   
 }
 
