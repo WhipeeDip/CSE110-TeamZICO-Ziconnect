@@ -6,6 +6,7 @@
 
 
 <div class="content">
+  <!-- the invited guests are displayed to the right -->
   <div class="sidebar2" ng-controller="GuestSidebarController" ng-init="loadGuests(eventData.$id)">
     <ul>
       <li class="userSideBarTitle">Invited Guests</li>
@@ -15,7 +16,8 @@
     </ul>
   </div>
   
-  <div class="eventInfo">
+  <!-- the event info is displayed to the left -->
+  <div id="eventInfo">
     <h1>{{eventData.eventName}}</h1>
     <h2><pblue>When: </pblue> {{eventData.eventTime}} <pblue> on </pblue>
       {{eventData.eventDate}}
@@ -34,8 +36,11 @@
         Event</button></a>
     &nbsp;
     <a href="/{{eventData.$id}}/addPeopleToEvent"><button class="button">Invite People</button></a>
-  </div>
 
-  <potluck></potluck>
+    <potluck></potluck>
+  </div>
+  
+  <!-- the comments are displayed in the center -->
   <comments></comments>
+  
 </div>
