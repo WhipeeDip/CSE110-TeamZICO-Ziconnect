@@ -32,5 +32,14 @@ angular.module('controllers')
           });
         });
       };
+      $scope.going=function(){
+        console.log("going");
+      };
+      $scope.maybe=function(){
+          
+      };
+      scope.notGoing=function(){
+          
+      };
     }
   ]);
