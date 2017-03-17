@@ -371,7 +371,7 @@ contentcenter {
    padding: 10px 20px;
    -webkit-border-radius: 0px;
    -moz-border-radius: 0px;
-   border-radius: 0px;
+   border-radius: 5px;
    -webkit-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset
    rgba(255,255,255,0.4) 0 0px 0;
    -moz-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4)
