@@ -3,9 +3,10 @@
  Authors: Caris Wei, Custin Jai
  Description: TODO
 -->
-
-
 <div class="content">
+
+  <div class="cover"></div>
+
   <!-- the invited guests are displayed to the right -->
   <div class="sidebar2" ng-controller="GuestSidebarController" ng-init="loadGuests(eventData.$id)">
     <ul>
@@ -15,7 +16,7 @@
           <img id="prof" src="{{user.picture}}">&nbsp;&nbsp; {{user.name}} </li>
     </ul>
   </div>
-  
+
   <!-- the event info is displayed to the left -->
   <div id="eventInfo"  ng-controller="GuestSidebarController" >
     <h1>{{eventData.eventName}}</h1>
@@ -40,7 +41,7 @@
     <button class="button" ng-click="notGoing(user.uid, eventData.$id)">
       Can't
     </button>
-    
+
     <h3>Host Actions:</h3>
     <a href="/{{eventData.$id}}/edit">
       <button class="button" >
@@ -55,7 +56,7 @@
 
     <potluck></potluck>
   </div>
-  
+
   <!-- the comments are displayed in the center -->
   <comments></comments>
   

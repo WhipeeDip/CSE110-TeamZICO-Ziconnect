@@ -196,7 +196,6 @@ ntext {
   margin-bottom: 10px;
   overflow-y: scroll;
   height: 800px;
-  
 }
 
 #home{
@@ -207,6 +206,11 @@ contentcenter {
   text-align:center;
 }
 
+.cover {
+    background-image: url("../assets/nature-background.jpg");
+    width: 100%;
+    height: 50%;
+}
 .sidebar {
   height: 100%;
   width: 200px;
@@ -279,9 +283,6 @@ contentcenter {
   color: #dcedff;
   font-size:20px;
 } 
-
-
-
 
 #prof {
   height: auto;

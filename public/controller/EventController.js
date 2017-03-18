@@ -44,6 +44,13 @@ angular.module('controllers')
         var uEventsRef = firebase.database().ref('eventsUserIsIn');
         uEventsRef.child(userUid).child(eventKey).set(4); // I'm just mirroring whatever that number is above
 
+          var file = document.getElementById("eventImage").files[0];
+
+          var storageRef = firebase.storage().ref('images/' + file.name);
+          storageRef.put(file).then(function(snapshot) {
+            console.log('Uploaded a picture');
+          });
+
         // user is sent to the home page with the info of the newly created event displayed
         $location.path('/' + eventKey + '/info');
       };
