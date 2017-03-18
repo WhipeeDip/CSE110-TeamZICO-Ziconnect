@@ -8,8 +8,7 @@
   <ul>
     <a href="/events/create"><li><pblue>Create New Event</pblue></li></a>
     <!--<should be listing all event names> -->
-    <div ng-repeat ="event in (filteredItems = (list | orderBy: 'eventSortDate'
-      | limitTo: 10)) track by event.uid">
+    <div ng-repeat ="event in (filteredItems = (list | orderBy: 'eventSortDate')) track by event.uid">
       <a href="/{{event.uid}}/info">
         <li>
           {{event.eventName}}<br/>

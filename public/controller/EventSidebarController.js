@@ -22,13 +22,16 @@ angular.module('controllers')
           var eventKey = eventKeySnapshot.key;
           eventListRef.child(eventKey).once('value').then(function(eventSnapshot) {
             var eventVal = eventSnapshot.val();
-            var tmp = {
-              uid: eventSnapshot.key,
-              eventName: eventVal.eventName,
-              eventDate: eventVal.eventDate
-            };
-            $scope.list.push(tmp);
-            $scope.$apply();
+            if(eventVal != null) {
+              console.log('eventVal', eventVal);
+              var tmp = {
+                uid: eventSnapshot.key,
+                eventName: eventVal.eventName,
+                eventDate: eventVal.eventDate
+              };
+              $scope.list.push(tmp);
+              $scope.$apply();
+            }
           }); 
         });
       });
