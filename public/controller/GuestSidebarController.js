@@ -11,8 +11,6 @@ angular.module('controllers')
         var userRef = firebase.database().ref('eventGuests').child(eid);
         var list = $firebaseArray(userRef);
         $scope.list = list;
-        console.log(list);
-        console.log(eid);
 
         var userList = firebase.database().ref("userList");
         var users = $firebaseArray(userList);

@@ -15,7 +15,13 @@ angular.module('controllers')
 
       // host a new ride
       $scope.hostRide = function() {
+        // make sure to return early if not int
         var numSeats = parseInt($scope.numSeatsInput);
+        if(isNaN(numSeats)) {
+          console.log("Invalid input");
+          reason = "";
+          return;
+        }
         RideServices.createRide(eventUid, $rootScope.user.uid, $rootScope.user.name, numSeats)
           .then(function(response) { // success
           // do nothing
@@ -27,8 +33,9 @@ angular.module('controllers')
       };
 
       // join an existing ride
-      $scope.joinRide = function() {
-
+      $scope.joinRide = function(driverid) {
+        console.log('driver: ' + driverid);
+        RideServices.addPassenger($scope.eventData.$id, driverid, $rootScope.user.uid, $rootScope.user.name);
       };
 
       $scope.createRide = function() {

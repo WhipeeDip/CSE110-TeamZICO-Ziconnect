@@ -7,15 +7,15 @@
 <div class="rides" ng-controller="RideController" ng-if="eventData.eventRides">
   <div><h3>Rides</h3></div>
   <div ng-repeat="ride in ridesList">
-    <p>Driver: {{ride.driverName}} <br />
-    Seats Left: {{ride.seats}} <br />
-    <p>Passengers:</p> <br />
-    <li ng-repeat="passenger in ride" ng-if="$index > 0">
-      <p>{{passenger}}</p> <br />
+    <h5>Driver: {{ride.driverName}} </h5>
+    <p>Seats Left: {{ride.seats}} <br />
+    Passengers:</p>
+    <li ng-repeat="passenger in ride.passengers">
+      {{passenger.name}}
     </li>
-    <button ng-hide="rideHost" ng-click="addToRide()">I need a ride!</button>
+    <button class="button" ng-disable="rideHost" ng-click="joinRide(ride.$id)">Join Ride</button>
     </p>
   </div>
   <input type="text" name="seatsBox" ng-model="numSeatsInput" ng-hide="rideHost" placeholder="# of seats you have">
-  <button ng-click="hostRide()" ng-hide="rideHost">Host a ride!</button>
+  <button class="button" ng-click="hostRide()" ng-hide="rideHost">Host a ride!</button>
 </div>

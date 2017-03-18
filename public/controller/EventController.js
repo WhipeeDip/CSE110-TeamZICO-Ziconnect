@@ -38,11 +38,12 @@ angular.module('controllers')
 
         // new key for the new event
         var eventKey = eventListRef.push(newEvent).key;
-        console.log('Event UID: ' + eventKey);
+        console.log('New event UID: ' + eventKey);
 
         // adding the user as the admin in the eventGuests list
         var guestRef = firebase.database().ref('eventGuests');
         guestRef.child(eventKey).child(userUid).set(4); // TODO: let's avoid super ambiguous magic
+        // OKAY, so 4 means admin/creator for now. TODO TODO TODO magic numbers
 
         // pushing the events into the list of events a user is in
         var uEventsRef = firebase.database().ref('eventsUserIsIn');
