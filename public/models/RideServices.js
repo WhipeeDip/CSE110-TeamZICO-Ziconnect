@@ -10,7 +10,7 @@ angular.module('models')
       return {
 
         // creates a new ride
-        createRide: function(eventUid, creatorUid, numSeats) {
+        createRide: function(eventUid, creatorUid, creatorName, numSeats) {
           var deferred = $q.defer();
 
           var ridesRef = firebase.database().ref().child('rides/' + eventUid + '/' + creatorUid);
@@ -19,8 +19,16 @@ angular.module('models')
             if(snapshot.exists()) {
               deferred.reject('Exists');
             } else {
-              ridesRef.set({'seats:': numSeats}).then(function() {
+              /*ridesRef.push( {
+                driverName: creatorName,
+                seats: numSeats,
+              });*/
+              //ridesRef.child('seats').set(numSeats);
+              ridesRef.child('driverName').set(creatorName);
+
+              ridesRef.set({'seats': numSeats}).then(function() {
                 console.log('Ride created with driver ' + creatorUid);
+                ridesRef.child('driverName').set(creatorName);
                 deferred.resolve();
               });
             }
@@ -56,8 +64,8 @@ angular.module('models')
           return deferred.promise();
         },
 
-        // removes a passenger from an existing ride 
-        remvoePassenger: function(creatorUid, userUid) {
+        // removes a passenger from an existing ride
+        removePassenger: function(creatorUid, userUid) {
           var deferred = $q.defer();
 
           var ridesRef = firebase.database().ref().child('rides/' + eventUid + '/' + creatorUid);
@@ -89,7 +97,9 @@ angular.module('models')
           });
 
           return deferred.promise;
-        }
+        },
+
+
       }
     }
   ]);

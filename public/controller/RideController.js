@@ -16,9 +16,9 @@ angular.module('controllers')
       // host a new ride
       $scope.hostRide = function() {
         var numSeats = parseInt($scope.numSeatsInput);
-        RideServices.createRide(eventUid, $rootScope.user.uid, numSeats)
+        RideServices.createRide(eventUid, $rootScope.user.uid, $rootScope.user.name, numSeats)
           .then(function(response) { // success
-          // do nothing 
+          // do nothing
         }, function(reason) { // error
           if(reason == 'Exists') {
             alert('You are already hosting a ride!');
@@ -29,6 +29,9 @@ angular.module('controllers')
       // join an existing ride
       $scope.joinRide = function() {
 
+      };
+
+      $scope.createRide = function() {
       };
     }
   ]);
