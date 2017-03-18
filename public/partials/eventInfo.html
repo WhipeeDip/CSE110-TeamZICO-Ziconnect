@@ -3,12 +3,12 @@
  Authors: Caris Wei, Custin Jai
  Description: TODO
 -->
-<div class="content">
 
+<div class="content" ng-controller="GuestSidebarController">
   <div class="cover"></div>
-
+  
   <!-- the invited guests are displayed to the right -->
-  <div class="sidebar2" ng-controller="GuestSidebarController" ng-init="loadGuests(eventData.$id)">
+  <div class="sidebar2" ng-init="loadGuests(eventData.$id)">
     <ul>
       <li class="userSideBarTitle">Invited Guests</li>
       <!--<should be listing all invited users> -->
@@ -18,7 +18,7 @@
   </div>
 
   <!-- the event info is displayed to the left -->
-  <div id="eventInfo"  ng-controller="GuestSidebarController" >
+  <div id="eventInfo">
     <h1>{{eventData.eventName}}</h1>
     <h2><pblue>When: </pblue> {{eventData.eventTime}} <pblue> on </pblue>
       {{eventData.eventDate}}
