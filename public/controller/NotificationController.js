@@ -1,32 +1,74 @@
 /**
  * File name: NotificationController.js
- * Authors: Kevan Yang
+ * Authors: Kevan Yang, Elliot Yoon
  * Description: Controller for notifications.
  */
 
 angular.module('controllers')
-  .controller('NotificationController', ['$scope', '$rootScope', '$firebaseArray',
-    function($scope, $rootScope, $firebaseArray){
-      var userNfcn = firebase.database().ref("notifications/" + $rootScope.user.uid);
+  .controller('NotificationController', ['InviteServices', '$scope', '$rootScope', '$firebaseArray',
+    function(InviteServices, $scope, $rootScope, $firebaseArray) {
+      var user = $rootScope.user;
+      var notificationRef = firebase.database().ref().child('notifications').child(user.uid);
+      var eventListRef = firebase.database().ref('eventList');
 
-      const accept = 1; // constant to indicate user has accepted for guestlist
+      // prepare notification array
+      var eventUidToIndex = []; // pairs the list index with event uid
+      notificationRef.on('value', function(notificationsList) { // grab every notification
+        $scope.notes = [];
+        notificationsList.forEach(function(notificationSnapshot) { // loop through entire list
+          var eventKey = notificationSnapshot.key; // event uid
 
-      $scope.ref;
-      $scope.list;
-      $scope.notes = $firebaseArray(userNfcn); // notifications list
-      $scope.message = "Accept of Decline your invites!";
+          // grab real event data
+          eventListRef.child(eventKey).once('value').then(function(eventSnapshot) {
+            var eventVal = eventSnapshot.val(); // event data
+            if(eventVal != null) {
+              // build array 
+              var tmp = {
+                uid: eventSnapshot.key,
+                eventName: eventVal.eventName,
+                eventDate: eventVal.eventDate
+              };
+              $scope.notes.push(tmp);
+              eventUidToIndex[tmp.uid] = $scope.notes.length - 1;
+              $scope.$apply();
+            }
+          });
 
-      // respond to notifications
-      $scope.view = function (note) {
-        //var gListRef = firebase.database().ref("eventGuests/");
-        //gListRef.child(note.eventID).child($rootScope.user.uid).set(accept);
-        //need to route to event page
-        $scope.notes.$remove(note);
+          // handle event data changes - TODO UNTESTED
+          eventListRef.child(eventKey).on('child_changed', function(childSnapshot, prevChildKey) {
+            var eventValChange = childSnapshot.val(); // event data
+            if(eventValChange != null) {
+              // edit array
+              var newTmp = { 
+                uid: childSnapshot.key,
+                eventName: eventValChange.eventName,
+                eventDate: eventValChange.eventDate
+              };
+              var eventIndex = eventUidToIndex[tmp.uid];
+              $scope.notes[eventIndex] = tmp;
+              $scope.$apply();
+            }
+          });
+        });
+      });
+
+      // handle notification removal
+      notificationRef.on('child_removed', function(oldChildSnapshot) {
+        var oldUid = oldChildSnapshot.key;
+        var oldIndex = eventUidToIndex[oldUid];
+        $scope.notes.splice(oldIndex, 1);
+        eventUidToIndex.splice(oldUid, 1);
+        $scope.$apply();
+      });
+
+      // accept invite
+      $scope.acceptInvite = function(note) {
+        InviteServices.respondToEventInvite(user.uid, note.uid, true);
       };
 
-      $scope.dismiss = function(note) {
-        //remove this notification
-        $scope.notes.$remove(note);
+      // decline invite
+      $scope.declineInvite = function(note) {
+        InviteServices.respondToEventInvite(user.uid, note.uid, false);
       };
     }
   ]);

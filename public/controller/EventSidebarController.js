@@ -16,24 +16,55 @@ angular.module('controllers')
       var eventListRef = firebase.database().ref('eventList');
 
       // grab user's events
-      $scope.list = [];
-      usersEventsRef.on('value', function(eventKeyList) {
-        eventKeyList.forEach(function(eventKeySnapshot) {
-          var eventKey = eventKeySnapshot.key;
-          eventListRef.child(eventKey).once('value').then(function(eventSnapshot) {
-            var eventVal = eventSnapshot.val();
-            if(eventVal != null) {
-              console.log('eventVal', eventVal);
-              var tmp = {
-                uid: eventSnapshot.key,
-                eventName: eventVal.eventName,
-                eventDate: eventVal.eventDate
-              };
-              $scope.list.push(tmp);
-              $scope.$apply();
-            }
-          }); 
+      var eventUidToIndex = []; // pairs the list index with event uid
+      usersEventsRef.on('value', function(eventKeyList) { // get every event user is in
+        $scope.list = [];
+        eventKeyList.forEach(function(eventKeySnapshot) { // loop through entire list
+          if(eventKeySnapshot.val() != 0) { // ignore invited events
+            var eventKey = eventKeySnapshot.key; // grab event uid
+
+            // begin matching to actual event
+            eventListRef.child(eventKey).once('value').then(function(eventSnapshot) {
+              var eventVal = eventSnapshot.val(); // event data
+              if(eventVal != null) {
+                // build array
+                var tmp = { 
+                  uid: eventSnapshot.key,
+                  eventName: eventVal.eventName,
+                  eventDate: eventVal.eventDate
+                };
+                $scope.list.push(tmp);
+                eventUidToIndex[tmp.uid] = $scope.list.length - 1;
+                $scope.$apply();
+              }
+            }); 
+
+            // handle event data changes - TODO UNTESTED
+            eventListRef.child(eventKey).on('child_changed', function(childSnapshot, prevChildKey) {
+              var eventValChange = childSnapshot.val(); // event data
+              if(eventValChange != null) {
+                // edit array
+                var newTmp = { 
+                  uid: childSnapshot.key,
+                  eventName: eventValChange.eventName,
+                  eventDate: eventValChange.eventDate
+                };
+                var eventIndex = eventUidToIndex[newTmp.uid];
+                $scope.list[eventIndex] = newTmp;
+                $scope.$apply();
+              }
+            });
+          }
         });
+      });
+
+      // handle event removal - TODO UNTESTED
+      usersEventsRef.on('child_removed', function(oldChildSnapshot) {
+        var oldUid = oldChildSnapshot.key;
+        var oldIndex = eventUidToIndex[oldUid];
+        $scope.list.splice(oldIndex, 1);
+        eventUidToIndex.splice(oldUid, 1);
+        $scope.$apply();
       });
     }
   ]);
