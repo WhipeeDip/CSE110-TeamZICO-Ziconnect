@@ -10,8 +10,8 @@
     <h5>Driver: {{ride.driverName}} </h5>
     <p>Seats Left: {{ride.seats}} <br />
     Passengers:</p>
-    <li ng-repeat="passenger in ride.passengers" ng-if="$index > 0">
-      {{passenger}}
+    <li ng-repeat="passenger in ride.passengers">
+      {{passenger.name}}
     </li>
     <button class="button" ng-disable="rideHost" ng-click="joinRide(ride.$id)">Join Ride</button>
     </p>

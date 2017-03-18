@@ -39,7 +39,7 @@ angular.module('models')
         },
 
         // adds a passenger to an existing ride
-        addPassenger: function(eventUid, creatorUid, userUid) {
+        addPassenger: function(eventUid, creatorUid, userUid, username) {
           var deferred = $q.defer();
 
           console.log(eventUid);
@@ -59,7 +59,10 @@ angular.module('models')
               var passengerRef = ridesRef.child(userUid);
               passengerRef.set(true).then(function() {
                 seatsRef.set(seats - 1).then(function() {
-                  ridesRef.child('passengers').push(userUid);
+                  ridesRef.child('passengers').push({
+                    name: username,
+                    uid: userUid,
+                  });
                   console.log('Added passenger: ' + userUid);
                   deferred.resolve();
                 });

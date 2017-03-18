@@ -19,6 +19,7 @@ angular.module('controllers')
         var numSeats = parseInt($scope.numSeatsInput);
         if(isNaN(numSeats)) {
           console.log("Invalid input");
+          reason = "";
           return;
         }
         RideServices.createRide(eventUid, $rootScope.user.uid, $rootScope.user.name, numSeats)
@@ -34,7 +35,7 @@ angular.module('controllers')
       // join an existing ride
       $scope.joinRide = function(driverid) {
         console.log('driver: ' + driverid);
-        RideServices.addPassenger($scope.eventData.$id, driverid, $rootScope.user.uid);
+        RideServices.addPassenger($scope.eventData.$id, driverid, $rootScope.user.uid, $rootScope.user.name);
       };
 
       $scope.createRide = function() {
