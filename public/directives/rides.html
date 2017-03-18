@@ -4,10 +4,10 @@
   Description: Displays rides for the event.
 -->
 
-<div class="rides" ng-controller="RideController">
-  <div><h1>Rides</h1></div>
+<div class="rides" ng-controller="RideController" ng-if="eventData.eventRides">
+  <div><h3>Rides</h3></div>
   <div ng-repeat="ride in ridesList">
-    <p>Driver: {{ride}} <br />
+    <p>Driver: {{ride.driverName}} <br />
     Seats Left: {{ride.seats}} <br />
     <p>Passengers:</p> <br />
     <li ng-repeat="passenger in ride" ng-if="$index > 0">
@@ -16,6 +16,6 @@
     <button ng-hide="rideHost" ng-click="addToRide()">I need a ride!</button>
     </p>
   </div>
-  <input type="text" name="seatsBox" ng-model="numSeatsInput" ng-hide="rideHost" placeholder="# of seats you have"></div>
-  <button ng-click="createRide()" ng-hide="rideHost">Host a ride!</button>
+  <input type="text" name="seatsBox" ng-model="numSeatsInput" ng-hide="rideHost" placeholder="# of seats you have">
+  <button ng-click="hostRide()" ng-hide="rideHost">Host a ride!</button>
 </div>

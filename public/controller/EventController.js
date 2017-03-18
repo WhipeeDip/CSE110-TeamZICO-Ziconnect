@@ -23,11 +23,15 @@ angular.module('controllers')
           eventDate: $scope.eventDate.toDateString(),
           eventDescription: $scope.eventDescription,
           eventPotluck: $scope.potluck,
+          eventRides: $scope.rides,
         };
 
         // if box was never checked
         if(newEvent.eventPotluck == null) {
           newEvent.eventPotluck = false;
+        };
+        if(newEvent.eventRides == null) {
+          newEvent.eventRides = false;
         };
 
         console.log('Creating a new event object:', newEvent);
@@ -67,13 +71,17 @@ angular.module('controllers')
             eventDate: $scope.eventData.eventDate.toDateString(),
             eventDescription: $scope.eventData.eventDescription,
             eventPotluck: $scope.eventData.eventPotluck,
+            eventRides: $scope.eventData.eventRides,
         };
         console.log('New edited event:', newEvent);
         console.log('Potluck edit: ' + $scope.potluck);
 
         if(newEvent.eventPotluck == null) {
           newEvent.eventPotluck = false;
-        }
+        };
+        if(newEvent.eventRides == null) {
+          newEvent.eventRides = false;
+        };
 
         thisEventRef.update(newEvent);
 
