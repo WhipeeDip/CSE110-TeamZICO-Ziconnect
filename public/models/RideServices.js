@@ -46,30 +46,34 @@ angular.module('models')
           console.log(creatorUid);
           console.log(userUid);
           var ridesRef = firebase.database().ref('rides').child(eventUid).child(creatorUid);
+          var hasRidesRef = firebase.database().ref('rides').child(eventUid).child('hasRides').child(userUid);
           var seatsRef = ridesRef.child('seats');
 
           // check seats
-          // need to check for multiple clicks
-          seatsRef.once('value').then(function(snapshotSeats) {
-            var seats = snapshotSeats.val();
-            if(seats <= 0) {
-              console.log('No more seats!');
-              deferred.reject('Full');
+          hasRidesRef.once('value').then(function(hasSnapshot) {
+            var exists = hasSnapshot.exists();
+            if(exists) {
+              deferred.reject('Exists');
             } else {
-              var passengerRef = ridesRef.child(userUid);
-              passengerRef.set(true).then(function() {
-                seatsRef.set(seats - 1).then(function() {
-                  ridesRef.child('passengers').push({
-                    name: username,
-                    uid: userUid,
+              seatsRef.once('value').then(function(snapshotSeats) {
+                var seats = snapshotSeats.val();
+                if(seats <= 0) {
+                  console.log('No more seats!');
+                  deferred.reject('Full');
+                } else {
+                  seatsRef.set(seats - 1).then(function() {
+                    ridesRef.child('passengers').child(userUid).set(username).then(function() {
+                      hasRidesRef.set(true).then(function() {
+                        console.log('Added passenger: ' + userUid);
+                        deferred.resolve();
+                      });
+                    });
                   });
-                  console.log('Added passenger: ' + userUid);
-                  deferred.resolve();
-                });
+                }
               });
             }
           });
-
+          
           return deferred.promise;
         },
 
