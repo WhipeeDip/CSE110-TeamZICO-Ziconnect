@@ -34,7 +34,7 @@
   <!-- the event info is displayed to the left -->
   <div id="eventInfo" ng-init="checkAdmin(user.uid, eventData.$id)">
     <h1>{{eventData.eventName}}</h1>
-    <h2><pblue>When: </pblue> {{eventData.eventTime.toLocaleTimeString()}} <pblue> on </pblue>
+    <h2><pblue>When: </pblue> {{timeString}} <pblue> on </pblue>
       {{eventData.eventDate.toDateString()}}
       <br/>
       <pblue>Where: </pblue> {{eventData.eventLocation}}

@@ -76,6 +76,9 @@ config(['$routeProvider', '$locationProvider', function($routeProvider) {
     dat.setMinutes(time[1]);
     $scope.eventData.eventTime = dat;
     $scope.eventData = obj;
+    var str = $scope.eventData.eventTime.toLocaleTimeString().split(/[\s:]/);
+    $scope.timeString = '' + str[0] + ':' + str[1] + str[3];
+    console.log($scope.timeString);
   });
   $scope.eventData = obj;
 });
