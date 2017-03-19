@@ -14,6 +14,8 @@
    var suggestRef = firebase.database().ref().child('potluck/suggestions/' + eventUid);
    $scope.foodList = $firebaseArray(potluckRef);
    $scope.suggestionList = $firebaseArray(suggestRef);
+   $scope.suggestion = '';
+   $scope.fooditem = '';
 
    //$scope.foodList = [];
    // should be [food, uid]
