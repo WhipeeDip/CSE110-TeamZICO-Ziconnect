@@ -8,6 +8,7 @@
      ng-if="eventData.eventPotluck">
   
   <!-- table for food items that users will be bringing -->
+  <hr>
   <h3>Food/Items to be Brought</h3>
   <table width="400">
     <tr>
@@ -28,10 +29,12 @@
           class="button">
     Enter Food/Item
   </button>
-  <br/><br/>
+  <br/>
+  <hr>
   
   <!--Suggest foods here -->
   <h3>Suggested Food/Items</h3>
+  <div id="claim">
   <div ng-repeat="item in suggestionList">
     <li>
       <button ng-click="claimSuggestion($root.user.name, $root.user.uid, item.food)" 
@@ -41,7 +44,8 @@
       {{item.food}}
     </li>
   </div>
-  <br />
+  </div>
+  
   <input type="text" ng-model="suggestion" name="suggestion"
          autocomplete="off" placeholder=" Suggest an item!"
          ng-model="item" required/>
