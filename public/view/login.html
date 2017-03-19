@@ -7,50 +7,53 @@
 <!DOCTYPE html>
 
 <html ng-app="ziconnect">
-<head>
-  <!-- TODO: change to min scripts -->
+  <head>
+    <!-- TODO: change to min scripts -->
 
-  <!-- TODO: change for production -->
-  <meta name="google-signin-client_id" content="420682510691-4khdpqg30qdshb3hjma7bcct51n7ecdr.apps.googleusercontent.com">
-  <script src="https://apis.google.com/js/api.js"></script>
+    <!-- TODO: change for production -->
+    <meta name="google-signin-client_id" content="420682510691-4khdpqg30qdshb3hjma7bcct51n7ecdr.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/api.js"></script>
 
-  <!-- stylesheet -->
-  <link rel="stylesheet" type="text/css" href="/view/stylesheet.css">
+    <!-- stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/view/stylesheet.css">
 
-  <!-- angular scripts -->
-  <script src="/scripts/angular/angular.js"></script>
-  <script src="/scripts/angular-cookies/angular-cookies.js"></script>
-  <script src="/scripts/angular-route/angular-route.js"></script>
-  <script src="/scripts/angularfire/dist/angularfire.js"></script>
-  <script src="/scripts/firebase/firebase.js"></script>
+    <!-- angular scripts -->
+    <script src="/scripts/angular/angular.js"></script>
+    <script src="/scripts/angular-cookies/angular-cookies.js"></script>
+    <script src="/scripts/angular-route/angular-route.js"></script>
+    <script src="/scripts/angularfire/dist/angularfire.js"></script>
+    <script src="/scripts/firebase/firebase.js"></script>
 
-  <!-- Our scripts -->
-  <script src="../modules.js"></script>
-  <script src="../models/AccountServices.js"></script>
-  <script src="../controller/AccountController.js"></script>
-   
-  <!-- Open Sans font -->
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300'
-  rel='stylesheet' type='text/css'>
+    <!-- Our scripts -->
+    <script src="../modules.js"></script>
+    <script src="../models/AccountServices.js"></script>
+    <script src="../controller/AccountController.js"></script>
 
-  <title>Login</title>
-</head>
+    <!-- Open Sans font -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300'
+    rel='stylesheet' type='text/css'>
 
-<div id="header">
-  <img src=../assets/ziconnect_logo.png width=335 height=75>
-</div>
+    <title>Login</title>
+  </head>
 
-<br />
 
-<body ng-controller="AccountController">
-  <div id="splash">
-        <h1>Looking for adventure? We've got you covered.
-        <br/>Find the latest events near you with Ziconnect.</h1>
-      <input type="image" src="../assets/google_signin_normal.png"
-                          ng-click="login()" />
+  <body ng-controller="AccountController">
+    <div id="header">
+      <img src=../assets/ziconnect_logo.png width=335 height=75>
+    </div>
+
+    <br />
+    <div id="splash">
+      <h1>Looking for adventure? We've got you covered.<br/>
+        Find the latest events near you with <strong>Ziconnect.</strong>
+      </h1>
+      <input type="image" src="../assets/google_signin_normal.png" 
+             ng-click="login()" />
       <br/><br/>
-      <img src="https://i.imgur.com/WC4SyB5.jpg" width="700" height="500"/>
+      <img src="https://i.imgur.com/WC4SyB5.jpg" 
+           width="700" 
+           height="500"/>
       <br />
-  </div>
-</body>
+    </div>
+  </body>
 </html>
