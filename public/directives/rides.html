@@ -12,16 +12,13 @@
   <div ng-repeat="ride in ridesList">
     <h5>Driver: {{ride.driverName}} | Seats Left: {{ride.seats}}
       &nbsp;
-      <button class="button" ng-disable="rideHost"
+      <button ng-show="{{ride.seats}} > 0" class="button" ng-disable="rideHost"
         ng-click="joinRide(ride.$id)">
         Join Ride
       </button> 
-    
-    </h5>
-    <p>
+      <br/>
       Passengers:
-    </p>
-    
+    </h5>
     <li ng-repeat="passenger in ride.passengers">
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{passenger.name}}
     </li>

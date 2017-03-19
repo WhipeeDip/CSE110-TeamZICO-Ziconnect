@@ -32,24 +32,27 @@
 
     <hr>
     <h3 ng-hide="admin">Your Response</h3>
-    <button ng-hide="admin" class="button" ng-click="going(user.uid, eventData.$id)">
+    <button ng-hide="admin" class="large" ng-click="going(user.uid,
+      eventData.$id)">
       Going
     </button>
-    <button ng-hide="admin" class="button" ng-click="maybe(user.uid, eventData.$id)">
+    <button ng-hide="admin" class="large" ng-click="maybe(user.uid,
+      eventData.$id)">
       Maybe
     </button>
-    <button ng-hide="admin" class="button" ng-click="notGoing(user.uid, eventData.$id)">
-      Can't
+    <button ng-hide="admin" class="large" ng-click="notGoing(user.uid,
+      eventData.$id)">
+      Can't Go
     </button>
 
     <h3 ng-show="admin">Host Actions:</h3>
     <a ng-show="admin" href="/{{eventData.$id}}/edit">
-      <button class="button" >
+      <button class="large" >
         Edit Event
       </button>
     </a>
     <a href="/{{eventData.$id}}/addPeopleToEvent">
-      <button class="button">
+      <button class="large">
         Invite People
       </button>
     </a>

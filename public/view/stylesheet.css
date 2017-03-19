@@ -473,6 +473,38 @@ contentcenter {
   margin-bottom: 5px;
 }
 
+.large {
+  border: 0px solid #24a4c7;
+  background: #27a4c7;
+  background: -webkit-gradient(linear, left top, left bottom, from(#27a4c7),
+    to(#27a4c7));
+  background: -webkit-linear-gradient(top, #27a4c7, #27a4c7);
+  background: -moz-linear-gradient(top, #27a4c7, #27a4c7);
+  background: -ms-linear-gradient(top, #27a4c7, #27a4c7);
+  background: -o-linear-gradient(top, #27a4c7, #27a4c7);
+  background-image: -ms-linear-gradient(top, #27a4c7 0%, #27a4c7 100%);
+  padding: 10px 20px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 5px;
+  -webkit-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset
+    rgba(255,255,255,0.4) 0 0px 0;
+  -moz-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4)
+    0 0px 0;
+  box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 0px
+    0;
+  text-shadow: #27a4c7 0 1px 0;
+  color: #ffffff;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  text-decoration: none;
+  vertical-align: middle;
+  
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+
 .button:hover {
   border: 0px solid #3c8cba;
   text-shadow: #1e4158 0 1px 0;
@@ -499,6 +531,34 @@ contentcenter {
   background-image: -ms-linear-gradient(top, #3c8cba 0%, #3c8cba 100%);
   color: #fff;
 }
+
+.large:hover {
+  border: 0px solid #3c8cba;
+  text-shadow: #1e4158 0 1px 0;
+  background: #3c8cba;
+  background: -webkit-gradient(linear, left top, left bottom, from(#3c8cba),
+    to(#3c8cba));
+  background: -webkit-linear-gradient(top, #3c8cba, #3c8cba);
+  background: -moz-linear-gradient(top, #3c8cba, #3c8cba);
+  background: -ms-linear-gradient(top, #3c8cba, #3c8cba);
+  background: -o-linear-gradient(top, #3c8cba, #3c8cba);
+  background-image: -ms-linear-gradient(top, #3c8cba 0%, #3c8cba 100%);
+  color: #ffffff;
+}
+.large:active {
+  text-shadow: #1e4158 0 1px 0;
+  border: 0px solid #3c8cba;
+  background: #3c8cba;
+  background: -webkit-gradient(linear, left top, left bottom, from(#3c8cba),
+    to(#3c8cba));
+  background: -webkit-linear-gradient(top, #3c8cba, #3c8cba);
+  background: -moz-linear-gradient(top, #3c8cba, #3c8cba);
+  background: -ms-linear-gradient(top, #3c8cba, #3c8cba);
+  background: -o-linear-gradient(top, #3c8cba, #3c8cba);
+  background-image: -ms-linear-gradient(top, #3c8cba 0%, #3c8cba 100%);
+  color: #fff;
+}
+
 
 /*
  * In case we want to change placeholder text color
