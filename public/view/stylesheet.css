@@ -206,8 +206,8 @@ contentcenter {
   text-align:center;
 }
 
-.cover {
-    background-image: url("../assets/nature-background.jpg");
+#cover {
+    background-image: url("../assets/Elliot_FB.jpg");
     width: 100%;
     height: 50%;
 }

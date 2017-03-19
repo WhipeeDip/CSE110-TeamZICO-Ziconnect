@@ -5,7 +5,7 @@
 -->
 <div class="content">
 
-  <div class="cover"></div>
+  <div id="cover" ng-controller="EventController" ng-init="loadImage()"></div>
 
   <!-- the invited guests are displayed to the right -->
   <div class="sidebar2" ng-controller="GuestSidebarController" ng-init="loadGuests(eventData.$id)">
