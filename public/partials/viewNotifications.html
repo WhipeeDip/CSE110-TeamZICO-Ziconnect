@@ -1,20 +1,28 @@
 <!--
- File name: viewNotofications.html
- Author(s): Ryan Yung
- Description:    view for notifications
+ File name: viewNotifications.html
+ Author(s): Ryan Yung, Elliot Yoon
+ Description: View for notifications
 -->
 
 <div class="content" ng-controller="NotificationController">
-    <h1> Notifications </h1>
-      <body>
-      <!-- get notifications from server -->
-      <pblue> Event Invitations </pblue>
-      <div ng-repeat="note in notes">
-        <li> You have an invitation to {{note.eventName}}!
-        </li>
-          <a href="/{{note.eventID}}/info"><button class="button" ng-click = "view(note)">View</button></a>
-        <button class="button" ng-click = "dismiss(note)">Dismiss</button>
-  <br /><br/>
-      </div>
+  <h1>Event Invitations</h1>
+  <body>
+    <div ng-repeat="note in notes track by notes.uid">
+      <li>
+        You have an invitation to the event: {{note.eventName}}!
+
+        <a href="/{{note.uid}}/info"><button class="button">
+          View Event Info
+        </button></a>
+
+        <a href="/{{note.uid}}/info"><button class="button" ng-click="acceptInvite(note)">
+          Accept
+        </button></a>
+
+        <button class="button" ng-click="declineInvite(note)">Decline</button>
+
+        <br /><br />
+      </li>
+    </div>
   </body>
 </div>

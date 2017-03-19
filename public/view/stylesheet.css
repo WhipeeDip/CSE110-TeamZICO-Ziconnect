@@ -92,7 +92,7 @@ input[type=text] {
 }
 
 textarea{
-  width: 500px;
+  width: 100%;
   height: 100px;
   resize: none;
   background-color: rgba(5,58,89,0.6);
@@ -112,14 +112,14 @@ textarea{
 
 #eventInfo{
   float: left;
-  width: 30%;
-  max-height: 785px;
+  width: 37.5%;
+  max-height: 97%;
   overflow-x: hidden;
   overflow-y: scroll;
+  margin-top: 10px;
 }
 
 #commentBlock {
-  width: auto;
   position: relative;
 }
 
@@ -138,15 +138,18 @@ textarea{
 
 #commentFeed{
   margin-bottom: 10px;
-  max-height: 575px;
+  width: 100%;
+  max-height: 40.25em;
   overflow-y: scroll;
 }
 
 .comments{
   float: none;
   margin-left: 40%;
-  width: 50%;
+  margin-top: 30px;
   padding-left: 0px;
+  width: 35.5%;
+  max-height: 95%;
 }
 
 ntext {
@@ -171,13 +174,14 @@ ntext {
 }
 
 .commentDiv {
-  width: 500px;
+  width: 100%;
   position:inline-block;
   padding: 10px;
   background-color: rgba(5,58,89,0.6);
   border-radius:10px;
-  margin-top: 15px;
+  margin-bottom: 15px;
   margin-right: 50px;
+  min-height: 60px;
 }
 
 .content {
@@ -185,7 +189,7 @@ ntext {
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 0px;
-  padding-bottom: 0px;
+  padding-bottom: 10px;
   background-color: rgba(5,58,89,0.6);
   border-radius:10px;
   margin-top: 15px;
@@ -194,6 +198,7 @@ ntext {
   overflow-y: scroll;
   height: 800px;
   
+  list-style-type: none;
 }
 
 #home{
@@ -204,6 +209,13 @@ contentcenter {
   text-align:center;
 }
 
+#cover {
+  margin-top: 10px;
+  background-image: url("../assets/nature-background.jpg");
+  width: 100%;
+  height: 25%;
+  border-radius: 5px
+}
 .sidebar {
   height: 100%;
   width: 200px;
@@ -244,6 +256,7 @@ contentcenter {
   width: 20%;
   padding: 15px;
   margin-top: 15px;
+  margin-bottom: 15px;
   float: right;
   z-index: 1;
   background-color: rgba(0,0,0,0.6);
@@ -251,8 +264,7 @@ contentcenter {
   overflow-y: scroll;
   overflow-x: hidden;
   color: #ffffff;
-  max-height: 785px;
-  
+  max-height: 97%;
 }
 
 .sidebar2 ul {
@@ -276,9 +288,6 @@ contentcenter {
   color: #dcedff;
   font-size:20px;
 } 
-
-
-
 
 #prof {
   height: auto;
@@ -309,11 +318,13 @@ contentcenter {
 .navbar-brand {
   color: #ffffff;
   line-height: 50px;
+  margin-top: 10px;
 }
 
 .navbar-form {
   color: #ffffff;
   line-height: 60px;
+  margin-top: 15px;
 }
 
 .navbar-nav li a {
@@ -359,62 +370,65 @@ contentcenter {
 
 /* make buttons look nice */
 .button {
-   border: 0px solid #24a4c7;
-   background: #27a4c7;
-   background: -webkit-gradient(linear, left top, left bottom, from(#27a4c7),
-   to(#27a4c7));
-   background: -webkit-linear-gradient(top, #27a4c7, #27a4c7);
-   background: -moz-linear-gradient(top, #27a4c7, #27a4c7);
-   background: -ms-linear-gradient(top, #27a4c7, #27a4c7);
-   background: -o-linear-gradient(top, #27a4c7, #27a4c7);
-   background-image: -ms-linear-gradient(top, #27a4c7 0%, #27a4c7 100%);
-   padding: 10px 20px;
-   -webkit-border-radius: 0px;
-   -moz-border-radius: 0px;
-   border-radius: 5px;
-   -webkit-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset
-   rgba(255,255,255,0.4) 0 0px 0;
-   -moz-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4)
-   0 0px 0;
-   box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 0px
-   0;
-   text-shadow: #27a4c7 0 1px 0;
-   color: #ffffff;
-   font-size: 14px;
-   font-family: "Open Sans", sans-serif;
-   text-decoration: none;
-   vertical-align: middle;
+  border: 0px solid #24a4c7;
+  background: #27a4c7;
+  background: -webkit-gradient(linear, left top, left bottom, from(#27a4c7),
+    to(#27a4c7));
+  background: -webkit-linear-gradient(top, #27a4c7, #27a4c7);
+  background: -moz-linear-gradient(top, #27a4c7, #27a4c7);
+  background: -ms-linear-gradient(top, #27a4c7, #27a4c7);
+  background: -o-linear-gradient(top, #27a4c7, #27a4c7);
+  background-image: -ms-linear-gradient(top, #27a4c7 0%, #27a4c7 100%);
+  padding: 10px 20px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 5px;
+  -webkit-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset
+    rgba(255,255,255,0.4) 0 0px 0;
+  -moz-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4)
+    0 0px 0;
+  box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 0px
+    0;
+  text-shadow: #27a4c7 0 1px 0;
+  color: #ffffff;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  text-decoration: none;
+  vertical-align: middle;
+  
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .button:hover {
-   border: 0px solid #3c8cba;
-   text-shadow: #1e4158 0 1px 0;
-   background: #3c8cba;
-   background: -webkit-gradient(linear, left top, left bottom, from(#3c8cba),
-   to(#3c8cba));
-   background: -webkit-linear-gradient(top, #3c8cba, #3c8cba);
-   background: -moz-linear-gradient(top, #3c8cba, #3c8cba);
-   background: -ms-linear-gradient(top, #3c8cba, #3c8cba);
-   background: -o-linear-gradient(top, #3c8cba, #3c8cba);
-   background-image: -ms-linear-gradient(top, #3c8cba 0%, #3c8cba 100%);
-   color: #ffffff;
+  border: 0px solid #3c8cba;
+  text-shadow: #1e4158 0 1px 0;
+  background: #3c8cba;
+  background: -webkit-gradient(linear, left top, left bottom, from(#3c8cba),
+    to(#3c8cba));
+  background: -webkit-linear-gradient(top, #3c8cba, #3c8cba);
+  background: -moz-linear-gradient(top, #3c8cba, #3c8cba);
+  background: -ms-linear-gradient(top, #3c8cba, #3c8cba);
+  background: -o-linear-gradient(top, #3c8cba, #3c8cba);
+  background-image: -ms-linear-gradient(top, #3c8cba 0%, #3c8cba 100%);
+  color: #ffffff;
 }
 .button:active {
-   text-shadow: #1e4158 0 1px 0;
-   border: 0px solid #3c8cba;
-   background: #3c8cba;
-   background: -webkit-gradient(linear, left top, left bottom, from(#3c8cba),
-   to(#3c8cba));
-   background: -webkit-linear-gradient(top, #3c8cba, #3c8cba);
-   background: -moz-linear-gradient(top, #3c8cba, #3c8cba);
-   background: -ms-linear-gradient(top, #3c8cba, #3c8cba);
-   background: -o-linear-gradient(top, #3c8cba, #3c8cba);
-   background-image: -ms-linear-gradient(top, #3c8cba 0%, #3c8cba 100%);
-   color: #fff;
+  text-shadow: #1e4158 0 1px 0;
+  border: 0px solid #3c8cba;
+  background: #3c8cba;
+  background: -webkit-gradient(linear, left top, left bottom, from(#3c8cba),
+    to(#3c8cba));
+  background: -webkit-linear-gradient(top, #3c8cba, #3c8cba);
+  background: -moz-linear-gradient(top, #3c8cba, #3c8cba);
+  background: -ms-linear-gradient(top, #3c8cba, #3c8cba);
+  background: -o-linear-gradient(top, #3c8cba, #3c8cba);
+  background-image: -ms-linear-gradient(top, #3c8cba 0%, #3c8cba 100%);
+  color: #fff;
 }
 
-.potluck .button{
-  margin-top: 5px;
+#suggestion{
+  margin: 5px 15px 0px 0px;
 }
 
 ::-webkit--scrollbar{

@@ -4,10 +4,11 @@
  Description: TODO
 -->
 
-
-<div class="content">
+<div class="content" ng-controller="GuestSidebarController">
+  <div id="cover" ng-controller="EventController" ng-init="loadImage()"></div>
+  
   <!-- the invited guests are displayed to the right -->
-  <div class="sidebar2" ng-controller="GuestSidebarController" ng-init="loadGuests(eventData.$id)">
+  <div class="sidebar2" ng-init="loadGuests(eventData.$id)">
     <ul>
       <li class="userSideBarTitle">Invited Guests</li>
       <!--<should be listing all invited users> -->
@@ -15,9 +16,9 @@
           <img id="prof" src="{{user.picture}}">&nbsp;&nbsp; {{user.name}} </li>
     </ul>
   </div>
-  
+
   <!-- the event info is displayed to the left -->
-  <div id="eventInfo"  ng-controller="GuestSidebarController" >
+  <div id="eventInfo">
     <h1>{{eventData.eventName}}</h1>
     <h2><pblue>When: </pblue> {{eventData.eventTime}} <pblue> on </pblue>
       {{eventData.eventDate}}
@@ -31,16 +32,40 @@
 
     <br/>
     <h3>Your Response</h3>
+<!--
     <button class="button" ng-click="going(user.uid, eventData.$id)">Going</button>
     <button class="button" ng-click="maybe(user.uid, eventData.$id)">Maybe</button>
     <button class="button" ng-click="notGoing(user.uid, eventData.$id)">Can't</button>
     
     <hostAction></hostAction>
+-->
+    <button class="button" ng-click="going(user.uid, eventData.$id)">
+      Going
+    </button>
+    <button class="button" ng-click="maybe(user.uid, eventData.$id)">
+      Maybe
+    </button>
+    <button class="button" ng-click="notGoing(user.uid, eventData.$id)">
+      Can't
+    </button>
+
+    <h3>Host Actions:</h3>
+    <a href="/{{eventData.$id}}/edit">
+      <button class="button" >
+        Edit Event
+      </button>
+    </a>
+    <a href="/{{eventData.$id}}/addPeopleToEvent">
+      <button class="button">
+        Invite People
+      </button>
+    </a>
 
     <potluck></potluck>
+    <rides></rides>
   </div>
-  
+
   <!-- the comments are displayed in the center -->
   <comments></comments>
-  
+
 </div>

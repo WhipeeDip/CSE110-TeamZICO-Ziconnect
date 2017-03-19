@@ -9,7 +9,7 @@
    <!-- Display current groups -->
   <div ng-repeat="group in userGroups">
     <pblue>{{group}}</pblue>
-    <a href="/groupInfo"></a>
+    <a href="/groups/{{group.$id}}/info"></a>
   </div>
 
   <div class="groupform"> 

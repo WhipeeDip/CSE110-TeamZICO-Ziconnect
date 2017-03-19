@@ -4,18 +4,28 @@
   Description: Displays rides for the event.
 -->
 
-<div class="rides" ng-controller="RideController">
-  <div><h1>Rides</h1></div>
+<div class="rides" ng-controller="RideController" ng-if="eventData.eventRides">
+  <h3>Rides</h3>
+  
   <div ng-repeat="ride in ridesList">
-    <p>Driver: {{ride}} <br />
-    Seats Left: {{ride.seats}} <br />
-    <p>Passengers:</p> <br />
-    <li ng-repeat="passenger in ride" ng-if="$index > 0">
-      <p>{{passenger}}</p> <br />
+    <h5>Driver: {{ride.driverName}} </h5>
+    <p>
+      Seats Left: {{ride.seats}} <br />
+      Passengers:
+    </p>
+    <li ng-repeat="passenger in ride.passengers">
+      {{passenger.name}}
     </li>
-    <button ng-hide="rideHost" ng-click="addToRide()">I need a ride!</button>
+    <button class="button" ng-disable="rideHost" ng-click="joinRide(ride.$id)">
+      Join Ride
+    </button>
     </p>
   </div>
-  <input type="text" name="seatsBox" ng-model="numSeatsInput" ng-hide="rideHost" placeholder="# of seats you have"></div>
-  <button ng-click="createRide()" ng-hide="rideHost">Host a ride!</button>
+  <input type="text" name="seatsBox" ng-model="numSeatsInput" ng-hide="rideHost" 
+         placeholder=" # of seats you have">
+
+  <br />
+  <button class="button" ng-click="hostRide()" ng-hide="rideHost">
+    Host a ride!
+  </button>
 </div>

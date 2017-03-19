@@ -1,7 +1,7 @@
 /**
  * File name: config.js
  * Authors: Elliot Yoon, More
- * Description: Client side routing and controller assignment. 
+ * Description: Client side routing and controller assignment to pull data from route params. 
  */
 
 'use strict';
@@ -21,18 +21,18 @@ config(['$routeProvider', '$locationProvider', function($routeProvider) {
 
   when('/:event_id/info', {
     templateUrl:'../partials/eventInfo.html',
-    controller: 'InfoController',
+    controller: 'EventInfoController',
   }).
 
   when('/:event_id/edit', {
     templateUrl:'../partials/editEvent.html',
-    controller: 'InfoController',
+    controller: 'EventInfoController',
   }).
 
   //adding eventId routing specific to each event from sidebar
   when('/:event_id/addPeopleToEvent', {
     templateUrl:'../partials/addPeopleToEvent.html',
-    controller: 'InfoController',
+    controller: 'EventInfoController',
   }).
 
   when('/profile', {
@@ -50,7 +50,6 @@ config(['$routeProvider', '$locationProvider', function($routeProvider) {
   when('/events/comment', {
     templateUrl: '../partials/commentOnEvent.html'
   }).
-  
 
   when('/notifications', {
     templateUrl: '../partials/viewNotifications.html'
@@ -62,10 +61,23 @@ config(['$routeProvider', '$locationProvider', function($routeProvider) {
 
   when('/events/create', {
     templateUrl: '../partials/newEvent.html',
+  }).
+
+  when('/groups/:group_id/info', {
+    templateUrl: '../partials/groupInfo.html',
+    controller: 'GroupInfoController'
   });
-}]).controller('InfoController', function($scope, $routeParams, $firebaseObject) {
+
+// grabs the event id from route and loads the correct event from firebase
+}]).controller('EventInfoController', function($scope, $routeParams, $firebaseObject) {
   var eventListRef = firebase.database().ref('eventList');
   var eventRef = eventListRef.child($routeParams.event_id);
   var obj = $firebaseObject(eventRef);
   $scope.eventData = obj;
+
+// grabs the group id from route and loads the correct group from firebase
+}).controller('GroupInfoController', function($scope, $routeParams) {
+  var groupListRef = firebase.database().ref().child('groupList');
+  var groupRef = groupListRef.child($routeParams.group_id);
+  $scope.groupData = $firebaseObject(groupRef);
 });

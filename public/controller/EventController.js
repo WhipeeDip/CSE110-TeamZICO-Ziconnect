@@ -12,6 +12,7 @@ angular.module('controllers')
       $scope.newEvent = {};
 
       $scope.createEvent = function(userUid) {
+        var file = document.getElementById("eventImage").files[0];
 
         var evTime = new Date($scope.eventTime);
         evTimeString = evTime.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
@@ -23,26 +24,38 @@ angular.module('controllers')
           eventDate: $scope.eventDate.toDateString(),
           eventDescription: $scope.eventDescription,
           eventPotluck: $scope.potluck,
+          eventRides: $scope.rides,
+          eventImage: file.name,
         };
 
         // if box was never checked
         if(newEvent.eventPotluck == null) {
           newEvent.eventPotluck = false;
         };
+        if(newEvent.eventRides == null) {
+          newEvent.eventRides = false;
+        };
 
         console.log('Creating a new event object:', newEvent);
 
         // new key for the new event
         var eventKey = eventListRef.push(newEvent).key;
-        console.log('Event UID: ' + eventKey);
+        console.log('New event UID: ' + eventKey);
 
         // adding the user as the admin in the eventGuests list
         var guestRef = firebase.database().ref('eventGuests');
         guestRef.child(eventKey).child(userUid).set(4); // TODO: let's avoid super ambiguous magic
+        // OKAY, so 4 means admin/creator for now. TODO TODO TODO magic numbers
 
         // pushing the events into the list of events a user is in
         var uEventsRef = firebase.database().ref('eventsUserIsIn');
         uEventsRef.child(userUid).child(eventKey).set(4); // I'm just mirroring whatever that number is above
+
+        // upload the file to firebase storage
+        var storageRef = firebase.storage().ref('images/');
+        storageRef.child('' + eventKey+'/'+file.name).put(file).then(function(snapshot) {
+            console.log('Uploaded a picture to eventID');
+        });
 
         // user is sent to the home page with the info of the newly created event displayed
         $location.path('/' + eventKey + '/info');
@@ -60,13 +73,17 @@ angular.module('controllers')
             eventDate: $scope.eventData.eventDate.toDateString(),
             eventDescription: $scope.eventData.eventDescription,
             eventPotluck: $scope.eventData.eventPotluck,
+            eventRides: $scope.eventData.eventRides,
         };
         console.log('New edited event:', newEvent);
         console.log('Potluck edit: ' + $scope.potluck);
 
         if(newEvent.eventPotluck == null) {
           newEvent.eventPotluck = false;
-        }
+        };
+        if(newEvent.eventRides == null) {
+          newEvent.eventRides = false;
+        };
 
         thisEventRef.update(newEvent);
 
@@ -89,7 +106,21 @@ angular.module('controllers')
           })
         })
         console.log(found);
-        console.log("hi");
       };
+
+      $scope.loadImage = function() {
+        var storageRef= firebase.storage();
+        var pathRef = storageRef.ref('images/' + $scope.eventData.$id +'/');
+
+        console.log($scope.eventData);
+
+        $scope.eventData.$loaded().then(function() {
+          console.log($scope.eventData.eventImage);
+          pathRef.child(''+$scope.eventData.eventImage).getDownloadURL().then(function(url) {
+            var urlString = 'url(' + url + ')';
+            document.getElementById('cover').style.backgroundImage = urlString;
+          });
+        });
+      }
     }
   ]);
