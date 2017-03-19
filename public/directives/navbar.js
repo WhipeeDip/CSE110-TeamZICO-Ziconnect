@@ -1,7 +1,7 @@
 /**
  * File name: navbar.js
- * Authors: TODO
- * Description: TODO
+ * Authors: LeDaniel Leung
+ * Description: Navbar directive.
  */
 
 angular.module('controllers')

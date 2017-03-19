@@ -35,7 +35,7 @@ angular.module('models')
         },
 
         // invites a user to an event
-        // NOTE and TODO: magic number 0 means invited but no response 
+        // NOTE magic number 0 means invited but no response 
         inviteUserToEvent: function(userUid, eventUid) {
           var deferred = $q.defer();
 
@@ -72,7 +72,7 @@ angular.module('models')
 
         // responds to an event invite
         // response is true for accept, false for decline
-        // NOTE and TODO: magic number 1 means accepted
+        // NOTE: magic number 1 means accepted
         respondToEventInvite: function(userUid, eventUid, response) {
           var deferred = $q.defer();
 
