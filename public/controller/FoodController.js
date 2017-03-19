@@ -28,8 +28,18 @@
    };
 
    $scope.storeSuggestion = function(food) {
-     suggestRef.push({
-       'food': food
+     suggestRef.child(food).set({
+         'food': food
      })
+     /* suggestRef.push({
+       'food': food
+     })*/
+   }
+   
+   $scope.claimSuggestion=function(name, uid, food){
+
+    console.log("claiming " + food)
+    $scope.storeFood(name, uid, food);
+    suggestRef.child(food).remove();   
    }
  }]);

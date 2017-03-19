@@ -5,17 +5,27 @@
 -->
 
 <div class="rides" ng-controller="RideController" ng-if="eventData.eventRides">
-  <div><h3>Rides</h3></div>
+  <h3>Rides</h3>
+  
   <div ng-repeat="ride in ridesList">
     <h5>Driver: {{ride.driverName}} </h5>
-    <p>Seats Left: {{ride.seats}} <br />
-    Passengers:</p>
+    <p>
+      Seats Left: {{ride.seats}} <br />
+      Passengers:
+    </p>
     <li ng-repeat="passenger in ride.passengers">
       {{passenger.name}}
     </li>
-    <button class="button" ng-disable="rideHost" ng-click="joinRide(ride.$id)">Join Ride</button>
+    <button class="button" ng-disable="rideHost" ng-click="joinRide(ride.$id)">
+      Join Ride
+    </button>
     </p>
   </div>
-  <input type="text" name="seatsBox" ng-model="numSeatsInput" ng-hide="rideHost" placeholder="# of seats you have">
-  <button class="button" ng-click="hostRide()" ng-hide="rideHost">Host a ride!</button>
+  <input type="text" name="seatsBox" ng-model="numSeatsInput" ng-hide="rideHost" 
+         placeholder=" # of seats you have">
+
+  <br />
+  <button class="button" ng-click="hostRide()" ng-hide="rideHost">
+    Host a ride!
+  </button>
 </div>
