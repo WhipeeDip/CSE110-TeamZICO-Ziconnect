@@ -36,20 +36,24 @@
       eventData.$id)">
       Going
     </button>
+    &nbsp;
     <button ng-hide="admin" class="large" ng-click="maybe(user.uid,
       eventData.$id)">
       Maybe
     </button>
+    &nbsp;
     <button ng-hide="admin" class="large" ng-click="notGoing(user.uid,
       eventData.$id)">
       Can't Go
     </button>
-
+    &nbsp;
+    
     <h3 ng-show="admin">Host Actions:</h3>
     <a ng-show="admin" href="/{{eventData.$id}}/edit">
       <button class="large" >
         Edit Event
       </button>
+        &nbsp;
     </a>
     <a href="/{{eventData.$id}}/addPeopleToEvent">
       <button class="large">
