@@ -5,9 +5,39 @@
  */
 
 /********************* GENERAL ELEMENT STYLING **********************/
+
+/* Courtesy of the Hacker 4 Chan */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+} 
+ 
+::-webkit-scrollbar-thumb {
+  background-color: rgb(5,58,89); 
+  border-radius: 100px;
+  height: 15px;
+} 
+ 
+::-webkit-scrollbar-button {
+  background-color: transparent;
+} 
+ 
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+hr {
+  margin-right: 15px;
+  border-color: rgb(36,164,199);
+}
+
 body {
   background-image:url("../assets/bg1.jpg");
-  background-color:rgba(5,58,89);
+  background-color:rgb(5,58,89);
   background-repeat: repeat-y;
   color: #dcedff;
   min-width: 1600px;
@@ -430,6 +460,4 @@ contentcenter {
   color: #fff;
 }
 
-::-webkit--scrollbar{
-  display: none;
-}
+
