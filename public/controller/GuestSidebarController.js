@@ -91,7 +91,7 @@ angular.module('controllers')
       };
       
       $scope.deleteEvent = function(eid){
-        if (confirm('Are you sure you want to delete this event? (This action is permanant!)')) {
+        if (confirm('Are you sure you want to delete this event? (This action is permanent!)')) {
             
           console.log('deleting event '+eid);
             

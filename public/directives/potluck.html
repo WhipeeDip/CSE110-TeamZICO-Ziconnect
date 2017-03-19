@@ -28,8 +28,9 @@
   </div>
   <br/>
 
-  <input type="text" ng-model="fooditem" name="food/item"
-         autocomplete="off" placeholder=" What are you bringing?"
+  <input class="adder" type="text" ng-model="fooditem" name="food/item"
+         autocomplete="off" 
+         placeholder=" What are you bringing? (limit 30 chars)"
          ng-model="item" required/>
   &nbsp;
   <button ng-click="storeFood($root.user.name, $root.user.uid, fooditem)"
@@ -58,8 +59,8 @@
   </div>
   <br/>
   
-  <input type="text" ng-model="suggestion" name="suggestion"
-         autocomplete="off" placeholder=" Suggest an item!"
+  <input class="adder" type="text" ng-model="suggestion" name="suggestion"
+         autocomplete="off" placeholder=" Suggest an item! (limit 40 chars)"
          ng-model="item" required/>
   &nbsp;
   <button ng-click="storeSuggestion(suggestion)" class="button">

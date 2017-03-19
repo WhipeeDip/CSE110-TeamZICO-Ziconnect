@@ -66,6 +66,14 @@ angular.module('controllers')
         return false;
       };
 
+      $scope.$watch('numSeatsInput', function(newVal, oldVal) {
+     
+        if(newVal.length > 2) {       
+          $scope.numSeatsInput = oldVal;
+        }
+   
+      });
+
       // search in all the rides
       // iterate through all riders and search for the user
       /*

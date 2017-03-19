@@ -81,6 +81,15 @@ input {
   color: #dcedff;
 }
 
+.adder {
+  border: 30px #33ccff;
+  border-radius: 10px;
+  background-color: rgba(5,58,89,0.6);
+  width: 275px;
+  color: #dcedff;
+}
+  
+
 input[type=text] {
   color: #dcedff;
   border: 30px #33ccff;
@@ -598,6 +607,3 @@ select {
   display:inline;
 }  
 
-.break {
-  white-space:pre-wrap;
-}

@@ -48,4 +48,17 @@
      //removing food item from potluck list
      firebase.database().ref('potluck').child(eventUid).child(food).remove()
    }
+
+   $scope.$watch('suggestion', function(newVal, oldVal) {
+     if(newVal.length > 40) {       
+       $scope.suggestion = oldVal;
+     }
+   });
+
+   $scope.$watch('fooditem', function(newVal, oldVal) {
+     if(newVal.length > 30) {       
+       $scope.fooditem = oldVal;
+     }
+   });
+
  }]);
