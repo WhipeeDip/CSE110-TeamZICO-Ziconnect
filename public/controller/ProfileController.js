@@ -1,6 +1,6 @@
 /**
  * File name: ProfileController.js
- * Authors: Kevan Yang
+ * Authors: Kevan Yang, Elliot Yoon
  * Description: Handles groups
  */
 
@@ -16,25 +16,6 @@ var prfctrl = angular.module('ziconnect');
       // initialize the controller uid for later
       $scope.getBasicInfo = function(uidp) {
         $scope.uid = uidp;
-      };
-
-      /*$scope.getEvents = function() {
-        $scope.events();
-        for(var i = 0; i < eventList.length; i++) {
-          events.push(eventList[i].eventName);
-        }
-      };*/
-
-      $scope.getCalendar = function() {
-
-      };
-
-      $scope.getGroups = function() {
-
-      };
-
-      $scope.getFriends = function() {
-
       };
     }
   ]);

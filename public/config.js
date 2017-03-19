@@ -61,11 +61,6 @@ config(['$routeProvider', '$locationProvider', function($routeProvider) {
 
   when('/events/create', {
     templateUrl: '../partials/newEvent.html'
-  }).
-
-  when('/groups/:group_id/info', {
-    templateUrl: '../partials/groupInfo.html',
-    controller: 'GroupInfoController'
   });
 
 // grabs the event id from route and loads the correct event from firebase
@@ -75,10 +70,4 @@ config(['$routeProvider', '$locationProvider', function($routeProvider) {
   var obj = $firebaseObject(eventRef);
   $scope.eventData = obj;
   // $scope.eventData.eventTime = new Date()
-
-// grabs the group id from route and loads the correct group from firebase
-}).controller('GroupInfoController', function($scope, $routeParams, $firebaseObject) {
-  var groupListRef = firebase.database().ref().child('groupList');
-  var groupRef = groupListRef.child($routeParams.group_id);
-  $scope.groupData = $firebaseObject(groupRef);
 });
