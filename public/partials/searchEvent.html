@@ -5,13 +5,15 @@
 -->
 
 <div class="content" ng-controller="EventController">
-<contentcenter>
   <h1><pblue>Search Results</pblue></h1>
   </br>
  
   <div ng-repeat ="event in found track by $index">
-      <a class="button" href="/{{event.$id}}/info">{{event.eventName}}</a>
+      <a href="/{{event.$id}}/info">
+        <button class="button">
+          {{event.eventName}}
+        </button>
+    </a>
   </div>
 
-</contentcenter>
 </div>

@@ -57,6 +57,7 @@ angular.module('controllers')
           if(guest==4){
             //this user is admin of this 
             $scope.admin=true;
+            $scope.$apply();
           }
           
         });  
