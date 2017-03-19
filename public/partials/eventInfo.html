@@ -5,7 +5,6 @@
 -->
 
 <div class="content" ng-controller="GuestSidebarController">
-  <!--div class="cover"></div-->
 
   <!-- the invited guests are displayed to the right -->
   <div class="sidebar2" ng-init="loadGuests(eventData.$id)">
@@ -55,6 +54,7 @@
       </button>
         &nbsp;
     </a>
+
     <a href="/{{eventData.$id}}/addPeopleToEvent">
       <button class="large">
         Invite People
