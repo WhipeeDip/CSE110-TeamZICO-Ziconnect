@@ -13,11 +13,12 @@
   <table width="400">
     <tr>
       <th>Name</th>
-      <th>Food/Item</th>
+      <th>Food/Item (Specify Quantity)</th>
     </tr>
     <tr ng-repeat="item in foodList">
       <td>{{item.name}}</td>
       <td>{{item.food}}</td>
+      <td><button ng-click="removeFood( item.food)">Remove</button> </td>
     </tr>
   </table>
   <br />
