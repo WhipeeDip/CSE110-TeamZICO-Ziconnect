@@ -35,10 +35,31 @@ angular.module('controllers')
       // join an existing ride
       $scope.joinRide = function(driverid) {
         console.log('driver: ' + driverid);
+        if($scope.searchRider(driverid)) {
         RideServices.addPassenger($scope.eventData.$id, driverid, $rootScope.user.uid, $rootScope.user.name);
+        }
+        else {
+          console.log("Cannot join (see above)");
+        }
       };
 
       $scope.createRide = function() {
+      };
+
+      // search for rider to seee if they're already in a ride
+      $scope.searchRider = function(driverid) {
+        var ride = ridesRef.child(driverid).child('passengers');
+        var rList = $firebaseArray(ride);
+        var curr;
+        for(var i = 0; i < rList.length; i++) {
+          console.log(curr.uid);
+          curr = rList[i];
+          if(curr.uid == $rootScope.user.uid) {
+            console.log('You are already a passenger in the ride');
+            return true;
+          }
+        }
+        return false;
       };
     }
   ]);

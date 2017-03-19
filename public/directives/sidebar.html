@@ -5,17 +5,19 @@
 -->
 
 <div class="sidebar" ng-controller="EventSidebarController">
-  <ul>
-    <a href="/events/create"><li><pblue>Create New Event</pblue></li></a>
-    <!--<should be listing all event names> -->
-    <div ng-repeat="event in (list | orderBy:'eventSortDate') track by
+  <a href="/events/create"><li><pblue>Create New Event</pblue><br/></li></a>
+  <div class="events">
+    <ul>
+      <!--<should be listing all event names> -->
+      <div ng-repeat="event in list | orderBy:'eventSortDate' track by
       event.uid">
-      <a href="/{{event.uid}}/info">
-        <li>
-          {{event.eventName}}<br/>
-          {{event.eventDate}}<br/>
-        </li>
-      </a>
-    </div>
-  </ul>
+        <a href="/{{event.uid}}/info">
+          <li>
+            {{event.eventName}}<br/>
+            {{event.eventDate}}<br/>
+          </li>
+        </a>
+      </div>
+    </ul>
+  </div>
 </div>
