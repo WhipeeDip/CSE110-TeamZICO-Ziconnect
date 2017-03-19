@@ -13,7 +13,14 @@ angular.module('controllers')
 
       $scope.createEvent = function(userUid) {
         var file = document.getElementById("eventImage").files[0];
+        var size = document.getElementById("eventImage").files.length;
 
+        var eImage;
+        if(size > 0) {
+          eImage = file.name;
+        } else {
+          eImage = "none";
+        }
         var evTime = new Date($scope.eventTime);
         evTimeString = evTime.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
         var newEvent = {
@@ -25,7 +32,7 @@ angular.module('controllers')
           eventDescription: $scope.eventDescription,
           eventPotluck: $scope.potluck,
           eventRides: $scope.rides,
-          eventImage: file.name,
+          eventImage: eImage,
         };
 
         // if box was never checked
@@ -52,10 +59,12 @@ angular.module('controllers')
         uEventsRef.child(userUid).child(eventKey).set(4); // I'm just mirroring whatever that number is above
 
         // upload the file to firebase storage
-        var storageRef = firebase.storage().ref('images/');
-        storageRef.child('' + eventKey+'/'+file.name).put(file).then(function(snapshot) {
-            console.log('Uploaded a picture to eventID');
-        });
+        if (size > 0 ) {
+            var storageRef = firebase.storage().ref('images/');
+            storageRef.child('' + eventKey + '/' + file.name).put(file).then(function (snapshot) {
+                console.log('Uploaded a picture to eventID');
+            });
+        }
 
         // user is sent to the home page with the info of the newly created event displayed
         $location.path('/' + eventKey + '/info');
@@ -116,10 +125,12 @@ angular.module('controllers')
 
         $scope.eventData.$loaded().then(function() {
           console.log($scope.eventData.eventImage);
-          pathRef.child(''+$scope.eventData.eventImage).getDownloadURL().then(function(url) {
-            var urlString = 'url(' + url + ')';
-            document.getElementById('cover').style.backgroundImage = urlString;
-          });
+          if($scope.eventData.eventImage !== "none") {
+              pathRef.child('' + $scope.eventData.eventImage).getDownloadURL().then(function (url) {
+                  var urlString = 'url(' + url + ')';
+                  document.getElementById('cover').style.backgroundImage = urlString;
+              });
+          }
         });
       }
     }
