@@ -26,12 +26,12 @@ angular.module('models')
           // then, add the creator as a group member
           var groupMembersRef = firebase.database().ref().child(
             'groupMembers/' + groupUid + '/' + creatorUid);
-          groupMembersRef.set(true).then(function() {
+          groupMembersRef.set(4).then(function() {
 
             // finally, add the group as something the user is in
             var groupsUserIsInRef = firebase.database().ref().child(
               'groupsUserIsIn/' + creatorUid + '/' + groupUid);
-            groupsUserIsInRef.set(true).then(function() {
+            groupsUserIsInRef.set(4).then(function() {
               console.log('New group created:', groupUid);
               deferred.resolve();
             });
@@ -48,12 +48,12 @@ angular.module('models')
         // first, add the user as a group member
         var groupMembersRef = firebase.database().ref().child(
           'groupMembers/' + groupUid + '/' + userUid);
-        groupMembersRef.set(true).then(function() {
+        groupMembersRef.set(1).then(function() {
 
           // finally, add the group as something the user is in
           var groupsUserIsInRef = firebase.database().ref().child(
             'groupsUserIsIn/' + userUid + '/' + groupUid);
-          groupsUserIsInRef.set(true).then(function() {
+          groupsUserIsInRef.set(1).then(function() {
             console.log('User ', userUid, ' added to group ', groupUid);
             deferred.resolve();
           });

@@ -28,9 +28,9 @@
     </fieldset>
   </form>
 
-      <!-- Search results area -->
+  <!-- Search results area -->
   <div class="search_results">
-    <li class="found_usr" ng-repeat ="userresult in users track by $index">
+    <li class="found_usr" ng-repeat ="userresult in users track by userresult.uid">
       <button class="button list_btn" 
               ng-click="inviteUser(userresult.uid, eventData.$id)">
         Invite

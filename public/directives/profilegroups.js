@@ -8,6 +8,6 @@ angular.module('controllers')
   .directive('profilegroups', function () {
       return {
         scope: false,
-        templateUrl: "/directives/profilegroups.html"
+        templateUrl: "../directives/profilegroups.html"
       };
   });

@@ -4,19 +4,18 @@
  Description: Group list for profile page.
 -->
 
-<div class="profilegroups" ng-controller="GroupController">
+<div class="profilegroups" ng-controller="GroupListController">
   <h2>Groups</h2>
-   <!-- Display current groups -->
-  <div ng-repeat="group in userGroups">
-    <pblue>{{group}}</pblue>
-    <a href="/groups/{{group.$id}}/info"></a>
-  </div>
-
   <div class="groupform"> 
-    <input type="text" name="groupNameBox" ng-model="groupName" 
+    <input type="text" name="groupNameBox" ng-model="newGroupName" 
     placeholder="Name of your new group" required /><br />
     <button ng-click="newGroup()" class="button">
       Create Group
     </button>
   </div>
+
+  <!-- Display current groups -->
+  <li ng-repeat="group in userGroups track by group.uid">
+    <a href="/groups/{{group.uid}}/info"><pblue>{{group.groupName}}</pblue></a>
+  </li>
 </div>

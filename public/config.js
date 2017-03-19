@@ -21,18 +21,18 @@ config(['$routeProvider', '$locationProvider', function($routeProvider) {
 
   when('/:event_id/info', {
     templateUrl:'../partials/eventInfo.html',
-    controller: 'EventInfoController',
+    controller: 'EventInfoController'
   }).
 
   when('/:event_id/edit', {
     templateUrl:'../partials/editEvent.html',
-    controller: 'EventInfoController',
+    controller: 'EventInfoController'
   }).
 
   //adding eventId routing specific to each event from sidebar
   when('/:event_id/addPeopleToEvent', {
     templateUrl:'../partials/addPeopleToEvent.html',
-    controller: 'EventInfoController',
+    controller: 'EventInfoController'
   }).
 
   when('/profile', {
@@ -56,11 +56,11 @@ config(['$routeProvider', '$locationProvider', function($routeProvider) {
   }).
   
   when('/searchEvent', {
-    templateUrl: '../partials/searchEvent.html',
+    templateUrl: '../partials/searchEvent.html'
   }).
 
   when('/events/create', {
-    templateUrl: '../partials/newEvent.html',
+    templateUrl: '../partials/newEvent.html'
   }).
 
   when('/groups/:group_id/info', {
@@ -76,7 +76,7 @@ config(['$routeProvider', '$locationProvider', function($routeProvider) {
   $scope.eventData = obj;
 
 // grabs the group id from route and loads the correct group from firebase
-}).controller('GroupInfoController', function($scope, $routeParams) {
+}).controller('GroupInfoController', function($scope, $routeParams, $firebaseObject) {
   var groupListRef = firebase.database().ref().child('groupList');
   var groupRef = groupListRef.child($routeParams.group_id);
   $scope.groupData = $firebaseObject(groupRef);
