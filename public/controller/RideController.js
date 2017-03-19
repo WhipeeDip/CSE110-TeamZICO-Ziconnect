@@ -55,5 +55,13 @@ angular.module('controllers')
           }
         });
       };
+      
+      $scope.$watch('numSeatsInput', function(newVal, oldVal) {
+     
+        if(newVal.length > 2) {       
+          $scope.numSeatsInput = oldVal;
+        }
+   
+      });
     }
   ]);

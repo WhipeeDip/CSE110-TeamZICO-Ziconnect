@@ -31,8 +31,9 @@
     <br/><br/>
   </div>
   
-  <input type="text" name="seatsBox" ng-model="numSeatsInput" ng-hide="rideHost" 
-         placeholder=" # of seats you have">
+  <input class="adder" type="text" name="seatsBox" ng-model="numSeatsInput"
+                                                   ng-hide="rideHost" 
+         placeholder=" # of seats you have (limit 2 digits)">
 
   &nbsp;
   <button class="button" ng-click="hostRide()" ng-hide="rideHost">

@@ -43,6 +43,7 @@
       <br/>
       {{eventData.eventDescription}}
     </h2>
+    
 
     <br/>
     
@@ -74,15 +75,22 @@
     
     <div ng-show="admin">
       <h3 ng-show="admin">Host Actions</h3>
+      <a href="/{{eventData.$id}}/addPeopleToEvent">
+        <button class="large">
+          Invite People
+        </button>
+      </a>
+      &nbsp;
       <a ng-show="admin" href="/{{eventData.$id}}/edit">
         <button class="large" >
           Edit Event
         </button>
           &nbsp;
       </a>
-      <a href="/{{eventData.$id}}/addPeopleToEvent">
-        <button class="large">
-          Invite People
+      
+      <a href="/home">
+        <button ng-click="deleteEvent(eventData.$id)" class="large">
+          Delete Event
         </button>
       </a>
     </div>
