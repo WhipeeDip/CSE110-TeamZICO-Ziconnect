@@ -6,6 +6,7 @@
 
 /********************* GENERAL ELEMENT STYLING **********************/
 body {
+  font-family: "Open Sans", sans-serif;
   background-image:url("../assets/bg1.jpg");
   background-color:rgb(5,58,89);
   background-repeat: repeat-y;
@@ -596,3 +597,7 @@ select {
   background-color: rgba(5,58,89,0.6);
   display:inline;
 }  
+
+.break {
+  white-space:pre-wrap;
+}
