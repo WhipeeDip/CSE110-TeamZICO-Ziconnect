@@ -268,7 +268,7 @@ contentcenter {
   border-radius: 5px
 }
 
-/*********************** partials/addPeopleToEvent.html *************/
+/****************** partials/addPeopleToEvent.html ******************/
 .search_user > div{
   float:left;
   margin-right: 100px;
@@ -279,6 +279,15 @@ contentcenter {
 
 .search_results > li{
   margin-top: 5px;
+}
+
+/********************* directives/potluck.html **********************/
+#claim{
+  margin-bottom:15px;
+}
+
+#claim .list_btn{
+  margin-bottom: 0px;
 }
 
 /***************************** COMMENTS *****************************/
