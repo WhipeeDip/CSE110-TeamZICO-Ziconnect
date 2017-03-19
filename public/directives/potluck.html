@@ -35,15 +35,15 @@
   <!--Suggest foods here -->
   <h3>Suggested Food/Items</h3>
   <div id="claim">
-  <div ng-repeat="item in suggestionList">
-    <li>
-      <button ng-click="claimSuggestion($root.user.name, $root.user.uid, item.food)" 
-              class="button list_btn">
-        Claim
-      </button>
-      {{item.food}}
-    </li>
-  </div>
+    <div ng-repeat="item in suggestionList">
+      <li>
+        <button ng-click="claimSuggestion($root.user.name, $root.user.uid, item.food)" 
+                class="button list_btn">
+          Claim
+        </button>
+        {{item.food}}
+      </li>
+    </div>
   </div>
   
   <input type="text" ng-model="suggestion" name="suggestion"

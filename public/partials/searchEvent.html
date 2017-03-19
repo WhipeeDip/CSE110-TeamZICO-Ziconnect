@@ -7,13 +7,21 @@
 <div class="content" ng-controller="EventController">
   <h1><pblue>Search Results</pblue></h1>
   </br>
- 
-  <div ng-repeat ="event in found track by $index">
-      <a href="/{{event.$id}}/info">
-        <button class="button">
-          {{event.eventName}}
-        </button>
-    </a>
-  </div>
 
+  <div class="search_events_results">
+    <div ng-repeat ="event in found track by $index">
+      <a href="/{{event.$id}}/info">
+        <div id="event_card">
+          <h3>{{event.eventName}}</h3>
+          
+          <p>
+            {{event.eventLocation}}<br/>
+            {{event.eventDate}}, {{event.eventTime}}<br/><br/>
+            {{event.eventDescription}}
+          </p>
+          
+        </div>
+      </a>
+    </div>
+  </div>
 </div>
