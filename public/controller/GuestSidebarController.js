@@ -49,49 +49,26 @@ angular.module('controllers')
               else if(status == 0) {
                 $scope.invited.push(user);
               }
-            });
-            
+            });     
           });                         
         });
-          
-        //iterates through the list of an event's guests
-        /*$scope.users.$loaded().then(function(data) {
-          angular.forEach(data, function(val, key) {
-              
-            //iterates throught the user list to get user info
-            $scope.list.$loaded().then(function(data) {
-              angular.forEach(data, function(value, key) {
-                if(value.$id === val.uid && (status == 1 || status == 4)) {
-                  $scope.going.push(val);
-                }
-                else if(value.$id === val.uid && status == 2) {
-                  $scope.maybe.push(val);
-                }
-                else if(value.$id === val.uid && status == 3) {
-                  $scope.cant.push(val);
-                }
-                else if(value.$id === val.uid && status == 0) {
-                  $scope.invited.push(val);
-                }  
-              });
-            });
-          });
-        });*/
       };
 
+
+
+      $scope.notGoing = function(uid, eid){
+          console.log(uid + " can't");
+          firebase.database().ref('eventGuests').child(eid).child(uid).set(3);  
+      };
+            
       $scope.going = function(uid, eid){
         console.log(uid + " is going");
         firebase.database().ref('eventGuests').child(eid).child(uid).set(1);  
       };
 
       $scope.maybe = function(uid, eid){
-          console.log(uid + " is maybe")
+          console.log(uid + " is maybe");
           firebase.database().ref('eventGuests').child(eid).child(uid).set(2);  
-      };
-
-      $scope.notGoing = function(uid, eid){
-          console.log(uid + " can't")
-          firebase.database().ref('eventGuests').child(eid).child(uid).set(3);  
       };
       
       $scope.checkAdmin = function(uid, eid){
