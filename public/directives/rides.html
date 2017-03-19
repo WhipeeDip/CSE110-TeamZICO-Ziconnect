@@ -25,6 +25,11 @@
     <br />
     </p>
   </div>
+
+  <div ng-hide="ridesList.length">No one is hosting a ride yet. Better call a
+    Lyft!
+    <br/><br/>
+  </div>
   
   <input type="text" name="seatsBox" ng-model="numSeatsInput" ng-hide="rideHost" 
          placeholder=" # of seats you have">
