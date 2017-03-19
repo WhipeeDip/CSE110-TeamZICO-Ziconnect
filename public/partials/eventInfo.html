@@ -19,7 +19,7 @@
       <li ng-repeat ="user in maybe">
           <img id="prof" src="{{user.picture}}">&nbsp;&nbsp; {{user.name}} </li>
         </br>
-      <li class="userSideBarTitle">Can't</li>
+      <li class="userSideBarTitle">Can't Go</li>
       <!--<should be listing all invited users> -->
       <li ng-repeat ="user in cant">
           <img id="prof" src="{{user.picture}}">&nbsp;&nbsp; {{user.name}} </li>
@@ -47,36 +47,46 @@
     <br/>
     
     <hr>
-    <h3 ng-hide="admin">Your Response</h3>
-    <button ng-hide="admin" class="large" ng-click="going(user.uid,
-      eventData.$id)">
-      Going
-    </button>
-    &nbsp;
-    <button ng-hide="admin" class="large" ng-click="maybe(user.uid,
-      eventData.$id)">
-      Maybe
-    </button>
-    &nbsp;
-    <button ng-hide="admin" class="large" ng-click="notGoing(user.uid,
-      eventData.$id)">
-      Can't Go
-    </button>
-    &nbsp;
-    
-    <h3 ng-show="admin">Host Actions:</h3>
-    <a ng-show="admin" href="/{{eventData.$id}}/edit">
-      <button class="large" >
-        Edit Event
+    <div ng-hide="admin">
+      <h3 ng-hide="admin">Your Response</h3>
+      <button ng-hide="admin" class="large" ng-click="going(user.uid,
+        eventData.$id)">
+        Going
       </button>
-        &nbsp;
-    </a>
+      &nbsp;
+      <button ng-hide="admin" class="large" ng-click="maybe(user.uid,
+        eventData.$id)">
+        Maybe
+      </button>
+      &nbsp;
+      <button ng-hide="admin" class="large" ng-click="notGoing(user.uid,
+        eventData.$id)">
+        Can't Go
+      </button>
+      &nbsp;
 
-    <a href="/{{eventData.$id}}/addPeopleToEvent">
-      <button class="large">
-        Invite People
-      </button>
-    </a>
+      <a href="/{{eventData.$id}}/addPeopleToEvent">
+        <button class="large">
+          Invite People
+        </button>
+      </a>
+    </div>
+    
+    <div ng-show="admin">
+      <h3 ng-show="admin">Host Actions:</h3>
+      <a ng-show="admin" href="/{{eventData.$id}}/edit">
+        <button class="large" >
+          Edit Event
+        </button>
+          &nbsp;
+      </a>
+      <a href="/{{eventData.$id}}/addPeopleToEvent">
+        <button class="large">
+          Invite People
+        </button>
+      </a>
+    </div>
+
 
     <potluck></potluck>
     

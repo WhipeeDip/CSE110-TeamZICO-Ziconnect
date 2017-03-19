@@ -9,7 +9,8 @@
   <div class="events">
     <ul>
       <!--<should be listing all event names> -->
-      <div ng-repeat="event in list track by event.uid">
+      <div ng-repeat="event in list | orderBy:'eventSortDate' track by
+      event.uid">
         <a href="/{{event.uid}}/info">
           <li>
             {{event.eventName}}<br/>
