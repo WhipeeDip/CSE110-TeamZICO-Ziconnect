@@ -68,6 +68,14 @@ config(['$routeProvider', '$locationProvider', function($routeProvider) {
   var eventListRef = firebase.database().ref('eventList');
   var eventRef = eventListRef.child($routeParams.event_id);
   var obj = $firebaseObject(eventRef);
+  obj.$loaded().then(function() {
+    obj.eventDate = new Date(obj.eventDate);
+    var dat = new Date();
+    var time = obj.eventTime.split(/[\s:]/);
+    dat.setHours(time[0]);
+    dat.setMinutes(time[1]);
+    $scope.eventData.eventTime = dat;
+    $scope.eventData = obj;
+  });
   $scope.eventData = obj;
-  // $scope.eventData.eventTime = new Date()
 });
