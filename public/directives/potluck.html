@@ -1,0 +1,69 @@
+<!--
+  File name: potluck.html
+  Authors: Kevan Yang
+  Description: Displays potluck details for the event.
+-->
+
+<div class="potluck" ng-controller="FoodController"
+     ng-if="eventData.eventPotluck">
+  
+  <!-- table for food items that users will be bringing -->
+  <hr>
+  <h3>Potluck Signups</h3>
+  <table width="400">
+    <tr>
+      <th>Name</th>
+      <th>Food/Item</th>
+    </tr>
+    
+    <tr ng-repeat="item in foodList">
+      <td>{{item.name}}</td>
+      <td>{{item.food}}</td>
+      <td><button class="button" ng-click="removeFood( item.food)">Remove</button> </td>
+    </tr>
+  </table>
+  
+  <div ng-hide="foodList.length">No one is bringing anything yet :(
+    <br/>
+  </div>
+  <br/>
+
+  <input class="adder" type="text" ng-model="fooditem" name="food/item"
+         autocomplete="off" 
+         placeholder=" What are you bringing? (limit 30 chars)"
+         ng-model="item" required/>
+  &nbsp;
+  <button ng-click="storeFood($root.user.name, $root.user.uid, fooditem)"
+          class="button">
+    Enter Food/Item
+  </button>
+  <br/>
+  
+  <!--Suggest foods here -->
+  <h3>Potluck Suggestions</h3>
+  <table width="500">
+    <tr ng-repeat="item in suggestionList">
+      <td>{{item.food}}</td>
+      <td> <button ng-click="claimSuggestion($root.user.name, $root.user.uid,
+                   item.food)" class="button list_btn"> 
+        Claim
+        </button>
+      </td>
+        
+    </tr>
+  </table>
+  
+  <div ng-hide="suggestionList.length">No suggestions right now. Add one
+    yourself!
+    <br/>
+  </div>
+  <br/>
+  
+  <input class="adder" type="text" ng-model="suggestion" name="suggestion"
+         autocomplete="off" placeholder=" Suggest an item! (limit 40 chars)"
+         ng-model="item" required/>
+  &nbsp;
+  <button ng-click="storeSuggestion(suggestion)" class="button">
+    Enter Suggestion
+  </button>
+</div>

@@ -1,5 +1,7 @@
-1. add cancel to buttons to all event screens [DONE]
-2. fix profile page (inline picture with name and profile info).
-3. Add splash screen to homepage (after login). [DONE]
-4. Fix pressing enter on invite people page
-5. Search event functionality
+- fix profile page (inline picture with name and profile info).
+- Search event functionality
+- Have homepage display "Welcome back, [user]!"
+- Fix event info page (have 2 column divs and invited guests div).
+- Fix sidebar underlining links
+- Change Potluck option in Create Event/Edit Event to yes or no
+- Prepopulate date fields in Edit Event (convert string to Date object?).

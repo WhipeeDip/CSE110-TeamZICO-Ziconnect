@@ -4,13 +4,29 @@
  Description: The page that comes up when you search for events
 -->
 
-<div class="content" ng-controller="newEventController">
-<contentcenter>
-  <h1><pblue>Search Results</pblue></h1>
+<div class="content" ng-controller="EventController">
+  <h1>Search Results</h1>
+
+  <div ng-hide="found.length">
+    <h3>No events found. Please check your spelling and try again!</h3>
+  </div>
+
   </br>
- 
-  <li ng-repeat ="event in found track by $index">
-    {{event.eventName}}
-  </li>
-</contentcenter>
+
+  <div class="search_events_results">
+    <div ng-repeat ="event in found track by $index">
+      <a href="/{{event.$id}}/info">
+        <div id="event_card">
+          <h1>{{event.eventName}}</h1>
+          
+          <p>
+            {{event.eventLocation}}<br/>
+            {{event.eventDate}}, {{event.eventTime}}<br/><br/>
+            {{event.eventDescription}}
+          </p>
+        </div>
+        <hr>
+      </a>
+    </div>
+  </div>
 </div>

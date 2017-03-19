@@ -1,21 +1,23 @@
 <!--
  File name: sidebar.html
- Authors: LeDaniel Leung
+ Authors: LeDaniel Leung, ELliot Yoon
  Description: template for the sidebar
 -->
 
-<div class="sidebar" ng-controller="SidebarController">
-  <ul>
-    <li><a href="/events/create"><pblue>Create New Event</pblue></a></li>
-    <!--<should be listing all event names> -->
-    <div ng-repeat ="event in (filteredItems = (list | orderBy: 'eventSortDate'
-      | limitTo: 10))">
-      <a href="/{{event.$id}}/info">
-        <li>
-          {{event.eventName}}<br/>
-          {{event.eventDate}}<br/>
-        </li>
-      </a>
-    </div>
-  </ul>
+<div class="sidebar" ng-controller="EventSidebarController">
+  <a href="/events/create"><li><pblue>Create New Event</pblue><br/></li></a>
+  <div class="events">
+    <ul>
+      <!--<should be listing all event names> -->
+      <div ng-repeat="event in list | orderBy:'eventSortDate' track by
+      event.uid">
+        <a href="/{{event.uid}}/info">
+          <li>
+            {{event.eventName}}<br/>
+            {{event.eventDate}}<br/>
+          </li>
+        </a>
+      </div>
+    </ul>
+  </div>
 </div>

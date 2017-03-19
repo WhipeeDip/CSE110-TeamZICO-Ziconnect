@@ -1,15 +1,18 @@
 /**
  * File name: stylesheet.css
- * Authors: TODO
- * Description: TODO
+ * Authors: Christian Cheng, LeDaniel Leung
+ * Description: CSS file.
  */
 
+/********************* GENERAL ELEMENT STYLING **********************/
 body {
+  font-family: "Open Sans", sans-serif;
   background-image:url("../assets/bg1.jpg");
-  background-color:rgba(5,58,89);
+  background-color:rgb(5,58,89);
   background-repeat: repeat-y;
-  height: 1200px;
   color: #dcedff;
+  min-width: 1600px;
+  min-height: 800px;
 }
 
 p {
@@ -26,7 +29,22 @@ h1 {
 
 h2 {
 	font-family: "Open Sans", sans-serif;
-	font-size:125%;
+	font-size:135%;
+}
+
+h3 {
+	font-family: "Open Sans", sans-serif;
+	font-size:135%;
+	color: rgb(36,164,199);
+}
+
+h5 {
+  margin:0px;
+  padding:0px;
+}
+
+th {
+  color: rgb(36,164,199);
 }
 
 a {
@@ -39,20 +57,10 @@ a:hover {
   text-decoration:none;
 }
 
-a:visited {
-  color: #dcedff;
-  text-decoration:none;
-}
-
 img.center {
   display: block;
   margin: 0 auto;
 }
-
-pblue {
-  font-family: "Open Sans", sans-serif;
-  color: rgb(36,164,199);
-}  
 
 form {
   display: table;
@@ -73,6 +81,15 @@ input {
   color: #dcedff;
 }
 
+.adder {
+  border: 30px #33ccff;
+  border-radius: 10px;
+  background-color: rgba(5,58,89,0.6);
+  width: 275px;
+  color: #dcedff;
+}
+  
+
 input[type=text] {
   color: #dcedff;
   border: 30px #33ccff;
@@ -80,27 +97,23 @@ input[type=text] {
   background-color: rgba(5,58,89,0.6);
 }
 
-/*textarea {*/
-#eventDescription{
-  width: 400px;
-  height: 250px;
+/************************* CUSTOM ELEMENTS **************************/
+textarea{
+  width: 100%;
+  height: 100px;
   resize: none;
   background-color: rgba(5,58,89,0.6);
-  #dcedff
+  border: none;
+  border-radius: 10px;
 }
 
-#commentBlock {
-    width: 450px;
-    position: relative;
-}
-#commentBlock img {
-    position: absolute;
-    top: 0%;
-    /*margin-top: -50px;  !* = image height div 2 *!*/
-}
-#commentBlock span {
-    margin-left: 50px;  /* = image width + 8 */
-    display: block;
+.creation {
+  width: 400px;
+  height: 150px;
+  resize: none;
+  background-color: rgba(5,58,89,0.6);
+  border: none;
+  border-radius: 10px;
 }
 
 ntext {
@@ -108,61 +121,107 @@ ntext {
   color: white;
 }
 
+pblue {
+  font-family: "Open Sans", sans-serif;
+  color: rgb(36,164,199);
+}
+
+hr {
+  margin-right: 15px;
+  border-color: rgb(36,164,199);
+}
+
+/************************** GENERAL CLASSES *************************/
+#prof {
+  height: auto;
+  width: auto;
+  max-height: 50px;
+  max-width: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+#prof_prof{
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+}
+
+/*************************** LOGIN SCREEN ***************************/
 #header {
-	background-color: rgba(36,164,199,0.2);
-	border-radius:10px;
-	padding:5px;
-	text-align:center;
-}
-
-#splash {
-	background-color: rgba(5,58,89,0.6);
-	border-radius:10px;
-	padding:10px 20px;
-	text-align:center;
-	margin: auto;
-	width: 50%;
-	}
-#commentBox {
-    color: black;
-}
-
-.commentDiv {
-    width: 80%;
-    position:inline-block;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: rgba(5,58,89,0.6);
-    border-radius:10px;
-    margin-top: 15px;
-    margin-left: 50px;
-    margin-right: 50px;
-'overflow-y: scroll;'
-height: 1000px;
-    
-}
-
-.content {
-  width: 80%;
-  position:inline-block;
-  padding-left: 20px;
-  padding-top: 5px;
-  padding-bottom: 20px;
-  background-color: rgba(5,58,89,0.6);
-	border-radius:10px;
-	margin-top: 15px;
-	margin-left: 225px;
-	margin-right: 50px;
-	'overflow-y: scroll;'
-	height: 1000px; 
-}
-
-contentcenter {
+  background-color: rgba(36,164,199,0.2);
+  border-radius:10px;
+  padding:5px;
   text-align:center;
 }
 
+#splash {
+  background-color: rgba(5,58,89,0.6);
+  border-radius:10px;
+  padding:10px 20px;
+  text-align:center;
+  margin: auto;
+  width: 50%;
+}
+
+/******************** STYLING FOR THE MAIN VIEW *********************/
+/*** Description: this is the dynamic view that gets updated as   ***/
+/***              the user navigates the website.                 ***/
+/***              This will include the:                          ***/
+/***                1. navbar                                     ***/
+/***                2. eventSidebar                               ***/
+/***                3. main content view                          ***/
+/********************************************************************/
+/****************************** NAVBAR ******************************/
+.navbar-default{
+  color: #ffffff;
+  margin: 10px;
+  background-color: rgba(36,164,199,0.2);
+  border-radius:10px;
+  border-style: none;
+  padding:5px;
+}
+
+.navbar-brand {
+  color: #ffffff;
+  line-height: 50px;
+  margin-top: 10px;
+}
+
+.navbar-form {
+  color: #ffffff;
+  line-height: 60px;
+  margin-top: 15px;
+}
+
+.navbar-nav li a {
+  line-height: 50px;
+}
+
+.glyphicon.glyphicon-envelope{
+  font-size: 200%;
+  padding: 12px 5px 5px;
+  margin: 0px;
+  color: white;
+}
+
+.glyphicon.glyphicon-off{
+  font-size: 200%;
+  margin: 10px;
+  color: white;
+}
+
+.glyphicon.glyphicon-envelope:hover{
+  color: grey;
+}
+
+.glyphicon.glyphicon-off:hover{
+  color: grey;
+}
+
+/************************** EVENT SIDEBAR ***************************/
 .sidebar {
-  height: 100%;
+  height: 800px;
   width: 200px;
   float: left;
   padding: 5px;
@@ -170,11 +229,11 @@ contentcenter {
   z-index: 1;
   background-color: rgba(5,58,89,0.6);
   border-radius:10px;
-  'overflow-y: scroll;'
+  overflow-y: scroll;
   color: #ffffff;
   margin-top: 5px;
   margin-left: 10px;
-  margin-right: 100px;
+  margin-right: 15px;
 }
 
 .sidebar ul {
@@ -194,23 +253,135 @@ contentcenter {
 
 .sidebar li:hover {
   background: rgba(36,164,199,0.2);
+  box-shadow: 4px 3px 20px 0 rgba(0,0,0,0.24), 
+		3px 3px 30px 0 rgba(0,0,0,0.19);
   color: #ff9900;
-} 
+}
 
-.sidebar2 {
+.events{
+  height: 92.25%;
+  overflow-y: scroll;
+}
+
+/************************* MAIN CONTENT VIEW ************************/
+.content {
+  position:inline-block;
+  padding-left: 20px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgba(5,58,89,0.6);
+  border-radius:10px;
+  margin-top: 15px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  overflow-y: scroll;
+  height: 800px;
+  
+  list-style-type: none;
+}
+
+/************************ partials/home.html ************************/
+#home{
+  height: 200px;
+}
+
+contentcenter {
+  text-align:center;
+}
+
+/*************** ALL PORTIONS OF EVENT INFO STYLING *****************/
+/*** Description: event info is split up into 3 columns           ***/
+/***                1. general event info + potluck/ride details  ***/
+/***                2. comments section                           ***/
+/***                3. guest list                                 ***/
+/********************************************************************/
+#eventInfo{
+  float: left;
+  width: 37.5%;
+  max-height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+/****************** partials/addPeopleToEvent.html ******************/
+.search_user > div{
+  float:left;
+  margin-right: 100px;
+  
   height: 100%;
-  width: 200px;
+  overflow-y: scroll;
+}
+
+.search_results > li{
+  margin-top: 5px;
+}
+
+/***************************** COMMENTS *****************************/
+.comments{
+  float: none;
+  margin-left: 40%;
+  padding-left: 0px;
+  width: 35.5%;
+  max-height: 95%;
+}
+
+.commentDiv {
+  width: 100%;
+  position:inline-block;
+  padding: 10px;
+  background-color: rgba(5,58,89,0.6);
+  border-radius:10px;
+  margin-bottom: 15px;
+  margin-right: 50px;
+  min-height: 60px;
+}
+
+.commentPic {
+  height: 40px;
+  width: 40px;
+  float: left;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+#commentBlock {
+  position: relative;
+}
+
+#commentBlock img {
+    position: absolute;
+    top: 0%;
+    /*margin-top: -50px;  !* = image height div 2 *!*/
+}
+
+#commentBlock span {
+  margin-left: 50px;  /* = image width + 8 */
+  display: block;
+  word-wrap: normal;
+  white-space: normal;
+}
+
+#commentFeed{
+  margin-bottom: 10px;
+  width: 100%;
+  max-height: 40em;
+  overflow-y: scroll;
+}
+
+/**************************** GUEST LIST ****************************/
+.sidebar2 {
+  width: 20%;
+  padding: 15px;
+  margin-bottom: 15px;
   float: right;
-  padding: 5px;
-  position: inline-block;
   z-index: 1;
   background-color: rgba(0,0,0,0.6);
   border-radius:10px;
-  'overflow-y: scroll;'
+  overflow-y: scroll;
+  overflow-x: hidden;
   color: #ffffff;
-  margin-top: 5px;
-  margin-left: 100px;
-  margin-right: 50px;
+  max-height: 97%;
 }
 
 .sidebar2 ul {
@@ -235,138 +406,204 @@ contentcenter {
   font-size:20px;
 } 
 
+/******************** EVENT CARDS FOR SEARCHING *********************/
+/************************ NOTIFICATION CARDS ************************/
+.search_events_results, .notifs{
+  overflow-y: scroll;
+  max-height: 90%;
+}
 
+.search_events_results hr, .notifs hr{
+  margin: -5px 0px 0px 10px;
+  width: 75%;
+}
 
-
-#prof {
+#event_card, #notif_card{
   height: auto;
-  width: auto;
-  max-height: 50px;
-  max-width: 50px;
-  border-radius: 50%;
+  width: 99%;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  padding: 10px;
+  
 }
 
-.commentPic {
-    height: auto;
-    width: auto;
-    max-height: 50px;
-    max-width: 50px;
-    float: left;
-    padding-right: 10px;
+#event_card:hover, #notif_card:hover{ 
+  background: rgba(36,164,199,0.2);
+  box-shadow: 4px 3px 20px 0 rgba(0,0,0,0.24), 
+		3px 3px 30px 0 rgba(0,0,0,0.19);
 }
 
-.navbar-default{
-  color: #ffffff;
-  margin: 10px;
-  background-color: rgba(36,164,199,0.2);
-  border-radius:10px;
-  border-style: none;
-  padding:5px;
+#event_card h1{
+  margin-top: 0px
 }
 
-.navbar-brand {
-  color: #ffffff;
-  line-height: 50px;
-}
-
-.navbar-form {
-  color: #ffffff;
-  line-height: 60px;
-}
-
-.navbar-nav li a {
-  line-height: 50px;
-}
-
-#newEvent {
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 0;
-    bottom: 50px;
-    cursor: pointer;
-    width: 100%;
-}
-
-.glyphicon.glyphicon-envelope{
-  font-size: 200%;
-  padding: 12px 5px 5px;
-  margin: 0px;
-  color: white;
-}
-
-.glyphicon.glyphicon-envelope:hover{
-  color: grey;
-}
-
-.google{
-    background-image: url(../assets/google-logo.jpg);
-    background-color:  transparent;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 60px;
-    width: 110px;
-    cursor: pointer;
-    background-size: 100%;
-    
-}
-
-/* make buttons look nice */
+/********************** make buttons look nice **********************/
 .button {
-   border: 0px solid #24a4c7;
-   background: #27a4c7;
-   background: -webkit-gradient(linear, left top, left bottom, from(#27a4c7),
-   to(#27a4c7));
-   background: -webkit-linear-gradient(top, #27a4c7, #27a4c7);
-   background: -moz-linear-gradient(top, #27a4c7, #27a4c7);
-   background: -ms-linear-gradient(top, #27a4c7, #27a4c7);
-   background: -o-linear-gradient(top, #27a4c7, #27a4c7);
-   background-image: -ms-linear-gradient(top, #27a4c7 0%, #27a4c7 100%);
-   padding: 10px 20px;
-   -webkit-border-radius: 0px;
-   -moz-border-radius: 0px;
-   border-radius: 0px;
-   -webkit-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset
-   rgba(255,255,255,0.4) 0 0px 0;
-   -moz-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4)
-   0 0px 0;
-   box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 0px
-   0;
-   text-shadow: #27a4c7 0 1px 0;
-   color: #ffffff;
-   font-size: 14px;
-   font-family: "Open Sans", sans-serif;
-   text-decoration: none;
-   vertical-align: middle;
+  border: 0px solid #24a4c7;
+  background: #27a4c7;
+  background: -webkit-gradient(linear, left top, left bottom, from(#27a4c7),
+    to(#27a4c7));
+  background: -webkit-linear-gradient(top, #27a4c7, #27a4c7);
+  background: -moz-linear-gradient(top, #27a4c7, #27a4c7);
+  background: -ms-linear-gradient(top, #27a4c7, #27a4c7);
+  background: -o-linear-gradient(top, #27a4c7, #27a4c7);
+  background-image: -ms-linear-gradient(top, #27a4c7 0%, #27a4c7 100%);
+  padding: 2px 10px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 5px;
+  -webkit-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset
+    rgba(255,255,255,0.4) 0 0px 0;
+  -moz-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4)
+    0 0px 0;
+  box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 0px
+    0;
+  text-shadow: #27a4c7 0 1px 0;
+  color: #ffffff;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  text-decoration: none;
+  vertical-align: middle;
+  
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
+
+.large {
+  border: 0px solid #24a4c7;
+  background: #27a4c7;
+  background: -webkit-gradient(linear, left top, left bottom, from(#27a4c7),
+    to(#27a4c7));
+  background: -webkit-linear-gradient(top, #27a4c7, #27a4c7);
+  background: -moz-linear-gradient(top, #27a4c7, #27a4c7);
+  background: -ms-linear-gradient(top, #27a4c7, #27a4c7);
+  background: -o-linear-gradient(top, #27a4c7, #27a4c7);
+  background-image: -ms-linear-gradient(top, #27a4c7 0%, #27a4c7 100%);
+  padding: 7px 17px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 5px;
+  -webkit-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset
+    rgba(255,255,255,0.4) 0 0px 0;
+  -moz-box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4)
+    0 0px 0;
+  box-shadow: rgba(255,255,255,0.4) 0 0px 0, inset rgba(255,255,255,0.4) 0 0px
+    0;
+  text-shadow: #27a4c7 0 1px 0;
+  color: #ffffff;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  text-decoration: none;
+  vertical-align: middle;
+  
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 
 .button:hover {
-   border: 0px solid #3c8cba;
-   text-shadow: #1e4158 0 1px 0;
-   background: #3c8cba;
-   background: -webkit-gradient(linear, left top, left bottom, from(#3c8cba),
-   to(#3c8cba));
-   background: -webkit-linear-gradient(top, #3c8cba, #3c8cba);
-   background: -moz-linear-gradient(top, #3c8cba, #3c8cba);
-   background: -ms-linear-gradient(top, #3c8cba, #3c8cba);
-   background: -o-linear-gradient(top, #3c8cba, #3c8cba);
-   background-image: -ms-linear-gradient(top, #3c8cba 0%, #3c8cba 100%);
-   color: #ffffff;
+  border: 0px solid #3c8cba;
+  text-shadow: #1e4158 0 1px 0;
+  background: #3c8cba;
+  background: -webkit-gradient(linear, left top, left bottom, from(#3c8cba),
+    to(#3c8cba));
+  background: -webkit-linear-gradient(top, #3c8cba, #3c8cba);
+  background: -moz-linear-gradient(top, #3c8cba, #3c8cba);
+  background: -ms-linear-gradient(top, #3c8cba, #3c8cba);
+  background: -o-linear-gradient(top, #3c8cba, #3c8cba);
+  background-image: -ms-linear-gradient(top, #3c8cba 0%, #3c8cba 100%);
+  color: #ffffff;
 }
 .button:active {
-   text-shadow: #1e4158 0 1px 0;
-   border: 0px solid #3c8cba;
-   background: #3c8cba;
-   background: -webkit-gradient(linear, left top, left bottom, from(#3c8cba),
-   to(#3c8cba));
-   background: -webkit-linear-gradient(top, #3c8cba, #3c8cba);
-   background: -moz-linear-gradient(top, #3c8cba, #3c8cba);
-   background: -ms-linear-gradient(top, #3c8cba, #3c8cba);
-   background: -o-linear-gradient(top, #3c8cba, #3c8cba);
-   background-image: -ms-linear-gradient(top, #3c8cba 0%, #3c8cba 100%);
-   color: #fff;
+  text-shadow: #1e4158 0 1px 0;
+  border: 0px solid #3c8cba;
+  background: #3c8cba;
+  background: -webkit-gradient(linear, left top, left bottom, from(#3c8cba),
+    to(#3c8cba));
+  background: -webkit-linear-gradient(top, #3c8cba, #3c8cba);
+  background: -moz-linear-gradient(top, #3c8cba, #3c8cba);
+  background: -ms-linear-gradient(top, #3c8cba, #3c8cba);
+  background: -o-linear-gradient(top, #3c8cba, #3c8cba);
+  background-image: -ms-linear-gradient(top, #3c8cba 0%, #3c8cba 100%);
+  color: #fff;
 }
+
+.large:hover {
+  border: 0px solid #3c8cba;
+  text-shadow: #1e4158 0 1px 0;
+  background: #3c8cba;
+  background: -webkit-gradient(linear, left top, left bottom, from(#3c8cba),
+    to(#3c8cba));
+  background: -webkit-linear-gradient(top, #3c8cba, #3c8cba);
+  background: -moz-linear-gradient(top, #3c8cba, #3c8cba);
+  background: -ms-linear-gradient(top, #3c8cba, #3c8cba);
+  background: -o-linear-gradient(top, #3c8cba, #3c8cba);
+  background-image: -ms-linear-gradient(top, #3c8cba 0%, #3c8cba 100%);
+  color: #ffffff;
+}
+.large:active {
+  text-shadow: #1e4158 0 1px 0;
+  border: 0px solid #3c8cba;
+  background: #3c8cba;
+  background: -webkit-gradient(linear, left top, left bottom, from(#3c8cba),
+    to(#3c8cba));
+  background: -webkit-linear-gradient(top, #3c8cba, #3c8cba);
+  background: -moz-linear-gradient(top, #3c8cba, #3c8cba);
+  background: -ms-linear-gradient(top, #3c8cba, #3c8cba);
+  background: -o-linear-gradient(top, #3c8cba, #3c8cba);
+  background-image: -ms-linear-gradient(top, #3c8cba 0%, #3c8cba 100%);
+  color: #fff;
+}
+
+/**************************** SCROLLBAR *****************************/
+/****************** Courtesy of the Hacker 4 Chan *******************/
+:: {
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+} 
+ 
+::-webkit-scrollbar-thumb {
+  background-color: rgb(5,58,89); 
+  border-radius: 100px;
+  height: 15px;
+} 
+ 
+::-webkit-scrollbar-button {
+  background-color: transparent;
+} 
+ 
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+/*
+ * In case we want to change placeholder text color
+::-webkit-input-placeholder { 
+    color:    rgb(36,164,199);
+}
+:-moz-placeholder { 
+   color:    rgb(36,164,199);
+   opacity:  1;
+}
+::-moz-placeholder { 
+   color:    rgb(36,164,199);
+   opacity:  1;
+}
+:-ms-input-placeholder { 
+   color:   rgb(36,164,199);
+}
+*/
+
+select {
+  background-color: rgba(5,58,89,0.6);
+  display:inline;
+}  
+

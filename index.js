@@ -22,9 +22,6 @@ expressApp.use(express.static(__dirname + '/public')); // assets
 expressApp.use('/scripts', express.static(__dirname + '/node_modules/')); // scripts from npm
 
 // init firebase
-// THIS IS THE DEVELOPMENT DATABASE
-// WE WILL NOT BE USING PRODUCTION UNTIL APP IS READY!
-// TODO: change for production
 var config = {
   apiKey: "AIzaSyCBUIl1AeLBp9PSM4TW3nAUERLKfVigWz8",
   authDomain: "cse110-teamzico-ziconnect-dev.firebaseapp.com",
@@ -43,13 +40,6 @@ app.use('/node_modules', express.static(__dirname + '/node_modules'));
 
 // routes
 require('./app/routes.js')(expressApp);
-require('./app/eventRoutes.js')(expressApp);
-
-// This is a test of event entry into database
-// TODO remove before production
-//EventController.writeEventData("Custin's Bonanza 2", "San Diego, CA", 
-//  "March 19, 2017",
-//  "A bonanza for Custin's best friends. Feat. Just 2 Boyz.", true);
 
 // listens on port, logs a message
 expressApp.listen(expressApp.get('port'), function() {

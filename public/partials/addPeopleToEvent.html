@@ -1,45 +1,47 @@
 <!--
  File name: addPeopleToEvent.html
- Author(s): Caris Wei, Justin Cai, Ryan Yung, Kevan Yang
- Description:    Invite people to event
+ Author(s): Caris Wei, Justin Cai, Ryan Yung, Kevan Yang, Elliot Yoon
+ Description: Invite people to event
 -->
 
-
-  <!-- Load scripts here -->
-
-  <div class="content" >
-
-      <h1>{{eventData.eventName}} > Invite People</h1>
-
-      <pblue> Search for a person's name! </pblue>
-
-      </br></br>
-      
-      <form ng-controller="InviteController" ng-submit="inviteFunc()" value="Send"> 
-        <fieldset>
-
-            <p class="input-type">
-            <label>Name </label>
-            <input id="user-name"
-                   type="text"
-                   class="input-box"
-                   placeholder="John Doe" 
-                   ng-model="input"/>
-            <input type="hidden" ng-model=eventData.$id />
-            <br/><br />
-            <input class="button" type="submit" value="Search"/
-            </p>
-           &nbsp;
-           <a href="/{{eventData.$id}}/info"><button class="button" > Cancel
-           </button></a>
-            
-            <li ng-repeat ="user in users track by $index">
-              <img id="prof" src="{{user.picture}}">
-              {{user.name}}   &nbsp;&nbsp;  {{user.email}}
-              <button class="button" ng-click="inviteButton(user.uid,
-              eventData.$id)">Invite</button>
-            </li>
-
-          </fieldset>
-      </form>
+<div class="content search_user" ng-controller="InviteController">
+  <div id="search_form">
+    <h1>{{eventData.eventName}} > Invite People</h1>
+    <pblue>Search for a person's name!</pblue>
+    <form ng-submit="searchUser()" value="Send">
+      <fieldset>
+        <!-- Search box and buttons area -->
+        <p class="input-type">
+          <input id="user-name"
+                 type="text"
+                 class="input-box" 
+                 placeholder="John Doe"
+                 ng-model="input" />
+          <input type="hidden" ng-model=eventData.$id />
+          <br /><br />
+          <input class="large" type="submit" value="Search"/>
+          <a href="/{{eventData.$id}}/info">
+            &nbsp;
+            <button class="large">
+              Back
+            </button>
+          </a>
+        </p>
+      </fieldset>
+    </form>
+  </div>
+      <!-- Search results area -->
+  <div class="search_results">
+    <li ng-repeat ="userresult in users track by $index">
+      <button class="button list_btn" 
+              ng-click="inviteUser(userresult.uid, eventData.$id)">
+        Invite
+      </button>
+      <img id="prof" src="{{userresult.picture}}">
+      {{userresult.name}}
+      &nbsp;&nbsp;
+      {{userresult.email}}
+      &nbsp;&nbsp;
+    </li>
+  </div>
 </div>

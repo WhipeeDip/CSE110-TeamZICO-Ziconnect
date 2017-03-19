@@ -4,18 +4,39 @@
   Description: Displays rides for the event.
 -->
 
-<div class="rides" ng-controller="RideController">
-  <div><h1>Rides</h1></div>
-  <div ng-repeat="ride in ridesList">
-    <p>Driver: {{ride}} <br />
-    Seats Left: {{ride.seats}} <br />
-    <p>Passengers:</p> <br />
-    <li ng-repeat="passenger in ride" ng-if="$index > 0">
-      <p>{{passenger}}</p> <br />
+<div class="rides" ng-controller="RideController" ng-if="eventData.eventRides">
+  <hr>
+  
+  <h3>Rides</h3>
+  
+  <div ng-repeat="ride in ridesList track by ride.$id">
+    <h5>Driver: {{ride.driverName}} | Seats Left: {{ride.seats}}
+      &nbsp;
+      <button class="button" ng-disable="rideHost"
+        ng-click="joinRide(ride.$id)">
+        Join Ride
+      </button> 
+      <br/>
+      Passengers:
+    </h5>
+    <li ng-repeat="passenger in ride.passengers">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{passenger}}
     </li>
-    <button ng-hide="rideHost" ng-click="addToRide()">I need a ride!</button>
+    <br />
     </p>
   </div>
-  <input type="text" name="seatsBox" ng-model="numSeatsInput" ng-hide="rideHost" placeholder="# of seats you have"></div>
-  <button ng-click="createRide()" ng-hide="rideHost">Host a ride!</button>
+
+  <div ng-hide="ridesList.length">No one is hosting a ride yet. Better call a
+    Lyft!
+    <br/><br/>
+  </div>
+  
+  <input class="adder" type="text" name="seatsBox" ng-model="numSeatsInput"
+                                                   ng-hide="rideHost" 
+         placeholder=" # of seats you have (limit 2 digits)">
+
+  &nbsp;
+  <button class="button" ng-click="hostRide()" ng-hide="rideHost">
+    Host a ride!
+  </button>
 </div>

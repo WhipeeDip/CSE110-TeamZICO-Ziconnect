@@ -1,38 +1,34 @@
 /**
  * File name: InviteController.js
- * Authors: Justin Cai, Caris Wei
+ * Authors: Justin Cai, Caris Wei, Elliot Yoon
  * Description: Controller for adding people to event
  */
 
 angular.module('controllers')
-  .controller('InviteController', ['$scope', '$firebaseArray',
-    function($scope, $firebaseArray){
-      var userRef = firebase.database().ref("userList");
-      console.log(userRef);
-      $scope.input = null;
+  .controller('InviteController', ['InviteServices', '$scope', '$rootScope', '$firebaseArray',
+    function(InviteServices, $scope, $rootScope, $firebaseArray) {
+      var user = $rootScope.user;
 
-      $scope.inviteFunc = function(){
-        var list = $firebaseArray(userRef);
-        $scope.list = list;
+      // searches user
+      $scope.searchUser = function() {
+        if($scope.input == '') {
+          alert('Nothing was entered!')
+        } else {
+          InviteServices.searchUser($scope.input, user.uid).then(function(results) {
+            $scope.users = results;
+          });
+        }
+      };
 
-        var users = [];
-        $scope.users = users;
-
-        $scope.list.$loaded().then(function(data) {
-          angular.forEach(data, function(value, key) {
-            if(value.name.toLowerCase().includes(($scope.input).toLowerCase())) {
-              $scope.users.push(value);
-            }
-
-          })
-        })
-      }
-
-    $scope.inviteButton=function(uid, eid){
-        //check if they are already invited
-        firebase.database().ref('eventGuests').child(eid).child(uid).set(0);
-        firebase.database().ref('eventsUserIsIn').child(uid).child(eid).set('');
-        console.log("add to eventGuests and eventsUserIsIn")
-        firebase.database().ref('notifications').child(uid).child(eid).set(0);
-    }}
+      // invites
+      $scope.inviteUser = function(userUid, eventUid) {
+        InviteServices.inviteUserToEvent(userUid, eventUid).then(function(response) {
+          // nothing
+        }, function(error) {
+          if(error == 'exists') {
+            alert('This user has already been invited or exists in your event!');
+          }
+        });
+      };
+    }
   ]);

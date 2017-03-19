@@ -1,43 +1,53 @@
 <!--
  File name: newEvent.html
- Authors: TODO
- Description: TODO
+ Authors: Christian Cheng, David Lin
+ Description: New event creation view.
 -->
 
 <div class="content">
   <h1>Create New Event</h1>
   <br />
-  <!--<form action="/events/create" method="post" autcomplete="off"-->
-    <form ng-controller="newEventController">
-    <!--enctype="multipart/form-data">-->
-     <fieldset>
+  <form ng-controller="EventController">
+    <fieldset>
 
-       
-        <label for="eventName">Event Name:&nbsp;</label>
-        <input type="text" id="eventName" name="eventName" ng-model="eventName"
-        autocomplete="off" required/>
-        <br /><br />
-        <label for="eventLocation">Event Location:&nbsp;</label>
-        <input type="text" id="eventLocation" name="eventLocation" ng-model="eventLocation"
-        autocomplete="off" required/>
-        <br /><br />
-        <label for="eventTime">Event Time:&nbsp;</label>
-        <input type="time" id="eventTime" name="eventTime" ng-model="eventTime" required/>
-        <br/><br/>
-        <label for="eventDate">Event Date:&nbsp;</label>
-        <input type="date" id="eventDate" name="eventDate" ng-model="eventDate"
-        required/>
-        <br /></br />
-        <label for="eventDescription">Description:</label>
-        <textarea id="eventDescription" name="eventDescription" ng-model="eventDescription"
-        required></textarea>
-        <br /><br />
-  
-        <input type="file" id="eventImage">
-        <br />
-        <!--<input class="button" type="submit" value="Create Event" ng-click="createEvent(event)"/>-->
-         <input class="button" type="submit" value="Create Event" ng-click="createEvent(user.uid)">
-	
+      <label for="eventName">Event Name:&nbsp;</label>
+      <input type="text" id="eventName" name="eventName" ng-model="eventName"
+             autocomplete="off" required/>
+      <br /><br />
+      
+      <label for="eventLocation">Event Location:&nbsp;</label>
+      <input type="text" id="eventLocation" name="eventLocation" ng-model="eventLocation"
+             autocomplete="off" required/>
+      <br /><br />
+        
+      <label for="eventTime">Event Time:&nbsp;</label>
+      <input type="time" id="eventTime" name="eventTime" ng-model="eventTime" required/>
+      <br/><br/>
+        
+      <label for="eventDate">Event Date:&nbsp;</label>
+      <input type="date" id="eventDate" name="eventDate" ng-model="eventDate" required/>
+      <br /></br />
+
+      <label for="potluck">Potluck:&nbsp;</label>         
+      <select id="potluck" name="potluck" ng-options="(item?'Yes':'No') for
+        item in [true, false]" ng-model="potluck">
+      </select>
+      <br/><br/>
+
+      <label for="rides">Rides:&nbsp;</label>         
+      <select id="rides" name="ridesk" ng-options="(item?'Yes':'No') for
+        item in [true, false]" ng-model="rides">
+      </select>
+      <br/><br/>
+        
+      <label for="eventDescription">Description:</label>
+      <textarea class="creation" id="eventDescription" name="eventDescription" ng-model="eventDescription" 
+                required></textarea>
+      <br /><br />
+
+
+      <input class="large" type="submit" id="submitButton" value="Create Event" 
+             ng-click="createEvent(user.uid)">
      </fieldset>
   </form>
 </div>

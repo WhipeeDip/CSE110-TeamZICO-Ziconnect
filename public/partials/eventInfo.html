@@ -1,39 +1,107 @@
 <!--
  File name: eventInfo.html
  Authors: Caris Wei, Custin Jai
- Description: TODO
+ Description: Displays event info.
 -->
-<div class="sidebar2" ng-controller="guestSidebarController" ng-init="loadGuests(eventData.$id)">
-  <ul>
-    <li class="userSideBarTitle">Invited Guests</li>
-    <!--<should be listing all invited users> -->
-    <li ng-repeat ="user in result">
-        <img id="prof" src="{{user.picture}}">&nbsp;&nbsp; {{user.name}} </li>
-  </ul>
-</div>
+
+<div class="content" ng-controller="GuestSidebarController">
+
+  <!-- the invited guests are displayed to the right -->
+  <div class="sidebar2" ng-init="loadGuests(eventData.$id)">
+    <ul>
+      <li class="userSideBarTitle">Going</li>
+      <!--<should be listing all invited users> -->
+      <li ng-repeat ="user in going">
+          <img id="prof" src="{{user.picture}}">&nbsp;&nbsp; {{user.name}} </li>
+      </br>
+      <li class="userSideBarTitle">Maybe</li>
+      <!--<should be listing all invited users> -->
+      <li ng-repeat ="user in maybe">
+          <img id="prof" src="{{user.picture}}">&nbsp;&nbsp; {{user.name}} </li>
+        </br>
+      <li class="userSideBarTitle">Can't Go</li>
+      <!--<should be listing all invited users> -->
+      <li ng-repeat ="user in cant">
+          <img id="prof" src="{{user.picture}}">&nbsp;&nbsp; {{user.name}} </li>
+      </br>
+      <li class="userSideBarTitle">Invited</li>
+      <!--<should be listing all invited users> -->
+      <li ng-repeat ="user in invited">
+          <img id="prof" src="{{user.picture}}">&nbsp;&nbsp; {{user.name}} </li>
+    </ul>
+  </div>
+
+  <!-- the event info is displayed to the left -->
+  <div id="eventInfo" ng-init="checkAdmin(user.uid, eventData.$id)">
+    <h1>{{eventData.eventName}}</h1>
+    <h2><pblue>When: </pblue> {{timeString}} <pblue> on </pblue>
+      {{eventData.eventDate.toDateString()}}
+      <br/>
+      <pblue>Where: </pblue> {{eventData.eventLocation}}
+      <br/><br/>
+      <pblue>Description:</pblue>
+      <br/>
+      {{eventData.eventDescription}}
+    </h2>
     
 
-<div class="content">
-  <div><h1>{{eventData.eventName}}</h1></div>
-  <h2><pblue>When: </pblue> {{eventData.eventTime}} <pblue> on </pblue>
-    {{eventData.eventDate}}
     <br/>
-    <pblue>Where: </pblue> {{eventData.eventLocation}}
-    <br/><br/>
-    <pblue>Description:</pblue>
-    <br/>
-    {{eventData.eventDescription}}
-  </h2>
     
-  <br/>
-  <br/>
+    <hr>
+    <div ng-hide="admin">
+      <h3 ng-hide="admin">Your Response</h3>
+      <button ng-hide="admin" class="large" ng-click="guestGoing(user.uid,
+        eventData.$id)">
+        Going
+      </button>
+      &nbsp;
+      <button ng-hide="admin" class="large" ng-click="guestMaybe(user.uid,
+        eventData.$id)">
+        Maybe
+      </button>
+      &nbsp;
+      <button ng-hide="admin" class="large" ng-click="guestNotGoing(user.uid,
+        eventData.$id)">
+        Can't Go
+      </button>
+      &nbsp;
 
-  <a href="/{{eventData.$id}}/edit"><button class="button" >Edit
-      Event</button></a>
-  &nbsp;
-  <a href="/{{eventData.$id}}/addPeopleToEvent"><button class="button">Invite People</button></a>
+      <a href="/{{eventData.$id}}/addPeopleToEvent">
+        <button class="large">
+          Invite People
+        </button>
+      </a>
+    </div>
+    
+    <div ng-show="admin">
+      <h3 ng-show="admin">Host Actions</h3>
+      <a href="/{{eventData.$id}}/addPeopleToEvent">
+        <button class="large">
+          Invite People
+        </button>
+      </a>
+      &nbsp;
+      <a ng-show="admin" href="/{{eventData.$id}}/edit">
+        <button class="large" >
+          Edit Event
+        </button>
+          &nbsp;
+      </a>
+      
+      <a href="/home">
+        <button ng-click="deleteEvent(eventData.$id)" class="large">
+          Delete Event
+        </button>
+      </a>
+    </div>
 
-  <br/>
-  <br/>
+
+    <potluck></potluck>
+    
+    <rides></rides>
+  </div>
+
+  <!-- the comments are displayed in the center -->
   <comments></comments>
+
 </div>
