@@ -297,13 +297,6 @@ contentcenter {
   overflow-y: scroll;
 }
 
-.cover {
-  background-image: url("../assets/nature-background.jpg");
-  width: 100%;
-  height: 25%;
-  border-radius: 5px
-}
-
 /****************** partials/addPeopleToEvent.html ******************/
 .search_user > div{
   float:left;
