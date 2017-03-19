@@ -5,40 +5,6 @@
  */
 
 /********************* GENERAL ELEMENT STYLING **********************/
-
-/* Courtesy of the Hacker 4 Chan */
-:: {
-  text-decoration: none;
-}
-
-::-webkit-scrollbar {
-  width: 5px;
-  height: 15px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: transparent;
-} 
- 
-::-webkit-scrollbar-thumb {
-  background-color: rgb(5,58,89); 
-  border-radius: 100px;
-  height: 15px;
-} 
- 
-::-webkit-scrollbar-button {
-  background-color: transparent;
-} 
- 
-::-webkit-scrollbar-corner {
-  background-color: transparent;
-}
-
-hr {
-  margin-right: 15px;
-  border-color: rgb(36,164,199);
-}
-
 body {
   background-image:url("../assets/bg1.jpg");
   background-color:rgb(5,58,89);
@@ -139,6 +105,11 @@ ntext {
 pblue {
   font-family: "Open Sans", sans-serif;
   color: rgb(36,164,199);
+}
+
+hr {
+  margin-right: 15px;
+  border-color: rgb(36,164,199);
 }
 
 /************************** GENERAL CLASSES *************************/
@@ -340,12 +311,11 @@ contentcenter {
 }
 
 .commentPic {
-    height: auto;
-    width: auto;
-    max-height: 50px;
-    max-width: 50px;
-    float: left;
-    padding-right: 10px;
+  height: 40px;
+  width: 40px;
+  float: left;
+  margin-right: 10px;
+  border-radius: 50%;
 }
 
 #commentBlock {
@@ -552,6 +522,34 @@ contentcenter {
   color: #fff;
 }
 
+/**************************** SCROLLBAR *****************************/
+/****************** Courtesy of the Hacker 4 Chan *******************/
+:: {
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+} 
+ 
+::-webkit-scrollbar-thumb {
+  background-color: rgb(5,58,89); 
+  border-radius: 100px;
+  height: 15px;
+} 
+ 
+::-webkit-scrollbar-button {
+  background-color: transparent;
+} 
+ 
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
 
 /*
  * In case we want to change placeholder text color
