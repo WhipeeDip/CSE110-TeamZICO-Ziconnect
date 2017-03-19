@@ -1,7 +1,7 @@
 /**
  * File name: GroupListController.js
  * Authors: Kevan Yang, Elliot Yoon
- * Description: Handles groups.
+ * Description: Handles groups list in profile view.
  */
 
 angular.module('controllers')
@@ -66,16 +66,6 @@ angular.module('controllers')
         GroupServices.createGroup(userUid, $scope.newGroupName).then(function() {
           $scope.newGroupName = '';
         });
-      };
-
-      // add member to existing group
-      $scope.addMember = function() {
-        //
-      };
-
-      // remove user from group
-      $scope.removeMember = function(memberUid) {
-        GroupServices.removeUserFromGroup(groupObj.$id, userUid);
       };
     }
   ]);
