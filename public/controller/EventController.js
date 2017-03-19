@@ -24,6 +24,7 @@ angular.module('controllers')
                 eventDescription: $scope.eventDescription,
                 eventPotluck: $scope.potluck,
                 eventRides: $scope.rides,
+                eventRidesValue: ($scope.rides?'Yes':'No'),
             };
 
             // if box was never checked

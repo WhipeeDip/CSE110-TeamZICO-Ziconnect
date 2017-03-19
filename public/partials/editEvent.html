@@ -38,14 +38,14 @@
 
         <label for="potluck">Potluck:&nbsp;</label>         
       <select id="potluck" name="potluck" ng-options="(item?'Yes':'No') for
-        item in [true, false]" ng-model="potluck">
+        item in [true, false]" ng-model="eventData.eventPotluck">
       </select>
       <br/><br/>
 
 
         <label for="rides">Rides:&nbsp;</label>         
       <select id="rides" name="ridesk" ng-options="(item?'Yes':'No') for
-        item in [true, false]" ng-model="(eventData.rides?'Yes':'No')">
+        item in [true, false]" ng-model="eventData.eventRides">
       </select>
       <br/><br/>
 
@@ -60,7 +60,7 @@
         <input type="hidden" id="eventKey" name="eventKey"
                                            ng-model=eventData.$id />
 
-         <a href="/{{eventData.$id}}/info"><button class="button" > Cancel
+         <a href="/{{eventData.$id}}/info"><button class="large" > Cancel
            </button></a>
          &nbsp;
          <input class="large" type="submit" value="Edit Event"
