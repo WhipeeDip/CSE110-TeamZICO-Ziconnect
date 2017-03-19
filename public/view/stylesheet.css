@@ -141,6 +141,12 @@ hr {
   margin-right: 10px;
 }
 
+#prof_prof{
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+}
+
 /*************************** LOGIN SCREEN ***************************/
 #header {
   background-color: rgba(36,164,199,0.2);
@@ -199,7 +205,17 @@ hr {
   color: white;
 }
 
+.glyphicon.glyphicon-off{
+  font-size: 200%;
+  margin: 10px;
+  color: white;
+}
+
 .glyphicon.glyphicon-envelope:hover{
+  color: grey;
+}
+
+.glyphicon.glyphicon-off:hover{
   color: grey;
 }
 
@@ -288,7 +304,6 @@ contentcenter {
   overflow-y: scroll;
 }
 
-
 /****************** partials/addPeopleToEvent.html ******************/
 .search_user > div{
   float:left;
@@ -301,9 +316,6 @@ contentcenter {
 .search_results > li{
   margin-top: 5px;
 }
-
-/********************* directives/potluck.html **********************/
-
 
 /***************************** COMMENTS *****************************/
 .comments{
