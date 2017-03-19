@@ -36,13 +36,18 @@
         required/>
         <br /></br />
 
-        <label for="potluck">Potluck:&nbsp;</label>
-        <input type="checkbox" id="potluck" name="potluck" ng-model="eventData.eventPotluck">
-        <br /><br />
+        <label for="potluck">Potluck:&nbsp;</label>         
+      <select id="potluck" name="potluck" ng-options="(item?'Yes':'No') for
+        item in [true, false]" ng-model="potluck">
+      </select>
+      <br/><br/>
 
-        <label for="rides">Rides:&nbsp;</label>
-        <input type="checkbox" id="rides" name="rides" ng-model="eventData.eventRides">
-        <br /><br />
+
+        <label for="rides">Rides:&nbsp;</label>         
+      <select id="rides" name="ridesk" ng-options="(item?'Yes':'No') for
+        item in [true, false]" ng-model="rides">
+      </select>
+      <br/><br/>
 
         <label for="eventDescription">Description:</label>
         <textarea id="eventDescription" name="eventDescription"

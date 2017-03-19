@@ -577,3 +577,8 @@ contentcenter {
    color:   rgb(36,164,199);
 }
 */
+
+select {
+  background-color: rgba(5,58,89,0.6);
+  display:inline;
+}  

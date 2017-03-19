@@ -30,12 +30,48 @@
       <input type="date" id="eventDate" name="eventDate" ng-model="eventDate" required/>
       <br /></br />
        
+      <!--
+      
+      <input type="radio" name="potluck" data-ng-model="choice.isUserAnswer"
+                                         data-ng-value="true"
+                                         ng-model="potluck"> Yes
+                                         &nbsp;
+      <input type="radio" name="potluck" data-ng-model="choice.isUserAnswer"
+                                         data-ng-value="false"
+                                         ng-model="potluck"> No
+      -->
+
+      <label for="potluck">Potluck:&nbsp;</label>         
+      <select id="potluck" name="potluck" ng-options="(item?'Yes':'No') for
+        item in [true, false]" ng-model="potluck">
+      </select>
+      <br/><br/>
+
+      <!--
       <label for="potluck">Potluck:&nbsp;</label>
       <input type="checkbox" id="potluck" name="potluck" ng-model="potluck"/>
+
+
+      <label for="potluck">Potluck:&nbsp;</label>
+      <input type="select" id="potluck" name="potluck" ng-model="potluck">
+        <select>
+          <option value=true>Yes</option>
+          <option value=false>No</option>
+        </select>
+      </input>
+        -->
+
+      <label for="rides">Rides:&nbsp;</label>         
+      <select id="rides" name="ridesk" ng-options="(item?'Yes':'No') for
+        item in [true, false]" ng-model="rides">
+      </select>
+      <br/><br/>
+  
         
-      <label for="rides">Rides:&nbsp;</label>
+        
+      <!--label for="rides">Rides:&nbsp;</label>
       <input type="checkbox" id="rides" name="rides" ng-model="rides"/>
-      <br /><br />
+      <br /><br /-->
         
       <label for="eventDescription">Description:</label>
       <textarea id="eventDescription" name="eventDescription" ng-model="eventDescription" 
