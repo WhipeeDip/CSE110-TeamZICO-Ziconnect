@@ -79,17 +79,17 @@ angular.module('controllers')
         });*/
       };
 
-      $scope.going = function(uid, eid){
+      $scope.guestGoing = function(uid, eid){
         console.log(uid + " is going");
         firebase.database().ref('eventGuests').child(eid).child(uid).set(1);  
       };
 
-      $scope.maybe = function(uid, eid){
+      $scope.guestMaybe = function(uid, eid){
           console.log(uid + " is maybe")
           firebase.database().ref('eventGuests').child(eid).child(uid).set(2);  
       };
 
-      $scope.notGoing = function(uid, eid){
+      $scope.guestNotGoing = function(uid, eid){
           console.log(uid + " can't")
           firebase.database().ref('eventGuests').child(eid).child(uid).set(3);  
       };
