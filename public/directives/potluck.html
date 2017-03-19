@@ -10,7 +10,7 @@
   <!-- table for food items that users will be bringing -->
   <hr>
   <h3>Potluck Signups</h3>
-  <table width="400">
+  <table width="600">
     <tr>
       <th>Name</th>
       <th>Food/Item (Specify Quantity)</th>
@@ -18,7 +18,7 @@
     <tr ng-repeat="item in foodList">
       <td>{{item.name}}</td>
       <td>{{item.food}}</td>
-      <td><button ng-click="removeFood( item.food)">Remove</button> </td>
+      <td><button class="button" ng-click="removeFood( item.food)">Remove</button> </td>
     </tr>
   </table>
   <br />
@@ -36,15 +36,17 @@
   <!--Suggest foods here -->
   <h3>Potluck Suggestions</h3>
   <div id="claim">
-    <div ng-repeat="item in suggestionList">
-      <li>
-        <button ng-click="claimSuggestion($root.user.name, $root.user.uid, item.food)" 
-                class="button list_btn">
+    <table width="400">
+      <tr ng-repeat="item in suggestionList">
+        <td>{{item.food}}</td>
+        <td> <button ng-click="claimSuggestion($root.user.name, $root.user.uid,
+                     item.food)" class="button list_btn"> 
           Claim
-        </button>
-        {{item.food}}
-      </li>
-    </div>
+          </button>
+        </td>
+          
+      </tr>
+    </table>
   </div>
   
   <input type="text" ng-model="suggestion" name="suggestion"
