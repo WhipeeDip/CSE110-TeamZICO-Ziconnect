@@ -49,34 +49,17 @@ angular.module('controllers')
               else if(status == 0) {
                 $scope.invited.push(user);
               }
-            });
-            
+            });     
           });                         
         });
-          
-        //iterates through the list of an event's guests
-        /*$scope.users.$loaded().then(function(data) {
-          angular.forEach(data, function(val, key) {
-              
-            //iterates throught the user list to get user info
-            $scope.list.$loaded().then(function(data) {
-              angular.forEach(data, function(value, key) {
-                if(value.$id === val.uid && (status == 1 || status == 4)) {
-                  $scope.going.push(val);
-                }
-                else if(value.$id === val.uid && status == 2) {
-                  $scope.maybe.push(val);
-                }
-                else if(value.$id === val.uid && status == 3) {
-                  $scope.cant.push(val);
-                }
-                else if(value.$id === val.uid && status == 0) {
-                  $scope.invited.push(val);
-                }  
-              });
-            });
-          });
-        });*/
+        
+        var guestRef = firebase.database().ref('eventGuests');
+        guestRef.on('child_changed', function(childSnapshot, prevChildKey) {
+          var statusChange = childSnapshot.val();
+          if(statusChange != null) {
+            console.log('lol');
+          }
+        });
       };
 
       $scope.guestGoing = function(uid, eid){
@@ -105,5 +88,34 @@ angular.module('controllers')
             $scope.$apply();
           }
         });
-      }}
+      };
+      
+      $scope.deleteEvent = function(eid){
+        if (confirm('Are you sure you want to delete this event? (This action is permanant!)')) {
+            
+          console.log('deleting event '+eid);
+            
+          //delete from all trees with eventIDs
+          firebase.database().ref('eventList').child(eid).remove();
+          firebase.database().ref('eventComments').child(eid).remove();
+          firebase.database().ref('eventGuests').child(eid).remove();
+          firebase.database().ref('potluck').child(eid).remove();
+          firebase.database().ref('potluck/suggestions').child(eid).remove();
+          firebase.database().ref('rides').child(eid).remove();
+          
+          //need to navigate thru all usersIds to find eventIds
+          var ref=firebase.database().ref('eventsUserIsIn');
+          ref.once('value').then(function(snapshot){
+            snapshot.forEach(function(childSnapshot){
+              var key = childSnapshot.key;
+              console.log("child snapshot " +key);
+              console.log(eid);
+              firebase.database().ref('eventsUserIsIn').child(key).child(eid).remove();
+            });  
+          });
+          
+        }
+      }
+    
+    }
   ]);
