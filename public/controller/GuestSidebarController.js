@@ -54,21 +54,19 @@ angular.module('controllers')
         });
       };
 
-
-
-      $scope.notGoing = function(uid, eid){
-          console.log(uid + " can't");
-          firebase.database().ref('eventGuests').child(eid).child(uid).set(3);  
-      };
-            
-      $scope.going = function(uid, eid){
+      $scope.guestGoing = function(uid, eid){
         console.log(uid + " is going");
         firebase.database().ref('eventGuests').child(eid).child(uid).set(1);  
       };
 
-      $scope.maybe = function(uid, eid){
-          console.log(uid + " is maybe");
+      $scope.guestMaybe = function(uid, eid){
+          console.log(uid + " is maybe")
           firebase.database().ref('eventGuests').child(eid).child(uid).set(2);  
+      };
+
+      $scope.guestNotGoing = function(uid, eid){
+          console.log(uid + " can't")
+          firebase.database().ref('eventGuests').child(eid).child(uid).set(3);  
       };
       
       $scope.checkAdmin = function(uid, eid){
