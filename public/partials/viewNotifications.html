@@ -7,7 +7,7 @@
 <div class="content" ng-controller="NotificationController">
   <h1>Event Invitations</h1>
   <body>
-    <div ng-repeat="note in notes track by notes.uid">
+    <div ng-repeat="note in notes track by note.uid">
       <li>
         You have an invitation to the event: {{note.eventName}}!
 
