@@ -123,10 +123,6 @@ hr {
 }
 
 /************************** GENERAL CLASSES *************************/
-.list_btn{
-  margin: 0px 15px 0px 0px;
-}
-
 #prof {
   height: auto;
   width: auto;
@@ -297,16 +293,8 @@ contentcenter {
   margin-top: 5px;
 }
 
-
-
 /********************* directives/potluck.html **********************/
-#claim{
-  margin-bottom:15px;
-}
 
-#claim .list_btn{
-  margin-bottom: 0px;
-}
 
 /***************************** COMMENTS *****************************/
 .comments{
@@ -424,7 +412,7 @@ contentcenter {
 		3px 3px 30px 0 rgba(0,0,0,0.19);
 }
 
-#event_card h3{
+#event_card h1{
   margin-top: 0px
 }
 
