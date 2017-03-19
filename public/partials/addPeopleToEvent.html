@@ -4,36 +4,42 @@
  Description: Invite people to event
 -->
 
-<div class="content">
-    <h1>{{eventData.eventName}} > Invite People</h1>
-    <pblue>Search for a person's name!</pblue>
-    <form ng-controller="InviteController" ng-submit="searchUser()" value="Send">
-      <fieldset>
-        <!-- Search box and buttons area -->
-        <p class="input-type">
-          <input id="user-name"
-                 type="text"
-                 class="input-box"
-                 placeholder="John Doe"
-                 ng-model="input" />
-          <input type="hidden" ng-model=eventData.$id />
-          <br /><br />
-          <input class="button" type="submit" value="Search"/>
-          <a href="/{{eventData.$id}}/info"><button class="button">
+<div class="content search_user" ng-controller="InviteController">
+  <h1>{{eventData.eventName}} > Invite People</h1>
+  <pblue>Search for a person's name!</pblue>
+  <form ng-submit="searchUser()" value="Send">
+    <fieldset>
+      <!-- Search box and buttons area -->
+      <p class="input-type">
+        <input id="user-name"
+               type="text"
+               class="input-box" 
+               placeholder="John Doe"
+               ng-model="input" />
+        <input type="hidden" ng-model=eventData.$id />
+        <br /><br />
+        <input class="button" type="submit" value="Search"/>
+        <a href="/{{eventData.$id}}/info">
+          <button class="button">
             Back
-          </button></a>
-        </p>
-        
-        <br />
-
-        <!-- Search results area -->
-        <li ng-repeat ="userresult in users track by $index">
-          <img id="prof" src="{{userresult.picture}}">
-          {{userresult.name}}   &nbsp;&nbsp;  {{userresult.email}} &nbsp;&nbsp;
-          <button class="button" ng-click="inviteUser(userresult.uid, eventData.$id)">
-            Invite
           </button>
-        </li>
-      </fieldset>
-    </form>
+        </a>
+      </p>
+    </fieldset>
+  </form>
+
+      <!-- Search results area -->
+  <div class="search_results">
+    <li class="found_usr" ng-repeat ="userresult in users track by $index">
+      <button class="button list_btn" 
+              ng-click="inviteUser(userresult.uid, eventData.$id)">
+        Invite
+      </button>
+      <img id="prof" src="{{userresult.picture}}">
+      {{userresult.name}}
+      &nbsp;&nbsp;
+      {{userresult.email}}
+      &nbsp;&nbsp;
+    </li>
+  </div>
 </div>
