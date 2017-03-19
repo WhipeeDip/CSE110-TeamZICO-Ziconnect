@@ -5,7 +5,6 @@
 -->
 
 <div class="content" ng-controller="GuestSidebarController">
-  <!--div class="cover"></div-->
 
   <!-- the invited guests are displayed to the right -->
   <div class="sidebar2" ng-init="loadGuests(eventData.$id)">
@@ -47,33 +46,40 @@
 
     <br/>
     
-    <h3>Host Actions:</h3>
-    <hostAction></hostAction>
-
-    <h3>Your Response</h3>
-    <button class="button" ng-click="going(user.uid, eventData.$id)">
+    <hr>
+    <h3 ng-hide="admin">Your Response</h3>
+    <button ng-hide="admin" class="large" ng-click="going(user.uid,
+      eventData.$id)">
       Going
     </button>
-    <button class="button" ng-click="maybe(user.uid, eventData.$id)">
+    &nbsp;
+    <button ng-hide="admin" class="large" ng-click="maybe(user.uid,
+      eventData.$id)">
       Maybe
     </button>
-    <button class="button" ng-click="notGoing(user.uid, eventData.$id)">
-      Can't
+    &nbsp;
+    <button ng-hide="admin" class="large" ng-click="notGoing(user.uid,
+      eventData.$id)">
+      Can't Go
     </button>
-
+    &nbsp;
+    
     <h3 ng-show="admin">Host Actions:</h3>
     <a ng-show="admin" href="/{{eventData.$id}}/edit">
-      <button class="button" >
+      <button class="large" >
         Edit Event
       </button>
+        &nbsp;
     </a>
-    <a ng-show="admin" href="/{{eventData.$id}}/addPeopleToEvent">
-      <button class="button">
+
+    <a href="/{{eventData.$id}}/addPeopleToEvent">
+      <button class="large">
         Invite People
       </button>
     </a>
 
     <potluck></potluck>
+    
     <rides></rides>
   </div>
 

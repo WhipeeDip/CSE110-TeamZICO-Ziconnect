@@ -78,35 +78,32 @@ angular.module('controllers')
           });
         });*/
       };
-      
+
       $scope.going = function(uid, eid){
         console.log(uid + " is going");
         firebase.database().ref('eventGuests').child(eid).child(uid).set(1);  
-        
       };
+
       $scope.maybe = function(uid, eid){
           console.log(uid + " is maybe")
           firebase.database().ref('eventGuests').child(eid).child(uid).set(2);  
       };
+
       $scope.notGoing = function(uid, eid){
           console.log(uid + " can't")
           firebase.database().ref('eventGuests').child(eid).child(uid).set(3);  
       };
-        
+      
       $scope.checkAdmin = function(uid, eid){
-        console.log('checking admin status')
-        return firebase.database().ref('eventGuests').child(eid).child(uid).once('value').then(function(snapshot){
-          var guest=snapshot.val();
-          console.log(guest)
-          console.log(eid)
-          console.log(uid)
-          if(guest==4){
-            //this user is admin of this 
-            $scope.admin=true;
+        console.log('Checking admin status of ', uid, ' in event ', eid);
+        return firebase.database().ref('eventGuests').child(eid).child(uid).once('value').then(function(snapshot) {
+          var guest = snapshot.val();
+          if(guest == 4) { // TODO magic number
+            // this user is admin of this
+            console.log(uid, ' is an admin!');
+            $scope.admin = true;
             $scope.$apply();
           }
-          
-        });  
-      }
-    }
+        });
+      }}
   ]);

@@ -36,15 +36,12 @@ angular.module('controllers')
 
       // called by login button
       $scope.login = function() {
-        // we have to use gapi to login in order to use the gapi outside of firebase
-        // such as gcalendar
-        gapi.auth2.getAuthInstance().signIn().then(function(googleUser) {
-          console.log('Attempting Google login through gapi:', googleUser);
-          // grab the google credential then login to firebase 
-          var credential = firebase.auth.GoogleAuthProvider.credential(googleUser.getAuthResponse().id_token);
-          $firebaseAuth().$signInWithCredential(credential).then(function() {
-            // auth listener takes over
-          });
+        $firebaseAuth().$signInWithPopup('google').then(function(result) {
+          console.log('Logging into Firebase with: ', result);
+          // auth listener will take over
+        }).catch(function(error) {
+          console.error('Login with Firebase failed:', error);
+          alert('Signin error! Please try to signin again.');
         });
       };
 

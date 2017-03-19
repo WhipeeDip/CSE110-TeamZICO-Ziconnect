@@ -33,10 +33,7 @@ angular.module('models')
 
           $firebaseAuth().$signOut().then(function() {
             console.log('Attempting Firebase signout...');
-            gapi.auth2.getAuthInstance().signOut().then(function() {
-              console.log('Attempting gapi signout...');
-              deferred.resolve();
-            });
+            deferred.resolve();
           });
 
           return deferred.promise;
@@ -85,33 +82,6 @@ angular.module('models')
 
           return deferred.promise;
         }
-
-        // //checks if user of uid exists, if they do not, calls createUsersEventList and
-        // //createGroupList to add them to those lists
-        // doesUserExist: function (uid) {
-        //   console.log("doesUserExist() called");
-        //   var ref = firebase.database().ref('userList');
-        //   var exists;
-        //   //check data at uid, if null, that user doesnt exist
-        //   ref.once('value', function(snapshot) {
-        //     exists = snapshot.hasChild(uid);
-        //   });
-        //     console.log(exists);
-        //     if(!exists){
-        //       //if doesnt exist, add them to other trees
-        //       console.log('user does not exist, adding to groups and events');
-        //       //var self=this;
-        //       //self.createGroupList(uid);
-        //       //self.createUsersEventList(uid);
-        //       firebase.database().ref('eventsUserIsIn').child(uid).set('');
-        //       /*
-        //       .then(function() {
-        //         console.log('Created accounts list of events');
-        //       });*/
-        //       firebase.database().ref('groupsUserIsIn').child(uid).set('');
-        //     }
-        //   console.log('finished doesUserExist()');
-        // }
       }
     }
   ]);

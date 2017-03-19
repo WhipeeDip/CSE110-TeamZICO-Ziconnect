@@ -1,6 +1,6 @@
 /**
  * File name: FoodController.js
- * Authors: Kevan Yang
+ * Authors: Kevan Yang, Justin Cai
  * Description: Handles food to be brought to event, if potluck mode
  */
 
@@ -19,7 +19,7 @@
    // should be [food, uid]
    var foodPair = [];
    $scope.storeFood = function(name, uid, food) {
-     potluckRef.push({
+     potluckRef.child(food).set({
        'UID': uid,
        'name': name,
        'food': food
@@ -41,5 +41,11 @@
     console.log("claiming " + food)
     $scope.storeFood(name, uid, food);
     suggestRef.child(food).remove();   
+   }
+   
+   $scope.removeFood = function(food){
+       console.log('removing '+food)
+     //removing food item from potluck list
+     firebase.database().ref('potluck').child(eventUid).child(food).remove()
    }
  }]);

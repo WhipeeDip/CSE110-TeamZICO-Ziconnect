@@ -8,46 +8,49 @@
      ng-if="eventData.eventPotluck">
   
   <!-- table for food items that users will be bringing -->
-  <h3>Food/Items to be Brought</h3>
+  <hr>
+  <h3>Potluck Signups</h3>
   <table width="400">
     <tr>
       <th>Name</th>
-      <th>Food/Item</th>
+      <th>Food/Item (Specify Quantity)</th>
     </tr>
     <tr ng-repeat="item in foodList">
       <td>{{item.name}}</td>
       <td>{{item.food}}</td>
+      <td><button ng-click="removeFood( item.food)">Remove</button> </td>
     </tr>
   </table>
   <br />
   
   <input type="text" ng-model="fooditem" name="food/item"
          autocomplete="off" placeholder=" What are you bringing?"
-         ng-model="item" required/><br />
+         ng-model="item" required/>
+  &nbsp;
   <button ng-click="storeFood($root.user.name, $root.user.uid, fooditem)"
           class="button">
     Enter Food/Item
   </button>
-  <br/><br/>
+  <br/>
   
   <!--Suggest foods here -->
-  <h3>Suggested Food/Items</h3>
+  <h3>Potluck Suggestions</h3>
   <div id="claim">
-  <div ng-repeat="item in suggestionList">
-    <li>
-      <button ng-click="claimSuggestion($root.user.name, $root.user.uid, item.food)" 
-              class="button list_btn">
-        Claim
-      </button>
-      {{item.food}}
-    </li>
-  </div>
+    <div ng-repeat="item in suggestionList">
+      <li>
+        <button ng-click="claimSuggestion($root.user.name, $root.user.uid, item.food)" 
+                class="button list_btn">
+          Claim
+        </button>
+        {{item.food}}
+      </li>
+    </div>
   </div>
   
   <input type="text" ng-model="suggestion" name="suggestion"
          autocomplete="off" placeholder=" Suggest an item!"
          ng-model="item" required/>
-  <br />
+  &nbsp;
   <button ng-click="storeSuggestion(suggestion)" class="button">
     Enter Suggestion
   </button>
