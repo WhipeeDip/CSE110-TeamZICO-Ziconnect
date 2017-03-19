@@ -31,14 +31,14 @@
     </h2>
 
     <br/>
-    <h3>Your Response</h3>
-    <button class="button" ng-click="going(user.uid, eventData.$id)">
+    <h3 ng-hide="admin">Your Response</h3>
+    <button ng-hide="admin" class="button" ng-click="going(user.uid, eventData.$id)">
       Going
     </button>
-    <button class="button" ng-click="maybe(user.uid, eventData.$id)">
+    <button ng-hide="admin" class="button" ng-click="maybe(user.uid, eventData.$id)">
       Maybe
     </button>
-    <button class="button" ng-click="notGoing(user.uid, eventData.$id)">
+    <button ng-hide="admin" class="button" ng-click="notGoing(user.uid, eventData.$id)">
       Can't
     </button>
 
@@ -48,7 +48,7 @@
         Edit Event
       </button>
     </a>
-    <a ng-show="admin" href="/{{eventData.$id}}/addPeopleToEvent">
+    <a href="/{{eventData.$id}}/addPeopleToEvent">
       <button class="button">
         Invite People
       </button>
