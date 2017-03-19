@@ -4,11 +4,37 @@
  Description: Page for group info.
 -->
 
-<div ng-controller="GroupController">
+<div class="content" ng-controller="GroupController">
   <h1>Group Information</h1>
   <h3>{{groupData.groupName}}</h3>
+
+  <pblue>Search for a person to add to your group!</pblue>
+  <input type="text"
+         placeholder="John Doe"
+         ng-model="searchInput" />
+  <br /><br />
+  <button ng-click="searchUser()">Search</button>
+  <a href="/profile">
+    <button class="button">
+      Back
+    </button>
+  </a>
+
+  <!-- Search results area -->
+  <li class="found_usr" ng-repeat ="userresult in users track by $index">
+    <button class="button list_btn" ng-click="inviteUser(userresult.uid, eventData.$id)">
+      Invite
+    </button>
+    <img id="prof" src="{{userresult.picture}}">
+    {{userresult.name}}
+    &nbsp;&nbsp;
+    {{userresult.email}}
+    &nbsp;&nbsp;
+  </li>
+
   <div ng-repeat="member in members">
-    <p>{{member.name}}</p><button ng-click="removeMember({{member.$id}})"" ng-hide="creator"></button>
+    <p>{{member.name}}</p>
+    <button ng-click="removeMember({{member.$id}})"" ng-hide="creator"></button>
     <br />
   </div>
 </div>

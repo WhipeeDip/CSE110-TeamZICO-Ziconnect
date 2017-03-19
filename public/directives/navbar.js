@@ -8,6 +8,7 @@ angular.module('controllers')
   .directive('navbar', function () {
       'use strict';
       return {
-          templateUrl: "../directives/navbar.html"
+        scope: false,
+        templateUrl: "../directives/navbar.html"
       };
   });
