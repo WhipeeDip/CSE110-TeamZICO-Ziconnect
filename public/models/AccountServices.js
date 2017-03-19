@@ -33,10 +33,7 @@ angular.module('models')
 
           $firebaseAuth().$signOut().then(function() {
             console.log('Attempting Firebase signout...');
-            gapi.auth2.getAuthInstance().signOut().then(function() {
-              console.log('Attempting gapi signout...');
-              deferred.resolve();
-            });
+            deferred.resolve();
           });
 
           return deferred.promise;
