@@ -39,7 +39,7 @@ angular.module('controllers')
               }
             }); 
 
-            // handle event data changes - TODO UNTESTED
+            // handle event data changes 
             eventListRef.child(eventKey).on('child_changed', function(childSnapshot, prevChildKey) {
               var eventValChange = childSnapshot.val(); // event data
               if(eventValChange != null) {
@@ -58,7 +58,7 @@ angular.module('controllers')
         });
       });
 
-      // handle event removal - TODO UNTESTED
+      // handle event removal 
       usersEventsRef.on('child_removed', function(oldChildSnapshot) {
         var oldUid = oldChildSnapshot.key;
         var oldIndex = eventUidToIndex[oldUid];

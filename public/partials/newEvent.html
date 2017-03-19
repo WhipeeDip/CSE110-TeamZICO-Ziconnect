@@ -1,15 +1,13 @@
 <!--
  File name: newEvent.html
- Authors: TODO
- Description: TODO
+ Authors: Christian Cheng, David Lin
+ Description: New event creation view.
 -->
 
 <div class="content">
   <h1>Create New Event</h1>
   <br />
-  <!--<form action="/events/create" method="post" autcomplete="off"-->
   <form ng-controller="EventController">
-    <!--enctype="multipart/form-data">-->
     <fieldset>
 
       <label for="eventName">Event Name:&nbsp;</label>
@@ -29,17 +27,6 @@
       <label for="eventDate">Event Date:&nbsp;</label>
       <input type="date" id="eventDate" name="eventDate" ng-model="eventDate" required/>
       <br /></br />
-       
-      <!--
-      
-      <input type="radio" name="potluck" data-ng-model="choice.isUserAnswer"
-                                         data-ng-value="true"
-                                         ng-model="potluck"> Yes
-                                         &nbsp;
-      <input type="radio" name="potluck" data-ng-model="choice.isUserAnswer"
-                                         data-ng-value="false"
-                                         ng-model="potluck"> No
-      -->
 
       <label for="potluck">Potluck:&nbsp;</label>         
       <select id="potluck" name="potluck" ng-options="(item?'Yes':'No') for
@@ -47,31 +34,11 @@
       </select>
       <br/><br/>
 
-      <!--
-      <label for="potluck">Potluck:&nbsp;</label>
-      <input type="checkbox" id="potluck" name="potluck" ng-model="potluck"/>
-
-
-      <label for="potluck">Potluck:&nbsp;</label>
-      <input type="select" id="potluck" name="potluck" ng-model="potluck">
-        <select>
-          <option value=true>Yes</option>
-          <option value=false>No</option>
-        </select>
-      </input>
-        -->
-
       <label for="rides">Rides:&nbsp;</label>         
       <select id="rides" name="ridesk" ng-options="(item?'Yes':'No') for
         item in [true, false]" ng-model="rides">
       </select>
       <br/><br/>
-  
-        
-        
-      <!--label for="rides">Rides:&nbsp;</label>
-      <input type="checkbox" id="rides" name="rides" ng-model="rides"/>
-      <br /><br /-->
         
       <label for="eventDescription">Description:</label>
       <textarea class="creation" id="eventDescription" name="eventDescription" ng-model="eventDescription" 

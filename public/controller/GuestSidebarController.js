@@ -2,7 +2,6 @@
  * File name: GuestSidebarController.js
  * Authors: Justin Cai, Caris Wei, Elliot Yoon
  * Description: Controller for displaying an event's participants
- *TODO: MAGIC NUMBERS
  */
 angular.module('controllers')
   .controller('GuestSidebarController', ['$scope', '$firebaseArray', 'AccountServices',
@@ -48,14 +47,6 @@ angular.module('controllers')
             });     
           });                         
         });
-        
-        /*var guestRef = firebase.database().ref('eventGuests');
-        guestRef.on('child_changed', function(childSnapshot, prevChildKey) {
-          var statusChange = childSnapshot.val();
-          if(statusChange != null) {
-            console.log('lol');
-          }
-        });*/
       };
 
       $scope.guestGoing = function(uid, eid){
@@ -77,7 +68,7 @@ angular.module('controllers')
         console.log('Checking admin status of ', uid, ' in event ', eid);
         return firebase.database().ref('eventGuests').child(eid).child(uid).once('value').then(function(snapshot) {
           var guest = snapshot.val();
-          if(guest == 4) { // TODO magic number
+          if(guest == 4) { 
             // this user is admin of this
             console.log(uid, ' is an admin!');
             $scope.admin = true;
@@ -104,14 +95,12 @@ angular.module('controllers')
           ref.once('value').then(function(snapshot){
             snapshot.forEach(function(childSnapshot){
               var key = childSnapshot.key;
-              console.log("child snapshot " +key);
+              console.log("child snapshot " + key);
               console.log(eid);
               firebase.database().ref('eventsUserIsIn').child(key).child(eid).remove();
             });  
           });
-          
         }
       }
-    
     }
   ]);

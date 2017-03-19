@@ -34,7 +34,7 @@ angular.module('controllers')
             }
           });
 
-          // handle event data changes - TODO UNTESTED
+          // handle event data changes 
           eventListRef.child(eventKey).on('child_changed', function(childSnapshot, prevChildKey) {
             var eventValChange = childSnapshot.val(); // event data
             if(eventValChange != null) {

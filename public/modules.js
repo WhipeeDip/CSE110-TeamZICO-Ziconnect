@@ -15,7 +15,6 @@ angular.module('ziconnect', ['controllers', 'models', 'ngRoute', 'firebase']).co
   $locationProvider.hashPrefix('');
 
   // Initialize Firebase
-  // TODO: change for production
   var config = {
     apiKey: "AIzaSyCBUIl1AeLBp9PSM4TW3nAUERLKfVigWz8",
     authDomain: "cse110-teamzico-ziconnect-dev.firebaseapp.com",
