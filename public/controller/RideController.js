@@ -9,6 +9,7 @@ angular.module('controllers')
     function(RideServices, $q, $scope, $rootScope, $firebaseArray) {
       var user = $rootScope.user;
       var eventUid = $scope.eventData.$id;
+      $scope.numSeatsInput = '';
 
       var ridesRef = firebase.database().ref().child('rides/' + eventUid);
       $scope.ridesList = $firebaseArray(ridesRef);
@@ -18,7 +19,7 @@ angular.module('controllers')
         $scope.ridesList.$remove($scope.ridesList.$getRecord('hasRides')).then(function(ref) {
           //
         }).catch(function(remerror) {
-          console.log('Error:', remerror);
+          //
         });
       }).catch(function(error) {
         //
@@ -55,7 +56,7 @@ angular.module('controllers')
           }
         });
       };
-      
+
       $scope.$watch('numSeatsInput', function(newVal, oldVal) {
      
         if(newVal.length > 2) {       

@@ -13,22 +13,18 @@ angular.module('controllers')
       //load the list of guests and their status
       $scope.loadGuests = function(eid) {
         
-        //create different list based on status
-        var going = [];
-        $scope.going = going;
-        
-        var maybe = [];
-        $scope.maybe = maybe;
-          
-        var cant = [];
-        $scope.cant = cant;
-        
-        var invited = [];
-        $scope.invited = invited;
         
         var guests = firebase.database().ref('eventGuests').child(eid);
+        $scope.going = [];
+        $scope.maybe = [];
+        $scope.cant = [];
+        $scope.invited = [];
         
-        guests.once('value').then(function(snapshot) {
+        guests.on('value', function(snapshot) {
+          $scope.going = [];
+          $scope.maybe = [];
+          $scope.cant = [];
+          $scope.invited = [];
           snapshot.forEach(function(guestSnapshot) {
             
             var id = guestSnapshot.key;
@@ -53,13 +49,13 @@ angular.module('controllers')
           });                         
         });
         
-        var guestRef = firebase.database().ref('eventGuests');
+        /*var guestRef = firebase.database().ref('eventGuests');
         guestRef.on('child_changed', function(childSnapshot, prevChildKey) {
           var statusChange = childSnapshot.val();
           if(statusChange != null) {
             console.log('lol');
           }
-        });
+        });*/
       };
 
       $scope.guestGoing = function(uid, eid){
