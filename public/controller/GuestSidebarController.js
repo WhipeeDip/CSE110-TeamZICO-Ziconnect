@@ -52,6 +52,14 @@ angular.module('controllers')
             });     
           });                         
         });
+        
+        var guestRef = firebase.database().ref('eventGuests');
+        guestRef.on('child_changed', function(childSnapshot, prevChildKey) {
+          var statusChange = childSnapshot.val();
+          if(statusChange != null) {
+            console.log('lol');
+          }
+        });
       };
 
       $scope.guestGoing = function(uid, eid){
