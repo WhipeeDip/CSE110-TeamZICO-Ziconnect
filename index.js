@@ -32,11 +32,11 @@ var config = {
 firebase.initializeApp(config);
 
 // heroku will set our port with process.env.PORT
-app.set('port', (process.env.PORT || "5000"));
+expressApp.set('port', (process.env.PORT || "5000"));
 
 // express will look in /public for assets
-app.use(express.static(__dirname + '/public'));
-app.use('/node_modules', express.static(__dirname + '/node_modules'));
+expressApp.use(express.static(__dirname + '/public'));
+expressApp.use('/node_modules', express.static(__dirname + '/node_modules'));
 
 // routes
 require('./app/routes.js')(expressApp);
