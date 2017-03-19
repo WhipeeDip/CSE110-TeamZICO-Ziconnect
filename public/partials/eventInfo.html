@@ -49,17 +49,17 @@
     <hr>
     <div ng-hide="admin">
       <h3 ng-hide="admin">Your Response</h3>
-      <button ng-hide="admin" class="large" ng-click="going(user.uid,
+      <button ng-hide="admin" class="large" ng-click="guestGoing(user.uid,
         eventData.$id)">
         Going
       </button>
       &nbsp;
-      <button ng-hide="admin" class="large" ng-click="maybe(user.uid,
+      <button ng-hide="admin" class="large" ng-click="guestMaybe(user.uid,
         eventData.$id)">
         Maybe
       </button>
       &nbsp;
-      <button ng-hide="admin" class="large" ng-click="notGoing(user.uid,
+      <button ng-hide="admin" class="large" ng-click="guestNotGoing(user.uid,
         eventData.$id)">
         Can't Go
       </button>
