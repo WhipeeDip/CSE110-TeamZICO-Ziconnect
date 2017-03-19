@@ -420,7 +420,7 @@ contentcenter {
   background: -ms-linear-gradient(top, #27a4c7, #27a4c7);
   background: -o-linear-gradient(top, #27a4c7, #27a4c7);
   background-image: -ms-linear-gradient(top, #27a4c7 0%, #27a4c7 100%);
-  padding: 10px 20px;
+  padding: 2px 10px;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 5px;
