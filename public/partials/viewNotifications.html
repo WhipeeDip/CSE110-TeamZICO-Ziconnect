@@ -6,23 +6,30 @@
 
 <div class="content" ng-controller="NotificationController">
   <h1>Event Invitations</h1>
-  <body>
+  </br>
+  
+  <div class="notifs">
     <div ng-repeat="note in notes track by note.uid">
-      <li>
-        You have an invitation to the event: {{note.eventName}}!
+      <div id="notif_card">
+        You have an invitation to the event: <h1>{{note.eventName}}</h1><br/>
 
-        <a href="/{{note.uid}}/info"><button class="button">
-          View Event Info
-        </button></a>
+        <a href="/{{note.uid}}/info">
+          <button class="button">
+            View Event Info
+          </button>
+        </a>
 
-        <a href="/{{note.uid}}/info"><button class="button" ng-click="acceptInvite(note)">
-          Accept
-        </button></a>
+        <a href="/{{note.uid}}/info">
+          <button class="button" ng-click="acceptInvite(note)">
+            Accept
+          </button>
+        </a>
 
-        <button class="button" ng-click="declineInvite(note)">Decline</button>
-
-        <br /><br />
-      </li>
+        <button class="button" ng-click="declineInvite(note)">
+          Decline
+        </button>
+      </div>
+      <hr>
     </div>
-  </body>
+  </div>
 </div>

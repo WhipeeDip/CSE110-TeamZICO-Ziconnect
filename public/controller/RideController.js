@@ -35,11 +35,13 @@ angular.module('controllers')
       // join an existing ride
       $scope.joinRide = function(driverid) {
         console.log('driver: ' + driverid);
+        //$scope.isinRide();
         if($scope.searchRider(driverid)) {
         RideServices.addPassenger($scope.eventData.$id, driverid, $rootScope.user.uid, $rootScope.user.name);
         }
         else {
           console.log("Cannot join (see above)");
+          return;
         }
       };
 
@@ -51,8 +53,10 @@ angular.module('controllers')
         var ride = ridesRef.child(driverid).child('passengers');
         var rList = $firebaseArray(ride);
         var curr;
+        // search all passengers
+        console.log(rList.length);
         for(var i = 0; i < rList.length; i++) {
-          console.log(curr.uid);
+          console.log(i);
           curr = rList[i];
           if(curr.uid == $rootScope.user.uid) {
             console.log('You are already a passenger in the ride');
@@ -61,5 +65,24 @@ angular.module('controllers')
         }
         return false;
       };
+
+      // search in all the rides
+      // iterate through all riders and search for the user
+      /*
+      $scope.isinRide = function() {
+        console.log('Searching...');
+        var driverList = $firebaseArray(ridesRef);
+        var curr;
+        var driverid;
+        for(var i = 0; i< driverList.length; i++) {
+          curr = rList[i];
+          driverid = curr.driverName;
+          console.log(curr.driverName);
+          console.log(i);
+
+
+        }
+      };*/
+
     }
   ]);
