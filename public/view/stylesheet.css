@@ -71,6 +71,11 @@ h3 {
 	color: rgb(36,164,199);
 }
 
+h5 {
+  margin:0px;
+  padding:0px;
+}
+
 th {
   color: rgb(36,164,199);
 }
@@ -468,4 +473,20 @@ contentcenter {
   color: #fff;
 }
 
-
+/*
+ * In case we want to change placeholder text color
+::-webkit-input-placeholder { 
+    color:    rgb(36,164,199);
+}
+:-moz-placeholder { 
+   color:    rgb(36,164,199);
+   opacity:  1;
+}
+::-moz-placeholder { 
+   color:    rgb(36,164,199);
+   opacity:  1;
+}
+:-ms-input-placeholder { 
+   color:   rgb(36,164,199);
+}
+*/
