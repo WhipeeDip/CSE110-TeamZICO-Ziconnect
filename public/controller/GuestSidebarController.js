@@ -105,5 +105,34 @@ angular.module('controllers')
             $scope.$apply();
           }
         });
-      }}
+      };
+      
+      $scope.deleteEvent = function(eid){
+        if (confirm('Are you sure you want to delete this event? (This action is permanant!)')) {
+            
+          console.log('deleting event '+eid);
+            
+          //delete from all trees with eventIDs
+          firebase.database().ref('eventList').child(eid).remove();
+          firebase.database().ref('eventComments').child(eid).remove();
+          firebase.database().ref('eventGuests').child(eid).remove();
+          firebase.database().ref('potluck').child(eid).remove();
+          firebase.database().ref('potluck/suggestions').child(eid).remove();
+          firebase.database().ref('rides').child(eid).remove();
+          
+          //need to navigate thru all usersIds to find eventIds
+          var ref=firebase.database().ref('eventsUserIsIn');
+          ref.once('value').then(function(snapshot){
+            snapshot.forEach(function(childSnapshot){
+              var key = childSnapshot.key;
+              console.log("child snapshot " +key);
+              console.log(eid);
+              firebase.database().ref('eventsUserIsIn').child(key).child(eid).remove();
+            });  
+          });
+          
+        }
+      }
+    
+    }
   ]);
