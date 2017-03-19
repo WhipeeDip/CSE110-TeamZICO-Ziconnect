@@ -74,6 +74,7 @@ config(['$routeProvider', '$locationProvider', function($routeProvider) {
   var eventRef = eventListRef.child($routeParams.event_id);
   var obj = $firebaseObject(eventRef);
   $scope.eventData = obj;
+  // $scope.eventData.eventTime = new Date()
 
 // grabs the group id from route and loads the correct group from firebase
 }).controller('GroupInfoController', function($scope, $routeParams) {

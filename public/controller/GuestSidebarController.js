@@ -2,11 +2,14 @@
  * File name: GuestSidebarController.js
  * Authors: Justin Cai, Caris Wei
  * Description: Controller for displaying an event's participants
+ *TODO: MAGIC NUMBERS
  */
 angular.module('controllers')
   .controller('GuestSidebarController', ['$scope', '$firebaseArray',
     function($scope, $firebaseArray) {
-      
+     
+      $scope.admin = false;
+        
       $scope.loadGuests = function(eid) {
         var userRef = firebase.database().ref('eventGuests').child(eid);
         var list = $firebaseArray(userRef);
@@ -43,6 +46,27 @@ angular.module('controllers')
       $scope.notGoing = function(uid, eid){
           console.log(uid + " can't")
           firebase.database().ref('eventGuests').child(eid).child(uid).set(3);  
+      };
+      $scope.checkAdmin = function(uid, eid){
+        console.log('checking admin status')
+        return firebase.database().ref('eventGuests').child(eid).child(uid).once('value').then(function(snapshot){
+          var guest=snapshot.val();
+          console.log(guest)
+          console.log(eid)
+          console.log(uid)
+          if(guest==4){
+            //this user is admin of this 
+            $scope.admin=true;
+            $scope.$apply();
+          }
+          
+        });  
       }
+      
+      
+      
+      
+      
+      
     }
   ]);
