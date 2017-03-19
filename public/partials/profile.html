@@ -10,18 +10,4 @@
   <img src={{$root.user.picture}} style="width:150px;height:150px;" >
   <h2>Profile Information{{getBasicInfo($root.user.uid)}}</h2>
   <p>Email: {{$root.user.email}}</p><br/>
-
-  <!-- This seems redundant; we have the sidebar
-  <h2>Events</h2>
-  <div ng-repeat="event in eventList">
-    <li> {{event.eventName}}</li>
-  </div>
-  -->
-  
-  <profilegroups></profilegroups>
-
-  <h2>Calendar</h2>
-  <iframe src="https://calendar.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com&ctz=America/Los_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-
-  <!--<h2>Friends</h2>Remove if necessary -->
 </div>
