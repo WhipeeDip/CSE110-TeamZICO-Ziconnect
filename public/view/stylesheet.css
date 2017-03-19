@@ -4,6 +4,7 @@
  * Description: TODO
  */
 
+/********************* GENERAL ELEMENT STYLING **********************/
 body {
   background-image:url("../assets/bg1.jpg");
   background-color:rgba(5,58,89);
@@ -60,11 +61,6 @@ img.center {
   margin: 0 auto;
 }
 
-pblue {
-  font-family: "Open Sans", sans-serif;
-  color: rgb(36,164,199);
-}  
-
 form {
   display: table;
 }
@@ -91,6 +87,7 @@ input[type=text] {
   background-color: rgba(5,58,89,0.6);
 }
 
+/************************* CUSTOM ELEMENTS **************************/
 textarea{
   width: 100%;
   height: 100px;
@@ -100,63 +97,31 @@ textarea{
   border-radius: 10px;
 }
 
-/*textarea {*/
-/* is this (v) deprecated? */
-#eventDescription{
-  width: 400px;
-  height: 250px;
-  resize: none;
-  background-color: rgba(5,58,89,0.6);
-  border: none;
-}
-
-#eventInfo{
-  float: left;
-  width: 37.5%;
-  max-height: 97%;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  margin-top: 10px;
-}
-
-#commentBlock {
-  position: relative;
-}
-
-#commentBlock img {
-    position: absolute;
-    top: 0%;
-    /*margin-top: -50px;  !* = image height div 2 *!*/
-}
-
-#commentBlock span {
-  margin-left: 50px;  /* = image width + 8 */
-  display: block;
-  word-wrap: normal;
-  white-space: normal;
-}
-
-#commentFeed{
-  margin-bottom: 10px;
-  width: 100%;
-  max-height: 40.25em;
-  overflow-y: scroll;
-}
-
-.comments{
-  float: none;
-  margin-left: 40%;
-  margin-top: 30px;
-  padding-left: 0px;
-  width: 35.5%;
-  max-height: 95%;
-}
-
 ntext {
   font-family: "Open Sans", sans-serif;
   color: white;
 }
 
+pblue {
+  font-family: "Open Sans", sans-serif;
+  color: rgb(36,164,199);
+}
+
+/************************** GENERAL CLASSES *************************/
+.list_btn{
+  margin: 0px 15px 0px 0px;
+}
+
+#prof {
+  height: auto;
+  width: auto;
+  max-height: 50px;
+  max-width: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/*************************** LOGIN SCREEN ***************************/
 #header {
   background-color: rgba(36,164,199,0.2);
   border-radius:10px;
@@ -173,49 +138,52 @@ ntext {
   width: 50%;
 }
 
-.commentDiv {
-  width: 100%;
-  position:inline-block;
-  padding: 10px;
-  background-color: rgba(5,58,89,0.6);
+/******************** STYLING FOR THE MAIN VIEW *********************/
+/*** Description: this is the dynamic view that gets updated as   ***/
+/***              the user navigates the website.                 ***/
+/***              This will include the:                          ***/
+/***                1. navbar                                     ***/
+/***                2. eventSidebar                               ***/
+/***                3. main content view                          ***/
+/********************************************************************/
+/****************************** NAVBAR ******************************/
+.navbar-default{
+  color: #ffffff;
+  margin: 10px;
+  background-color: rgba(36,164,199,0.2);
   border-radius:10px;
-  margin-bottom: 15px;
-  margin-right: 50px;
-  min-height: 60px;
+  border-style: none;
+  padding:5px;
 }
 
-.content {
-  position:inline-block;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 0px;
-  padding-bottom: 10px;
-  background-color: rgba(5,58,89,0.6);
-  border-radius:10px;
-  margin-top: 15px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  overflow-y: scroll;
-  height: 800px;
-  
-  list-style-type: none;
-}
-
-#home{
-  height: 200px;
-}
-
-contentcenter {
-  text-align:center;
-}
-
-#cover {
+.navbar-brand {
+  color: #ffffff;
+  line-height: 50px;
   margin-top: 10px;
-  background-image: url("../assets/nature-background.jpg");
-  width: 100%;
-  height: 25%;
-  border-radius: 5px
 }
+
+.navbar-form {
+  color: #ffffff;
+  line-height: 60px;
+  margin-top: 15px;
+}
+
+.navbar-nav li a {
+  line-height: 50px;
+}
+
+.glyphicon.glyphicon-envelope{
+  font-size: 200%;
+  padding: 12px 5px 5px;
+  margin: 0px;
+  color: white;
+}
+
+.glyphicon.glyphicon-envelope:hover{
+  color: grey;
+}
+
+/************************** EVENT SIDEBAR ***************************/
 .sidebar {
   height: 100%;
   width: 200px;
@@ -250,12 +218,126 @@ contentcenter {
 .sidebar li:hover {
   background: rgba(36,164,199,0.2);
   color: #ff9900;
-} 
+}
 
+/************************* MAIN CONTENT VIEW ************************/
+.content {
+  position:inline-block;
+  padding-left: 20px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgba(5,58,89,0.6);
+  border-radius:10px;
+  margin-top: 15px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  overflow-y: scroll;
+  height: 800px;
+  
+  list-style-type: none;
+}
+
+/************************ partials/home.html ************************/
+#home{
+  height: 200px;
+}
+
+contentcenter {
+  text-align:center;
+}
+
+/*************** ALL PORTIONS OF EVENT INFO STYLING *****************/
+/*** Description: event info is split up into 3 columns           ***/
+/***                1. general event info + potluck/ride details  ***/
+/***                2. comments section                           ***/
+/***                3. guest list                                 ***/
+/********************************************************************/
+#eventInfo{
+  float: left;
+  width: 37.5%;
+  max-height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.cover {
+  background-image: url("../assets/nature-background.jpg");
+  width: 100%;
+  height: 25%;
+  border-radius: 5px
+}
+
+/*********************** partials/addPeopleToEvent.html *************/
+.search_user > div{
+  float:left;
+  margin-right: 100px;
+  
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.search_results > li{
+  margin-top: 5px;
+}
+
+/***************************** COMMENTS *****************************/
+.comments{
+  float: none;
+  margin-left: 40%;
+  padding-left: 0px;
+  width: 35.5%;
+  max-height: 95%;
+}
+
+.commentDiv {
+  width: 100%;
+  position:inline-block;
+  padding: 10px;
+  background-color: rgba(5,58,89,0.6);
+  border-radius:10px;
+  margin-bottom: 15px;
+  margin-right: 50px;
+  min-height: 60px;
+}
+
+.commentPic {
+    height: auto;
+    width: auto;
+    max-height: 50px;
+    max-width: 50px;
+    float: left;
+    padding-right: 10px;
+}
+
+#commentBlock {
+  position: relative;
+}
+
+#commentBlock img {
+    position: absolute;
+    top: 0%;
+    /*margin-top: -50px;  !* = image height div 2 *!*/
+}
+
+#commentBlock span {
+  margin-left: 50px;  /* = image width + 8 */
+  display: block;
+  word-wrap: normal;
+  white-space: normal;
+}
+
+#commentFeed{
+  margin-bottom: 10px;
+  width: 100%;
+  max-height: 40em;
+  overflow-y: scroll;
+}
+
+/**************************** GUEST LIST ****************************/
 .sidebar2 {
   width: 20%;
   padding: 15px;
-  margin-top: 15px;
   margin-bottom: 15px;
   float: right;
   z-index: 1;
@@ -289,86 +371,7 @@ contentcenter {
   font-size:20px;
 } 
 
-#prof {
-  height: auto;
-  width: auto;
-  max-height: 50px;
-  max-width: 50px;
-  border-radius: 50%;
-}
-
-.commentPic {
-    height: auto;
-    width: auto;
-    max-height: 50px;
-    max-width: 50px;
-    float: left;
-    padding-right: 10px;
-}
-
-.navbar-default{
-  color: #ffffff;
-  margin: 10px;
-  background-color: rgba(36,164,199,0.2);
-  border-radius:10px;
-  border-style: none;
-  padding:5px;
-}
-
-.navbar-brand {
-  color: #ffffff;
-  line-height: 50px;
-  margin-top: 10px;
-}
-
-.navbar-form {
-  color: #ffffff;
-  line-height: 60px;
-  margin-top: 15px;
-}
-
-.navbar-nav li a {
-  line-height: 50px;
-}
-
-#newEvent {
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 0;
-    bottom: 50px;
-    cursor: pointer;
-    width: 100%;
-}
-
-.glyphicon.glyphicon-envelope{
-  font-size: 200%;
-  padding: 12px 5px 5px;
-  margin: 0px;
-  color: white;
-}
-
-.glyphicon.glyphicon-envelope:hover{
-  color: grey;
-}
-
-.google{
-    background-image: url(../assets/google-logo.jpg);
-    background-color:  transparent;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 60px;
-    width: 110px;
-    cursor: pointer;
-    background-size: 100%;
-    
-}
-
-/* make buttons look nice */
+/********************** make buttons look nice **********************/
 .button {
   border: 0px solid #24a4c7;
   background: #27a4c7;
@@ -425,10 +428,6 @@ contentcenter {
   background: -o-linear-gradient(top, #3c8cba, #3c8cba);
   background-image: -ms-linear-gradient(top, #3c8cba 0%, #3c8cba 100%);
   color: #fff;
-}
-
-#suggestion{
-  margin: 5px 15px 0px 0px;
 }
 
 ::-webkit--scrollbar{
