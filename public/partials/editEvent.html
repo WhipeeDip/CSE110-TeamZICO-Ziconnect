@@ -45,7 +45,7 @@
 
         <label for="rides">Rides:&nbsp;</label>         
       <select id="rides" name="ridesk" ng-options="(item?'Yes':'No') for
-        item in [true, false]" ng-model="rides">
+        item in [true, false]" ng-model="(eventData.rides?'Yes':'No')">
       </select>
       <br/><br/>
 

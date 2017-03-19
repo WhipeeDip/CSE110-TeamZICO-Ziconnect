@@ -15,12 +15,6 @@ angular.module('controllers')
         var file = document.getElementById("eventImage").files[0];
         var size = document.getElementById("eventImage").files.length;
 
-        var eImage;
-        if(size > 0) {
-          eImage = file.name;
-        } else {
-          eImage = "none";
-        }
         var evTime = new Date($scope.eventTime);
         evTimeString = evTime.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
         var newEvent = {
