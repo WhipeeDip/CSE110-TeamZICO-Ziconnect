@@ -79,8 +79,8 @@ angular.module('models')
 
           var userRef = firebase.database().ref('userList').child(uid);
           userRef.once('value').then(function(snapshot) {
-            var name = snapshot.name;
-            deferred.resolve(name);
+            var userObj = snapshot.val();
+            deferred.resolve(userObj);
           });
 
           return deferred.promise;

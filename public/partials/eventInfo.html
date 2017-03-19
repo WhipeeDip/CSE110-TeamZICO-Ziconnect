@@ -10,9 +10,24 @@
   <!-- the invited guests are displayed to the right -->
   <div class="sidebar2" ng-init="loadGuests(eventData.$id)">
     <ul>
-      <li class="userSideBarTitle">Invited Guests</li>
+      <li class="userSideBarTitle">Going</li>
       <!--<should be listing all invited users> -->
-      <li ng-repeat ="user in result">
+      <li ng-repeat ="user in going">
+          <img id="prof" src="{{user.picture}}">&nbsp;&nbsp; {{user.name}} </li>
+      </br>
+      <li class="userSideBarTitle">Maybe</li>
+      <!--<should be listing all invited users> -->
+      <li ng-repeat ="user in maybe">
+          <img id="prof" src="{{user.picture}}">&nbsp;&nbsp; {{user.name}} </li>
+        </br>
+      <li class="userSideBarTitle">Can't</li>
+      <!--<should be listing all invited users> -->
+      <li ng-repeat ="user in cant">
+          <img id="prof" src="{{user.picture}}">&nbsp;&nbsp; {{user.name}} </li>
+      </br>
+      <li class="userSideBarTitle">Invited</li>
+      <!--<should be listing all invited users> -->
+      <li ng-repeat ="user in invited">
           <img id="prof" src="{{user.picture}}">&nbsp;&nbsp; {{user.name}} </li>
     </ul>
   </div>
