@@ -5,7 +5,12 @@
 -->
 
 <div class="content" ng-controller="EventController">
-  <h1><pblue>Search Results</pblue></h1>
+  <h1>Search Results</h1>
+
+  <div ng-hide="found.length">
+    <h3>No events found. Please check your spelling and try again!</h3>
+  </div>
+
   </br>
 
   <div class="search_events_results">
@@ -19,8 +24,8 @@
             {{event.eventDate}}, {{event.eventTime}}<br/><br/>
             {{event.eventDescription}}
           </p>
-          
         </div>
+        <hr>
       </a>
     </div>
   </div>

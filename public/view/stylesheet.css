@@ -286,6 +286,8 @@ contentcenter {
   margin-top: 5px;
 }
 
+
+
 /********************* directives/potluck.html **********************/
 #claim{
   margin-bottom:15px;
@@ -385,12 +387,18 @@ contentcenter {
 } 
 
 /******************** EVENT CARDS FOR SEARCHING *********************/
-.search_events_results{
+/************************ NOTIFICATION CARDS ************************/
+.search_events_results, .notifs{
   overflow-y: scroll;
   max-height: 90%;
 }
 
-#event_card{
+.search_events_results hr, .notifs hr{
+  margin: -5px 0px 0px 10px;
+  width: 75%;
+}
+
+#event_card, #notif_card{
   height: auto;
   width: 99%;
   border-radius: 10px;
@@ -399,7 +407,7 @@ contentcenter {
   
 }
 
-#event_card:hover{ 
+#event_card:hover, #notif_card:hover{ 
   background: rgba(36,164,199,0.2);
   box-shadow: 4px 3px 20px 0 rgba(0,0,0,0.24), 
 		3px 3px 30px 0 rgba(0,0,0,0.19);

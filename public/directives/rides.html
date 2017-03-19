@@ -12,7 +12,7 @@
   <div ng-repeat="ride in ridesList">
     <h5>Driver: {{ride.driverName}} | Seats Left: {{ride.seats}}
       &nbsp;
-      <button ng-show="{{ride.seats}} > 0" class="button" ng-disable="rideHost"
+      <button ng-show="{{ride.seats > 0}}" class="button" ng-disable="rideHost"
         ng-click="joinRide(ride.$id)">
         Join Ride
       </button> 
@@ -24,6 +24,11 @@
     </li>
     <br />
     </p>
+  </div>
+
+  <div ng-hide="ridesList.length">No one is hosting a ride yet. Better call a
+    Lyft!
+    <br/><br/>
   </div>
   
   <input type="text" name="seatsBox" ng-model="numSeatsInput" ng-hide="rideHost" 
