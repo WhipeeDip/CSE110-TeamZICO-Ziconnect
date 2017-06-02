@@ -164,6 +164,15 @@ hr {
   width: 50%;
 }
 
+#splash2{
+  background-color: rgba(5,58,89,0.6);
+  border-radius:10px;
+  padding:10px 20px;
+  text-align:center;
+  margin: auto;
+  width: 50%;
+}
+
 /******************** STYLING FOR THE MAIN VIEW *********************/
 /*** Description: this is the dynamic view that gets updated as   ***/
 /***              the user navigates the website.                 ***/
