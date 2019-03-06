@@ -23,11 +23,11 @@ expressApp.use('/scripts', express.static(__dirname + '/node_modules/')); // scr
 
 // init firebase
 var config = {
-  apiKey: "AIzaSyCBUIl1AeLBp9PSM4TW3nAUERLKfVigWz8",
-  authDomain: "cse110-teamzico-ziconnect-dev.firebaseapp.com",
-  databaseURL: "https://cse110-teamzico-ziconnect-dev.firebaseio.com",
-  storageBucket: "cse110-teamzico-ziconnect-dev.appspot.com",
-  messagingSenderId: "420682510691"
+  apiKey: "TODO: fill in your own info",
+  authDomain: "TODO: fill in your own info",
+  databaseURL: "TODO: fill in your own info",
+  storageBucket: "TODO: fill in your own info",
+  messagingSenderId: "TODO: fill in your own info"
 };
 firebase.initializeApp(config);
 
